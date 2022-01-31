@@ -1,34 +1,36 @@
 #header {
   position: relative;
+  padding-top: 30px;
 }
-.header_navbar__logo {
+.header_navbar_logo {
   display: none;
   @media (min-width: 768px) {
     display: block;
   }
 }
 
-.header_navbar__nav {
+.header_nav_menu {
   display: none;
   @media (min-width: 768px) {
     display: block;
   }
 }
 
-.header_nav__menu_mobile {
+.header_nav_menu_mobile {
+  display: none;
   @media (min-width: 768px) {
     display: none;
   }
 }
 
-.header_main__BGI {
+.header_main_bgi {
   display: none;
   @media (min-width: 567px) {
     display: block;
   }
 }
 
-.header_main__BGI_mobile {
+.header_main_bgi_mobile {
   @media (min-width: 567px) {
     display: none;
   }
