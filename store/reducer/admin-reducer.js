@@ -10,24 +10,31 @@ const initialState = {
       { head_menu_title: "КОНТАКТЫ", head_menu_href: "#contact" },
     ],
   }, // group='menu' {name='head_menu_href', name='head_menu_title'}
-  head_btn_call: { value: "", styles: {} }, // name='head_btn_call' group=undefined
-  head_btn_bron: { value: "", styles: {} }, // name='head_btn_bron' group=undefined
-  head_text_1: { value: "", styles: {} }, // name='head_text_1' group=undefined
-  head_text_2: { value: "", styles: {} }, // name='head_text_2' group=undefined
-  head_text_3: { value: "", styles: {} }, // name='head_text_3' group=undefined
-  my_logo_text: { value: "", styles: {} }, // name='my_logo_text' group=undefined
-  my_logo_img_url: { value: "" }, // name='my_logo_img_url' group=undefined
-  head_img_title: { value: "" }, // name='head_img_title' group=undefined
-  head_img_alt: { value: "" }, // name='head_img_alt' group=undefined
-  head_img_url: { value: "" }, // name='head_img_url' group=undefined
-  head_img_Mobile_url: { value: "" }, // name='head_img_Mobile_url' group=undefined
-  head_phone_href: { value: "" }, //  name='head_phone_href' group=undefined,
-  head_phone_ru: { value: "" }, //  name='head_phone_ru' group=undefined,
-  head_tg_href: { value: "" }, //  name='head_phone_ru' group=undefined,
-  head_wt_href: { value: "" }, //  name='head_wt_href' group=undefined,
-  head_fc_href: { value: "" }, //  name='head_fc_href' group=undefined,
-  bread_crumbs: { value: "" }, //  name='bread_crumbs' group=undefined,
-  bread_crumbs_gastro: { value: "" }, //  name='bread_crumbs_gastro' group=undefined,
+  head_btn_call: { value: "Заказать звонок" }, // name='head_btn_call' group=undefined
+  head_btn_bron: { value: "БРОНИРОВАТЬ" }, // name='head_btn_bron' group=undefined
+  head_text_1: {
+    value: `ГАСТРОНОМИЧЕСКОЕ ПРИКЛЮЧЕНИЕ “РУССКих В УЗБЕКИСТАНЕ”`,
+  }, // name='head_text_1' group=undefined
+  head_text_2: { value: "Вкусный Узбекистан" }, // name='head_text_2' group=undefined
+  head_text_3: {
+    value:
+      "Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий.  ",
+  }, // name='head_text_3' group=undefined
+  my_logo_text: { value: "my hand. I made. my travel" }, // name='my_logo_text' group=undefined
+  my_logo_img_url: { value: "/images/logo.webp" }, // name='my_logo_img_url' group=undefined
+  head_img_title: { value: "Узбекский плов" }, // name='head_img_title' group=undefined
+  head_img_alt: { value: "Авторский узбекский плов" }, // name='head_img_alt' group=undefined
+  head_img_url: { value: "/images/landing/gastro/header/back.webp" }, // name='head_img_url' group=undefined
+  head_img_Mobile_url: { value: "/images/landing/gastro/header/backmobl.webp" }, // name='head_img_Mobile_url' group=undefined
+  head_phone_href: { value: "+78123095211" }, //  name='head_phone_href' group=undefined,
+  head_phone_ru: { value: "+7 812 309 52 11" }, //  name='head_phone_ru' group=undefined,
+  head_tg_href: { value: "https://t.me/handmadetravel_ru" }, //  name='head_phone_ru' group=undefined,
+  head_wt_href: { value: "https://wa.me/998937201028" }, //  name='head_wt_href' group=undefined,
+  head_fc_href: {
+    value: "https://www.facebook.com/messages/t/581402519012804/",
+  }, //  name='head_fc_href' group=undefined,
+  bread_crumbs: { value: "Главная страница" }, //  name='bread_crumbs' group=undefined,
+  bread_crumbs_gastro: { value: "Гастро-тур Узбекистан" }, //  name='bread_crumbs_gastro' group=undefined,
 
   // first utp
   first_utp_1: { value: "", styles: {} },
