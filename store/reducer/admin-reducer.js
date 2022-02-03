@@ -1,6 +1,33 @@
 import { types } from "../types";
 
 const initialState = {
+  // global key
+  updateText: {
+    open: false,
+    isSave: false,
+    isChanging: false,
+    clickText: "",
+    newText: "",
+  },
+  updateLink: {
+    open: false,
+    isSave: false,
+    isChanging: false,
+    href: "",
+    title: "",
+    newHref: "",
+    newTitle: "",
+  },
+  updateImage: {
+    open: false,
+    isSave: false,
+    src: "",
+    title: "",
+    alt: "",
+    newSrc: "",
+    newTitle: "",
+    newAlt: "",
+  },
   // head
   menu: {
     data: [
@@ -21,7 +48,10 @@ const initialState = {
       "Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий.  ",
   }, // name='head_text_3' group=undefined
   my_logo_text: { value: "my hand. I made. my travel" }, // name='my_logo_text' group=undefined
+  to_book_btn: { value: "БРОНИРОВАТЬ" }, // name='my_logo_text' group=undefined
   my_logo_img_url: { value: "/images/logo.webp" }, // name='my_logo_img_url' group=undefined
+  logofixed_img: { value: "/images/logonotext.webp" },
+  logofixed_text: { value: "handmade.travel" },
   head_img_title: { value: "Узбекский плов" }, // name='head_img_title' group=undefined
   head_img_alt: { value: "Авторский узбекский плов" }, // name='head_img_alt' group=undefined
   head_img_url: { value: "/images/landing/gastro/header/back.webp" }, // name='head_img_url' group=undefined
@@ -33,7 +63,7 @@ const initialState = {
   head_fc_href: {
     value: "https://www.facebook.com/messages/t/581402519012804/",
   }, //  name='head_fc_href' group=undefined,
-  bread_crumbs: { value: "Главная страница" }, //  name='bread_crumbs' group=undefined,
+  bread_crumbs: { value: "Главная страница/ " }, //  name='bread_crumbs' group=undefined,
   bread_crumbs_gastro: { value: "Гастро-тур Узбекистан" }, //  name='bread_crumbs_gastro' group=undefined,
 
   // first utp
@@ -167,6 +197,95 @@ export const AdminReducer = (state = initialState, action) => {
         [group]: {
           ...state[group],
           data: state[group].data.filter((_, idx) => idx !== index),
+        },
+      };
+    }
+    case types.updateText: {
+      const { open, isSave, newText, clickText, isChanging } = action.payload;
+
+      // save text
+      if (isSave) {
+        const { newText, clickText } = state.updateText;
+        const newState = JSON.parse(
+          JSON.stringify(state).replaceAll(clickText, newText)
+        );
+        return {
+          ...newState,
+          updateText: {
+            ...state.updateText,
+            open: false,
+            clickText: "",
+            newText: "",
+            isSave: false,
+            isChanging: false,
+          },
+        };
+      }
+
+      // change input
+      if (isChanging) {
+        return {
+          ...state,
+          updateText: {
+            ...state.updateText,
+            open,
+            newText,
+          },
+        };
+      }
+
+      // close modal
+      if (!open) {
+        return {
+          ...state,
+          updateText: {
+            ...state.updateText,
+            open,
+            clickText,
+            newText: "",
+          },
+        };
+      }
+
+      // click item
+      return {
+        ...state,
+        updateText: {
+          ...state.updateText,
+          open: true,
+          clickText,
+          newText: "",
+        },
+      };
+    }
+    case types.updateImage: {
+      if (action.payload.isSave) {
+        const newState = JSON.parse(
+          JSON.stringify(state)
+            .replaceAll(state.updateImage.alt, state.updateImage.newAlt)
+            // .replaceAll(state.updateImage.src, state.updateImage.newSrc)
+            .replaceAll(state.updateImage.title, state.updateImage.newTitle)
+        );
+        return {
+          ...newState,
+          updateImage: {
+            open: false,
+            isSave: false,
+            src: "",
+            title: "",
+            alt: "",
+            newSrc: "",
+            newTitle: "",
+            newAlt: "",
+          },
+        };
+      }
+
+      return {
+        ...state,
+        updateImage: {
+          ...state.updateImage,
+          ...action.payload,
         },
       };
     }
