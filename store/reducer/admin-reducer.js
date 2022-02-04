@@ -1,32 +1,20 @@
 import { types } from "../types";
 
 const initialState = {
-  // global key
-  updateText: {
+  editText: {
     open: false,
-    isSave: false,
-    isChanging: false,
-    clickText: "",
+    group: "",
+    name: "",
     newText: "",
   },
-  updateLink: {
+  editLink: {
     open: false,
-    isSave: false,
-    isChanging: false,
+    group: "",
+    name: "",
     href: "",
-    title: "",
     newHref: "",
-    newTitle: "",
-  },
-  updateImage: {
-    open: false,
+    newName: "",
     isSave: false,
-    src: "",
-    title: "",
-    alt: "",
-    newSrc: "",
-    newTitle: "",
-    newAlt: "",
   },
   // head
   menu: {
@@ -98,193 +86,110 @@ const initialState = {
 
 export const AdminReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.clearText: {
-      const { name, group, index } = action.payload;
-      let newState;
-
-      if (!group) {
-        newState = {
-          ...state,
-          [name]: {
-            value: "",
-          },
-        };
-      } else {
-        let newData = [...state[group]?.data];
-
-        if (newData.length >= index) {
-          newData[index][name] = "";
-        }
-        newState = {
-          ...state,
-          [group]: {
-            data: newData,
-          },
-        };
-      }
-      return newState;
-    }
-    case types.changeText: {
-      const { name, group, value, index } = action.payload;
-      let newState;
-      if (!group) {
-        newState = {
-          ...state,
-          [name]: {
-            value,
-          },
-        };
-      } else {
-        let newData = [...state[group].data];
-        if (newData.length >= index) {
-          newData[index][name] = value;
-        }
-        newState = {
-          ...state,
-          [group]: {
-            ...state[group],
-            data: newData,
-          },
-        };
-      }
-
-      return newState;
-    }
-    case types.changeStyle: {
-      const { name, styles, group, list, id } = action.payload;
-      if (list && id) {
-        return {
-          ...state,
-          [list]: {
-            ...state[list],
-            styles: {
-              ...state[list].styles,
-              [id]: styles,
-            },
-          },
-        };
-      }
-
-      if (!group) {
-        return { ...state, [name]: { ...state[name], styles } };
-      }
-
-      return { ...state, [group]: { ...state[group], styles } };
-    }
-    case types.addElements: {
-      const { group } = action.payload;
-      let newData = [...state[group].data];
-      let firstItem = newData[0];
-      let newObject = {};
-      const keys = Object.keys(firstItem);
-      keys.forEach((element) => {
-        newObject[element] = "";
-      });
-      newData.push(newObject);
-      let newState = {
-        ...state,
-        [group]: {
-          ...state[group],
-          data: newData,
-        },
-      };
-      return newState;
-    }
-    case types.deleteItem: {
-      const { group, index } = action.payload;
-      return {
-        ...state,
-        [group]: {
-          ...state[group],
-          data: state[group].data.filter((_, idx) => idx !== index),
-        },
-      };
-    }
-    case types.updateText: {
-      const { open, isSave, newText, clickText, isChanging } = action.payload;
-
-      // save text
+    case types.editText: {
+      const { newText, isSave } = action.payload;
+      const { name, group } = state.editText;
       if (isSave) {
-        const { newText, clickText } = state.updateText;
-        const newState = JSON.parse(
-          JSON.stringify(state).replaceAll(clickText, newText)
-        );
-        return {
-          ...newState,
-          updateText: {
-            ...state.updateText,
-            open: false,
-            clickText: "",
-            newText: "",
-            isSave: false,
-            isChanging: false,
-          },
-        };
+        if (!group && newText) {
+          return {
+            ...state,
+            [name]: {
+              ...state[name],
+              value: newText,
+            },
+            editText: {
+              open: false,
+              group: "",
+              name: "",
+              newText: "",
+            },
+          };
+        } else {
+          return {
+            ...state,
+            editText: {
+              open: false,
+              group: "",
+              name: "",
+              newText: "",
+            },
+          };
+        }
       }
 
-      // change input
-      if (isChanging) {
-        return {
-          ...state,
-          updateText: {
-            ...state.updateText,
-            open,
-            newText,
-          },
-        };
-      }
-
-      // close modal
-      if (!open) {
-        return {
-          ...state,
-          updateText: {
-            ...state.updateText,
-            open,
-            clickText,
-            newText: "",
-          },
-        };
-      }
-
-      // click item
+      // TypographyForModal open
       return {
         ...state,
-        updateText: {
-          ...state.updateText,
-          open: true,
-          clickText,
-          newText: "",
+        editText: {
+          ...state.editText,
+          ...action.payload,
         },
       };
     }
-    case types.updateImage: {
-      if (action.payload.isSave) {
-        const newState = JSON.parse(
-          JSON.stringify(state)
-            .replaceAll(state.updateImage.alt, state.updateImage.newAlt)
-            // .replaceAll(state.updateImage.src, state.updateImage.newSrc)
-            .replaceAll(state.updateImage.title, state.updateImage.newTitle)
-        );
-        return {
-          ...newState,
-          updateImage: {
-            open: false,
-            isSave: false,
-            src: "",
-            title: "",
-            alt: "",
-            newSrc: "",
-            newTitle: "",
-            newAlt: "",
-          },
-        };
+    case types.editLink: {
+      const editLink = state.editLink;
+      if (editLink.isSave) {
+        if (editLink.group) {
+          return {
+            ...state,
+            [editLink.group]: {
+              data: state[editLink.group].data.map((i, index) =>
+                index === editLink.index
+                  ? {
+                      head_menu_title: action.payload.newName
+                        ? action.payload.newName
+                        : i.head_menu_title,
+                      head_menu_href: action.payload.newHref
+                        ? action.payload.newHref
+                        : i.head_menu_href,
+                    }
+                  : i
+              ),
+            },
+            editLink: {
+              open: false,
+              group: "",
+              name: "",
+              href: "",
+              newHref: "",
+              newName: "",
+              isSave: false,
+            },
+          };
+        }
+        if (!editLink.group) {
+          return {
+            ...state,
+            [editLink?.name]: {
+              ...state[editLink?.name],
+              value: action.payload?.newName
+                ? action.payload?.newName
+                : state[editLink?.name]?.value,
+            },
+            [editLink.hrefName]: {
+              ...state[editLink?.hrefName],
+              value: action.payload?.newHref
+                ? action.payload?.newHref
+                : state[editLink?.hrefName]?.value,
+            },
+            editLink: {
+              open: false,
+              group: "",
+              name: "",
+              href: "",
+              newHref: "",
+              newName: "",
+              isSave: false,
+            },
+          };
+        }
       }
 
+      // TypographyForModal open
       return {
         ...state,
-        updateImage: {
-          ...state.updateImage,
+        editLink: {
+          ...state.editLink,
           ...action.payload,
         },
       };

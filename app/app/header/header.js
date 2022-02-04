@@ -1,14 +1,15 @@
-import Img from "../../components/Image";
-import Link from "../../components/Link";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "..";
 import Image from "next/image";
-import Text from "../../components/Text";
 import { IoMdCall } from "react-icons/io";
 import { BsTelegram, BsFacebook } from "react-icons/bs";
 import { AiOutlineMenu } from "react-icons/ai";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { AiOutlineClose } from "react-icons/ai";
+
+// components
+import Link from "../../components/Link";
+import Typography from "../../components/Typography";
 
 export default function Header() {
   const { getItem } = useContext(AppContext);
@@ -62,7 +63,7 @@ export default function Header() {
             {/* logo */}
             <div className="logo-section">
               <div className="logo-img">
-                <Img
+                <Image
                   src={getItem("logofixed_img")}
                   width={45}
                   height={45}
@@ -70,29 +71,44 @@ export default function Header() {
                   objectFit="contain"
                 />
               </div>
-              <div className="logo-text">{getItem("logofixed_text")}</div>
+              <div className="logo-text">
+                <Typography name="logofixed_text">
+                  {getItem("logofixed_text")}
+                </Typography>
+              </div>
             </div>
             {/* ---------- */}
             {/* menu */}
             <div className="menu-section">
               {getItem("head_menu_title", "menu").map((menuItem, index) => (
                 <div className="header_nav_menu_item_mobile" key={index}>
-                  <Text name={"head_menu_title"} group={"menu"} href="#home">
+                  <Link
+                    name={"head_menu_title"}
+                    group={"menu"}
+                    href={getItem.head_menu_href}
+                    hrefName={"head_menu_href"}
+                    index={index}
+                  >
                     {menuItem?.head_menu_title}
-                  </Text>
+                  </Link>
                 </div>
               ))}
             </div>
             {/* ---------- */}
             {/* right-section or to-book-btn and tel-me-btn */}
-            <button className="to-book-btn">{getItem("to_book_btn")}</button>
-            <a
+            <button className="to-book-btn">
+              <Typography name="to_book_btn">
+                {getItem("to_book_btn")}
+              </Typography>
+            </button>
+            <Link
               className="tel-me-btn"
-              href={`tel:+${getItem("head_phone_href")}`}
+              href={getItem("head_phone_href")}
+              name="head_phone_ru"
+              hrefName="head_phone_href"
             >
-              <IoMdCall className="icon" />{" "}
-              <Text name={"head_phone_ru"}>{getItem("head_phone_ru")}</Text>
-            </a>
+              <IoMdCall className="icon" /> {getItem("head_phone_ru")}
+            </Link>
             {/* ---------- */}
           </div>
         </div>
@@ -118,7 +134,7 @@ export default function Header() {
 
             <div className="header_navbar_logo_mobile">
               <div className="header_navbar_logo_box_mobile">
-                <Img
+                <Image
                   src={getItem("my_logo_img_url")}
                   width={150}
                   height={150}
@@ -130,7 +146,9 @@ export default function Header() {
                 className="header_navbar_logo_text_mobile"
                 data-name="my_logo_text"
               >
-                <Text name={"my_logo_text"}>{getItem("my_logo_text")}</Text>
+                <Typography name={"my_logo_text"}>
+                  {getItem("my_logo_text")}
+                </Typography>
               </div>
             </div>
           </div>
@@ -138,30 +156,39 @@ export default function Header() {
           <div className="header_nav_menu_mobile">
             {getItem("head_menu_title", "menu").map((menuItem, index) => (
               <div className="header_nav_menu_item_mobile" key={index}>
-                <Text name={"head_menu_title"} group={"menu"} href="#home">
+                <Link
+                  name={"head_menu_title"}
+                  group={"menu"}
+                  href={menuItem.head_menu_href}
+                  index={index}
+                  hrefName={"head_menu_href"}
+                >
                   {menuItem?.head_menu_title}
-                </Text>
+                </Link>
               </div>
             ))}
           </div>
 
           <div className="header_navbar_social-m">
             <div className="header_navbar_social-m-item telegram-icon">
-              <a href={`${getItem("head_tg_href")}`}>
+              <Link
+                href={`${getItem("head_tg_href")}`}
+                hrefName={"head_tg_href"}
+              >
                 <BsTelegram className="header_navbar_telegram-icon" />
-              </a>
+              </Link>
             </div>
             {/* BsTwitter */}
             <div className="header_navbar_social-m-item whatsapp-icon">
-              <a href={`${getItem("head_wt_href")}`}>
+              <Link href={`${getItem("head_wt_href")}`} hrefName="head_wt_href">
                 <IoLogoWhatsapp className="header_navbar_whatsapp-icon" />
-              </a>
+              </Link>
             </div>
 
             <div className="header_navbar_social-m-item facebook-icon">
-              <a href={`${getItem("head_fc_href")}`}>
+              <Link href={`${getItem("head_fc_href")}`} hrefName="head_fc_href">
                 <BsFacebook className="header_navbar_facebook-icon" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -172,7 +199,7 @@ export default function Header() {
           {/* navbar logo */}
           <div className="header_navbar_logo">
             <div className="header_navbar_logo_box">
-              <Img
+              <Image
                 src={getItem("my_logo_img_url")}
                 width={140}
                 height={140}
@@ -182,7 +209,9 @@ export default function Header() {
             </div>
 
             <div className="header_navbar_logo_text" data-name="my_logo_text">
-              <Text name={"my_logo_text"}>{getItem("my_logo_text")}</Text>
+              <Typography name={"my_logo_text"}>
+                {getItem("my_logo_text")}
+              </Typography>
             </div>
           </div>
           {/* /navbar logo */}
@@ -193,9 +222,15 @@ export default function Header() {
               <div className="header_nav_menu">
                 {getItem("head_menu_title", "menu").map((menuItem, index) => (
                   <div className="header_nav_menu_item" key={index}>
-                    <Text href="#home" name={"head_menu_title"} group={"menu"}>
+                    <Link
+                      href="#home"
+                      name={"head_menu_title"}
+                      group={"menu"}
+                      index={index}
+                      hrefName={"head_menu_href"}
+                    >
                       {menuItem?.head_menu_title}
-                    </Text>
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -204,13 +239,19 @@ export default function Header() {
               {/* navbar texts box */}
               <div className="header_texts_box">
                 <h3 className="header_middle_text">
-                  <Text name={"head_text_1"}>{getItem("head_text_1")}</Text>
+                  <Typography name={"head_text_1"}>
+                    {getItem("head_text_1")}
+                  </Typography>
                 </h3>
                 <h2 className="header_big_text">
-                  <Text name={"head_text_2"}>{getItem("head_text_2")}</Text>
+                  <Typography name={"head_text_2"}>
+                    {getItem("head_text_2")}
+                  </Typography>
                 </h2>
                 <h4 className="header_small_text">
-                  <Text name={"head_text_3"}>{getItem("head_text_3")}</Text>
+                  <Typography name={"head_text_3"}>
+                    {getItem("head_text_3")}
+                  </Typography>
                 </h4>
               </div>
               {/* /navbar texts box */}
@@ -220,27 +261,40 @@ export default function Header() {
           <div className="header_navbar_right-box">
             <div className="header_navbar_phone">
               <IoMdCall className="header_navbar_phone-icon" />
-              <a href={`tel:+${getItem("head_phone_href")}`}>
-                <Text name={"head_phone_ru"}>{getItem("head_phone_ru")}</Text>
-              </a>
+              <Link
+                name="head_phone_ru"
+                href={`tel:+${getItem("head_phone_href")}`}
+                hrefName={"head_phone_href"}
+              >
+                {getItem("head_phone_ru")}
+              </Link>
             </div>
             <div className="header_navbar_social-m">
               <div className="header_navbar_social-m-item telegram-icon">
-                <a href={`${getItem("head_tg_href")}`}>
+                <Link
+                  href={`${getItem("head_tg_href")}`}
+                  hrefName="head_tg_href"
+                >
                   <BsTelegram className="header_navbar_telegram-icon" />
-                </a>
+                </Link>
               </div>
               {/* BsTwitter */}
               <div className="header_navbar_social-m-item whatsapp-icon">
-                <a href={`${getItem("head_wt_href")}`}>
+                <Link
+                  href={`${getItem("head_wt_href")}`}
+                  hrefName="head_wt_href"
+                >
                   <IoLogoWhatsapp className="header_navbar_whatsapp-icon" />
-                </a>
+                </Link>
               </div>
 
               <div className="header_navbar_social-m-item facebook-icon">
-                <a href={`${getItem("head_fc_href")}`}>
+                <Link
+                  href={`${getItem("head_fc_href")}`}
+                  hrefName="head_fc_href"
+                >
                   <BsFacebook className="header_navbar_facebook-icon" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -253,7 +307,7 @@ export default function Header() {
             </div>
             <div className="header_navbar_logo_mobile">
               <div className="header_navbar_logo_box">
-                <Img
+                <Image
                   src={getItem("my_logo_img_url")}
                   width={logoWidth}
                   height={logoWidth}
@@ -262,7 +316,9 @@ export default function Header() {
                 />
               </div>
               <div className="header_navbar_logo_text" data-name="my_logo_text">
-                <Text name={"my_logo_text"}>{getItem("my_logo_text")}</Text>
+                <Typography name={"my_logo_text"}>
+                  {getItem("my_logo_text")}
+                </Typography>
               </div>
             </div>
           </div>
@@ -270,7 +326,7 @@ export default function Header() {
       </div>
       <div className="header_main">
         <div className="header_main_bgi">
-          <Img
+          <Image
             width={1200}
             height={500}
             layout="responsive"
@@ -282,7 +338,7 @@ export default function Header() {
           />
         </div>
         <div className="header_main_bgi_mobile">
-          <Img
+          <Image
             width={350}
             height={290}
             layout="responsive"
@@ -298,9 +354,13 @@ export default function Header() {
         <div className="container">
           {/* getItem("head_img_url") */}
           <div className="header_bread">
-            <Link href={"/"}>{getItem("bread_crumbs")}</Link>
+            <Link name="bread_crumbs" href={"/"}>
+              {getItem("bread_crumbs")}
+            </Link>
 
-            <Link href={"/gastro"}>{getItem("bread_crumbs_gastro")}</Link>
+            <Link name="bread_crumbs_gastro">
+              {getItem("bread_crumbs_gastro")}
+            </Link>
           </div>
         </div>
       </div>

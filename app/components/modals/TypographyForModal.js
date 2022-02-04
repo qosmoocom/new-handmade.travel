@@ -9,8 +9,6 @@ const Wrapper = styled.div`
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
-
   opacity: 0;
   z-index: -32;
   transition: all 0.4s;
@@ -24,20 +22,35 @@ const Wrapper = styled.div`
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    background: #ffffff99;
+    padding: 20px;
+    border-radius: 4px;
     .input-box {
-      border: 1px solid #eee;
+      border: 1px solid #0a0a0a;
       padding: 4px;
       border-radius: 4px;
       min-width: 200px;
       display: flex;
       align-items: center;
+      margin: 10px 0;
       input {
         outline: none;
         width: 100%;
         border: none;
         background: none;
-        color: #fff;
+        color: #130b0b;
         font-size: 18px;
+        font-weight: 500;
+        ::placeholder {
+          color: #070707;
+          opacity: 1;
+        }
+        :-ms-input-placeholder {
+          color: #070707;
+        }
+        ::-ms-input-placeholder {
+          color: #070707;
+        }
       }
     }
 
@@ -51,55 +64,63 @@ const Wrapper = styled.div`
         font-size: 16px;
         border: none;
         cursor: pointer;
+        box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.2);
       }
     }
   }
 
   .close-btn {
     position: absolute;
-    right: 40px;
-    top: 40px;
-    color: #fff;
-    font-size: 30px;
+    right: 0;
+    top: 0;
+    color: #070707;
+    font-size: 20px;
     cursor: pointer;
   }
 `;
-export default function UpdateOnlyText() {
-  const { open, clickText } = useSelector((state) => state.admin.updateText);
-  const [value, setValue] = useState(clickText ? clickText : "");
+export default function TypographyForModal() {
   const dispatch = useDispatch();
-
+  const state = useSelector((state) => state.admin);
+  const { open, name } = state.editText;
+  const initialValue = state[name]?.value;
+  const [value, setValue] = useState(initialValue);
+  const closeModal = () => {
+    dispatch({ type: types.editText, payload: { open: false } });
+  };
   const changeHandler = (e) => {
     setValue(e.target.value);
-    dispatch({
-      type: types.updateText,
-      payload: { open: true, isChanging: true, newText: e.target.value },
-    });
-  };
-
-  const closeModal = () => {
-    dispatch({
-      type: types.updateText,
-      payload: { opan: false, clickText: "" },
-    });
-  };
-
-  const saveText = () => {
-    dispatch({ type: types.updateText, payload: { isSave: true, open: true } });
   };
 
   useEffect(() => {
-    setValue(clickText);
-  }, [clickText]);
+    dispatch({
+      type: types.editText,
+      payload: { isChange: true, newText: value },
+    });
+  }, [value]);
+
+  useEffect(() => {
+    setValue(initialValue);
+  }, [initialValue]);
+
+  const saveHandler = () => {
+    dispatch({
+      type: types.editText,
+      payload: {
+        isSave: true,
+        newText: value,
+        open: false,
+      },
+    });
+  };
   return (
     <Wrapper className={open ? "active" : ""}>
-      <AiOutlineClose className="close-btn" onClick={closeModal} />
       <div className="wrap-container">
+        <AiOutlineClose className="close-btn" onClick={closeModal} />
         <div className="input-box">
-          <input type="text" value={value} onChange={changeHandler} />
+          <input type="text" onChange={changeHandler} value={value} />
         </div>
         <div className="btn-box">
-          <button onClick={saveText}>save</button>
+          <button onClick={saveHandler}>save</button>
         </div>
       </div>
     </Wrapper>

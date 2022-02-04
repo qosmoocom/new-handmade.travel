@@ -1,13 +1,57 @@
-import { useDispatch } from "react-redux";
-import Link from "next/link";
+import { AiFillEdit } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
 import { types } from "../../store/types";
-import { AiTwotoneEdit } from "react-icons/ai";
-const MyLink = ({ children = "", href = "" }) => {
-  const mouseMoveHandler = () => {};
+import styled from "styled-components";
+const Wrapper = styled.span`
+  position: relative;
+  .edit__icon {
+    cursor: cell;
+    display: none;
+    position: absolute;
+    left: -15px;
+    top: 45%;
+    color: #4e4c4c;
+    font-size: 20px;
+  }
+  &:hover .edit__icon {
+    display: block;
+    &:hover {
+      color: #333;
+    }
+  }
+`;
+const ThisIsLink = ({
+  children = "",
+  href,
+  className,
+  group = "",
+  name = "",
+  index,
+  hrefName,
+}) => {
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.admin);
+  const clickHandler = () => {
+    dispatch({
+      type: types.editLink,
+      payload: {
+        open: true,
+        group,
+        name,
+        href,
+        index,
+        hrefName,
+      },
+    });
+  };
+
   return (
-    <span onMouseMove={mouseMoveHandler}>
-      <Link href={href}>{children}</Link>
-    </span>
+    <Wrapper>
+      <AiFillEdit className="edit__icon" onClick={clickHandler} />
+      <a href={href} className={className}>
+        {children}
+      </a>
+    </Wrapper>
   );
 };
-export default MyLink;
+export default ThisIsLink;
