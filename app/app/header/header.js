@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "..";
-import Image from "next/image";
+import Image from "../../components/Image";
 import { IoMdCall } from "react-icons/io";
 import { BsTelegram, BsFacebook } from "react-icons/bs";
 import { AiOutlineMenu } from "react-icons/ai";
@@ -69,6 +69,7 @@ export default function Header() {
                   height={45}
                   priority
                   objectFit="contain"
+                  name="logofixed_img"
                 />
               </div>
               <div className="logo-text">
@@ -223,7 +224,7 @@ export default function Header() {
                 {getItem("head_menu_title", "menu").map((menuItem, index) => (
                   <div className="header_nav_menu_item" key={index}>
                     <Link
-                      href="#home"
+                      href={menuItem?.head_menu_href}
                       name={"head_menu_title"}
                       group={"menu"}
                       index={index}
@@ -358,7 +359,7 @@ export default function Header() {
               {getItem("bread_crumbs")}
             </Link>
 
-            <Link name="bread_crumbs_gastro">
+            <Link name="bread_crumbs_gastro" href={"/gasto"}>
               {getItem("bread_crumbs_gastro")}
             </Link>
           </div>

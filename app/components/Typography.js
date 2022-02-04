@@ -5,18 +5,18 @@ import styled from "styled-components";
 const Wrapper = styled.span`
   position: relative;
   .edit__icon {
-    cursor: cell;
+    cursor: default;
     display: none;
     position: absolute;
     left: -15px;
     top: 45%;
-    color: #4e4c4c;
+    color: #cc5a1a;
     font-size: 20px;
   }
   &:hover .edit__icon {
     display: block;
     &:hover {
-      color: #333;
+      /* color: #333; */
     }
   }
 `;

@@ -79,49 +79,50 @@ const Wrapper = styled.div`
     cursor: pointer;
   }
 `;
-export default function TypographyForModal() {
+export default function ImageForModal({ open = false }) {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.admin);
-  const { open, name } = state.editText;
-  const initialValue = state[name]?.value;
-  const [value, setValue] = useState(initialValue);
-  const closeModal = () => {
-    dispatch({ type: types.editText, payload: { open: false } });
-  };
+
+  const [state, setState] = useState({
+    title: "",
+    href: "",
+  });
+
   const changeHandler = (e) => {
-    setValue(e.target.value);
+    setState((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
   };
 
-  useEffect(() => {
-    dispatch({
-      type: types.editText,
-      payload: { isChange: true, newText: value },
-    });
-  }, [value]);
-
-  useEffect(() => {
-    setValue(initialValue);
-  }, [initialValue]);
-
-  const saveHandler = () => {
-    dispatch({
-      type: types.editText,
-      payload: {
-        isSave: true,
-        newText: value,
-        open: false,
-      },
-    });
+  const closeModalHandler = () => {
+    setState({ title: "", href: "" });
   };
+
+  const onSaveHandler = async () => {};
   return (
     <Wrapper className={open ? "active" : ""}>
       <div className="wrap-container">
-        <AiOutlineClose className="close-btn" onClick={closeModal} />
+        <AiOutlineClose className="close-btn" onClick={closeModalHandler} />
         <div className="input-box">
-          <input type="text" onChange={changeHandler} value={value} />
+          <input
+            type="text"
+            placeholder="Link title"
+            name="title"
+            onChange={changeHandler}
+            value={state.title}
+          />
+        </div>
+        <div className="input-box">
+          <input
+            type="text"
+            placeholder="Link href"
+            name="href"
+            onChange={changeHandler}
+            value={state.href}
+          />
         </div>
         <div className="btn-box">
-          <button onClick={saveHandler}>save</button>
+          <button onClick={onSaveHandler}>save</button>
         </div>
       </div>
     </Wrapper>

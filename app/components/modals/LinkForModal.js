@@ -22,7 +22,8 @@ const Wrapper = styled.div`
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background: #ffffff99;
+    background: #ffffffc3;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
     padding: 20px;
     border-radius: 4px;
     .input-box {
@@ -42,14 +43,14 @@ const Wrapper = styled.div`
         font-size: 18px;
         font-weight: 500;
         ::placeholder {
-          color: #070707;
+          color: #07070786;
           opacity: 1;
         }
         :-ms-input-placeholder {
-          color: #070707;
+          color: #07070786;
         }
         ::-ms-input-placeholder {
-          color: #070707;
+          color: #07070786;
         }
       }
     }
@@ -57,8 +58,8 @@ const Wrapper = styled.div`
     .btn-box {
       padding-top: 20px;
       button {
-        color: #000;
-        background: yellow;
+        color: #ffffff;
+        background: #0e0e0d;
         padding: 5px 12px;
         border-radius: 4px;
         font-size: 16px;
@@ -115,8 +116,7 @@ export default function LinkForModal() {
     setState({ title: "", href: "" });
   }, [editLink.open]);
 
-  const onSaveHandler = () => {
-    console.log("clickHandler");
+  const onSaveHandler = async () => {
     dispatch({
       type: types.editLink,
       payload: {
@@ -130,24 +130,28 @@ export default function LinkForModal() {
     <Wrapper className={open ? "active" : ""}>
       <div className="wrap-container">
         <AiOutlineClose className="close-btn" onClick={closeModalHandler} />
-        <div className="input-box">
-          <input
-            type="text"
-            placeholder="Name"
-            name="title"
-            onChange={changeHandler}
-            value={state.title}
-          />
-        </div>
-        <div className="input-box">
-          <input
-            type="text"
-            placeholder="href"
-            name="href"
-            onChange={changeHandler}
-            value={state.href}
-          />
-        </div>
+        {editLink.name && (
+          <div className="input-box">
+            <input
+              type="text"
+              placeholder="Link title"
+              name="title"
+              onChange={changeHandler}
+              value={state.title}
+            />
+          </div>
+        )}
+        {editLink.hrefName && (
+          <div className="input-box">
+            <input
+              type="text"
+              placeholder="Link href"
+              name="href"
+              onChange={changeHandler}
+              value={state.href}
+            />
+          </div>
+        )}
         <div className="btn-box">
           <button onClick={onSaveHandler}>save</button>
         </div>

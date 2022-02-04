@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import Header from "./header";
 import TypographyForModal from "../components/modals/TypographyForModal";
 import LinkForModal from "../components/modals/LinkForModal";
+import ImageForModal from "../components/modals/ImageForModal";
 export const AppContext = createContext(null);
 
 export default function Index() {
@@ -23,6 +24,8 @@ export default function Index() {
       {/* updater components */}
       <TypographyForModal />
       <LinkForModal />
+      <ImageForModal />
+      {/* -------------- */}
     </AppContext.Provider>
   );
 }

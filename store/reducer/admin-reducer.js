@@ -128,7 +128,9 @@ export const AdminReducer = (state = initialState, action) => {
     }
     case types.editLink: {
       const editLink = state.editLink;
-      if (editLink.isSave) {
+      console.log("editLink in state:", editLink);
+      console.log("action.payload:", action.payload);
+      if (action.payload.isSave) {
         if (editLink.group) {
           return {
             ...state,
