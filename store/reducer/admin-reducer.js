@@ -10,11 +10,21 @@ const initialState = {
   editLink: {
     open: false,
     group: "",
-    name: "",
     href: "",
     newHref: "",
+    name: "",
     newName: "",
     isSave: false,
+  },
+  editImage: {
+    open: false,
+    isSave: false,
+    href: "",
+    newHref: "",
+    alt: "",
+    newAlt: "",
+    title: "",
+    newTitle: "",
   },
   // head
   menu: {
@@ -38,7 +48,9 @@ const initialState = {
   my_logo_text: { value: "my hand. I made. my travel" }, // name='my_logo_text' group=undefined
   to_book_btn: { value: "БРОНИРОВАТЬ" }, // name='my_logo_text' group=undefined
   my_logo_img_url: { value: "/images/logo.webp" }, // name='my_logo_img_url' group=undefined
-  logofixed_img: { value: "/images/logonotext.webp" },
+  logofixed_img_src: { value: "/images/logonotext.webp" },
+  logofixed_img_alt: { value: "logo" },
+  logofixed_img_title: { value: "handmade.taravel logo" },
   logofixed_text: { value: "handmade.travel" },
   head_img_title: { value: "Узбекский плов" }, // name='head_img_title' group=undefined
   head_img_alt: { value: "Авторский узбекский плов" }, // name='head_img_alt' group=undefined
@@ -126,6 +138,7 @@ export const AdminReducer = (state = initialState, action) => {
         },
       };
     }
+    // ---------------------------------
     case types.editLink: {
       const editLink = state.editLink;
       console.log("editLink in state:", editLink);
@@ -196,6 +209,48 @@ export const AdminReducer = (state = initialState, action) => {
         },
       };
     }
+    // ---------------------------------
+    case types.editImage: {
+      const editImage = state.editImage;
+      if (action.payload.isSave) {
+        return {
+          ...state,
+          [editImage?.srcDataName]: {
+            ...[editImage?.srcDataName],
+            value: action.payload.newHref,
+          },
+          [editImage?.altDataName]: {
+            ...[editImage?.altDataName],
+            value: action.payload.newAlt,
+          },
+          [editImage?.titleDataName]: {
+            ...[editImage?.titleDataName],
+            value: action.payload.newTitle,
+          },
+          editImage: {
+            open: false,
+            isSave: false,
+            href: "",
+            newHref: "",
+            alt: "",
+            newAlt: "",
+            title: "",
+            newTitle: "",
+          },
+        };
+      }
+
+      // click Image component
+      // { type: types, payload: { open: true, alt, title, href } }
+      return {
+        ...state,
+        editImage: {
+          ...editImage,
+          ...action.payload,
+        },
+      };
+    }
+    // ---------------------------------
     default:
       return state;
   }

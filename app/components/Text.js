@@ -20,10 +20,18 @@ const Wrapper = styled.span`
     }
   }
 `;
-const Typography = ({ children = "", group = "", name = "" }) => {
+const Typography = ({
+  children = "",
+  group = "",
+  name = "",
+  itIsClassName = "",
+}) => {
   const dispatch = useDispatch();
   const openModal = () => {
-    dispatch({ type: types.editText, payload: { group, name, open: true } });
+    dispatch({
+      type: types.editText,
+      payload: { group, name, open: true, itIsClassName },
+    });
   };
 
   return (

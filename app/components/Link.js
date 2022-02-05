@@ -28,6 +28,7 @@ const ThisIsLink = ({
   name = "",
   index,
   hrefName,
+  itIsClassName,
 }) => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.admin);
@@ -41,6 +42,7 @@ const ThisIsLink = ({
         href,
         index,
         hrefName,
+        itIsClassName,
       },
     });
   };

@@ -7,6 +7,14 @@ module.exports = {
   optimization: {
     minimize: false,
   },
+  images: {
+    domains: [
+      "images.pexels.com",
+      "pexels.com",
+      "www.pexels.com",
+      "www.images.pexels.com",
+    ],
+  },
   compress: true,
   apps: [
     {

@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "..";
-import Image from "../../components/Image";
 import { IoMdCall } from "react-icons/io";
 import { BsTelegram, BsFacebook } from "react-icons/bs";
 import { AiOutlineMenu } from "react-icons/ai";
@@ -8,8 +7,9 @@ import { IoLogoWhatsapp } from "react-icons/io";
 import { AiOutlineClose } from "react-icons/ai";
 
 // components
+import Text from "../../components/Text";
 import Link from "../../components/Link";
-import Typography from "../../components/Typography";
+import Image from "../../components/Image";
 
 export default function Header() {
   const { getItem } = useContext(AppContext);
@@ -64,18 +64,23 @@ export default function Header() {
             <div className="logo-section">
               <div className="logo-img">
                 <Image
-                  src={getItem("logofixed_img")}
+                  priority
                   width={45}
                   height={45}
-                  priority
                   objectFit="contain"
-                  name="logofixed_img"
+                  itIsClassName="logo-img"
+                  src={getItem("logofixed_img_src")}
+                  srcDataName="logofixed_img_src"
+                  alt={getItem("logofixed_img_src")}
+                  altDataName="logofixed_img_alt"
+                  title={getItem("logofixed_img_title")}
+                  titleDataName="logofixed_img_title"
                 />
               </div>
               <div className="logo-text">
-                <Typography name="logofixed_text">
+                <Text name="logofixed_text" itIsClassName="logo-text">
                   {getItem("logofixed_text")}
-                </Typography>
+                </Text>
               </div>
             </div>
             {/* ---------- */}
@@ -89,6 +94,7 @@ export default function Header() {
                     href={getItem.head_menu_href}
                     hrefName={"head_menu_href"}
                     index={index}
+                    itIsClassName="header_nav_menu_item_mobile"
                   >
                     {menuItem?.head_menu_title}
                   </Link>
@@ -98,15 +104,16 @@ export default function Header() {
             {/* ---------- */}
             {/* right-section or to-book-btn and tel-me-btn */}
             <button className="to-book-btn">
-              <Typography name="to_book_btn">
+              <Text name="to_book_btn" itIsClassName="to-book-btn">
                 {getItem("to_book_btn")}
-              </Typography>
+              </Text>
             </button>
             <Link
               className="tel-me-btn"
               href={getItem("head_phone_href")}
               name="head_phone_ru"
               hrefName="head_phone_href"
+              itIsClassName="tel-me-btn"
             >
               <IoMdCall className="icon" /> {getItem("head_phone_ru")}
             </Link>
@@ -136,20 +143,29 @@ export default function Header() {
             <div className="header_navbar_logo_mobile">
               <div className="header_navbar_logo_box_mobile">
                 <Image
-                  src={getItem("my_logo_img_url")}
+                  priority
                   width={150}
                   height={150}
-                  priority
                   objectFit="contain"
+                  itIsClassName="header_navbar_logo_box_mobile"
+                  src={getItem("my_logo_img_url")}
+                  srcDataName="my_logo_img_url"
+                  alt={getItem("logofixed_img_alt")}
+                  altDataName={"logofixed_img_alt"}
+                  title={getItem("logofixed_img_title")}
+                  titleDataName={"logofixed_img_title"}
                 />
               </div>
               <div
                 className="header_navbar_logo_text_mobile"
                 data-name="my_logo_text"
               >
-                <Typography name={"my_logo_text"}>
+                <Text
+                  name={"my_logo_text"}
+                  itIsClassName="header_navbar_logo_text_mobile"
+                >
                   {getItem("my_logo_text")}
-                </Typography>
+                </Text>
               </div>
             </div>
           </div>
@@ -163,6 +179,7 @@ export default function Header() {
                   href={menuItem.head_menu_href}
                   index={index}
                   hrefName={"head_menu_href"}
+                  itIsClassName="header_nav_menu_item_mobile"
                 >
                   {menuItem?.head_menu_title}
                 </Link>
@@ -175,19 +192,28 @@ export default function Header() {
               <Link
                 href={`${getItem("head_tg_href")}`}
                 hrefName={"head_tg_href"}
+                itIsClassName="header_navbar_social-m-item telegram-icon"
               >
                 <BsTelegram className="header_navbar_telegram-icon" />
               </Link>
             </div>
             {/* BsTwitter */}
             <div className="header_navbar_social-m-item whatsapp-icon">
-              <Link href={`${getItem("head_wt_href")}`} hrefName="head_wt_href">
+              <Link
+                href={`${getItem("head_wt_href")}`}
+                hrefName="head_wt_href"
+                itIsClassName="header_navbar_social-m-item whatsapp-icon"
+              >
                 <IoLogoWhatsapp className="header_navbar_whatsapp-icon" />
               </Link>
             </div>
 
             <div className="header_navbar_social-m-item facebook-icon">
-              <Link href={`${getItem("head_fc_href")}`} hrefName="head_fc_href">
+              <Link
+                href={`${getItem("head_fc_href")}`}
+                hrefName="head_fc_href"
+                itIsClassName="header_navbar_social-m-item facebook-icon"
+              >
                 <BsFacebook className="header_navbar_facebook-icon" />
               </Link>
             </div>
@@ -201,18 +227,27 @@ export default function Header() {
           <div className="header_navbar_logo">
             <div className="header_navbar_logo_box">
               <Image
-                src={getItem("my_logo_img_url")}
+                priority
                 width={140}
                 height={140}
-                priority
                 objectFit="contain"
+                itIsClassName="header_navbar_logo_box"
+                src={getItem("my_logo_img_url")}
+                srcDataName={"my_logo_img_url"}
+                title={getItem("logofixed_img_title")}
+                titleDataName={"logofixed_img_title"}
+                alt={getItem("logofixed_img_alt")}
+                altDataName={"logofixed_img_alt"}
               />
             </div>
 
             <div className="header_navbar_logo_text" data-name="my_logo_text">
-              <Typography name={"my_logo_text"}>
+              <Text
+                name={"my_logo_text"}
+                itIsClassName="header_navbar_logo_text"
+              >
                 {getItem("my_logo_text")}
-              </Typography>
+              </Text>
             </div>
           </div>
           {/* /navbar logo */}
@@ -229,6 +264,7 @@ export default function Header() {
                       group={"menu"}
                       index={index}
                       hrefName={"head_menu_href"}
+                      itIsClassName="header_nav_menu_item"
                     >
                       {menuItem?.head_menu_title}
                     </Link>
@@ -240,19 +276,19 @@ export default function Header() {
               {/* navbar texts box */}
               <div className="header_texts_box">
                 <h3 className="header_middle_text">
-                  <Typography name={"head_text_1"}>
+                  <Text name={"head_text_1"} itIsClassName="header_middle_text">
                     {getItem("head_text_1")}
-                  </Typography>
+                  </Text>
                 </h3>
                 <h2 className="header_big_text">
-                  <Typography name={"head_text_2"}>
+                  <Text name={"head_text_2"} itIsClassName="header_big_text">
                     {getItem("head_text_2")}
-                  </Typography>
+                  </Text>
                 </h2>
                 <h4 className="header_small_text">
-                  <Typography name={"head_text_3"}>
+                  <Text name={"head_text_3"} itIsClassName="header_small_text">
                     {getItem("head_text_3")}
-                  </Typography>
+                  </Text>
                 </h4>
               </div>
               {/* /navbar texts box */}
@@ -266,6 +302,7 @@ export default function Header() {
                 name="head_phone_ru"
                 href={`tel:+${getItem("head_phone_href")}`}
                 hrefName={"head_phone_href"}
+                itIsClassName="header_navbar_phone"
               >
                 {getItem("head_phone_ru")}
               </Link>
@@ -275,6 +312,7 @@ export default function Header() {
                 <Link
                   href={`${getItem("head_tg_href")}`}
                   hrefName="head_tg_href"
+                  itIsClassName="header_navbar_social-m-item telegram-icon"
                 >
                   <BsTelegram className="header_navbar_telegram-icon" />
                 </Link>
@@ -284,6 +322,7 @@ export default function Header() {
                 <Link
                   href={`${getItem("head_wt_href")}`}
                   hrefName="head_wt_href"
+                  itIsClassName="header_navbar_social-m-item whatsapp-icon"
                 >
                   <IoLogoWhatsapp className="header_navbar_whatsapp-icon" />
                 </Link>
@@ -293,6 +332,7 @@ export default function Header() {
                 <Link
                   href={`${getItem("head_fc_href")}`}
                   hrefName="head_fc_href"
+                  itIsClassName="header_navbar_social-m-item facebook-icon"
                 >
                   <BsFacebook className="header_navbar_facebook-icon" />
                 </Link>
@@ -304,22 +344,38 @@ export default function Header() {
           {/* btn-logo-mobile */}
           <div className="btn-logo-and-mobile">
             <div className="header_navbar_btn_mobile">
-              <button>Заказать звонок</button>
+              <button>
+                <Text
+                  name="head_btn_call"
+                  itIsClassName="header_navbar_btn_mobile"
+                >
+                  {getItem("head_btn_call")}
+                </Text>
+              </button>
             </div>
             <div className="header_navbar_logo_mobile">
               <div className="header_navbar_logo_box">
                 <Image
-                  src={getItem("my_logo_img_url")}
+                  priority
                   width={logoWidth}
                   height={logoWidth}
-                  priority
                   objectFit="contain"
+                  itIsClassName="header_navbar_logo_box"
+                  srcDataName={"my_logo_img_url"}
+                  src={getItem("my_logo_img_url")}
+                  altDataName={"logofixed_img_alt"}
+                  alt={getItem("logofixed_img_alt")}
+                  titleDataName={"logofixed_img_title"}
+                  title={getItem("logofixed_img_title")}
                 />
               </div>
               <div className="header_navbar_logo_text" data-name="my_logo_text">
-                <Typography name={"my_logo_text"}>
+                <Text
+                  name={"my_logo_text"}
+                  itIsClassName="header_navbar_logo_text"
+                >
                   {getItem("my_logo_text")}
-                </Typography>
+                </Text>
               </div>
             </div>
           </div>
@@ -328,26 +384,34 @@ export default function Header() {
       <div className="header_main">
         <div className="header_main_bgi">
           <Image
+            priority
             width={1200}
             height={500}
-            layout="responsive"
             objectFit="cover"
+            layout="responsive"
+            itIsClassName="header_main_bgi"
             src={getItem("head_img_url")}
+            srcDataName={"head_img_url"}
             alt={getItem("head_img_alt")}
+            altDataName={"head_img_alt"}
             title={getItem("head_img_title")}
-            priority
+            titleDataName={"head_img_title"}
           />
         </div>
         <div className="header_main_bgi_mobile">
           <Image
+            priority
             width={350}
             height={290}
-            layout="responsive"
             objectFit="cover"
+            layout="responsive"
+            itIsClassName="header_main_bgi_mobile"
             src={getItem("head_img_Mobile_url")}
+            srcDataName={"head_img_Mobile_url"}
             alt={getItem("head_img_alt")}
+            altDataName={"head_img_alt"}
             title={getItem("head_img_title")}
-            priority
+            titleDataName={"head_img_title"}
           />
         </div>
       </div>
@@ -355,11 +419,15 @@ export default function Header() {
         <div className="container">
           {/* getItem("head_img_url") */}
           <div className="header_bread">
-            <Link name="bread_crumbs" href={"/"}>
+            <Link name="bread_crumbs" itIsClassName="header_bread" href={"/"}>
               {getItem("bread_crumbs")}
             </Link>
 
-            <Link name="bread_crumbs_gastro" href={"/gasto"}>
+            <Link
+              name="bread_crumbs_gastro"
+              itIsClassName="header_bread"
+              href={"/gasto"}
+            >
               {getItem("bread_crumbs_gastro")}
             </Link>
           </div>

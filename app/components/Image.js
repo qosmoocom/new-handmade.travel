@@ -29,9 +29,26 @@ export default function Index({
   title = "",
   objectFit = "",
   layout = "",
+  itIsClassName = "",
+  srcDataName = "",
+  altDataName = "",
+  titleDataName = "",
 }) {
+  const dispatch = useDispatch();
   const doubleClickHandler = () => {
-    console.log("doubleClickHandler");
+    dispatch({
+      type: types.editImage,
+      payload: {
+        open: true,
+        alt,
+        title,
+        href: src,
+        itIsClassName,
+        srcDataName,
+        altDataName,
+        titleDataName,
+      },
+    });
   };
   return (
     <Wrapper onDoubleClick={doubleClickHandler}>

@@ -2,9 +2,10 @@ import { createContext } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import Header from "./header";
-import TypographyForModal from "../components/modals/TypographyForModal";
-import LinkForModal from "../components/modals/LinkForModal";
-import ImageForModal from "../components/modals/ImageForModal";
+import ModalForText from "../components/modals/ModalForText";
+import ModalForLink from "../components/modals/ModalForLink";
+import ModalForImage from "../components/modals/ModalForImage";
+
 export const AppContext = createContext(null);
 
 export default function Index() {
@@ -21,10 +22,10 @@ export default function Index() {
     <AppContext.Provider value={defaultValue}>
       <Header />
 
-      {/* updater components */}
-      <TypographyForModal />
-      <LinkForModal />
-      <ImageForModal />
+      {/* these are refreshing components */}
+      <ModalForText />
+      <ModalForLink />
+      <ModalForImage />
       {/* -------------- */}
     </AppContext.Provider>
   );
