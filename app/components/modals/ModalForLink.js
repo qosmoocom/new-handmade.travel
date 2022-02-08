@@ -152,13 +152,12 @@ export default function ModalForLink() {
         });
       }
       if (!group) {
-        setState({ title: "", href });
+        setState({ title: bigState[name]?.value || "", href });
       }
     } else {
       setState({ title: "", href: "" });
     }
   }, [editLink.open]);
-
   const onSaveHandler = async () => {
     dispatch({
       type: types.editLink,

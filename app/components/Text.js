@@ -25,12 +25,13 @@ const Typography = ({
   group = "",
   name = "",
   itIsClassName = "",
+  id = "",
 }) => {
   const dispatch = useDispatch();
   const openModal = () => {
     dispatch({
       type: types.editText,
-      payload: { group, name, open: true, itIsClassName },
+      payload: { group, name, open: true, itIsClassName, id },
     });
   };
 

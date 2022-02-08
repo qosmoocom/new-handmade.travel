@@ -112,11 +112,15 @@ const Wrapper = styled.div`
 export default function TypographyForModal() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.admin);
-  const { open, name, itIsClassName } = state.editText;
-  const initialValue = state[name]?.value;
+  const { open, name, group, itIsClassName, id } = state.editText;
+  const initialValue =
+    state[name]?.value || state[group]?.data.find((i) => i.id === id)[name];
   const [value, setValue] = useState(initialValue);
   const closeModal = () => {
-    dispatch({ type: types.editText, payload: { open: false } });
+    dispatch({
+      type: types.editText,
+      payload: { open: false, group: "", name: "", newText: "" },
+    });
   };
   const changeHandler = (e) => {
     setValue(e.target.value);
@@ -134,6 +138,17 @@ export default function TypographyForModal() {
   }, [initialValue]);
 
   const saveHandler = () => {
+    if (group) {
+      dispatch({
+        type: types.editText,
+        payload: {
+          isSave: true,
+          newText: value,
+          open: false,
+          id,
+        },
+      });
+    }
     dispatch({
       type: types.editText,
       payload: {

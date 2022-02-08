@@ -33,6 +33,8 @@ export default function Index({
   srcDataName = "",
   altDataName = "",
   titleDataName = "",
+  id = "",
+  group = "",
 }) {
   const dispatch = useDispatch();
   const doubleClickHandler = () => {
@@ -47,9 +49,25 @@ export default function Index({
         srcDataName,
         altDataName,
         titleDataName,
+        group,
+        id,
       },
     });
   };
+
+  if (layout === "fill") {
+    return (
+      <Image
+        src={src}
+        alt={alt || ""}
+        title={title || ""}
+        priority
+        objectFit={objectFit}
+        layout={layout}
+        onDoubleClick={doubleClickHandler}
+      />
+    );
+  }
   return (
     <Wrapper onDoubleClick={doubleClickHandler}>
       {/* <AiFillEdit className="edit__icon" /> */}

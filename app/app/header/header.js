@@ -89,11 +89,11 @@ export default function Header() {
               {getItem("head_menu_title", "menu").map((menuItem, index) => (
                 <div className="header_nav_menu_item_mobile" key={index}>
                   <Link
-                    name={"head_menu_title"}
                     group={"menu"}
+                    index={index}
+                    name={"head_menu_title"}
                     href={getItem.head_menu_href}
                     hrefName={"head_menu_href"}
-                    index={index}
                     itIsClassName="header_nav_menu_item_mobile"
                   >
                     {menuItem?.head_menu_title}
@@ -111,8 +111,8 @@ export default function Header() {
             <Link
               className="tel-me-btn"
               href={getItem("head_phone_href")}
-              name="head_phone_ru"
               hrefName="head_phone_href"
+              name="head_phone_ru"
               itIsClassName="tel-me-btn"
             >
               <IoMdCall className="icon" /> {getItem("head_phone_ru")}
@@ -174,11 +174,11 @@ export default function Header() {
             {getItem("head_menu_title", "menu").map((menuItem, index) => (
               <div className="header_nav_menu_item_mobile" key={index}>
                 <Link
-                  name={"head_menu_title"}
                   group={"menu"}
-                  href={menuItem.head_menu_href}
                   index={index}
+                  href={menuItem.head_menu_href}
                   hrefName={"head_menu_href"}
+                  name={"head_menu_title"}
                   itIsClassName="header_nav_menu_item_mobile"
                 >
                   {menuItem?.head_menu_title}
@@ -259,11 +259,11 @@ export default function Header() {
                 {getItem("head_menu_title", "menu").map((menuItem, index) => (
                   <div className="header_nav_menu_item" key={index}>
                     <Link
-                      href={menuItem?.head_menu_href}
-                      name={"head_menu_title"}
-                      group={"menu"}
                       index={index}
+                      group={"menu"}
+                      href={menuItem?.head_menu_href}
                       hrefName={"head_menu_href"}
+                      name={"head_menu_title"}
                       itIsClassName="header_nav_menu_item"
                     >
                       {menuItem?.head_menu_title}
@@ -300,7 +300,7 @@ export default function Header() {
               <IoMdCall className="header_navbar_phone-icon" />
               <Link
                 name="head_phone_ru"
-                href={`tel:+${getItem("head_phone_href")}`}
+                href={`${getItem("head_phone_href")}`}
                 hrefName={"head_phone_href"}
                 itIsClassName="header_navbar_phone"
               >

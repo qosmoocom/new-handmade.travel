@@ -131,8 +131,8 @@ export default function ImageForModal() {
     href = "",
     alt = "",
     title = "",
+    id = "",
   } = editImage;
-  console.log("editImage:", editImage);
 
   const [state, setState] = useState({
     href: "",
@@ -166,24 +166,19 @@ export default function ImageForModal() {
   useEffect(() => {
     // when the editImage.open is updated
     if (open) {
-      if (group) {
-      }
-      if (!group) {
-        setState({ href, alt, title });
-      }
+      // if (group) {
+      //   setState({ href, alt, title });
+      // }
+      // if (!group) {
+      //   setState({ href, alt, title });
+      // }
+      setState({ href, alt, title });
     } else {
       setState({ href: "", alt: "", title: "" });
     }
   }, [open]);
 
-  useEffect(() => {
-    document.addEventListener("keydown", (e) => {
-      if (e.code === "Escape") {
-        closeModalHandler();
-      }
-    });
-  }, []);
-  const onSaveHandler = async () => {
+  const onSaveHandler = () => {
     dispatch({
       type: types.editImage,
       payload: {
@@ -194,6 +189,15 @@ export default function ImageForModal() {
       },
     });
   };
+
+  useEffect(() => {
+    document.addEventListener("keydown", (e) => {
+      if (e.code === "Escape") {
+        closeModalHandler();
+      }
+    });
+  }, []);
+
   return (
     <Wrapper className={open ? "active" : ""}>
       <div className="modal-after-click" onClick={closeModalHandler} />
