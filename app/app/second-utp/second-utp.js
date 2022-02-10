@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { AppContext } from "..";
 import Text from "../../components/Text";
 import Image from "../../components/Image";
+import Item from "../../components/Item";
 export default function SecondUtp() {
   const { getItem } = useContext(AppContext);
   return (
@@ -17,7 +18,12 @@ export default function SecondUtp() {
         <div className="row">
           {getItem("second_utp", "second_utp_list").map((item, index) => {
             return (
-              <div className="second-utp-item col-md-12 col-lg-6" key={index}>
+              <Item
+                group="second_utp_list"
+                itemId={index}
+                className="second-utp-item col-md-12 col-lg-6"
+                key={index}
+              >
                 <div className="second-utp-item-img">
                   <div className="second-utp-item-img-box">
                     <Image
@@ -27,7 +33,7 @@ export default function SecondUtp() {
                       title={item.img.title}
                       itIsClassName="second-utp-item-img-box"
                       group={"second_utp_list"}
-                      id={item.id}
+                      id={index}
                       priority
                       objectFit="cover"
                     />
@@ -40,7 +46,7 @@ export default function SecondUtp() {
                         group="second_utp_list"
                         itIsClassName="second-utp-text-1"
                         name="text1"
-                        id={item.id}
+                        id={index}
                       >
                         {item.text1}
                       </Text>
@@ -52,14 +58,14 @@ export default function SecondUtp() {
                         group="second_utp_list"
                         itIsClassName="second-utp-text-2"
                         name="text2"
-                        id={item.id}
+                        id={index}
                       >
                         {item.text2}
                       </Text>
                     </p>
                   </div>
                 </div>
-              </div>
+              </Item>
             );
           })}
         </div>

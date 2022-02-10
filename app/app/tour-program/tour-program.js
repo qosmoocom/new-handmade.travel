@@ -3,11 +3,11 @@ import { IoIosArrowDown } from "react-icons/io";
 import { AppContext } from "..";
 import Text from "../../components/Text";
 import Image from "../../components/Image";
+import Item from "../../components/Item";
 // import Image from "next/image";
 import { useState } from "react";
 export default function TourProgram() {
   const { getItem } = useContext(AppContext);
-  const divRef = useRef(null);
   const [toggle, setToggle] = useState({
     count: 1,
     isOpen: true,
@@ -44,7 +44,12 @@ export default function TourProgram() {
         <div className="tour-program-list">
           {getItem("tour_program", "tour_program_list").map((tour, index) => {
             return (
-              <div className="tour-program-list-item" key={tour.id}>
+              <Item
+                group="tour_program_list"
+                itemId={index}
+                className="tour-program-list-item"
+                key={index}
+              >
                 {/* tour-program-list-title section */}
                 <div
                   className="tour-program-list-title"
@@ -54,7 +59,7 @@ export default function TourProgram() {
                     <b>
                       <Text
                         list="tour_program_list"
-                        parentId={tour.id}
+                        parentId={index}
                         name="titleLabel"
                       >
                         {tour?.titleLabel}
@@ -63,14 +68,14 @@ export default function TourProgram() {
                   </label>
                   <Text
                     list="tour_program_list"
-                    parentId={tour.id}
+                    parentId={index}
                     name={"title"}
                   >
                     {tour?.title}
                   </Text>
                   <IoIosArrowDown
                     className={`arrow-btn ${
-                      tour.id === toggle.count && toggle.isOpen ? "active" : ""
+                      index === toggle.count && toggle.isOpen ? "active" : ""
                     }`}
                   />
                 </div>
@@ -78,11 +83,11 @@ export default function TourProgram() {
                 {/* tour-program-list-description section */}
                 <div
                   className={`tour-program-list-description ${
-                    tour.id === toggle.count && toggle.isOpen ? "active" : ""
+                    index === toggle.count && toggle.isOpen ? "active" : ""
                   }`}
                   style={{
                     maxHeight:
-                      tour.id === toggle.count && toggle.isOpen
+                      index === toggle.count && toggle.isOpen
                         ? toggle.maxHeight + "px"
                         : null,
                     transition: `all 0.5s`,
@@ -94,7 +99,7 @@ export default function TourProgram() {
                         <li key={textItem.id}>
                           <Text
                             list="tour_program_list"
-                            parentId={tour.id}
+                            parentId={index}
                             name={"textList"}
                             childId={textItem.id}
                             itIsClassName="tour-program-list-texts"
@@ -114,7 +119,7 @@ export default function TourProgram() {
                             src={img?.src}
                             alt={img?.alt}
                             layout="fill"
-                            parentId={tour.id}
+                            parentId={index}
                             childId={img.id}
                             name={"imageList"}
                             list={"tour_program_list"}
@@ -135,7 +140,7 @@ export default function TourProgram() {
                   )}
                 </div>
                 {/* --------------------------------- */}
-              </div>
+              </Item>
             );
           })}
         </div>

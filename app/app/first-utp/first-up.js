@@ -3,17 +3,20 @@ import { AppContext } from "..";
 // import Image from "next/image";
 import Text from "../../components/Text";
 import Image from "../../components/Image";
+import Item from "../../components/Item";
 export default function FirstUtp() {
   const { getItem } = useContext(AppContext);
   return (
     <div id="first-utp">
       <div className="container">
         <div className="row">
-          {getItem("first_utp_item", "first_utp").map((item) => {
+          {getItem("first_utp_item", "first_utp").map((item, index) => {
             return (
-              <div
-                key={item.id}
+              <Item
+                key={index}
                 className="first-utp-item col-12 col-sm-12 col-md-6"
+                group="first_utp"
+                itemId={index}
               >
                 <div className="first-utp-img">
                   <div className="first-utp-img-box">
@@ -26,7 +29,7 @@ export default function FirstUtp() {
                       alt={item.img.alt}
                       title={item.img.title}
                       group={"first_utp"}
-                      id={item.id}
+                      id={index}
                     />
                   </div>
                 </div>
@@ -36,13 +39,13 @@ export default function FirstUtp() {
                       group="first_utp"
                       name="text1"
                       itIsClassName="first-utp-text"
-                      id={item.id}
+                      id={index}
                     >
                       {item.text1}
                     </Text>
                   </h2>
                 </div>
-              </div>
+              </Item>
             );
           })}
         </div>

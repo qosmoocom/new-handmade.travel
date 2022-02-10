@@ -2,6 +2,7 @@ import { AiOutlineConsoleSql } from "react-icons/ai";
 import { types } from "../types";
 
 const initialState = {
+  isAdmin: true,
   editText: {
     open: false,
     group: "",
@@ -457,6 +458,46 @@ const initialState = {
       },
     ],
   },
+  action_detail_title: {
+    value: "Есть вопросы? Мы готовы рассказать все подробности!",
+  },
+  action_detail_info: {
+    value:
+      "Задайте вопрос, напишите в удобный мессенджер или отправьте заявку нашему творческому travel-эксперту и получите детальную программу тура в формате PDF.",
+  },
+  action_detail_btn: {
+    value: "Хочу подробнее",
+  },
+  prices_title: {
+    value: "ГАРАНТИРОВАННЫЕ ТУРЫ “ВКУСНЫЙ УЗБЕКИСТАН” 2021-2022",
+  },
+  prices_info: {
+    value:
+      "Мини группы от 4 человек. Гарантированный тур без доплат. 100% Авторская программа.",
+  },
+  prices_top_btn: {
+    value: "НАВЕРХ",
+  },
+  prices_footer: {
+    value:
+      "Цена действительна для группового заезда. Цена указана на человека при двухместном размещении. Цена без учета стоимости международного авиабилета.",
+  },
+  prices_data: {
+    data: [
+      {
+        plice: "(осталось 13 мест из 15)",
+        date: "04-10 марта 2022",
+      },
+      {
+        plice: "(осталось 11 мест из 15)",
+        date: "29 апреля-05 мая 2022",
+      },
+      {
+        plice: "(осталось 11 мест из 15)",
+        date: "02-08 мая 2022",
+      },
+    ],
+  },
 };
 
 export const AdminReducer = (state = initialState, action) => {
@@ -733,9 +774,6 @@ export const AdminReducer = (state = initialState, action) => {
           },
         };
       }
-
-      // click Image component
-      // { type: types, payload: { open: true, alt, title, href } }
       return {
         ...state,
         editImage: {
@@ -745,6 +783,35 @@ export const AdminReducer = (state = initialState, action) => {
       };
     }
     // ---------------------------------
+    case types.deleteItem: {
+      const { group, itemId } = action.payload;
+      if (group && state[group].data.length > 1) {
+        return {
+          ...state,
+          [group]: {
+            ...state[group],
+            data: state[group].data.filter((_, index) => index !== itemId),
+          },
+        };
+      }
+      return state;
+    }
+    // ---------------------------------
+    case types.addedItem: {
+      const { group, itemId } = action.payload;
+      if (group) {
+        const data = [...state[group].data];
+        data.splice(itemId, 0, data[itemId]);
+        return {
+          ...state,
+          [group]: {
+            ...state[group],
+            data,
+          },
+        };
+      }
+      return state;
+    }
     default:
       return state;
   }
