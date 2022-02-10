@@ -112,9 +112,16 @@ const Wrapper = styled.div`
 export default function TypographyForModal() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.admin);
-  const { open, name, group, itIsClassName, id } = state.editText;
+  const { open, name, group, itIsClassName, id, parentId, list, childId } =
+    state.editText;
+
   const initialValue =
-    state[name]?.value || state[group]?.data.find((i) => i.id === id)[name];
+    state[name]?.value ||
+    state[group]?.data?.find((i) => i.id === id)[name] ||
+    (!childId && childId !== 0 && list
+      ? state[list]?.data[parentId][name]
+      : state[list]?.data[parentId][name][childId].value) ||
+    "not text";
   const [value, setValue] = useState(initialValue);
   const closeModal = () => {
     dispatch({

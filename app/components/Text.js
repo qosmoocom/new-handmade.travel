@@ -26,12 +26,24 @@ const Typography = ({
   name = "",
   itIsClassName = "",
   id = "",
+  parentId = "",
+  list = "",
+  childId = "",
 }) => {
   const dispatch = useDispatch();
   const openModal = () => {
     dispatch({
       type: types.editText,
-      payload: { group, name, open: true, itIsClassName, id },
+      payload: {
+        group,
+        name,
+        open: true,
+        itIsClassName,
+        id,
+        parentId,
+        list,
+        childId,
+      },
     });
   };
 

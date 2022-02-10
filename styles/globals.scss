@@ -497,6 +497,11 @@ body {
     z-index: 23;
     transition: 0.4s;
   }
+  .menu-icon__in-fixed {
+    @media (min-width: 992px) {
+      display: none;
+    }
+  }
   .logo-section {
     display: none;
     @media (min-width: 992px) {
@@ -541,7 +546,7 @@ body {
     padding: 5px 0;
   }
 
-  .menu-icon__in-fixed {
+  .menu-icon-in-fixed {
     padding: 10px 10px 10px 0;
     @media (min-width: 992px) {
       display: none;
@@ -594,7 +599,7 @@ body {
   @media (min-width: 992px) {
     padding: 35px 0;
   }
-  .first-utp__item {
+  .first-utp-item {
     padding: 15px 15px 15px 15px;
     display: flex;
     align-items: center;
@@ -608,8 +613,8 @@ body {
       justify-content: flex-start;
     }
   }
-  .first-utp__img {
-    .first-utp__img-box {
+  .first-utp-img {
+    .first-utp-img-box {
       position: relative;
       width: 45px;
       height: 55px;
@@ -634,7 +639,7 @@ body {
       }
     }
   }
-  .first-utp__text {
+  .first-utp-text {
     padding: 0px 20px;
     max-width: 440px;
     width: 100%;
@@ -692,7 +697,7 @@ body {
 
 // second-utp style started
 #second-utp {
-  .second-utp__title {
+  .second-utp-title {
     h2 {
       font-weight: bold;
       line-height: 117.6%;
@@ -723,9 +728,9 @@ body {
     }
   }
 
-  .second-utp__item {
+  .second-utp-item {
     display: flex;
-    margin-bottom: 30px;
+    padding-bottom: 30px;
     @media (min-width: 320px) {
       flex-direction: column;
       align-items: center;
@@ -767,8 +772,8 @@ body {
     }
   }
 
-  .second-utp__item-img {
-    .second-utp__item-img-box {
+  .second-utp-item-img {
+    .second-utp-item-img-box {
       position: relative;
       @media (min-width: 320px) {
         width: 230px;
@@ -784,12 +789,12 @@ body {
         width: 230px;
       }
       @media (min-width: 1200px) {
-        width: 266px;
+        width: 253px;
       }
     }
   }
 
-  .second-utp__description {
+  .second-utp-description {
     width: 363.71px;
     @media (min-width: 320px) {
       width: 100%;
@@ -798,7 +803,7 @@ body {
     }
     @media (min-width: 576px) {
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-      height: 230px;
+      min-height: 230px;
       width: 310px;
     }
     @media (min-width: 768px) {
@@ -810,11 +815,10 @@ body {
     @media (min-width: 1200px) {
       width: 363.71px;
     }
-    height: 230px;
     background: #ffffff;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 
-    .second-utp__text-1 {
+    .second-utp-text-1 {
       h3 {
         height: 59.35px;
         font-weight: bold;
@@ -826,18 +830,18 @@ body {
         padding-left: 13.36px;
         @media (min-width: 320px) {
           font-size: 16px;
-          height: 40.35px;
+          min-height: 40.35px;
           text-align: center;
           padding-left: 0;
         }
         @media (min-width: 400px) {
           font-size: 17.8px;
-          height: 40.35px;
+          min-height: 40.35px;
           text-align: center;
         }
         @media (min-width: 576px) {
           font-size: 18px;
-          height: 59.35px;
+          min-height: 59.35px;
           text-align: left;
           padding-left: 13.36px;
         }
@@ -846,16 +850,16 @@ body {
         }
         @media (min-width: 992px) {
           font-size: 16px;
-          height: 50.35px;
+          min-height: 50.35px;
         }
         @media (min-width: 1200px) {
           font-size: 20px;
-          height: 59.35px;
+          min-height: 59.35px;
         }
       }
     }
 
-    .second-utp__text-2 {
+    .second-utp-text-2 {
       p {
         font-weight: 300;
         font-size: 17px;
@@ -876,7 +880,7 @@ body {
           font-size: 16px;
           text-align: left;
           line-height: 137.6%;
-          height: 133.55px;
+          // height: 133.55px;
         }
         @media (min-width: 768px) {
           font-size: 17px;
@@ -893,5 +897,152 @@ body {
     }
   }
 }
-
 // end
+
+// tour-program style started
+#tour-program {
+  .tour-program-title {
+    h2 {
+      font-weight: bold;
+      line-height: 117.6%;
+      letter-spacing: 0.005em;
+      text-transform: uppercase;
+      color: #cc5a1a;
+      text-align: center;
+      margin-bottom: 52px;
+      @media (min-width: 320px) {
+        font-size: 22px;
+        margin-bottom: 30px;
+      }
+      @media (min-width: 576px) {
+        font-size: 30px;
+        margin-bottom: 30px;
+      }
+      @media (min-width: 768px) {
+        font-size: 32px;
+        margin-bottom: 38px;
+      }
+      @media (min-width: 992px) {
+        font-size: 35px;
+        margin-bottom: 45px;
+      }
+      @media (min-width: 1200px) {
+        margin-bottom: 52px;
+      }
+    }
+  }
+
+  .tour-program-list {
+    .tour-program-list-item {
+      .tour-program-list-title {
+        font-size: 17px;
+        font-weight: 500;
+        line-height: 117.6%;
+        letter-spacing: 0.005em;
+        color: rgb(50, 52, 41);
+        border-bottom: 1px solid rgb(50, 52, 41);
+        padding: 15px 0;
+        position: relative;
+        padding-right: 15px;
+        cursor: pointer;
+        @media (min-width: 992px) {
+          font-size: 20px;
+        }
+        b {
+          margin-right: 5px;
+          color: black;
+          font-weight: bold;
+        }
+        .arrow-btn {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transition: 0.4s;
+          &.active {
+            transform: rotate(180deg);
+          }
+        }
+      }
+      .tour-program-list-description {
+        padding: 12px 0;
+        overflow: hidden;
+        display: none;
+        transition: all 0.5s;
+        max-height: 0;
+        opacity: 0;
+        &.active {
+          display: flex;
+          transition: all 0.5s;
+          flex-direction: column;
+          opacity: 1;
+        }
+
+        .tour-program-list-texts {
+          padding-bottom: 10px;
+          padding-left: 28px;
+          li {
+            font-weight: 300;
+            font-size: 20px;
+            line-height: 117.6%;
+            letter-spacing: 0.005em;
+            color: rgb(0, 0, 0);
+            margin: 7px 0;
+          }
+        }
+
+        .tour-program-list-images {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          padding: 0 10px;
+          @media (min-width: 992px) {
+            flex-direction: row;
+            column-gap: 20px;
+          }
+          li {
+            position: relative;
+            min-width: 266px;
+            width: 100%;
+            height: 200px;
+            list-style: none;
+            margin-bottom: 10px;
+            @media (min-width: 576px) {
+              max-width: 300px;
+              margin-bottom: 15px;
+            }
+            @media (min-width: 768px) {
+              max-width: 420px;
+            }
+            @media (min-width: 1200px) {
+              max-width: 358px;
+              height: 250px;
+            }
+            @media (min-width: 1400px) {
+              max-width: 420px;
+            }
+          }
+        }
+
+        .tour-program-list-footer {
+          p {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 117.6%;
+            letter-spacing: 0.005em;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            margin-top: 25px;
+
+            label {
+              font-weight: bold;
+              text-transform: uppercase;
+              display: inline-block;
+              margin-right: 7px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

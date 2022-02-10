@@ -199,9 +199,263 @@ const initialState = {
       },
     ],
   },
-  tour_program_title: 'программа авторского тура "вкусный узбекистан"',
+  tour_program_title: {
+    value: 'программа авторского тура "вкусный узбекистан"',
+  },
   tour_program_list: {
-    data: [],
+    data: [
+      {
+        id: 0,
+        titleLabel: "День 1.",
+        title: "Ну что, поедем, поедим!",
+        textList: [
+          {
+            id: 0,
+            value: "Вылет в Ташкент.",
+          },
+        ],
+      },
+      {
+        id: 1,
+        titleLabel: "День 2.",
+        title:
+          "Добро пожаловать в Ташкент - город контрастов и неожиданностей! Жорные ряды, “помогаторы” и “музей под землёй”.",
+        textList: [
+          {
+            id: 0,
+            value: "“Эски-шахар” и радуга специй легендарного базара Чорсу.",
+          },
+          {
+            id: 1,
+            value:
+              "Ташкентский “норин” - гастрономический взрыв, необычный вкус домашней лапши в сочетании с кониной.",
+          },
+          {
+            id: 2,
+            value:
+              "Дегустация узбекского стрит-фуда: самса, гумма, ханум, “узбекский бургер” и много всего другогo!",
+          },
+        ],
+        imageList: [
+          {
+            id: 0,
+            src: "/images/landing/gastro/tour-program/day-2-1.webp",
+            alt: "Продавец специй на базаре Чорсу",
+            title: "Базар Чорсу в Ташкент",
+          },
+          {
+            id: 1,
+            src: "/images/landing/gastro/tour-program/day-2-2.webp",
+            alt: `Станция метро "Пахтакор" в Ташкенте`,
+            title: `Станция метро "Пахтакор"`,
+          },
+          {
+            id: 2,
+            src: "/images/landing/gastro/tour-program/day-2-3.webp",
+            alt: "Узбекский лагман",
+            title: "Узбекский лагман",
+          },
+        ],
+        footerTextLabel: "Совет от travel-эксперта:",
+        footerText:
+          "посетите ташкентское метро и насладитесь нереальным великолепием и роскошью каждой станции.",
+      },
+      {
+        id: 2,
+        titleLabel: "День 3.",
+        title: `Голубые купола Самарканда. Рожки да ножки. Вино - запрещено, но есть четыре “но”...`,
+        textList: [
+          {
+            id: 0,
+            value:
+              "Эйфелевая башня во Франции, Тадж-Махал в Индии, Великая стена в Китае… Так и площадь Регистан – “визитная карточка” Узбекистана.",
+          },
+          {
+            id: 1,
+            value:
+              "“Калла Поча” и “Хасип” - блаженство истинного гурмана, настоящий деликатес, узбекский ответ сальтисону.",
+          },
+          {
+            id: 2,
+            value:
+              "Дегустация локальных вин вместе с гуру виноделия Сергеем Даниловым - это знакомство с калейдоскопом вкусов, ароматов и уникальных рецептур локальных вин.",
+          },
+        ],
+        imageList: [
+          {
+            id: 0,
+            src: "/images/landing/gastro/tour-program/day-3-1.webp",
+            alt: "Купол мечети Пои-Калон в Бухаре",
+            title: "Мечеть Пои-Калон в Бухаре",
+          },
+          {
+            id: 1,
+            src: "/images/landing/gastro/tour-program/day-3-2.webp",
+            alt: "Узбекские фермеры",
+            title: "Узбекские фермеры",
+          },
+          {
+            id: 2,
+            src: "/images/landing/gastro/tour-program/day-3-3.webp",
+            alt: "Ансамбль Шахи-Зинда в Самарканде",
+            title: "Некрополь Шахи-Зинда",
+          },
+        ],
+        footerTextLabel: "Совет от travel-эксперта:",
+        footerText:
+          "прогуляйтесь по ночному Самарканду и вдохните магию ночного города.",
+      },
+      {
+        id: 3,
+        titleLabel: "День 4.",
+        title:
+          "Личная жизнь Тамерлана и влюблённый архитектор. Базар, казан и дастархан.",
+        textList: [
+          {
+            id: 0,
+            value:
+              "Шедевр среднеазиатского зодчества - соборная мечеть Биби Ханум, возведённая в честь любимой жены Тамерлана.",
+          },
+          {
+            id: 1,
+            value:
+              "О нём слагают легенды, снимают фильмы, пишут книги… Царь восточной кухни, главная достопримечательность Узбекистана, его величество… Плов!",
+          },
+          {
+            id: 2,
+            value:
+              "Гурман Party: плов, шурпа и парварда - будет праздник живота! Голодным никто не останется!",
+          },
+        ],
+        imageList: [
+          {
+            id: 0,
+            src: "/images/landing/gastro/tour-program/day-4-1.webp",
+            alt: "Мечеть Биби-Ханум в Самарканде",
+            title: "Мечеть Биби-Ханум",
+          },
+          {
+            id: 1,
+            src: "/images/landing/gastro/tour-program/day-4-2.webp",
+            alt: `Узбекский плов по-самаркандски`,
+            title: `Узбекский плов`,
+          },
+          {
+            id: 2,
+            src: "/images/landing/gastro/tour-program/day-4-3.webp",
+            alt: "Настоящая узбечка",
+            title: "Узбечка",
+          },
+        ],
+        footerTextLabel: "Совет от travel-эксперта:",
+        footerText:
+          "посетите старинную фабрику по ручному изготовлению шёлковой бумаги и примите участие в полировке или технике мраморирования бумаги.",
+      },
+      {
+        id: 4,
+        titleLabel: "День 5.",
+        title:
+          "Священная и благородная Бухара. Загадочный средневековый колорит и самые атмосферные места города.",
+        textList: [
+          {
+            id: 0,
+            value:
+              "Уникальный архитектурный ансамбль Пои-Калян, который вправе претендовать на статус “Восьмого чуда света”.",
+          },
+          {
+            id: 1,
+            value:
+              "“Кузача Кебаб”, дословно “кебаб в горшочке” - сытное блюдо бухарской кухни, сочетающее в себе сразу и первое и второе. ",
+          },
+          {
+            id: 2,
+            value:
+              "На Востоке, на Востоке, что за жизнь без чайханы? Посещение национальной чайной известного бухарского торговца пряностей. В меню: травяной чай, чай с гвоздикой, зелёный и знаменитый шафрановый чай!",
+          },
+        ],
+        imageList: [
+          {
+            id: 0,
+            src: "/images/landing/gastro/tour-program/day-5-1.webp",
+            alt: "Ансамбль Пои-Калон в Бухаре",
+            title: "Площадь Пои-Калян в Бухаре",
+          },
+          {
+            id: 1,
+            src: "/images/landing/gastro/tour-program/day-5-2.webp",
+            alt: `Бухарские специи`,
+            title: `Бухарские специи`,
+          },
+          {
+            id: 2,
+            src: "/images/landing/gastro/tour-program/day-5-3.webp",
+            alt: "Узбекские куклы-марионетки",
+            title: "Бухарские куклы-марионетки",
+          },
+        ],
+        footerTextLabel: "Совет от travel-эксперта:",
+        footerText:
+          "загляните в музей-мастерскую национальных кукол-марионеток и среди сотен персонажей узбекского фольклора попробуйте разглядеть себя, родственника или соседа.",
+      },
+      {
+        id: 5,
+        titleLabel: "День 6.",
+        title:
+          "Золото эмира бухарского, посох исполнения желаний и “четыре Бакра”.",
+        textList: [
+          {
+            id: 0,
+            value:
+              "Некрополь Чор Бакр - “город мёртвых”, священное место для мусульман, занесённое в список мирового наследия Юнеско.",
+          },
+          {
+            id: 1,
+            value:
+              "“Джиззз-биззз”  - это не просто жужжание пчёл, а название настоящего мужского блюда. “Джиззз-биззз” по-бухарски - это нежнейший барашек в сочетании с тонко нарезанными кольцами лука. Ммм...",
+          },
+          {
+            id: 2,
+            value:
+              "Мастер-класс по приготовлению узбекских мант - изысканное блюдо родом из Поднебесной, которое готовится на пару из тончайшего теста и сочной мясной начинки.",
+          },
+        ],
+        imageList: [
+          {
+            id: 0,
+            src: "/images/landing/gastro/tour-program/day-6-1.webp",
+            alt: "Узбекские женщины",
+            title: "Узбекские женщины",
+          },
+          {
+            id: 1,
+            src: "/images/landing/gastro/tour-program/day-6-2.webp",
+            alt: `Узбекские манты`,
+            title: `Узбекские манты`,
+          },
+          {
+            id: 2,
+            src: "/images/landing/gastro/tour-program/day-6-3.webp",
+            alt: "Медресе Чор-Минор в Бухаре",
+            title: "Чор-Минор в Бухаре",
+          },
+        ],
+        footerTextLabel: "Совет от travel-эксперта:",
+        footerText:
+          "посетите небольшую фотогалерею известного бухарского фотографа Шавката Болтаева, где представлена уникальная экспозиция портретной фотографии.",
+      },
+      {
+        id: 6,
+        titleLabel: "День 7.",
+        title: "Домой? Уже? Мы же только приехали…",
+        textList: [
+          {
+            id: 0,
+            value:
+              "Упаковываем чемодан эмоций и улетаем с багажом ярких впечатлений и… парой лишних килограммов :)",
+          },
+        ],
+      },
+    ],
   },
 };
 
@@ -209,8 +463,58 @@ export const AdminReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.editText: {
       const { newText, isSave } = action.payload;
-      const { name, group } = state.editText;
+      const { name, group, list, parentId, childId } = state.editText;
       if (isSave) {
+        if (list && parentId > -1 && !childId && childId !== 0) {
+          return {
+            ...state,
+            [list]: {
+              data: state[list].data.map((item, index) =>
+                index !== parentId
+                  ? item
+                  : {
+                      ...item,
+                      [name]: newText || "",
+                    }
+              ),
+            },
+            editText: {
+              open: false,
+              group: "",
+              name: "",
+              newText: "",
+              list: "",
+            },
+          };
+        }
+        if (list && parentId > -1 && childId > -1) {
+          return {
+            ...state,
+            [list]: {
+              data: state[list].data.map((item, index) =>
+                index !== parentId
+                  ? item
+                  : {
+                      ...item,
+                      [name]: item[name].map((childItem, childIndex) =>
+                        childIndex !== childId
+                          ? childItem
+                          : {
+                              ...childItem,
+                              value: newText,
+                            }
+                      ),
+                    }
+              ),
+            },
+            editText: {
+              open: false,
+              group: "",
+              name: "",
+              newText: "",
+            },
+          };
+        }
         if (group) {
           return {
             ...state,
@@ -338,8 +642,6 @@ export const AdminReducer = (state = initialState, action) => {
       const editImage = state.editImage;
       if (action.payload.isSave) {
         if (editImage.group) {
-          console.log("action.payload:", action.payload);
-          console.log("STATE in editImage:", editImage);
           return {
             ...state,
             [editImage.group]: {
@@ -354,6 +656,42 @@ export const AdminReducer = (state = initialState, action) => {
                         alt: action.payload.newAlt || "",
                         title: action.payload.newTitle || "",
                       },
+                    }
+              ),
+            },
+            editImage: {
+              open: false,
+              isSave: false,
+              href: "",
+              newHref: "",
+              alt: "",
+              newAlt: "",
+              title: "",
+              newTitle: "",
+            },
+          };
+        }
+        if (editImage.list) {
+          const { name, parentId, childId, list } = editImage;
+          return {
+            ...state,
+            [list]: {
+              data: state[list].data.map((tour, index) =>
+                index !== parentId
+                  ? tour
+                  : {
+                      ...tour,
+                      [name]: state[list].data[parentId][name].map(
+                        (img, imgId) =>
+                          imgId !== childId
+                            ? img
+                            : {
+                                ...img,
+                                src: action.payload.newHref || "",
+                                alt: action.payload.newAlt || "",
+                                title: action.payload.newTitle || "",
+                              }
+                      ),
                     }
               ),
             },

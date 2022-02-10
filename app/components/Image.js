@@ -35,6 +35,10 @@ export default function Index({
   titleDataName = "",
   id = "",
   group = "",
+  list = "",
+  name = "",
+  parentId = "",
+  childId = "",
 }) {
   const dispatch = useDispatch();
   const doubleClickHandler = () => {
@@ -51,6 +55,10 @@ export default function Index({
         titleDataName,
         group,
         id,
+        parentId,
+        childId,
+        list,
+        name,
       },
     });
   };

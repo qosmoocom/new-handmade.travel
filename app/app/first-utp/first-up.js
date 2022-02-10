@@ -13,14 +13,14 @@ export default function FirstUtp() {
             return (
               <div
                 key={item.id}
-                className="first-utp__item col-12 col-sm-12 col-md-6"
+                className="first-utp-item col-12 col-sm-12 col-md-6"
               >
-                <div className="first-utp__img">
-                  <div className="first-utp__img-box">
+                <div className="first-utp-img">
+                  <div className="first-utp-img-box">
                     <Image
                       src={item.img.src}
                       priority
-                      itIsClassName="first-utp__img-box"
+                      itIsClassName="first-utp-img-box"
                       objectFit="contain"
                       layout="fill"
                       alt={item.img.alt}
@@ -30,12 +30,12 @@ export default function FirstUtp() {
                     />
                   </div>
                 </div>
-                <div className="first-utp__text">
+                <div className="first-utp-text">
                   <h2>
                     <Text
                       group="first_utp"
                       name="text1"
-                      itIsClassName="first-utp__text"
+                      itIsClassName="first-utp-text"
                       id={item.id}
                     >
                       {item.text1}

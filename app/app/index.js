@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import Header from "./header";
 import FirstUtp from "./first-utp";
 import SecondUtp from "./second-utp";
+import TourProgram from "./tour-program";
 
 // components
 import ModalForText from "../components/modals/ModalForText";
@@ -28,6 +29,7 @@ export default function Index() {
       <Header />
       <FirstUtp />
       <SecondUtp />
+      <TourProgram />
       {/* these are refreshing components */}
       <ModalForText />
       <ModalForLink />
