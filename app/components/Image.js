@@ -69,7 +69,7 @@ export default function Index({
         src={src}
         alt={alt || ""}
         title={title || ""}
-        priority
+        // priority
         objectFit={objectFit}
         layout={layout}
         onDoubleClick={doubleClickHandler}
@@ -85,7 +85,7 @@ export default function Index({
         height={height}
         alt={alt}
         title={title}
-        priority
+        // priority
         objectFit={objectFit}
         layout={layout}
       />

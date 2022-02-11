@@ -1,5 +1,4 @@
 import { createContext } from "react";
-import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
 import Header from "./header";
@@ -8,6 +7,7 @@ import SecondUtp from "./second-utp";
 import TourProgram from "./tour-program";
 import ActionDetail from "./action-detail";
 import Price from "./prices";
+import Rate from "./rate";
 
 // components
 import ModalForText from "../components/modals/ModalForText";
@@ -32,6 +32,7 @@ export default function Index() {
       <TourProgram />
       <ActionDetail />
       <Price />
+      <Rate />
       {/* these are refreshing components */}
       <ModalForText />
       <ModalForLink />

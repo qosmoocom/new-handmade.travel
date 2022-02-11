@@ -166,12 +166,6 @@ export default function ImageForModal() {
   useEffect(() => {
     // when the editImage.open is updated
     if (open) {
-      // if (group) {
-      //   setState({ href, alt, title });
-      // }
-      // if (!group) {
-      //   setState({ href, alt, title });
-      // }
       setState({ href, alt, title });
     } else {
       setState({ href: "", alt: "", title: "" });

@@ -22,19 +22,43 @@ export default function Price() {
           <div className="price-list">
             {getItem("prices_data", "prices_data").map((item, index) => {
               return (
-                <Item key={index} className="price-list-item">
+                <Item
+                  key={index}
+                  group="prices_data"
+                  itemId={index}
+                  className="price-list-item"
+                >
                   <p>
                     <b>
-                      <Text>{item.date}</Text>
+                      <Text
+                        group="prices_data"
+                        id={index}
+                        itIsClassName="price-list-item"
+                        name="date"
+                      >
+                        {item.date}
+                      </Text>
                     </b>
-                    <Text>{item.plice}</Text>
+                    <Text
+                      group="prices_data"
+                      id={index}
+                      itIsClassName="price-list-item"
+                      name="plice"
+                    >
+                      {item.plice}
+                    </Text>
                   </p>
                 </Item>
               );
             })}
           </div>
           <div className="plane">
-            <FaPlane className="plane-btn" />
+            <article>
+              <FaPlane className="plane-btn" />
+              <p>
+                <Text>{getItem("prices_top_btn")}</Text>
+              </p>
+            </article>
           </div>
         </div>
       </div>

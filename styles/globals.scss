@@ -16,10 +16,19 @@ body {
     justify-content: flex-end;
   }
 
+  article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
   .plane-btn {
     transform: rotate(-90deg);
-    font-size: 22px;
-    margin: 5px;
+    font-size: 30px;
+    color: #cc5a1a;
+    @media (min-width: 1200px) {
+      font-size: 40px;
+    }
   }
 }
 // header style started
@@ -1182,6 +1191,7 @@ body {
 }
 // end
 
+// price
 #price {
   .content {
     padding-top: 65px;
@@ -1193,6 +1203,10 @@ body {
     color: rgb(204, 90, 26);
     font-size: 22px;
     text-align: center;
+
+    @media (min-width: 768px) {
+      font-size: 35px;
+    }
   }
 
   .price-info {
@@ -1203,6 +1217,10 @@ body {
     color: rgb(0, 0, 0);
     font-size: 16px;
     text-align: center;
+
+    @media (min-width: 768px) {
+      font-size: 22px;
+    }
   }
 
   .price-list {
@@ -1210,6 +1228,9 @@ body {
     display: flex;
     flex-direction: column;
     row-gap: 10px;
+    @media (min-width: 768px) {
+      align-items: center;
+    }
     .price-list-item {
       min-height: 50px;
       border: 1px solid rgb(191, 114, 70);
@@ -1218,6 +1239,10 @@ body {
       align-items: center;
       justify-content: center;
 
+      @media (min-width: 768px) {
+        width: 70%;
+      }
+
       p {
         font-weight: 500;
         text-align: center;
@@ -1225,11 +1250,94 @@ body {
         letter-spacing: 0.005em;
         color: rgb(0, 0, 0);
         font-size: 16px;
+
+        @media (min-width: 768px) {
+          font-size: 20px;
+        }
         b {
           display: block;
           @media (min-width: 576px) {
             display: inline-block;
             padding-right: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// end
+
+#rate {
+  .header-list {
+    .header-list-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 10px 20px 10px;
+      color: #fff;
+      margin: 10px 0;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 20px;
+      letter-spacing: 0.4px;
+    }
+    &:nth-child(1) .header-list-btn {
+      background-color: #f19b2f;
+    }
+    &:nth-child(2) .header-list-btn {
+      background-color: #bf7246;
+    }
+    &:nth-child(3) .header-list-btn {
+      background-color: #d35400;
+    }
+
+    .header-list-modal {
+      .rate-list-item {
+        position: relative;
+        .rate-list-item-title {
+          font-size: 16px;
+          position: relative;
+          width: 100%;
+          height: auto;
+          display: flex;
+          align-items: center;
+          font-weight: 500;
+          border-bottom: 1px solid rgb(204, 204, 204);
+          padding: 10px 10px 20px 10px;
+          width: 100%;
+          cursor: pointer;
+
+          .excl {
+            margin: 5px 0 0 10px;
+            position: absolute;
+          }
+          .bs_check {
+            position: absolute;
+            right: 10px;
+            background-color: #f19b2f;
+            color: #fff;
+            border-radius: 50%;
+            top: 15px;
+          }
+
+          .rate-list-item-descript {
+            position: absolute;
+            z-index: 22;
+            background-color: #fff;
+            width: 120px;
+            color: #000;
+            display: none;
+            box-shadow: rgb(204 204 204) 1px 1px 10px 2px;
+            padding: 10px;
+            border-radius: 5px;
+            top: 45px;
+            left: 40px;
+            min-width: 220px;
+          }
+
+          &:hover .rate-list-item-descript {
+            display: block !important;
           }
         }
       }

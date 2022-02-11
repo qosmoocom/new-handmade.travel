@@ -117,7 +117,7 @@ export default function TypographyForModal() {
 
   const initialValue =
     state[name]?.value ||
-    state[group]?.data?.find((i) => i.id === id)[name] ||
+    state[group]?.data?.find((i, index) => index === id)[name] ||
     (!childId && childId !== 0 && list
       ? state[list]?.data[parentId][name]
       : state[list]?.data[parentId][name][childId].value) ||
