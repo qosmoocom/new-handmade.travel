@@ -14,9 +14,8 @@ const Wrapper = styled.span`
     font-size: 20px;
   }
   &:hover .edit__icon {
-    display: block;
-    &:hover {
-      /* color: #333; */
+    @media (min-width: 1200px) {
+      display: block;
     }
   }
 `;

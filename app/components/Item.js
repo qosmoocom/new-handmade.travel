@@ -7,8 +7,10 @@ import { types } from "./../../store/types";
 const Wrapper = styled.div`
   position: relative;
   &:hover {
-    transition: border 0.3s;
-    border: 2px solid blue;
+    @media (min-width: 1200px) {
+      transition: border 0.3s;
+      border: 2px solid blue;
+    }
   }
   .child_item {
     position: absolute;
@@ -22,7 +24,9 @@ const Wrapper = styled.div`
     border: 1px solid #000;
   }
   &:hover .child_item {
-    display: flex;
+    @media (min-width: 1200px) {
+      display: flex;
+    }
   }
   .child_icon {
     font-size: 25px;

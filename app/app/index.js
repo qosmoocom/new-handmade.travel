@@ -33,6 +33,7 @@ export default function Index() {
       <ActionDetail />
       <Price />
       <Rate />
+      <ActionDetail />
       {/* these are refreshing components */}
       <ModalForText />
       <ModalForLink />

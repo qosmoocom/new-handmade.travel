@@ -56,7 +56,7 @@ export default function Price() {
             <article>
               <FaPlane className="plane-btn" />
               <p>
-                <Text>{getItem("prices_top_btn")}</Text>
+                <Text name="prices_top_btn">{getItem("prices_top_btn")}</Text>
               </p>
             </article>
           </div>

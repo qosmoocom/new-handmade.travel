@@ -41,7 +41,7 @@ function DataIs({ isOpen = false, tariffNum = "" }) {
                 />
               </div>
             ) : (
-              <BsCheck2 className="bs_check" />
+              item.actives[tariffNum] && <BsCheck2 className="bs_check" />
             )}
 
             <p className="rate-list-item-descript">
@@ -122,12 +122,14 @@ export default function Rate() {
 
           {/* --------- */}
           <div className="rate-header-list-table">
-            <div className="list-table-tr">
-              <div className="list-table-th">{getItem("rate_name")}</div>
+            <div className="list-table-tr fist-item">
+              <div className="list-table-th">
+                <b>{getItem("rate_name")}</b>
+              </div>
               {getItem("rate-header-list", "rate_name_data").map(
                 (item, index) => {
                   return (
-                    <div className="list-table-th">
+                    <div key={index} className="list-table-th">
                       <Text
                         name="rate_name_head"
                         group="rate_name_data"
@@ -136,22 +138,91 @@ export default function Rate() {
                       >
                         {item.rate_name_head}
                       </Text>
-                      <Text name="rate_ot" itIsClassName="btn-item btn-right">
-                        {getItem("rate_ot")}{" "}
-                      </Text>
-                      <Text
-                        name="rate_money"
-                        group="rate_name_data"
-                        id={index}
-                        itIsClassName="btn-item btn-right"
-                      >
-                        {item.rate_money}
-                      </Text>
+                      <div>
+                        <Text name="rate_ot" itIsClassName="btn-item btn-right">
+                          {getItem("rate_ot")}{" "}
+                        </Text>
+                        <Text
+                          name="rate_money"
+                          group="rate_name_data"
+                          id={index}
+                          itIsClassName="btn-item btn-right"
+                        >
+                          <b>{item.rate_money}</b>
+                        </Text>
+                      </div>
                     </div>
                   );
                 }
               )}
             </div>
+            {getItem("rateData", "rateData").map((item, index) => {
+              const sizeData = getItem("rateData", "rateData").length;
+
+              return (
+                <Item
+                  key={index}
+                  itemId={index}
+                  group="rateData"
+                  className="list-table-tr"
+                >
+                  <div className="list-table-th">
+                    <p className="rate-list-item-descript">
+                      <Text
+                        name="rate_title"
+                        group="rateData"
+                        id={index}
+                        itIsClassName="rate-list-item-descript"
+                      >
+                        {item.rate_title}
+                      </Text>
+                    </p>
+                    <Text
+                      name="rate_head"
+                      group="rateData"
+                      id={index}
+                      itIsClassName="rate-list-item-title"
+                    >
+                      {item.rate_head}
+                      <BsExclamationCircle className="excl" />
+                    </Text>
+                  </div>
+                  <div className="list-table-th jcc">
+                    {index === sizeData - 1 ? (
+                      <div className="last-icons">
+                        <IoIosMail className="icon active" />
+                        <RiMessageFill className="icon active" />
+                        <IoMdCall className={`icon`} />
+                      </div>
+                    ) : (
+                      item.actives[0] && <BsCheck2 className="bs_check" />
+                    )}
+                  </div>
+                  <div className="list-table-th jcc">
+                    {index === sizeData - 1 ? (
+                      <div className="last-icons">
+                        <IoIosMail className="icon active" />
+                        <RiMessageFill className="icon active" />
+                        <IoMdCall className={`icon`} />
+                      </div>
+                    ) : (
+                      item.actives[1] && <BsCheck2 className="bs_check" />
+                    )}
+                  </div>
+                  <div className="list-table-th jcc">
+                    {index === sizeData - 1 ? (
+                      <div className="last-icons">
+                        <IoIosMail className="icon active" />
+                        <RiMessageFill className="icon active" />
+                        <IoMdCall className={`icon active`} />
+                      </div>
+                    ) : (
+                      item.actives[2] && <BsCheck2 className="bs_check" />
+                    )}
+                  </div>
+                </Item>
+              );
+            })}
           </div>
         </div>
       </div>
