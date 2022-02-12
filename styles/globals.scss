@@ -1269,6 +1269,11 @@ body {
 // end
 
 #rate {
+  .rate-header-list {
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
   .header-list {
     .header-list-btn {
       display: flex;
@@ -1311,29 +1316,54 @@ body {
           .excl {
             margin: 5px 0 0 10px;
             position: absolute;
+            font-size: 16px;
           }
           .bs_check {
             position: absolute;
             right: 10px;
+            top: 15px;
             background-color: #f19b2f;
             color: #fff;
             border-radius: 50%;
+            padding: 2px;
+            font-size: 20px;
+          }
+          .last-icons {
+            position: absolute;
+            right: 10px;
             top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 3px;
+            .icon {
+              color: #fff;
+              border-radius: 50%;
+              padding: 2px;
+              font-size: 20px;
+              background: #000;
+              &.active {
+                background-color: #f19b2f;
+              }
+            }
           }
 
           .rate-list-item-descript {
             position: absolute;
-            z-index: 22;
-            background-color: #fff;
-            width: 120px;
             color: #000;
             display: none;
-            box-shadow: rgb(204 204 204) 1px 1px 10px 2px;
-            padding: 10px;
-            border-radius: 5px;
             top: 45px;
             left: 40px;
-            min-width: 220px;
+            z-index: 2;
+            z-index: 22;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 220px;
+            box-shadow: rgb(204 204 204) 1px 1px 10px 2px;
+            background-color: #fff;
+            &.active {
+              display: none;
+            }
           }
 
           &:hover .rate-list-item-descript {
