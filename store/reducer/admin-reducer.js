@@ -3,6 +3,13 @@ import { types } from "../types";
 
 const initialState = {
   isAdmin: true,
+  checkedEdit: {
+    isOpen: false,
+    index: "",
+    id: "",
+    group: "",
+    name: "",
+  },
   editText: {
     open: false,
     group: "",
@@ -515,18 +522,16 @@ const initialState = {
   rate_footer_list: {
     data: [
       {
-        value: "Международный перелет, ведь вы у нас из разных городов и стран",
+        text: "Международный перелет, ведь вы у нас из разных городов и стран",
       },
       {
-        value:
-          "Чаевые гиду и водителю, так как мы считаем, что это личное дело каждого",
+        text: "Чаевые гиду и водителю, так как мы считаем, что это личное дело каждого",
       },
       {
-        value:
-          "Доплата за фото- и видеосъемку на местах достопримечательностей, если потребуется",
+        text: "Доплата за фото- и видеосъемку на местах достопримечательностей, если потребуется",
       },
       {
-        value: "Алкогольные напитки - это обычная практика",
+        text: "Алкогольные напитки - это обычная практика",
       },
     ],
   },
@@ -634,6 +639,21 @@ const initialState = {
       { rate_name_head: '"ЛЮКС"', rate_money: "$ 1229" },
     ],
   },
+  action_picture_head: { value: "Хотите нырнуть в восточную сказку?" },
+  action_picture_text: {
+    value:
+      "Лучше один раз увидеть, чем 1001 раз кликать и скролить. Айда с нами!",
+  },
+  action_picture_imgAlt: {
+    value: "Майолика из ансамбля Шахи-Зинда",
+  },
+  action_picture_imgTitle: {
+    value: "Самаркандская майолика",
+  },
+  action_picture_imgSrc: {
+    value: "/images/landing/gastro/action-picture/btn.webp",
+  },
+  action_picture_btn_bron: { value: "БРОНИРОВАТЬ" },
 };
 
 export const AdminReducer = (state = initialState, action) => {
@@ -947,6 +967,48 @@ export const AdminReducer = (state = initialState, action) => {
         };
       }
       return state;
+    }
+    // ---------------------------------
+
+    case types.checkEdit: {
+      if (action.payload.isSave) {
+        const {
+          index = "",
+          name = "",
+          group = "",
+          id = "",
+        } = state.checkedEdit;
+
+        return {
+          ...state,
+          [group]: {
+            data: state[group].data.map((item, itemIndex) =>
+              itemIndex != index
+                ? item
+                : {
+                    ...item,
+                    [name]: item[name].map((childItem, childIndex) =>
+                      childIndex != id ? childItem : action.payload.newChenck
+                    ),
+                  }
+            ),
+          },
+          checkedEdit: {
+            isOpen: false,
+            index: null,
+            id: null,
+            group: "",
+            name: "",
+          },
+        };
+      }
+      return {
+        ...state,
+        checkedEdit: {
+          isOpen: true,
+          ...action.payload,
+        },
+      };
     }
     default:
       return state;

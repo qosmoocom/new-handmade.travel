@@ -1,5 +1,6 @@
 import { BsExclamationCircle, BsCheck2 } from "react-icons/bs";
 import { IoIosMail, IoMdCall } from "react-icons/io";
+import { FaPlane } from "react-icons/fa";
 import { RiMessageFill } from "react-icons/ri";
 import React, { useContext, useState } from "react";
 
@@ -7,9 +8,12 @@ import Text from "../../components/Text";
 import Item from "../../components/Item";
 
 import { AppContext } from "..";
+import { useDispatch } from "react-redux";
+import { types } from "../../../store/types";
 
 function DataIs({ isOpen = false, tariffNum = "" }) {
   const { getItem } = useContext(AppContext);
+
   return (
     isOpen &&
     getItem("rateData", "rateData").map((item, index) => {
@@ -63,6 +67,7 @@ function DataIs({ isOpen = false, tariffNum = "" }) {
 export default function Rate() {
   const { getItem } = useContext(AppContext);
   const [toggle, setToggle] = useState({ isOpen: true, index: 1 });
+  const dispatch = useDispatch();
   const handleToggle = (index) => {
     setToggle((prevToggle) => ({
       ...prevToggle,
@@ -70,7 +75,12 @@ export default function Rate() {
       isOpen: prevToggle.index === index ? !prevToggle.isOpen : true,
     }));
   };
-
+  const checkendHandler = (group, name, id, index) => {
+    dispatch({
+      type: types.checkEdit,
+      payload: { group, name, id, index, isCheckEdit: true },
+    });
+  };
   return (
     <div id="rate">
       <div className="container">
@@ -195,7 +205,14 @@ export default function Rate() {
                         <IoMdCall className={`icon`} />
                       </div>
                     ) : (
-                      item.actives[0] && <BsCheck2 className="bs_check" />
+                      item.actives[0] && (
+                        <BsCheck2
+                          onClick={() =>
+                            checkendHandler("rateData", "actives", "0", index)
+                          }
+                          className="bs_check"
+                        />
+                      )
                     )}
                   </div>
                   <div className="list-table-th jcc">
@@ -206,7 +223,14 @@ export default function Rate() {
                         <IoMdCall className={`icon`} />
                       </div>
                     ) : (
-                      item.actives[1] && <BsCheck2 className="bs_check" />
+                      item.actives[1] && (
+                        <BsCheck2
+                          onClick={() =>
+                            checkendHandler("rateData", "actives", "1", index)
+                          }
+                          className="bs_check"
+                        />
+                      )
                     )}
                   </div>
                   <div className="list-table-th jcc">
@@ -217,13 +241,73 @@ export default function Rate() {
                         <IoMdCall className={`icon active`} />
                       </div>
                     ) : (
-                      item.actives[2] && <BsCheck2 className="bs_check" />
+                      item.actives[2] && (
+                        <BsCheck2
+                          className="bs_check"
+                          onClick={() =>
+                            checkendHandler("rateData", "actives", "2", index)
+                          }
+                        />
+                      )
                     )}
                   </div>
                 </Item>
               );
             })}
           </div>
+        </div>
+
+        <div className="content-2">
+          <p className="prices_footer">
+            <Text name="prices_footer" itIsClassName="prices_footer">
+              {getItem("prices_footer")}
+            </Text>
+          </p>
+          <div className="plane">
+            <article>
+              <FaPlane className="plane-btn" />
+              <p>
+                <Text name="prices_top_btn">{getItem("prices_top_btn")}</Text>
+              </p>
+            </article>
+          </div>
+          <p className="rate_footer_head">
+            <b>
+              <Text name="rate_footer_head" itIsClassName="rate_footer_head">
+                {getItem("rate_footer_head")}
+              </Text>
+            </b>
+          </p>
+          <h3 className="rate_footer_title">
+            <b>
+              <Text name="rate_footer_title" itIsClassName="rate_footer_title">
+                {getItem("rate_footer_title")}
+              </Text>
+            </b>
+          </h3>
+          <ul className="rate_footer_list">
+            {getItem("rate_footer_list", "rate_footer_list").map(
+              (item, index) => {
+                return (
+                  <Item
+                    key={index}
+                    itemId={index}
+                    group="rate_footer_list"
+                    className="rate_footer_list_item"
+                  >
+                    <Text
+                      group="rate_footer_list"
+                      name="text"
+                      itIsClassName="rate_footer_list"
+                      id={index}
+                    >
+                      {item.text}
+                    </Text>
+                  </Item>
+                );
+              }
+            )}
+          </ul>
         </div>
       </div>
     </div>

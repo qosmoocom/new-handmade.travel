@@ -5,4 +5,5 @@ export const types = {
   editImage: "ADMIN/CHANG___IMAGE___",
   deleteItem: "ADMIN/DELETE_ITEM___",
   addedItem: "ADMIN/ADDED_ITEM___",
+  checkEdit: "ADMIN/CHECK_ICONS_EDIT",
 };

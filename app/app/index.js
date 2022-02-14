@@ -8,11 +8,13 @@ import TourProgram from "./tour-program";
 import ActionDetail from "./action-detail";
 import Price from "./prices";
 import Rate from "./rate";
+import ActionPicture from "./action-picture";
 
 // components
 import ModalForText from "../components/modals/ModalForText";
 import ModalForLink from "../components/modals/ModalForLink";
 import ModalForImage from "../components/modals/ModalForImage";
+import ModalForCheckedIcon from "../components/modals/ModalForCheckedIcon";
 
 export const AppContext = createContext(null);
 
@@ -33,11 +35,12 @@ export default function Index() {
       <ActionDetail />
       <Price />
       <Rate />
-      <ActionDetail />
+      <ActionPicture />
       {/* these are refreshing components */}
       <ModalForText />
       <ModalForLink />
       <ModalForImage />
+      <ModalForCheckedIcon />
       {/* -------------- */}
     </AppContext.Provider>
   );
