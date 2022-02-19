@@ -13,16 +13,12 @@ const Wrapper = styled.div`
   z-index: -32;
   transition: all 0.4s;
   height: 0;
-  display: none;
+
   &.active {
-    display: none;
     opacity: 1;
     z-index: 2311;
     transition: all 0.4s;
     height: 100vh;
-    @media (min-width: 1200px) {
-      display: block;
-    }
   }
 
   .modal-after-click {
@@ -31,7 +27,6 @@ const Wrapper = styled.div`
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 2;
   }
   .wrap-container {
     position: absolute;

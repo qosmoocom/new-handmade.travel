@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AppContext } from "..";
 import Image from "../../components/Image";
+import Text from "../../components/Text";
 export default function Gallery() {
   const { getItem } = useContext(AppContext);
   const imgs = getItem("gallery", "gallery");
@@ -8,6 +9,7 @@ export default function Gallery() {
   const [g3, setG3] = useState(false);
   const [scW, setScW] = useState(0);
   const [slider, setSlider] = useState({ open: false, img_url: "" });
+
   useEffect(() => {
     setScW(window.outerWidth);
     const imgs = [...document.querySelectorAll(".imgs-wrapper img")].map(
@@ -31,7 +33,11 @@ export default function Gallery() {
       <div className="container">
         <div className="urta">
           <div className="content-1">
-            <h3>{getItem("gallery_title")}</h3>
+            <h3>
+              <Text name="gallery_title" itIsClassName="gallery_title h3">
+                {getItem("gallery_title")}
+              </Text>
+            </h3>
             <div className="box-img">
               <div className="section-1">
                 <div className="img img-1 s-img" style={{ overflow: "hidden" }}>
@@ -118,7 +124,7 @@ export default function Gallery() {
             className={`yashirish ${g2 && "display-none"}`}
             onClick={() => setG2(true)}
           >
-            {getItem("gallery_more_btn")}
+            <Text name="gallery_more_btn">{getItem("gallery_more_btn")}</Text>
           </button>
         </div>
         {g2 && (
