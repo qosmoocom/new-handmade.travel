@@ -106,7 +106,7 @@ export default function Rate() {
                       </span>
                       <span className="btn-item btn-right">
                         <Text name="rate_ot" itIsClassName="btn-item btn-right">
-                          {getItem("rate_ot")}{" "}
+                          {getItem("rate_ot")}
                         </Text>
                         <Text
                           name="rate_money"
@@ -134,7 +134,9 @@ export default function Rate() {
           <div className="rate-header-list-table">
             <div className="list-table-tr fist-item">
               <div className="list-table-th">
-                <b>{getItem("rate_name")}</b>
+                <b>
+                  <Text name="rate_name">{getItem("rate_name")}</Text>
+                </b>
               </div>
               {getItem("rate-header-list", "rate_name_data").map(
                 (item, index) => {
@@ -150,7 +152,7 @@ export default function Rate() {
                       </Text>
                       <div>
                         <Text name="rate_ot" itIsClassName="btn-item btn-right">
-                          {getItem("rate_ot")}{" "}
+                          {getItem("rate_ot")}
                         </Text>
                         <Text
                           name="rate_money"
@@ -158,7 +160,7 @@ export default function Rate() {
                           id={index}
                           itIsClassName="btn-item btn-right"
                         >
-                          <b>{item.rate_money}</b>
+                          {item.rate_money}
                         </Text>
                       </div>
                     </div>

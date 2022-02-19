@@ -2,6 +2,7 @@ import { AiFillEdit } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { types } from "../../store/types";
 import styled from "styled-components";
+import parse from "html-react-parser";
 const Wrapper = styled.span`
   position: relative;
   .edit__icon {
@@ -49,7 +50,7 @@ const Typography = ({
   return (
     <Wrapper>
       <AiFillEdit className="edit__icon" onClick={openModal} />
-      <span>{children}</span>
+      <span>{parse(children.toString())}</span>
     </Wrapper>
   );
 };
