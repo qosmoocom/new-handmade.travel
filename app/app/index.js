@@ -12,6 +12,8 @@ import ActionPicture from "./action-picture";
 import Gallery from "./gallery";
 import Author from "./author";
 import WhyWithUs from "./why-with-us";
+import Samele from "./samele";
+import Reviews from "./reviews";
 
 // components
 import ModalForText from "../components/modals/ModalForText";
@@ -42,6 +44,8 @@ export default function Index() {
       <Gallery />
       <Author />
       <WhyWithUs />
+      <Samele />
+      <Reviews />
       {/* these are refreshing components */}
       <ModalForText />
       <ModalForLink />

@@ -859,6 +859,95 @@ const initialState = {
       },
     ],
   },
+  samele_head: {
+    value: "Про Вашего личного Сомелье",
+  },
+  samele_img_url: {
+    value: "/images/landing/gastro/samele/samele.webp",
+  },
+  samele_img_alt: {
+    value: "Винодел Данилов Сергей Викторович",
+  },
+  samele_img_title: {
+    value: "Сомелье Сергей Данилов",
+  },
+  samele_name: {
+    value: "Данилов Сергей Викторович",
+  },
+  samele_title: {
+    value:
+      "Энолог, винодел, гуру-сомелье, кулинар-плововед, инициатор проекта 'Delicious Uzbekistan', человек-бренд винно-гастрономического туризма в Узбекистане.",
+  },
+  samele_title_1: {
+    value: "А ещё Сергей Викторович…",
+  },
+  sameleData: {
+    data: [
+      {
+        title:
+          'Председатель "Узбекского Винного Клуба" и основатель проекта "Развитие гаражного виноделия в Узбекистане"',
+      },
+      {
+        title:
+          'Эксперт по международному туризму и автор спецвыпуска "Туризм со вкусом узбекского плова"',
+      },
+      {
+        title:
+          "Идеолог эногастрономического туризма в Узбекистане и коллекционер культурных и вкусовых откровений",
+      },
+    ],
+  },
+  reviews_title: {
+    value: "ЧТО О НАС ГОВОРЯТ ...",
+  },
+  reviewsData: {
+    data: [
+      {
+        title: "ОЛЬГА",
+        description:
+          "Столько вкусной еды… Понравилось то, что маршрут не был банальным, все было сделано с учетом всех моих капризов!",
+        link: "https://goo.gl/maps/zbQZeRhpZCzENgNW7",
+        img: {
+          src: "/images/landing/gastro/reviews/user1.webp",
+          alt: "",
+          title: "",
+        },
+      },
+      {
+        title: "АЗИЗА",
+        description:
+          "Решили сделать невесте приятное и устроить гастрономический девичник по-узбекски!)) Бирюзовые купола, гастрономический кайф, гостеприимный народ...",
+        link: "https://goo.gl/maps/ic273B5g2hzTUnv4A",
+        img: {
+          src: "/images/landing/gastro/reviews/user2.webp",
+          alt: "",
+          title: "",
+        },
+      },
+      {
+        title: "ОКСАНА",
+        description:
+          "Хочу поблагодарить ребят из Handmade за организацию отдыха в Узбекистане. График был плотный,  за неделю я посетила 4 города: Хива, Бухара  Шахрисабз и Самарканд...",
+        link: "https://goo.gl/maps/5zFZmhs1bUcMW7d98",
+        img: {
+          src: "/images/landing/gastro/reviews/user3.webp",
+          alt: "",
+          title: "",
+        },
+      },
+      {
+        title: "КИРИЛЛ",
+        description:
+          "Авторский «обжор-тур» по кулинарным святыням Самарканда, Бухары и Ташкента! Спасибо ребятам за профессионализм, оперативность и любовь к своему делу...",
+        link: "https://goo.gl/maps/L8JJyHpUmYvuVtse8",
+        img: {
+          src: "/images/landing/gastro/reviews/user4.webp",
+          alt: "",
+          title: "",
+        },
+      },
+    ],
+  },
 };
 
 export const AdminReducer = (state = initialState, action) => {

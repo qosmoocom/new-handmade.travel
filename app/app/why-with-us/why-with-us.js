@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { AppContext } from "..";
 import Image from "../../components/Image";
 import Text from "../../components/Text";
+import Item from "../../components/Item";
 export default function WhyWithUs() {
   const { getItem } = useContext(AppContext);
   return (
@@ -16,7 +17,12 @@ export default function WhyWithUs() {
           <div className="cards">
             {getItem("whyData", "whyData").map((item, index) => {
               return (
-                <div className="card" key={index}>
+                <Item
+                  className="card"
+                  group="whyData"
+                  itemId={index}
+                  key={index}
+                >
                   <div className="img-card">
                     <div className="image-box">
                       <Image
@@ -46,7 +52,7 @@ export default function WhyWithUs() {
                       </Text>
                     </h4>
                   </div>
-                </div>
+                </Item>
               );
             })}
           </div>
