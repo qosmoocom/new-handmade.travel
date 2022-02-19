@@ -654,6 +654,122 @@ const initialState = {
     value: "/images/landing/gastro/action-picture/btn.webp",
   },
   action_picture_btn_bron: { value: "БРОНИРОВАТЬ" },
+  gallery: {
+    data: [
+      {
+        img: {
+          src: "/images/landing/gastro/gallery/1.webp",
+          alt: "Верблюд в пустыне Кызылкум",
+          title: "Сафари на верблюдах",
+        },
+      },
+      {
+        img: {
+          src: "/images/landing/gastro/gallery/2.webp",
+          alt: "Выпечка лепёшек тандыре",
+          title: "Лепёшки из тандыра",
+        },
+      },
+      {
+        img: {
+          src: "/images/landing/gastro/gallery/3.webp",
+          alt: "Ансамбль Шахи-Зинда в Самарканде",
+          title: "Ансамбль Шахи-Зинда",
+        },
+      },
+      {
+        img: {
+          src: "/images/landing/gastro/gallery/4.webp",
+          alt: "Настоящий узбекский плов",
+          title: "Узбекский плов",
+        },
+      },
+      {
+        img: {
+          src: "/images/landing/gastro/gallery/5.webp",
+          alt: "Мавзолей Шахи-Зинда в Самарканде",
+          title: "Мавзолей Шахи-Зинда",
+        },
+      },
+      {
+        img: {
+          src: "/images/landing/gastro/gallery/6.webp",
+          alt: "Слоёная узбекская самса",
+          title: "Узбекская самса",
+        },
+      },
+      {
+        img: {
+          src: "/images/landing/gastro/gallery/7.webp",
+          alt: "Купол медресе на Регистане",
+          title: "Купол медресе Шер-Дор",
+        },
+      },
+      {
+        img: {
+          src: "/images/landing/gastro/gallery/8.webp",
+          alt: "Празднование Навруза в Узбекистане",
+          title: "Девочка на празднике Навруз",
+        },
+      },
+      {
+        img: {
+          src: "/images/landing/gastro/gallery/9.webp",
+          alt: "Специи на базаре Чорсу",
+          title: "Восточные специи",
+        },
+      },
+      {
+        img: {
+          src: "/images/landing/gastro/gallery/10.webp",
+          alt: "Лагман узбекский",
+          title: "Узбекский лагман",
+        },
+      },
+      {
+        img: {
+          src: "/images/landing/gastro/gallery/11.webp",
+          alt: "Узбекский шашлык из говядины",
+          title: "УУзбекский шашлык",
+        },
+      },
+      {
+        img: {
+          src: "/images/landing/gastro/gallery/12.webp",
+          alt: "Комплекс Шахи-Зинда в Самарканде",
+          title: "Прогулка по Шахи-Зинде",
+        },
+      },
+      {
+        img: {
+          src: "/images/landing/gastro/gallery/13.webp",
+          alt: "Узбекские манты с говядиной",
+          title: "Узбекские манты",
+        },
+      },
+      {
+        img: {
+          src: "/images/landing/gastro/gallery/14.webp",
+          alt: "Традиционные узбекские лепёшки",
+          title: "Самаркандские лепёшки",
+        },
+      },
+      {
+        img: {
+          src: "/images/landing/gastro/gallery/15.webp",
+          alt: "Каракалпакская девушка",
+          title: "Девушка из Нукуса",
+        },
+      },
+    ],
+  },
+  gallery_title: {
+    value:
+      "Яркие эмоции и впечатления, которые не влезут в объектив! Листайте фотографии и предвкушайте!",
+  },
+  gallery_more_btn: {
+    value: "показать еще ...",
+  },
 };
 
 export const AdminReducer = (state = initialState, action) => {
@@ -844,7 +960,7 @@ export const AdminReducer = (state = initialState, action) => {
             [editImage.group]: {
               ...state[editImage.group],
               data: state[editImage.group].data.map((item, index) =>
-                index !== editImage.id
+                index != editImage.id
                   ? item
                   : {
                       ...item,

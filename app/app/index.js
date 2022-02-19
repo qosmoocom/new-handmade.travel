@@ -9,6 +9,7 @@ import ActionDetail from "./action-detail";
 import Price from "./prices";
 import Rate from "./rate";
 import ActionPicture from "./action-picture";
+import Gallery from "./gallery";
 
 // components
 import ModalForText from "../components/modals/ModalForText";
@@ -36,6 +37,7 @@ export default function Index() {
       <Price />
       <Rate />
       <ActionPicture />
+      <Gallery />
       {/* these are refreshing components */}
       <ModalForText />
       <ModalForLink />

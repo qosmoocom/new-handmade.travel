@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { AppContext } from "..";
-// import Image from "next/image";
+
 import Text from "../../components/Text";
 import Image from "../../components/Image";
 import Item from "../../components/Item";
