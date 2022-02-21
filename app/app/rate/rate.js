@@ -1,4 +1,5 @@
 import { BsExclamationCircle, BsCheck2 } from "react-icons/bs";
+import parse from "html-react-parser";
 import { IoIosMail, IoMdCall } from "react-icons/io";
 import { FaPlane } from "react-icons/fa";
 import { RiMessageFill } from "react-icons/ri";
@@ -31,8 +32,9 @@ function DataIs({ isOpen = false, tariffNum = "" }) {
               group="rateData"
               id={index}
               itIsClassName="rate-list-item-title"
+              type="important"
             >
-              {item.rate_head}
+              {parse(item.rate_head)}
               <BsExclamationCircle className="excl" />
             </Text>
 
@@ -193,10 +195,11 @@ export default function Rate() {
                       name="rate_head"
                       group="rateData"
                       id={index}
+                      type="important"
                       itIsClassName="rate-list-item-title"
                     >
-                      {item.rate_head}
-                      <BsExclamationCircle className="excl" />
+                      {parse(item.rate_head)}
+                      {/* <BsExclamationCircle className="excl" /> */}
                     </Text>
                   </div>
                   <div className="list-table-th jcc">

@@ -29,6 +29,7 @@ const Typography = ({
   parentId = "",
   list = "",
   childId = "",
+  type = "",
 }) => {
   const dispatch = useDispatch();
   const openModal = () => {
@@ -47,6 +48,14 @@ const Typography = ({
     });
   };
 
+  if (type === "important") {
+    return (
+      <Wrapper>
+        <AiFillEdit className="edit__icon" onClick={openModal} />
+        <span>{children}</span>
+      </Wrapper>
+    );
+  }
   return (
     <Wrapper>
       <AiFillEdit className="edit__icon" onClick={openModal} />

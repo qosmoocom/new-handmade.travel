@@ -14,6 +14,7 @@ import Author from "./author";
 import WhyWithUs from "./why-with-us";
 import Samele from "./samele";
 import Reviews from "./reviews";
+import Benefit from "./benefit";
 
 // components
 import ModalForText from "../components/modals/ModalForText";
@@ -46,6 +47,7 @@ export default function Index() {
       <WhyWithUs />
       <Samele />
       <Reviews />
+      <Benefit />
       {/* these are refreshing components */}
       <ModalForText />
       <ModalForLink />

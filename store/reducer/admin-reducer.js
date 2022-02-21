@@ -948,6 +948,30 @@ const initialState = {
       },
     ],
   },
+  benefit_title: {
+    value: `ПУТЕШЕСТВОВАТЬ С НАМИ НЕ ТОЛЬКО ИНТЕРЕСНО И ВКУСНО, НО И ВЫГОДНО!`,
+  },
+  benefit_img_url: {
+    value: "/images/landing/gastro/benefit/img.png",
+  },
+  benefit_img_alt: {
+    value: "Самаркандские лепёшки на базаре",
+  },
+  benefit_img_title: {
+    value: "Свадебные лепёшки",
+  },
+  benefit_center_title: {
+    value: `Забронируйте тур сейчас!`,
+  },
+  benefit_center_info: {
+    value: `А мы подарим вам <b>СЕРТИФИКАТ</b>, номиналом <b>5000</b><span>₽</span> на следующее путешествие лично вам или вашему другу на этот тур!`,
+  },
+  benefit_action_text: {
+    value: `Успейте забронировать путешествие своей мечты, пока есть свободные места и дешёвые авиабилеты!`,
+  },
+  benefit_action_btn: {
+    value: "Убедили, Хочу с вами",
+  },
 };
 
 export const AdminReducer = (state = initialState, action) => {
