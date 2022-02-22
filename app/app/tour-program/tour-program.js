@@ -94,14 +94,14 @@ export default function TourProgram() {
                   }}
                 >
                   <ul className="tour-program-list-texts">
-                    {tour?.textList?.map((textItem) => {
+                    {tour?.textList?.map((textItem, childIndex) => {
                       return (
                         <li key={textItem.id}>
                           <Text
                             list="tour_program_list"
                             parentId={index}
                             name={"textList"}
-                            childId={textItem.id}
+                            childId={childIndex}
                             itIsClassName="tour-program-list-texts"
                           >
                             {textItem?.value}

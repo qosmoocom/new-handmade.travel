@@ -120,13 +120,13 @@ export default function TypographyForModal() {
     state[group]?.data?.find((i, index) => index === id)[name] ||
     (!childId && childId !== 0 && list
       ? state[list]?.data[parentId][name]
-      : state[list]?.data[parentId][name][childId].value) ||
+      : state[list]?.data[parentId][name][childId]?.value) ||
     "not text";
   const [value, setValue] = useState(initialValue);
   const closeModal = () => {
     dispatch({
       type: types.editText,
-      payload: { open: false, group: "", name: "", newText: "" },
+      payload: { open: false },
     });
   };
   const changeHandler = (e) => {

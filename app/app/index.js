@@ -15,6 +15,8 @@ import WhyWithUs from "./why-with-us";
 import Samele from "./samele";
 import Reviews from "./reviews";
 import Benefit from "./benefit";
+import Faq from "./faq";
+import OtherTour from "./other-tours";
 
 // components
 import ModalForText from "../components/modals/ModalForText";
@@ -48,6 +50,8 @@ export default function Index() {
       <Samele />
       <Reviews />
       <Benefit />
+      <Faq />
+      <OtherTour />
       {/* these are refreshing components */}
       <ModalForText />
       <ModalForLink />
