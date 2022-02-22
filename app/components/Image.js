@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import Image from "next/image";
 import { AiFillEdit } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
@@ -39,27 +40,31 @@ export default function Index({
   parentId = "",
   childId = "",
 }) {
+  const { asPath } = useRouter();
+  const isAdmin = asPath.includes("admin/create-tour");
   const dispatch = useDispatch();
   const doubleClickHandler = () => {
-    dispatch({
-      type: types.editImage,
-      payload: {
-        open: true,
-        alt,
-        title,
-        href: src,
-        itIsClassName,
-        srcDataName,
-        altDataName,
-        titleDataName,
-        group,
-        id,
-        parentId,
-        childId,
-        list,
-        name,
-      },
-    });
+    if (isAdmin) {
+      dispatch({
+        type: types.editImage,
+        payload: {
+          open: true,
+          alt,
+          title,
+          href: src,
+          itIsClassName,
+          srcDataName,
+          altDataName,
+          titleDataName,
+          group,
+          id,
+          parentId,
+          childId,
+          list,
+          name,
+        },
+      });
+    }
   };
 
   if (layout === "fill") {

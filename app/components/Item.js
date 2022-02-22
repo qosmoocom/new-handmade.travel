@@ -1,5 +1,6 @@
+import { useRouter } from "next/router";
 import { useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { GrFormAdd } from "react-icons/gr";
 import { AiFillDelete } from "react-icons/ai";
 import { useDispatch } from "react-redux";
@@ -8,12 +9,16 @@ import Text from "./Text";
 
 const Wrapper = styled.div`
   position: relative;
-  &:hover {
-    @media (min-width: 1200px) {
-      transition: border 0.3s;
-      border: 2px solid blue;
-    }
-  }
+  ${({ isAdmin }) =>
+    isAdmin &&
+    css`
+      &:hover {
+        @media (min-width: 1200px) {
+          transition: border 0.3s;
+          border: 2px solid blue;
+        }
+      }
+    `}
   .child_item {
     position: absolute;
     display: none;
@@ -46,6 +51,8 @@ export default function Item({
   target = "",
 }) {
   const dispatch = useDispatch();
+  const { asPath } = useRouter();
+  const isAdmin = asPath.includes("admin/create-tour");
   const [isItEdit, setIsItEdit] = useState(false);
   const handleDel = () =>
     dispatch({ type: types.deleteItem, payload: { group, itemId } });
@@ -56,65 +63,71 @@ export default function Item({
   if (href && target) {
     if (isItEdit) {
       return (
-        <Wrapper className={className} href={href}>
-          <span className="child_item">
-            <div>
-              <GrFormAdd className="child_icon" onClick={handleAdd} />
-              <AiFillDelete className="child_icon" onClick={handleDel} />
-              <label style={{ paddingLeft: "5px", minWidth: "80px" }}>
-                <input
-                  type="checkbox"
-                  checked={isItEdit}
-                  onChange={(e) => setIsItEdit(e.target.checked)}
-                />
-              </label>
-            </div>
-            <span style={{ margin: "2px" }}>
-              <Text name="link" group={group} id={itemId}>
-                link
-              </Text>
+        <Wrapper isAdmin={isAdmin} className={className} href={href}>
+          {isAdmin && (
+            <span className="child_item">
+              <div>
+                <GrFormAdd className="child_icon" onClick={handleAdd} />
+                <AiFillDelete className="child_icon" onClick={handleDel} />
+                <label style={{ paddingLeft: "5px", minWidth: "80px" }}>
+                  <input
+                    type="checkbox"
+                    checked={isItEdit}
+                    onChange={(e) => setIsItEdit(e.target.checked)}
+                  />
+                </label>
+              </div>
+              <span style={{ margin: "2px" }}>
+                <Text name="link" group={group} id={itemId}>
+                  link
+                </Text>
+              </span>
             </span>
-          </span>
+          )}
           {className === "li" ? <li>{children}</li> : children}
         </Wrapper>
       );
     }
     return (
-      <Wrapper className={className} href={href}>
+      <Wrapper isAdmin={isAdmin} className={className} href={href}>
         <a
           style={{ display: "flex", alignItems: "center" }}
           href={href}
           target={target}
         >
-          <span className="child_item">
-            <div>
-              <GrFormAdd className="child_icon" onClick={handleAdd} />
-              <AiFillDelete className="child_icon" onClick={handleDel} />
-              <label style={{ paddingLeft: "5px", minWidth: "80px" }}>
-                <input
-                  type="checkbox"
-                  checked={isItEdit}
-                  onChange={(e) => setIsItEdit(e.target.checked)}
-                />
-              </label>
-            </div>
-            <span style={{ margin: "2px" }}>
-              <Text name="link" group={group} id={itemId}>
-                link
-              </Text>
+          {isAdmin && (
+            <span className="child_item">
+              <div>
+                <GrFormAdd className="child_icon" onClick={handleAdd} />
+                <AiFillDelete className="child_icon" onClick={handleDel} />
+                <label style={{ paddingLeft: "5px", minWidth: "80px" }}>
+                  <input
+                    type="checkbox"
+                    checked={isItEdit}
+                    onChange={(e) => setIsItEdit(e.target.checked)}
+                  />
+                </label>
+              </div>
+              <span style={{ margin: "2px" }}>
+                <Text name="link" group={group} id={itemId}>
+                  link
+                </Text>
+              </span>
             </span>
-          </span>
+          )}
           {className === "li" ? <li>{children}</li> : children}
         </a>
       </Wrapper>
     );
   }
   return (
-    <Wrapper className={className}>
-      <span className="child_item">
-        <GrFormAdd className="child_icon" onClick={handleAdd} />
-        <AiFillDelete className="child_icon" onClick={handleDel} />
-      </span>
+    <Wrapper isAdmin={isAdmin} className={className}>
+      {isAdmin && (
+        <span className="child_item">
+          <GrFormAdd className="child_icon" onClick={handleAdd} />
+          <AiFillDelete className="child_icon" onClick={handleDel} />
+        </span>
+      )}
       {className === "li" ? <li>{children}</li> : children}
     </Wrapper>
   );

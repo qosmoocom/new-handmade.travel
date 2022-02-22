@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { BsExclamationCircle, BsCheck2 } from "react-icons/bs";
 import parse from "html-react-parser";
 import { IoIosMail, IoMdCall } from "react-icons/io";
@@ -69,6 +70,8 @@ function DataIs({ isOpen = false, tariffNum = "" }) {
 export default function Rate() {
   const { getItem } = useContext(AppContext);
   const [toggle, setToggle] = useState({ isOpen: true, index: 1 });
+  const { asPath } = useRouter();
+  const isAdmin = asPath.includes("admin/create-tour");
   const dispatch = useDispatch();
   const handleToggle = (index) => {
     setToggle((prevToggle) => ({
@@ -78,10 +81,12 @@ export default function Rate() {
     }));
   };
   const checkendHandler = (group, name, id, index) => {
-    dispatch({
-      type: types.checkEdit,
-      payload: { group, name, id, index, isCheckEdit: true },
-    });
+    if (isAdmin) {
+      dispatch({
+        type: types.checkEdit,
+        payload: { group, name, id, index, isCheckEdit: true },
+      });
+    }
   };
   return (
     <div id="rate">

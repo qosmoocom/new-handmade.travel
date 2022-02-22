@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { AiFillEdit } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { types } from "../../store/types";
@@ -32,6 +33,8 @@ const Typography = ({
   type = "",
 }) => {
   const dispatch = useDispatch();
+  const { asPath } = useRouter();
+  const isAdmin = asPath.includes("admin/create-tour");
   const openModal = () => {
     dispatch({
       type: types.editText,
@@ -51,14 +54,14 @@ const Typography = ({
   if (type === "important") {
     return (
       <Wrapper>
-        <AiFillEdit className="edit__icon" onClick={openModal} />
+        {isAdmin && <AiFillEdit className="edit__icon" onClick={openModal} />}
         <span>{children}</span>
       </Wrapper>
     );
   }
   return (
     <Wrapper>
-      <AiFillEdit className="edit__icon" onClick={openModal} />
+      {isAdmin && <AiFillEdit className="edit__icon" onClick={openModal} />}
       <span>{parse(children.toString())}</span>
     </Wrapper>
   );
