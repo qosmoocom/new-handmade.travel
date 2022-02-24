@@ -3066,7 +3066,6 @@ body {
       margin-bottom: 20px;
     }
     @media (min-width: 1300px) {
-      /* font-family: "Akrobat", sans-serif; */
       font-weight: 500;
       font-size: 30px;
       line-height: 117.6%;
@@ -3081,11 +3080,38 @@ body {
     margin: 10px;
     min-height: 372px;
     cursor: pointer;
+    position: relative;
+
+    .checked {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      padding: 10px;
+      min-width: 20px;
+      height: 20px;
+      background-color: #f19b2f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      display: none;
+    }
     @media (min-width: 768px) {
       min-height: 320px;
     }
     @media (min-width: 992px) {
       min-height: 320px;
+
+      &.admin {
+        transition: 0.4s;
+        &:hover {
+          border: 1px solid red;
+
+          .checked {
+            display: flex;
+            flex-direction: row-reverse;
+          }
+        }
+      }
     }
     @media (min-width: 1200px) {
       min-height: 340px;
@@ -3176,7 +3202,6 @@ body {
     /* info box */
     &-info {
       /* font-family: "Akrobat", sans-serif; */
-      font-weight: 500;
       font-size: 18px;
       line-height: 1.3;
       letter-spacing: 0.005em;
@@ -3184,9 +3209,7 @@ body {
       text-transform: uppercase;
       text-align: center;
       padding-bottom: 20px;
-      span {
-        font-weight: 700;
-      }
+      font-weight: 500;
       @media (min-width: 320px) {
         font-size: 17px;
       }
@@ -3200,8 +3223,6 @@ body {
         font-size: 17px;
       }
       @media (min-width: 1300px) {
-        /* font-family: "Akrobat", sans-serif; */
-        font-weight: 500;
         font-size: 18px;
         line-height: 1.3;
         letter-spacing: 0.005em;

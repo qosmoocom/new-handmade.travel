@@ -17,6 +17,7 @@ import Reviews from "./reviews";
 import Benefit from "./benefit";
 import Faq from "./faq";
 import OtherTour from "./other-tours";
+import Footer from "./footer";
 
 // components
 import ModalForText from "../components/modals/ModalForText";
@@ -52,6 +53,7 @@ export default function Index() {
       <Benefit />
       <Faq />
       <OtherTour />
+      <Footer />
       {/* these are refreshing components */}
       <ModalForText />
       <ModalForLink />

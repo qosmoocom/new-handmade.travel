@@ -43,9 +43,9 @@ const initialState = {
       { head_menu_title: "ОТЗЫВЫ", head_menu_href: "#coment" },
       { head_menu_title: "КОНТАКТЫ", head_menu_href: "#contact" },
     ],
-  }, // group='menu' {name='head_menu_href', name='head_menu_title'}
-  head_btn_call: { value: "Заказать звонок" }, // name='head_btn_call' group=undefined
-  head_btn_bron: { value: "БРОНИРОВАТЬ" }, // name='head_btn_bron' group=undefined
+  },
+  head_btn_call: { value: "Заказать звонок" },
+  head_btn_bron: { value: "БРОНИРОВАТЬ" },
   head_text_1: {
     value: `ГАСТРОНОМИЧЕСКОЕ ПРИКЛЮЧЕНИЕ “РУССКих В УЗБЕКИСТАНЕ”`,
   }, // name='head_text_1' group=undefined
@@ -1291,6 +1291,65 @@ const initialState = {
         other_tours_br3: "7 дней / от $ 702",
         other_tours_link: "/tours/dance/ru",
       },
+    ],
+  },
+  footer_logo_text: {
+    value: "my hand. I made. my travel",
+  },
+  footer_left_info: {
+    value: `
+            handmade.travel<br/>
+            торговый знак Silk Road Destinations.<br/>
+            Наш опыт в путешествиях 20 лет.<br/>
+            Более 35 тысяч счастливых туристов.
+          `,
+  },
+  footer_center_section_title: {
+    value: `НОВОСТИ, АКЦИИ, СКИДКИ`,
+  },
+  footer_btn: {
+    value: "ХОЧУ БЫТЬ В КУРСЕ",
+  },
+  footer_pdf_btn: {
+    value: "Политика конфиденциальности",
+  },
+  footer_checked_label: {
+    value:
+      "Нажимая на кнопку, вы соглашаетесь с условиями нашей политики конфиденциальности",
+  },
+  footer_right_section_title: {
+    value: "Контакты",
+  },
+  footer_phone_1_title: {
+    value: "+7 812 309 52 11 - Россия",
+  },
+  footer_phone_2_title: {
+    value: "+998 66 231 05 48 - Узбекистан",
+  },
+  footer_phone_1_number: {
+    value: "78123095211",
+  },
+  footer_phone_2_number: {
+    value: "998662310548",
+  },
+  footer_email: {
+    value: "russia@handmade.travel",
+  },
+  footer_tg: {
+    value: "Telegram",
+  },
+  footer_wp: {
+    value: "WhatsApp",
+  },
+  footer_fc: {
+    value: "Facebook",
+  },
+  footer_menu: {
+    data: [
+      { head_menu_title: "Даты и цены", head_menu_href: "#bron" },
+      { head_menu_title: "ЧТО ВКЛЮЧЕНО", head_menu_href: "#text" },
+      { head_menu_title: "ОТЗЫВЫ", head_menu_href: "#coment" },
+      { head_menu_title: "КОНТАКТЫ", head_menu_href: "#contact" },
     ],
   },
 };
