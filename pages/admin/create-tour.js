@@ -19,7 +19,14 @@ export default function CreateTour() {
           rel="stylesheet"
         />
       </Head>
-      {isAdmin ? <App /> : <Login />}
+      {!isAdmin ? (
+        <Login />
+      ) : (
+        <>
+          <App />
+          <button>Save All</button>
+        </>
+      )}
     </div>
   );
 }
