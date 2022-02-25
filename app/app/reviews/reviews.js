@@ -3,8 +3,15 @@ import { AppContext } from "..";
 import Image from "../../components/Image";
 import Text from "../../components/Text";
 import Item from "../../components/Item";
+import { FaPlane } from "react-icons/fa";
 export default function Reviews() {
   const { getItem } = useContext(AppContext);
+  const handleTop = () => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <div id="reviews">
       <div className="container">
@@ -55,7 +62,14 @@ export default function Reviews() {
                 </Item>
               );
             })}
-            <div className="arrow">{/* {saas} */}</div>
+          </div>
+          <div className="plane" style={{ paddingTop: "1rem" }}>
+            <article onClick={handleTop}>
+              <FaPlane className="plane-btn" />
+              <p>
+                <Text name="prices_top_btn">{getItem("prices_top_btn")}</Text>
+              </p>
+            </article>
           </div>
         </div>
       </div>

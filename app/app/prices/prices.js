@@ -5,6 +5,12 @@ import Text from "../../components/Text";
 import { FaPlane } from "react-icons/fa";
 export default function Price() {
   const { getItem } = useContext(AppContext);
+  const handleTop = () => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <div id="price">
       <div className="container">
@@ -53,7 +59,7 @@ export default function Price() {
             })}
           </div>
           <div className="plane">
-            <article>
+            <article onClick={handleTop}>
               <FaPlane className="plane-btn" />
               <p>
                 <Text name="prices_top_btn">{getItem("prices_top_btn")}</Text>

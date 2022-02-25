@@ -88,6 +88,12 @@ export default function Rate() {
       });
     }
   };
+  const handleTop = () => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <div id="rate">
       <div className="container">
@@ -274,7 +280,7 @@ export default function Rate() {
             </Text>
           </p>
           <div className="plane">
-            <article>
+            <article onClick={handleTop}>
               <FaPlane className="plane-btn" />
               <p>
                 <Text name="prices_top_btn">{getItem("prices_top_btn")}</Text>

@@ -17,7 +17,7 @@ import Reviews from "./reviews";
 import Benefit from "./benefit";
 import Faq from "./faq";
 import OtherTour from "./other-tours";
-import Footer from "./footer";
+import Footer from "./footer/index";
 
 // components
 import ModalForText from "../components/modals/ModalForText";
