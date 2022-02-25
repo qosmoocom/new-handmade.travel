@@ -21,7 +21,6 @@ export default function OtherTour() {
     );
   };
 
-  console.log(editItems);
   return (
     <div id="outher-tour">
       <div className="container">

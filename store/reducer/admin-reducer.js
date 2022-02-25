@@ -1327,13 +1327,16 @@ const initialState = {
     value: "+998 66 231 05 48 - Узбекистан",
   },
   footer_phone_1_number: {
-    value: "78123095211",
+    value: "tel:+78123095211",
   },
   footer_phone_2_number: {
-    value: "998662310548",
+    value: "tel:+998662310548",
   },
-  footer_email: {
+  footer_email_name: {
     value: "russia@handmade.travel",
+  },
+  footer_email_value: {
+    value: "mailto:russia@handmade.travel",
   },
   footer_tg: {
     value: "Telegram",
