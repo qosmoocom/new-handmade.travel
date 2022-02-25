@@ -1,7 +1,11 @@
 import React from "react";
 import Head from "next/head";
 import App from "../../app/app";
+import Login from "../../app/components/admin-components/Login";
+import { useSelector } from "react-redux";
 export default function CreateTour() {
+  const state = useSelector((state) => state);
+  const { isAdmin } = state.login;
   return (
     <div>
       <Head>
@@ -15,7 +19,7 @@ export default function CreateTour() {
           rel="stylesheet"
         />
       </Head>
-      <App isAdmin />
+      {isAdmin ? <App /> : <Login />}
     </div>
   );
 }
