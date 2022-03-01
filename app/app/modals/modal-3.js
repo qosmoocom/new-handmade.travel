@@ -294,12 +294,35 @@ export function Modal3() {
                 </div>
               </div>
             </div>
+            {/* selects */}
             <div className="form-group">
               <label>
                 <Text name="modal_3_date">{getItem("modal_3_date")}</Text>
                 <div className={`input-box`}>
-                  <select disabled>
-                    <option>{"check_date"}</option>
+                  <option value="" selected disabled hidden></option>
+                  <select>
+                    {getItem("prices_data", "prices_data").map(
+                      (item, index) => {
+                        return <option key={index}>{item?.date}</option>;
+                      }
+                    )}
+                  </select>
+                </div>
+              </label>
+            </div>
+            <div className="form-group">
+              <label>
+                <Text name="modal_3_price">{getItem("modal_3_price")}</Text>
+                <div className={`input-box`}>
+                  <option value="" selected disabled hidden></option>
+                  <select>
+                    {getItem("rate_name_data", "rate_name_data").map(
+                      (item, index) => {
+                        return (
+                          <option key={index}>{item?.rate_name_head}</option>
+                        );
+                      }
+                    )}
                   </select>
                 </div>
               </label>
