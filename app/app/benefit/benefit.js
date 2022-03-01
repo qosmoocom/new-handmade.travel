@@ -23,7 +23,7 @@ export default function Benefit() {
           srcDataName={"benefit_img_url"}
           altDasrcDataName={"benefit_img_alt"}
           titleDasrcDataName={"benefit_img_title"}
-          priority
+          priority={"important"}
         />
 
         <div className="benefit-text-section">

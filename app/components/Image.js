@@ -39,6 +39,7 @@ export default function Index({
   name = "",
   parentId = "",
   childId = "",
+  priority,
 }) {
   const { asPath } = useRouter();
   const isAdmin = asPath.includes("admin/create-tour");
@@ -73,7 +74,7 @@ export default function Index({
         src={src}
         alt={alt || ""}
         title={title || ""}
-        // priority
+        priority={priority === "important"}
         objectFit={objectFit}
         layout={layout}
         onDoubleClick={doubleClickHandler}
@@ -89,7 +90,7 @@ export default function Index({
         height={height}
         alt={alt}
         title={title}
-        // priority
+        priority={priority === "important"}
         objectFit={objectFit}
         layout={layout}
       />

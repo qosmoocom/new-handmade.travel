@@ -282,7 +282,7 @@ const Blog = styled.div`
       height: 42px;
     }
   }
-  p {
+  .section-p {
     margin-top: 25px;
     position: relative;
     display: flex;
@@ -1174,7 +1174,7 @@ export default function index({ footer }) {
 
                       <div className="clearfix"></div>
                     </form>
-                    <p>
+                    <section className="section-p">
                       <span onClick={() => openCheckPdf("pdf_2")}>
                         <Text name="footer_col_srteficat">
                           {getItem("footer_col_srteficat")}
@@ -1194,7 +1194,7 @@ export default function index({ footer }) {
                           </Text>
                         </label>
                       </div>
-                    </p>
+                    </section>
                   </Blog>
                 </Email_blog>
                 <Contact_blog>

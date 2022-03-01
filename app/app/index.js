@@ -1,4 +1,7 @@
-import { createContext } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import { createContext, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import Header from "./header";
@@ -18,6 +21,9 @@ import Benefit from "./benefit";
 import Faq from "./faq";
 import OtherTour from "./other-tours";
 import Footer from "./footer/index";
+import { Modal1 } from "./modals/modal-1";
+import { Modal2 } from "./modals/modal-2";
+import { Modal3 } from "./modals/modal-3";
 
 // components
 import ModalForText from "../components/modals/ModalForText";
@@ -29,14 +35,35 @@ export const AppContext = createContext(null);
 
 export default function Index() {
   const state = useSelector((state) => state.admin);
-
+  const modalOpen = useSelector((state) => state.modal.isOpen);
   const getItem = (name = "", group = "") => {
     if (!group) return state[name]?.value; // value is string
     if (group) return state[group]["data"]; // array
   };
   const defaultValue = { getItem };
+
+  // useEffect(() => {
+  //   if (modalOpen) {
+  //     document.body.style.cssText = `
+  //       height:100vh;
+  //       overflow: hidden;
+  //     `;
+  //   } else {
+  //     document.body.style.cssText = `
+  //       height:auto;
+  //       overflow-y: auto;
+  //     `;
+  //   }
+  // }, [modalOpen]);
+
   return (
     <AppContext.Provider value={defaultValue}>
+      {/* modals */}
+
+      <Modal1 />
+      <Modal2 />
+      <Modal3 />
+      {/* ___modals */}
       <Header />
       <FirstUtp />
       <SecondUtp />
@@ -54,6 +81,7 @@ export default function Index() {
       <Faq />
       <OtherTour />
       <Footer />
+
       {/* these are refreshing components */}
       <ModalForText />
       <ModalForLink />

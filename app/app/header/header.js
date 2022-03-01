@@ -1,3 +1,4 @@
+import { useDispatch } from "react-redux";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "..";
 import { IoMdCall } from "react-icons/io";
@@ -16,6 +17,8 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [logoWidth, setLogoWidth] = useState(150);
   const [scroll, setScroll] = useState(false);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -42,6 +45,24 @@ export default function Header() {
       }
     });
   }, []);
+
+  // modal 1 opened
+  const handleOnModal1 = () => {
+    const payload = {
+      currentModal: "MODAL_1",
+      actionModal: "ACTION 1",
+    };
+    dispatch({ type: "MODAL_OPEN", payload });
+  };
+
+  // modal 2 opened
+  const handleOnModal2 = () => {
+    const payload = {
+      currentModal: "MODAL_3",
+      actionModal: "ACTION 2",
+    };
+    dispatch({ type: "MODAL_OPEN", payload });
+  };
 
   const openLeftMenuHandler = () => setIsOpen(true);
   const closeLeftMenuHandler = () => setIsOpen(false);
@@ -103,7 +124,7 @@ export default function Header() {
             </div>
             {/* ---------- */}
             {/* right-section or to-book-btn and tel-me-btn */}
-            <button className="to-book-btn">
+            <button className="to-book-btn" onClick={handleOnModal2}>
               <Text name="to_book_btn" itIsClassName="to-book-btn">
                 {getItem("to_book_btn")}
               </Text>
@@ -344,7 +365,7 @@ export default function Header() {
           {/* btn-logo-mobile */}
           <div className="btn-logo-and-mobile">
             <div className="header_navbar_btn_mobile">
-              <button>
+              <button style={{ cursor: "pointer" }} onClick={handleOnModal1}>
                 <Text
                   name="head_btn_call"
                   itIsClassName="header_navbar_btn_mobile"
