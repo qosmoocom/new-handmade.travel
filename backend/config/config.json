@@ -1,0 +1,4 @@
+{
+  "connString": "mongodb+srv://gulxayo:g932300428@cluster0.jwpjs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "URL":"http://localhost:5000"
+}
