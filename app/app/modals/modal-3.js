@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { AppContext } from "..";
+import { useEffect, useState, useContext } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Image from "next/image";
 import styled from "styled-components";
 import { AiOutlineClose } from "react-icons/ai";
+import Text from "../../components/Text";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import {
   FaFacebookF,
@@ -21,16 +22,12 @@ const defaultState = {
     phone: "",
     email: "",
     messenger_user: "",
-    people_numbers: {
-      years_12_: "",
-      years_2_12_: "",
-      months_6_years_2: "",
-    },
-    hotel_room: {
-      one_people: "",
-      two_people: "",
-      three_people: "",
-    },
+    years_12_: "",
+    years_2_12_: "",
+    months_6_years_2: "",
+    one_people: "",
+    two_people: "",
+    three_people: "",
     commit: "",
   },
   error_watch: {
@@ -40,12 +37,13 @@ const defaultState = {
       { type: "phone", error: false },
       { type: "email", error: false },
       { type: "messenger_user", error: false },
-      { type: "messenger_user", error: false },
+      { type: "years_12_", error: false },
       { type: "commit", error: false },
     ],
   },
 };
 export function Modal3() {
+  const { getItem } = useContext(AppContext);
   const [modalState, setModalState] = useState(defaultState);
   const globalState = useSelector((state) => state);
   const globalDispatch = useDispatch();
@@ -100,6 +98,10 @@ export function Modal3() {
       isError = false;
     }
 
+    if (name === "years_12_") {
+      isError = !value;
+    }
+
     setModalState((prev) => ({
       ...prev,
       error_watch: {
@@ -115,14 +117,14 @@ export function Modal3() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     handleErrorlistener(name, value);
-    if (name === "")
-      setModalState((prev) => ({
-        ...prev,
-        form: {
-          ...prev.form,
-          [name]: value,
-        },
-      }));
+
+    setModalState((prev) => ({
+      ...prev,
+      form: {
+        ...prev.form,
+        [name]: value,
+      },
+    }));
   };
 
   const classAddError = (name) => {
@@ -180,7 +182,7 @@ export function Modal3() {
           }}
           onClick={handleClose}
         />
-        <form action="https://pay.ofb.uz" method="POST">
+        <form action="https://pay.ofb.uz" method="POST" onSubmit={handleSubmit}>
           <input
             type="hidden"
             name="merchantId"
@@ -196,12 +198,16 @@ export function Modal3() {
             <div className="exit-btn" onClick={handleClose}>
               <AiOutlineClose />
             </div>
-            <h3 className="title">Авторский тур в Узбекистан</h3>
+            <h3 className="title">
+              <Text name="modal_3_title">{getItem("modal_3_title")}</Text>
+            </h3>
 
             <div className="form-group">
               <label>
-                Имя:
-                <div className={`input-box`}>
+                <Text name="modal_3_username">
+                  {getItem("modal_3_username")}
+                </Text>
+                <div className={`input-box ${classAddError("name")}`}>
                   <input
                     type="text"
                     name="name"
@@ -213,8 +219,8 @@ export function Modal3() {
             </div>
             <div className="form-group">
               <label>
-                Телефон:
-                <div className={`input-box`}>
+                <Text name="modal_3_phone">{getItem("modal_3_phone")}</Text>
+                <div className={`input-box ${classAddError("phone")}`}>
                   <input
                     type="number"
                     className="input-phone"
@@ -227,8 +233,8 @@ export function Modal3() {
             </div>
             <div className="form-group">
               <label>
-                Email:
-                <div className={`input-box`}>
+                <Text name="modal_3_email">{getItem("modal_3_email")}</Text>
+                <div className={`input-box  ${classAddError("email")}`}>
                   <input
                     type="text"
                     name="email"
@@ -239,7 +245,11 @@ export function Modal3() {
               </label>
             </div>
             <div className="form-box">
-              <label htmlFor="my_messenger">Удобный мессенджер:</label>
+              <label htmlFor="my_messenger">
+                <Text name="modal_3_convenient_messenger">
+                  {getItem("modal_3_convenient_messenger")}
+                </Text>
+              </label>
               <div className={`input-box`}>
                 <button
                   type="button"
@@ -286,7 +296,7 @@ export function Modal3() {
             </div>
             <div className="form-group">
               <label>
-                Даты:
+                <Text name="modal_3_date">{getItem("modal_3_date")}</Text>
                 <div className={`input-box`}>
                   <select disabled>
                     <option>{"check_date"}</option>
@@ -297,23 +307,33 @@ export function Modal3() {
 
             <div className="form-group">
               <label>
-                Количество участников:
+                <Text name="modal_3_participants_title">
+                  {getItem("modal_3_participants_title")}
+                </Text>
                 <div className="inputs-box">
                   <div className="item">
-                    <span>Взрослые 12+ лет: </span>
-                    <div className={`input-box`}>
+                    <span>
+                      <Text name="modal_3_participants_one">
+                        {getItem("modal_3_participants_one")}
+                      </Text>
+                    </span>
+                    <div className={`input-box ${classAddError("years_12_")}`}>
                       <input
                         type="number"
                         min={0}
                         max={15}
                         name="years_12_"
                         onChange={handleChange}
-                        value={form.people_numbers.years_12_}
+                        value={form.years_12_}
                       />
                     </div>
                   </div>
                   <div className="item">
-                    <span>Дети 2-12 лет: </span>
+                    <span>
+                      <Text name="modal_3_participants_two">
+                        {getItem("modal_3_participants_two")}
+                      </Text>
+                    </span>
                     <div className="input-box">
                       <input
                         type="number"
@@ -321,12 +341,16 @@ export function Modal3() {
                         max={15}
                         name="years_2_12_"
                         onChange={handleChange}
-                        value={form.people_numbers.years_2_12_}
+                        value={form.years_2_12_}
                       />
                     </div>
                   </div>
                   <div className="item">
-                    <span>Груднички 6 мес-2 года:</span>
+                    <span>
+                      <Text name="modal_3_participants_three">
+                        {getItem("modal_3_participants_three")}
+                      </Text>
+                    </span>
                     <div className="input-box">
                       <input
                         type="number"
@@ -334,7 +358,7 @@ export function Modal3() {
                         max={15}
                         name="months_6_years_2"
                         onChange={handleChange}
-                        value={form.people_numbers.months_6_years_2}
+                        value={form.months_6_years_2}
                       />
                     </div>
                   </div>
@@ -344,10 +368,16 @@ export function Modal3() {
             {/* input box two section started */}
             <div className="form-group">
               <label>
-                Распределите участников по номерам:
+                <Text name="modal_3_divide_title">
+                  {getItem("modal_3_divide_title")}
+                </Text>
                 <div className="inputs-box">
                   <div className="item">
-                    <span>В одноместном</span>
+                    <span>
+                      <Text name="modal_3_divide_one">
+                        {getItem("modal_3_divide_one")}
+                      </Text>
+                    </span>
                     <div className={`input-box`}>
                       <input
                         type="number"
@@ -355,12 +385,16 @@ export function Modal3() {
                         max={15}
                         name="one_people"
                         onChange={handleChange}
-                        value={form.hotel_room.one_people}
+                        value={form.one_people}
                       />
                     </div>
                   </div>
                   <div className="item">
-                    <span>В двухместном</span>
+                    <span>
+                      <Text name="modal_3_divide_two">
+                        {getItem("modal_3_divide_two")}
+                      </Text>
+                    </span>
                     <div className={`input-box`}>
                       <input
                         type="number"
@@ -368,12 +402,16 @@ export function Modal3() {
                         max={15}
                         name="two_people"
                         onChange={handleChange}
-                        value={form.hotel_room.two_people}
+                        value={form.two_people}
                       />
                     </div>
                   </div>
                   <div className="item">
-                    <span>В трехместном</span>
+                    <span>
+                      <Text name="modal_3_divide_three">
+                        {getItem("modal_3_divide_three")}
+                      </Text>
+                    </span>
                     <div className={`input-box `}>
                       <input
                         type="number"
@@ -381,7 +419,7 @@ export function Modal3() {
                         max={15}
                         name="three_people"
                         onChange={handleChange}
-                        value={form.hotel_room.three_people}
+                        value={form.three_people}
                       />
                     </div>
                   </div>
@@ -391,7 +429,9 @@ export function Modal3() {
 
             <div className="form-group">
               <label>
-                Комментарии:
+                <Text name="modal_3_divide_four">
+                  {getItem("modal_3_divide_four")}
+                </Text>
                 <div className="input-box">
                   <textarea
                     rows={1}
@@ -403,12 +443,17 @@ export function Modal3() {
               </label>
             </div>
             <div className="form-group" style={{ textAlign: "center" }}>
-              <button type="submit">БРОНИРОВАТЬ</button>
+              <button type="submit">
+                <Text name="modal_3_divide_btn">
+                  {getItem("modal_3_divide_btn")}
+                </Text>
+              </button>
             </div>
             <div className="form-group">
               <p id="warning">
-                Ваши данные будут использованы исключительно для связи с вами по
-                вопросу путешествия и не будут переданы третьим лицам.
+                <Text name="modal_3_divide_description">
+                  {getItem("modal_3_divide_description")}
+                </Text>
               </p>
             </div>
           </section>

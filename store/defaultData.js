@@ -1429,4 +1429,113 @@ export const defaultState = {
   footer_logo_img_title: {
     value: "Handmade.travel Logo",
   },
+
+  // modals data
+  modal_1_title: {
+    value: "Авторский тур в Узбекистан",
+  },
+  modal_1_username: {
+    value: "Имя:",
+  },
+  modal_1_phone: {
+    value: "Телефон:",
+  },
+  modal_1_date: {
+    value: "Дата:",
+  },
+  modal_1_time: {
+    value: "Время:",
+  },
+  modal_1_btn: {
+    value: "жду звонок!",
+  },
+  modal_1_description_1: {
+    value:
+      "Ваши данные будут использованы исключительно для связи с вами по вопросу путешествия и не будут переданы третьим лицам.",
+  },
+  modal_1_description_2: {
+    value:
+      "Спасибо за заявку! Мы свяжемся с вами в ближайшее время! Если вдруг мы не перезвоним в назначенное время, Донт Ворри, наш travel-эксперт, в любом случае, свяжется с вами :)",
+  },
+  modal_2_title: {
+    value: "Хотите узнать больше о коуч-туре?",
+  },
+  modal_2_description_1: {
+    value:
+      "Наш travel-эксперт свяжется с вами в удобное время и любым удобным для вас способом связи, чтобы рассказать все детали нашего предложения.",
+  },
+  modal_2_username: {
+    value: "Имя:",
+  },
+  modal_2_phone: {
+    value: "Телефон:",
+  },
+  modal_2_email: {
+    value: "Email:",
+  },
+  modal_2_convenient_messenger: {
+    value: "Удобный мессенджер:",
+  },
+  modal_2_commit: {
+    value: "Комментарии:",
+  },
+  modal_2_btn: {
+    value: "ЖДУ ОТВЕТА!",
+  },
+  modal_2_description_1: {
+    value:
+      "Ваши данные будут использованы исключительно для связи с вами по вопросу коуч-тура и не будут переданы третьим лицам.",
+  },
+  modal_3_title: {
+    value: "Авторский тур в Узбекистан",
+  },
+  modal_3_username: {
+    value: "Имя:",
+  },
+  modal_3_phone: {
+    value: "Телефон:",
+  },
+  modal_3_email: {
+    value: "Email:",
+  },
+  modal_3_convenient_messenger: {
+    value: "Удобный мессенджер:",
+  },
+  modal_3_date: {
+    value: "Даты:",
+  },
+  modal_3_participants_title: {
+    value: "Количество участников:",
+  },
+  modal_3_participants_one: {
+    value: "Взрослые 12+ лет:",
+  },
+  modal_3_participants_two: {
+    value: "Дети 2-12 лет:",
+  },
+  modal_3_participants_three: {
+    value: "Груднички 6 мес-2 года:",
+  },
+  modal_3_divide_title: {
+    value: "Распределите участников по номерам:",
+  },
+  modal_3_divide_one: {
+    value: "В одноместном",
+  },
+  modal_3_divide_two: {
+    value: "В двухместном",
+  },
+  modal_3_divide_three: {
+    value: "В трехместном",
+  },
+  modal_3_divide_four: {
+    value: "Комментарии:",
+  },
+  modal_3_divide_btn: {
+    value: "БРОНИРОВАТЬ",
+  },
+  modal_3_divide_description: {
+    value:
+      "Ваши данные будут использованы исключительно для связи с вами по вопросу путешествия и не будут переданы третьим лицам.",
+  },
 };

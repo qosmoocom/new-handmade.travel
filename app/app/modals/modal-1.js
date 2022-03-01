@@ -1,8 +1,9 @@
-import { useReducer, useEffect, useState } from "react";
+import { AppContext } from "..";
+import { useReducer, useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 import { AiOutlineClose } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";
-
+import Text from "../../components/Text";
 const initialState = {
   isOpen: false,
   form: {
@@ -46,6 +47,7 @@ const reducer = (state, action) => {
   }
 };
 export const Modal1 = () => {
+  const { getItem } = useContext(AppContext);
   const [modalState, modalDispatch] = useReducer(reducer, initialState);
   const [errorWorker, setErrorWorker] = useState({
     error_worker: false,
@@ -139,11 +141,13 @@ export const Modal1 = () => {
             <AiOutlineClose />
           </div>
           <div className="title">
-            <h3>Авторский тур в Узбекистан</h3>
+            <h3>
+              <Text name="modal_1_title">{getItem("modal_1_title")}</Text>
+            </h3>
           </div>
           <div className="input-box">
             <label>
-              Имя:
+              <Text name="modal_1_username">{getItem("modal_1_username")}</Text>
               <div className={`input ${classAddError("name")}`}>
                 <input
                   type="text"
@@ -158,7 +162,7 @@ export const Modal1 = () => {
           </div>
           <div className="input-box">
             <label>
-              Телефон:
+              <Text name="modal_1_phone">{getItem("modal_1_phone")}</Text>
               <div className={`input ${classAddError("phone")}`}>
                 <input
                   type="number"
@@ -173,7 +177,7 @@ export const Modal1 = () => {
           </div>
           <div className="input-box cuset-data">
             <label>
-              Дата:
+              <Text name="modal_1_date">{getItem("modal_1_date")}</Text>
               <div
                 className={`input ${classAddError("date")}`}
                 style={{ display: "flex", alignItems: "center" }}
@@ -189,7 +193,7 @@ export const Modal1 = () => {
               </div>
             </label>
             <label>
-              Время:
+              <Text name="modal_1_time">{getItem("modal_1_time")}</Text>
               <div
                 className={`input ${classAddError("time")}`}
                 style={{ display: "flex", alignItems: "center" }}
@@ -206,17 +210,20 @@ export const Modal1 = () => {
             </label>
           </div>
           <div style={{ textAlign: "center" }}>
-            <button type="submit">жду звонок!</button>
+            <button type="submit">
+              <Text name="modal_1_btn">{getItem("modal_1_btn")}</Text>
+            </button>
           </div>
           <div className="error-commet">
             <p>
-              Ваши данные будут использованы исключительно для связи с вами по
-              вопросу путешествия и не будут переданы третьим лицам.
+              <Text name="modal_1_description_1">
+                {getItem("modal_1_description_1")}
+              </Text>
             </p>
             <div className="text_two">
-              Спасибо за заявку! Мы свяжемся с вами в ближайшее время! Если
-              вдруг мы не перезвоним в назначенное время, Донт Ворри, наш
-              travel-эксперт, в любом случае, свяжется с вами :)
+              <Text name="modal_1_description_2">
+                {getItem("modal_1_description_2")}
+              </Text>
             </div>
           </div>
         </form>

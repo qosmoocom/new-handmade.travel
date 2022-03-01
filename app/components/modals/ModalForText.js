@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 
   &.active {
     opacity: 1;
-    z-index: 2311;
+    z-index: 231154;
     transition: all 0.4s;
     height: 100vh;
   }

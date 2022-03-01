@@ -115,6 +115,7 @@ export default function Login() {
       logDispatch({ type: "SET_VALUE_LOCALSTORAGE", user });
     }
   }, []);
+
   const isAdmin = login.users.some(
     (i) => i.user === user && i.password === password
   );

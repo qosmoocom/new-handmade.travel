@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import App from "../../app/app";
 import Login from "../../app/components/admin-components/Login";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 export default function CreateTour() {
   const state = useSelector((state) => state);
+  const dispatch = useDispatch();
   const { isAdmin } = state.login;
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      const isAdmin = state.login.users.some(
+        (i) => i.user === user.user && i.password === user.password
+      );
+      if (isAdmin) {
+        setTimeout(() => {
+          dispatch({ type: "THIS_IS_ADMIN" });
+        }, 1);
+      }
+    }
+  }, []);
   return (
     <div>
       <Head>

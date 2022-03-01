@@ -1,5 +1,6 @@
+import { AppContext } from "..";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import {
@@ -9,7 +10,7 @@ import {
   FaTelegramPlane,
 } from "react-icons/fa";
 import styled from "styled-components";
-
+import Text from "../../components/Text";
 const defaultState = {
   isOpen: false,
   my_messenger: {
@@ -35,6 +36,7 @@ const defaultState = {
   },
 };
 export function Modal2() {
+  const { getItem } = useContext(AppContext);
   const [modalState, setModalState] = useState(defaultState);
   const globalState = useSelector((state) => state);
   const globalDispatch = useDispatch();
@@ -164,15 +166,21 @@ export function Modal2() {
             <AiOutlineClose />
           </div>
           <div>
-            <h3>Хотите узнать больше о коуч-туре?</h3>
+            <h3>
+              <Text name="modal_2_title">{getItem("modal_2_title")}</Text>
+            </h3>
             <p className="info_one">
-              Наш travel-эксперт свяжется с вами в удобное время и любым удобным
-              для вас способом связи, чтобы рассказать все детали нашего
-              предложения.
+              <Text name="modal_2_description_1">
+                {getItem("modal_2_description_1")}
+              </Text>
             </p>
             <form onSubmit={handleSubmit}>
               <div className="form-box">
-                <label htmlFor="name">Имя:</label>
+                <label htmlFor="name">
+                  <Text name="modal_2_username">
+                    {getItem("modal_2_username")}
+                  </Text>
+                </label>
                 <div className={`input-box ${classAddError("name")}`}>
                   <input
                     type="text"
@@ -184,7 +192,9 @@ export function Modal2() {
               </div>
 
               <div className="form-box">
-                <label htmlFor="tel">Телефон:</label>
+                <label htmlFor="tel">
+                  <Text name="modal_2_phone">{getItem("modal_2_phone")}</Text>
+                </label>
                 <div className={`input-box ${classAddError("phone")}`}>
                   <input
                     type="number"
@@ -196,7 +206,9 @@ export function Modal2() {
               </div>
 
               <div className="form-box">
-                <label htmlFor="email">Email:</label>
+                <label htmlFor="email">
+                  <Text name="modal_2_email">{getItem("modal_2_email")}</Text>
+                </label>
                 <div className={`input-box ${classAddError("email")}`}>
                   <input
                     type="email"
@@ -208,7 +220,11 @@ export function Modal2() {
               </div>
 
               <div className="form-box">
-                <label htmlFor="my_messenger">Удобный мессенджер:</label>
+                <label htmlFor="my_messenger">
+                  <Text name="modal_2_convenient_messenger">
+                    {getItem("modal_2_convenient_messenger")}
+                  </Text>
+                </label>
                 <div className={`input-box`}>
                   <button
                     type="button"
@@ -254,18 +270,23 @@ export function Modal2() {
               </div>
 
               <div className="form-box">
-                <label htmlFor="name">Комментарии:</label>
+                <label htmlFor="name">
+                  <Text name="modal_2_commit">{getItem("modal_2_commit")}</Text>
+                </label>
                 <div className={`input-box`}>
                   <textarea name="commit" onChange={handleChange} />
                 </div>
               </div>
               <div style={{ textAlign: "center" }}>
-                <button type="submit">ЖДУ ОТВЕТА!</button>
+                <button type="submit">
+                  <Text name="modal_2_btn">{getItem("modal_2_btn")}</Text>
+                </button>
               </div>
             </form>
             <p className="info_last">
-              Ваши данные будут использованы исключительно для связи с вами по
-              вопросу коуч-тура и не будут переданы третьим лицам.
+              <Text name="modal_2_description_1">
+                {getItem("modal_2_description_1")}
+              </Text>
             </p>
           </div>
         </section>
@@ -282,7 +303,7 @@ const Wrapper = styled.div`
     left: 0;
     top: 0;
   }
-  span {
+  .span_element {
     position: absolute;
     right: 0px;
     transform: translateX(-50%);
@@ -794,11 +815,3 @@ const Wrapper = styled.div`
     }
   }
 `;
-
-/*
-head_btn_bron
-to_book_btn
-included_btn
-action_picture_btn_bron
-
-*/
