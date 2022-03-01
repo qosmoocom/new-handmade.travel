@@ -17,21 +17,21 @@ const defaultState = {
     check_messenger: "",
   },
   form: {
-    name: "Charle",
-    phone: "211312314",
-    email: "charle@gmail.com",
-    messenger_user: "charle.facebook.ru",
+    name: "",
+    phone: "",
+    email: "",
+    messenger_user: "",
     people_numbers: {
-      years_12_: "3",
-      years_2_12_: "2",
+      years_12_: "",
+      years_2_12_: "",
       months_6_years_2: "",
     },
     hotel_room: {
-      one_people: "2",
-      two_people: "3",
+      one_people: "",
+      two_people: "",
       three_people: "",
     },
-    commit: "those hotel very good hotel",
+    commit: "",
   },
   error_watch: {
     error_worker: false,
@@ -39,6 +39,7 @@ const defaultState = {
       { type: "name", error: false },
       { type: "phone", error: false },
       { type: "email", error: false },
+      { type: "messenger_user", error: false },
       { type: "messenger_user", error: false },
       { type: "commit", error: false },
     ],
@@ -114,13 +115,14 @@ export function Modal3() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     handleErrorlistener(name, value);
-    setModalState((prev) => ({
-      ...prev,
-      form: {
-        ...prev.form,
-        [name]: value,
-      },
-    }));
+    if (name === "")
+      setModalState((prev) => ({
+        ...prev,
+        form: {
+          ...prev.form,
+          [name]: value,
+        },
+      }));
   };
 
   const classAddError = (name) => {
