@@ -3,7 +3,7 @@ import Head from "next/head";
 import App from "../../app/app";
 import Login from "../../app/components/admin-components/Login";
 import { useSelector, useDispatch } from "react-redux";
-export default function CreateTour() {
+export default function Index() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const { isAdmin } = state.login;
@@ -20,6 +20,12 @@ export default function CreateTour() {
       }
     }
   }, []);
+  const whoIsFunction = (user) => {
+    switch (user) {
+      default:
+        return <h2>404 not found</h2>;
+    }
+  };
   return (
     <div>
       <Head>

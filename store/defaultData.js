@@ -1482,7 +1482,7 @@ export const defaultState = {
   modal_2_btn: {
     value: "ЖДУ ОТВЕТА!",
   },
-  modal_2_description_1: {
+  modal_2_description_2: {
     value:
       "Ваши данные будут использованы исключительно для связи с вами по вопросу коуч-тура и не будут переданы третьим лицам.",
   },

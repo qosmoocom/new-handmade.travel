@@ -170,7 +170,7 @@ export function Modal2() {
               <Text name="modal_2_title">{getItem("modal_2_title")}</Text>
             </h3>
             <p className="info_one">
-              <Text name="modal_2_description_1">
+              <Text name="modal_2_description_1" style={{ left: 0 }}>
                 {getItem("modal_2_description_1")}
               </Text>
             </p>
@@ -284,8 +284,8 @@ export function Modal2() {
               </div>
             </form>
             <p className="info_last">
-              <Text name="modal_2_description_1">
-                {getItem("modal_2_description_1")}
+              <Text name="modal_2_description_2">
+                {getItem("modal_2_description_2")}
               </Text>
             </p>
           </div>
@@ -388,7 +388,7 @@ const Wrapper = styled.div`
       right: 8px;
       top: 5px;
       z-index: 233;
-      font-size: 20px;
+      font-size: 25px;
       @media (min-width: 576px) {
         top: 2px;
       }

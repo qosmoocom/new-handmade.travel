@@ -221,7 +221,7 @@ export const Modal1 = () => {
               </Text>
             </p>
             <div className="text_two">
-              <Text name="modal_1_description_2">
+              <Text style={{ left: 0 }} name="modal_1_description_2">
                 {getItem("modal_1_description_2")}
               </Text>
             </div>
@@ -317,7 +317,7 @@ const Wrapper = styled.div`
       right: 8px;
       top: 5px;
       z-index: 233;
-      font-size: 20px;
+      font-size: 25px;
       @media (min-width: 576px) {
         top: 2px;
       }

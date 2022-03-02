@@ -24,6 +24,8 @@ const defaultState = {
     messenger_user: "",
     years_12_: "",
     years_2_12_: "",
+    date: "",
+    price: "",
     months_6_years_2: "",
     one_people: "",
     two_people: "",
@@ -39,6 +41,8 @@ const defaultState = {
       { type: "messenger_user", error: false },
       { type: "years_12_", error: false },
       { type: "commit", error: false },
+      { type: "date", error: false },
+      { type: "price", error: false },
     ],
   },
 };
@@ -75,7 +79,11 @@ export function Modal3() {
   const handleClickMessengerItem = (messenger_name) => {
     setModalState((prev) => ({
       ...prev,
-      my_messenger: { ...prev, check_messenger: messenger_name },
+      my_messenger: {
+        ...prev.my_messenger,
+        check_messenger: messenger_name,
+        isActive: false,
+      },
     }));
   };
 
@@ -98,7 +106,7 @@ export function Modal3() {
       isError = false;
     }
 
-    if (name === "years_12_") {
+    if (name === "years_12_" || name === "date" || name === "price") {
       isError = !value;
     }
 
@@ -169,6 +177,7 @@ export function Modal3() {
 
   //  modalState items
   const { isOpen, my_messenger, form, error_watch } = modalState;
+  console.log("stat:", modalState);
   return (
     <>
       <Wrapper className={isOpen ? "active" : ""}>
@@ -188,7 +197,7 @@ export function Modal3() {
             name="merchantId"
             value="666fbf0b490841a5a8a8f4c8ec268d2cSzRkMlYwRTdKUUVnNllvYS80Y2xaTFFJMDNxK3hueitnVUlPUmpEZ3k0azdsVktQZ2lZQWtYNm92SEcwMUM2OQ=="
           />
-          <input type="hidden" name="amount" value={"total"} />
+          <input type="hidden" name="amount" value={0} />
           <input type="hidden" name="currency" value="USD" />
           <input type="hidden" name="description" value="Gastoro_ru" />
           <input type="hidden" name="callback" value="http://handmade.travel" />
@@ -222,7 +231,7 @@ export function Modal3() {
                 <Text name="modal_3_phone">{getItem("modal_3_phone")}</Text>
                 <div className={`input-box ${classAddError("phone")}`}>
                   <input
-                    type="number"
+                    type="tel"
                     className="input-phone"
                     name="phone"
                     value={form.phone}
@@ -298,9 +307,9 @@ export function Modal3() {
             <div className="form-group">
               <label>
                 <Text name="modal_3_date">{getItem("modal_3_date")}</Text>
-                <div className={`input-box`}>
-                  <option value="" selected disabled hidden></option>
-                  <select>
+                <div className={`input-box ${classAddError("date")}`}>
+                  <select value={form.date} name="date" onChange={handleChange}>
+                    <option value="" selected disabled hidden></option>
                     {getItem("prices_data", "prices_data").map(
                       (item, index) => {
                         return <option key={index}>{item?.date}</option>;
@@ -313,9 +322,13 @@ export function Modal3() {
             <div className="form-group">
               <label>
                 <Text name="modal_3_price">{getItem("modal_3_price")}</Text>
-                <div className={`input-box`}>
-                  <option value="" selected disabled hidden></option>
-                  <select>
+                <div className={`input-box ${classAddError("price")}`}>
+                  <select
+                    value={form.price}
+                    name="price"
+                    onChange={handleChange}
+                  >
+                    <option value="" selected disabled hidden></option>
                     {getItem("rate_name_data", "rate_name_data").map(
                       (item, index) => {
                         return (
@@ -583,7 +596,7 @@ const Wrapper = styled.div`
         right: 5px;
         top: 5px;
         z-index: 233;
-        font-size: 20px;
+        font-size: 25px;
         @media (min-width: 576px) {
           top: 2px;
         }

@@ -31,6 +31,7 @@ const Typography = ({
   list = "",
   childId = "",
   type = "",
+  style = {},
 }) => {
   const dispatch = useDispatch();
   const { asPath } = useRouter();
@@ -54,14 +55,22 @@ const Typography = ({
   if (type === "important") {
     return (
       <Wrapper>
-        {isAdmin && <AiFillEdit className="edit__icon" onClick={openModal} />}
+        {isAdmin && (
+          <AiFillEdit
+            className="edit__icon"
+            style={style}
+            onClick={openModal}
+          />
+        )}
         <span>{children}</span>
       </Wrapper>
     );
   }
   return (
     <Wrapper>
-      {isAdmin && <AiFillEdit className="edit__icon" onClick={openModal} />}
+      {isAdmin && (
+        <AiFillEdit className="edit__icon" style={style} onClick={openModal} />
+      )}
       <span>{parse(children.toString())}</span>
     </Wrapper>
   );

@@ -2,11 +2,19 @@ const defaultState = {
   users: [
     {
       user: "admin",
-      password: "admin123",
+      password: "0",
     },
     {
-      user: "admin2",
-      password: "0000",
+      user: "shaxzod",
+      password: "shaxzod123",
+    },
+    {
+      user: "diyor",
+      password: "diyor123",
+    },
+    {
+      user: "farrux",
+      password: "farrux123",
     },
   ],
   isAdmin: false,
