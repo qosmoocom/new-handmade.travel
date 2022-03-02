@@ -1,4 +1,5 @@
 import React, { useEffect, useReducer } from "react";
+import { useRouter } from "next/router";
 import styled from "styled-components";
 import { BsFillLockFill, BsUnlockFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
@@ -104,6 +105,7 @@ function reducer(state, action) {
 export default function Login() {
   const [logState, logDispatch] = useReducer(reducer, defaultState);
   const dispatch = useDispatch();
+  const router = useRouter();
   const login = useSelector((state) => state.login);
   const {
     form: { user, password },
@@ -130,6 +132,7 @@ export default function Login() {
     if (isAdmin) {
       dispatch({ type: "THIS_IS_ADMIN" });
       localStorage.setItem("user", JSON.stringify(logState.form));
+      router.push("/admin");
     }
   };
 

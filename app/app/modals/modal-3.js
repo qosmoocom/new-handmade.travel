@@ -177,7 +177,6 @@ export function Modal3() {
 
   //  modalState items
   const { isOpen, my_messenger, form, error_watch } = modalState;
-  console.log("stat:", modalState);
   return (
     <>
       <Wrapper className={isOpen ? "active" : ""}>
