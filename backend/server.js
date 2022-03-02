@@ -11,9 +11,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(require("morgan")("dev"));
 
-app.get('/',(req,res)=>{
-    res.send('salom')
-})
+
 app.use('/api/user', require('./routes/user'));
+app.use('/api/tour', require('./routes/tour'));
 
 app.listen(5000, console.log("Listening on port 5000"));
