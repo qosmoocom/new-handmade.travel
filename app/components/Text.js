@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { AiFillEdit } from "react-icons/ai";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { types } from "../../store/types";
 import styled from "styled-components";
 import parse from "html-react-parser";
@@ -34,8 +34,7 @@ const Typography = ({
   style = {},
 }) => {
   const dispatch = useDispatch();
-  const { asPath } = useRouter();
-  const isAdmin = asPath.includes("admin/create-tour");
+  const { isEdit: isAdmin } = useSelector((st) => st.admin);
   const openModal = () => {
     dispatch({
       type: types.editText,

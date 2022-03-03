@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import { AiFillEdit } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { types } from "../../store/types";
@@ -31,9 +30,7 @@ const ThisIsLink = ({
   itIsClassName,
 }) => {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.admin);
-  const { asPath } = useRouter();
-  const isAdmin = asPath.includes("admin/create-tour");
+  const { isEdit: isAdmin } = useSelector((st) => st.admin);
   const clickHandler = () => {
     dispatch({
       type: types.editLink,

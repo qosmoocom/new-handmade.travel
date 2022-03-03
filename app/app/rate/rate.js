@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import { BsExclamationCircle, BsCheck2 } from "react-icons/bs";
 import parse from "html-react-parser";
 import { IoIosMail, IoMdCall } from "react-icons/io";
@@ -10,7 +9,7 @@ import Text from "../../components/Text";
 import Item from "../../components/Item";
 
 import { AppContext } from "..";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { types } from "../../../store/types";
 
 function DataIs({ isOpen = false, tariffNum = "" }) {
@@ -70,8 +69,7 @@ function DataIs({ isOpen = false, tariffNum = "" }) {
 export default function Rate() {
   const { getItem } = useContext(AppContext);
   const [toggle, setToggle] = useState({ isOpen: true, index: 1 });
-  const { asPath } = useRouter();
-  const isAdmin = asPath.includes("admin/create-tour");
+  const { isEdit: isAdmin } = useSelector((st) => st.admin);
   const dispatch = useDispatch();
   const handleToggle = (index) => {
     setToggle((prevToggle) => ({

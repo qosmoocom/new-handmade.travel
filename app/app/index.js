@@ -42,19 +42,19 @@ export default function Index() {
   };
   const defaultValue = { getItem };
 
-  // useEffect(() => {
-  //   if (modalOpen) {
-  //     document.body.style.cssText = `
-  //       height:100vh;
-  //       overflow: hidden;
-  //     `;
-  //   } else {
-  //     document.body.style.cssText = `
-  //       height:auto;
-  //       overflow-y: auto;
-  //     `;
-  //   }
-  // }, [modalOpen]);
+  useEffect(() => {
+    if (modalOpen) {
+      document.body.style.cssText = `
+        height:100vh;
+        overflow: hidden;
+      `;
+    } else {
+      document.body.style.cssText = `
+        height:auto;
+        overflow-y: auto;
+      `;
+    }
+  }, [modalOpen]);
 
   return (
     <AppContext.Provider value={defaultValue}>

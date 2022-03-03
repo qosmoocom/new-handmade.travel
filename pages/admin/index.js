@@ -66,14 +66,14 @@ const SwitchPage = ({ admin, admins }) => {
         <Head>
           <title>Hello {admin.user}</title>
         </Head>
-        <NotSuperAdmin />
+        <NotSuperAdmin admin={admin} />
       </section>
     );
   }
   return (
     <section>
       <Head>
-        <title>404 Error</title>
+        <title>Loading...</title>
       </Head>
       <h3 className="text-center">404 not found</h3>
     </section>

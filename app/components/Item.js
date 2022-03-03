@@ -1,9 +1,8 @@
-import { useRouter } from "next/router";
 import { useState } from "react";
 import styled, { css } from "styled-components";
 import { GrFormAdd } from "react-icons/gr";
 import { AiFillDelete } from "react-icons/ai";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { types } from "./../../store/types";
 import Text from "./Text";
 
@@ -51,8 +50,7 @@ export default function Item({
   target = "",
 }) {
   const dispatch = useDispatch();
-  const { asPath } = useRouter();
-  const isAdmin = asPath.includes("admin/create-tour");
+  const { isEdit: isAdmin } = useSelector((st) => st.admin);
   const [isItEdit, setIsItEdit] = useState(false);
   const handleDel = () =>
     dispatch({ type: types.deleteItem, payload: { group, itemId } });

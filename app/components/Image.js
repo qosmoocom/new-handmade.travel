@@ -1,6 +1,4 @@
-import { useRouter } from "next/router";
 import Image from "next/image";
-import { AiFillEdit } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { types } from "../../store/types";
 import styled from "styled-components";
@@ -41,8 +39,7 @@ export default function Index({
   childId = "",
   priority,
 }) {
-  const { asPath } = useRouter();
-  const isAdmin = asPath.includes("admin/create-tour");
+  const { isEdit: isAdmin } = useSelector((st) => st.admin);
   const dispatch = useDispatch();
   const doubleClickHandler = () => {
     if (isAdmin) {

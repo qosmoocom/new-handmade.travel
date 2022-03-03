@@ -1,5 +1,6 @@
 export const defaultState = {
   isAdmin: true,
+  isEdit: false,
   checkedEdit: {
     isOpen: false,
     index: "",

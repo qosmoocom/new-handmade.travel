@@ -354,6 +354,13 @@ export const AdminReducer = (state = defaultState, action) => {
         },
       };
     }
+
+    case types.editTour: {
+      return {
+        ...state,
+        isEdit: action.payload,
+      };
+    }
     default:
       return state;
   }

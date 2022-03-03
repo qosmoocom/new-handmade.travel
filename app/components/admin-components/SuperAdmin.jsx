@@ -1,14 +1,37 @@
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { AiOutlineUserAdd } from "react-icons/ai";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch, useSelector } from "react-redux";
 const Wrapper = styled.div`
   .user-input {
-    background: none;
+    background: none !important;
+    transition: 300ms;
+    &.error {
+      border: 2px solid red !important;
+    }
   }
-
   .item-w-t {
     width: 30%;
+  }
+
+  .add-user_icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-bottom: 0.2rem;
+    margin-left: 3rem;
+    transition: 400ms;
+    &:hover {
+      color: #696565;
+    }
+  }
+
+  .log-out {
+    font-size: 1rem;
+    float: right;
+    clear: both;
+    margin-top: 0.2rem;
   }
 `;
 export default function SuperAdmin() {
@@ -20,7 +43,7 @@ export default function SuperAdmin() {
     setUsers(logStateUsers);
   }, [logStateUsers]);
 
-  const updateInputHandler = (id) =>
+  const updateInputHandler = (id) => {
     setUsers((prev) =>
       prev.map((user, index) =>
         index === id
@@ -28,18 +51,19 @@ export default function SuperAdmin() {
           : { ...user, isUpdate: false }
       )
     );
+  };
 
-  const changeInputHandler = (id, { target: { name, value } }) =>
+  const changeInputHandler = (id, { target: { name, value } }) => {
     setUsers((prev) =>
       prev.map((user, index) =>
         index === id ? { ...user, [name]: value } : user
       )
     );
+  };
 
-  const deleteInputHandler = (id) =>
-    setUsers((prev) =>
-      prev.filter((_, index) => (id === 0 ? true : id !== index))
-    );
+  const deleteInputHandler = (id) => {
+    dispatch({ type: "ADMIN_USER_DELETE", id });
+  };
 
   const cancelInputHandler = (id) => {
     setUsers((prev) =>
@@ -53,18 +77,33 @@ export default function SuperAdmin() {
     dispatch({ type: "ADMIN_USER_UPDATE", id, user });
   };
 
+  const addInputHandler = () => {
+    dispatch({ type: "ADMIN_ADD_NEW_USER" });
+  };
+
   return (
     <Wrapper>
       <div className="admin-section" id="super-admin">
         <div className="container">
-          <h3>users</h3>
+          <h3>
+            users
+            <span className="log-out">
+              <Link href={"/login"}>log out</Link>
+            </span>
+          </h3>
           <table className="table">
             <thead>
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Username</th>
                 <th scope="col">Password</th>
-                <th scope="col">Controlls</th>
+                <th scope="col">
+                  <span>Controlls</span>
+                  <AiOutlineUserAdd
+                    onClick={addInputHandler}
+                    className="add-user_icon"
+                  />
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -123,7 +162,7 @@ export default function SuperAdmin() {
                             : "save"}
                         </button>
                       </span>
-                      <span className="w-50 d-inline-block">
+                      <span className="w-50">
                         <button
                           className="btn mx-2 btn-danger"
                           onClick={() => {

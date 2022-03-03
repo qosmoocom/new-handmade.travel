@@ -1,13 +1,11 @@
+import { useSelector } from "react-redux";
 import React, { useContext, useState } from "react";
-import { useRouter } from "next/router";
 import { AppContext } from "..";
 import Image from "../../components/Image";
 import Text from "../../components/Text";
 export default function OtherTour() {
   const { getItem } = useContext(AppContext);
-  const { asPath } = useRouter();
-  const isAdmin = asPath.includes("admin/create-tour");
-
+  const { isEdit: isAdmin } = useSelector((st) => st.admin);
   const [editItems, setEditItems] = useState(
     "_"
       .repeat(getItem("otherData", "otherData").length)
