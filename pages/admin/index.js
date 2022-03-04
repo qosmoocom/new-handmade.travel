@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Head from "next/head";
 
 // admin components
 import SuperAdmin from "./../../app/components/admin-components/SuperAdmin";
 import NotSuperAdmin from "./../../app/components/admin-components/NotSuperAdmin";
+import { getAllUsers } from "../../store/reducer/loginReducer";
 export default function Index() {
   const loginState = useSelector((state) => state.login);
   const [admin, setAdmin] = useState(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -20,6 +22,10 @@ export default function Index() {
       }
     }
   }, [loginState]);
+
+  useEffect(async () => {
+    dispatch(getAllUsers());
+  }, []);
 
   return (
     <div>
@@ -39,12 +45,18 @@ export default function Index() {
   );
 }
 
-const SwitchPage = ({ admin, admins }) => {
-  if (
-    admin &&
-    admins[0].user === admin.user &&
-    admins[0].password === admin.password
-  ) {
+const SwitchPage = ({ admin, admins = [] }) => {
+  const dispatch = useDispatch();
+  useEffect(async () => {
+    dispatch(getAllUsers());
+  }, []);
+
+  const { role } =
+    admins.find(
+      (i) => i.user === admin?.user && i.password === admin?.password
+    ) || false;
+
+  if (admin && role === "moderator") {
     return (
       <section>
         <Head>
@@ -55,12 +67,7 @@ const SwitchPage = ({ admin, admins }) => {
     );
   }
 
-  if (
-    admin &&
-    admins.some(
-      (user) => user.user === admin.user && user.password === admin.password
-    )
-  ) {
+  if (admin && role === "admin") {
     return (
       <section>
         <Head>

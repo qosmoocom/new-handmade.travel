@@ -1,36 +1,6 @@
+import Axios from "axios";
 const defaultState = {
-  users: [
-    {
-      user: "admin",
-      password: "0",
-      isUpdate: false,
-      error: false,
-    },
-    {
-      user: "shaxzod",
-      password: "shaxzod123",
-      isUpdate: false,
-      error: false,
-    },
-    {
-      user: "diyor",
-      password: "diyor123",
-      isUpdate: false,
-      error: false,
-    },
-    {
-      user: "farrux",
-      password: "farrux123",
-      isUpdate: false,
-      error: false,
-    },
-    {
-      user: "abdurahmon",
-      password: "a",
-      isUpdate: false,
-      error: false,
-    },
-  ],
+  users: [],
   isAdmin: false,
 };
 
@@ -41,30 +11,79 @@ export const loginReducer = (state = defaultState, action) => {
         ...state,
         isAdmin: true,
       };
-    case "ADMIN_USER_UPDATE":
+    case "GET_ALL_USERS":
       return {
         ...state,
-        users: state.users.map((item, index) =>
-          index !== action.id ? item : action.user
-        ),
+        users: action.data.map((user) => {
+          return {
+            user: user.username,
+            password: user.password,
+            isUpdate: false,
+            error: false,
+            role: user.role,
+            id: user._id,
+          };
+        }),
       };
-    case "ADMIN_USER_DELETE":
-      return {
-        ...state,
-        users: state.users.filter((_, index) =>
-          action.id === 0 ? true : action.id !== index
-        ),
-      };
-    case "ADMIN_ADD_NEW_USER":
-      return {
-        ...state,
-        users: [
-          ...state.users,
-          { user: "new admin", password: "new password", isUpdate: false },
-        ],
-      };
-
     default:
       return state;
+  }
+};
+
+export const getAllUsers = () => async (dispatch) => {
+  try {
+    const response = await fetch("http://localhost:5000/api/user/all");
+    const data = await response.json();
+    dispatch({ type: "GET_ALL_USERS", data });
+  } catch (e) {
+    // error
+  }
+};
+
+export const deleteUserId = (userId, role) => async (dispatch) => {
+  try {
+    if (role === "admin") {
+      const res = await Axios.delete(
+        `http://localhost:5000/api/user/${userId}`
+      );
+      const data = await res.data;
+      if (data.success) dispatch(getAllUsers());
+    }
+  } catch (error) {
+    console.log("error in deleteUserId function:", error);
+  }
+};
+
+export const updateUserId = (user, userId) => async (dispatch) => {
+  const newUser = {
+    username: user.user,
+    password: user.password,
+  };
+  try {
+    const res = await Axios.put(
+      `http://localhost:5000/api/user/${userId}`,
+      newUser
+    );
+    const data = await res.data;
+    if (data.success) {
+      dispatch(getAllUsers());
+    }
+  } catch (error) {
+    console.log("error in the updateUserId function", error);
+  }
+};
+
+export const createNewUser = () => async (dispatch) => {
+  try {
+    const newUser = {
+      username: "new username",
+      password: "new password",
+      role: "admin",
+    };
+    const res = await Axios.post("http://localhost:5000/api/user/", newUser);
+    const data = await res.data;
+    if (data.success) dispatch(getAllUsers());
+  } catch (error) {
+    console.log("error in the createNewUser function", error);
   }
 };

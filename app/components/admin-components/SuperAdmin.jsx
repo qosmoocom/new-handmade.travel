@@ -1,4 +1,9 @@
 import Link from "next/link";
+import {
+  createNewUser,
+  deleteUserId,
+  updateUserId,
+} from "../../../store/reducer/loginReducer";
 import React, { useEffect, useState } from "react";
 import { AiOutlineUserAdd } from "react-icons/ai";
 import styled from "styled-components";
@@ -61,8 +66,8 @@ export default function SuperAdmin() {
     );
   };
 
-  const deleteInputHandler = (id) => {
-    dispatch({ type: "ADMIN_USER_DELETE", id });
+  const deleteInputHandler = (id, role) => {
+    dispatch(deleteUserId(id, role));
   };
 
   const cancelInputHandler = (id) => {
@@ -74,11 +79,11 @@ export default function SuperAdmin() {
   };
 
   const saveInputHandler = (id, user) => {
-    dispatch({ type: "ADMIN_USER_UPDATE", id, user });
+    dispatch(updateUserId(user, id));
   };
 
   const addInputHandler = () => {
-    dispatch({ type: "ADMIN_ADD_NEW_USER" });
+    dispatch(createNewUser());
   };
 
   return (
@@ -149,7 +154,7 @@ export default function SuperAdmin() {
                               updateInputHandler(index);
                             } else {
                               // save item function working
-                              saveInputHandler(index, user);
+                              saveInputHandler(user.id, user);
                             }
                           }}
                         >
@@ -174,7 +179,7 @@ export default function SuperAdmin() {
                               )
                             ) {
                               // delete item function working
-                              deleteInputHandler(index);
+                              deleteInputHandler(user.id, user.role);
                             } else {
                               // cancel item function working
                               cancelInputHandler(index);

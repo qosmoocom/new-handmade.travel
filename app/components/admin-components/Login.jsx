@@ -1,4 +1,5 @@
 import React, { useEffect, useReducer } from "react";
+import { getAllUsers } from "../../../store/reducer/loginReducer";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import { BsFillLockFill, BsUnlockFill } from "react-icons/bs";
@@ -135,6 +136,10 @@ export default function Login() {
       router.push("/admin");
     }
   };
+
+  useEffect(async () => {
+    dispatch(getAllUsers());
+  }, []);
 
   return (
     <Wrapper>

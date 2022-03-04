@@ -1,38 +1,93 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import { v4 as uuidv4 } from "uuid";
+import { getAllTours } from "../../../store/reducer/userToursReducer";
 import Tours from "./Tours";
-const Wrapper = styled.div`
-  .big-title {
-    text-decoration: underline;
-  }
-`;
-
-const defaultState = {
-  tours: [
-    { tourId: uuidv4(), tourName: "gastro", tourLang: "ru" },
-    { tourId: uuidv4(), tourName: "gastro", tourLang: "es" },
-    { tourId: uuidv4(), tourName: "gastro", tourLang: "ru" },
-    { tourId: uuidv4(), tourName: "art", tourLang: "ru" },
-    { tourId: uuidv4(), tourName: "art", tourLang: "en" },
-  ],
-};
+import ChangeTourModal from "./ChangeTourModal";
 export default function NotSuperAdmin({ admin }) {
-  const [state, setState] = useState(defaultState);
+  const dispatch = useDispatch();
+  const globalState = useSelector((state) => state);
+  const [tours, setTours] = useState([]);
+  const [changeModalOpen, setChangeModalOpen] = useState({
+    isOpen: false,
+    tour: {},
+  });
+  const { userTours } = globalState;
 
-  const { tours } = state;
+  // component Did Mount
+  useEffect(() => {
+    dispatch(getAllTours());
+  }, []);
+
+  // component did update on userTours.tours
+  useEffect(() => {
+    setTours(() => {
+      return userTours.tours.map((tour) => ({ ...tour, isOn: true }));
+    });
+  }, [userTours.tours]);
+
+  const theTourActiveOrNoActiveHandler = (id) => {
+    // isOn true or false
+
+    setTours((oldTours) =>
+      oldTours.map((tour) =>
+        tour._id === id ? { ...tour, isOn: !tour.isOn } : tour
+      )
+    );
+  };
+
+  const changeTourHandler = (id) => {
+    const getItem = tours.find((item) => item._id === id);
+    setChangeModalOpen(() => ({ isOpen: true, tour: getItem }));
+  };
+
+  const changeInputHandler = (event) => {
+    const { name, value } = event.target;
+    setChangeModalOpen((oldState) => ({
+      ...oldState,
+      tour: { ...oldState.tour, [name]: value },
+    }));
+  };
 
   return (
     <Wrapper>
+      {changeModalOpen.isOpen && (
+        <ChangeTourModal
+          changeHandler={changeInputHandler}
+          isItOpen={changeModalOpen}
+          onCloseModal={() =>
+            setChangeModalOpen((oldState) => ({
+              ...oldState,
+              isOpen: false,
+              tour: {},
+            }))
+          }
+          onCancel={changeTourHandler}
+        />
+      )}
+
+      {/* change modal */}
+
       <div className="admin-section" id="admin">
         <div className="container">
           <h4 className="text-end">Hello {admin.user}!</h4>
           <h3 className="big-title">Your Tours</h3>
         </div>
-
-        <Tours tours={tours} />
+        <Tours
+          tours={tours}
+          onOrOff={theTourActiveOrNoActiveHandler}
+          onEdit={changeTourHandler}
+        />
       </div>
     </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  .big-title {
+    text-decoration: underline;
+  }
+`;
