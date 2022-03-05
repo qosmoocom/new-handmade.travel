@@ -4,7 +4,23 @@ const tourSchema = new mongoose.Schema(
   {
     tourName: {
       type: String,
-      required:true
+      required: true,
+    },
+    tourTexts: {
+      type: String,
+      required: true,
+    },
+    tourStyles: {
+      type: String,
+      required: true,
+    },
+    tourAuthor: {
+      type: String,
+      required: true,
+    },
+    isItActive: {
+      type: Boolean,
+      required: true,
     },
     type_id: {
       type: String,
@@ -17,7 +33,7 @@ const tourSchema = new mongoose.Schema(
     userID: {
       type: mongoose.Schema.ObjectId,
       ref: "User",
-      required: true
+      required: true,
     },
   },
   {

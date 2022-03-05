@@ -6,6 +6,9 @@ exports.createOne = async (req, res, next) => {
     type_id: req.body.type_id,
     language: req.body.language,
     userID: req.body.userID,
+    tourTexts: req.body.tourTexts,
+    tourStyles: req.body.tourStyles,
+    tourAuthor: req.body.tourAuthor,
   });
   await result
     .save()
@@ -22,6 +25,9 @@ exports.updateOne = async (req, res, next) => {
   (result.tourName = req.body.tourName),
     (result.type_id = req.body.type_id),
     (result.language = req.body.language),
+    (result.tourTexts = req.body.tourTexts),
+    (result.tourAuthor = req.body.tourAuthor),
+    (result.isItActive = req.body.isItActive),
     (result.userID = req.body.userID);
   await result
     .save()

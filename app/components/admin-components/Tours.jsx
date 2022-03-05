@@ -2,6 +2,7 @@ import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
 import React from "react";
 import styled from "styled-components";
+import Link from "next/link";
 
 const Wrapper = styled.div`
   .edit-tour {
@@ -26,6 +27,14 @@ const Wrapper = styled.div`
       &:hover {
         color: blue;
       }
+
+      &.no-active {
+        opacity: 0.3;
+        cursor: not-allowed;
+        &:hover {
+          color: #000;
+        }
+      }
     }
   }
 `;
@@ -49,7 +58,9 @@ function Tours({ tours, onOrOff, onEdit }) {
             {tours.map((mytour, index) => (
               <tr key={mytour._id}>
                 <th scope="row">{index + 1}</th>
-                <td>{mytour.tourName}</td>
+                <td>
+                  <Link href={"/"}>{mytour.tourName}</Link>
+                </td>
                 <td>{mytour.type_id}</td>
                 <td>{mytour.language}</td>
                 <td>{mytour.userID}</td>
@@ -58,7 +69,7 @@ function Tours({ tours, onOrOff, onEdit }) {
                     <button onClick={() => onEdit(mytour._id)}>
                       <FaEdit />
                     </button>
-                    <button>
+                    <button className="no-active">
                       <AiFillDelete />
                     </button>
                     <button onClick={onOrOff.bind(this, mytour._id)}>
