@@ -1,12 +1,12 @@
 const express = require("express");
 const connectDB = require("./config/db");
 const cors = require("cors");
-const path = require("path").join(__dirname, "/public/images/landing");
+const path = require("path").join(__dirname, "/public/images");
 const app = express();
 
 connectDB();
 
-app.use("/public/uploads", express.static(path));
+app.use("/public/images", express.static(path));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());

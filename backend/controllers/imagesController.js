@@ -2,11 +2,17 @@ const Image = require('../models/Images');
 const Tour = require('../models/Tour')
 const path = require('path')    ;
 const fs = require('fs');
+const UploadFile=require('../config/Sharp');
 
 exports.createOne = async (req, res, next) => {
-    const tour = Tour.findById(req.body.tourID)
+    const tour = await Tour.findById(req.body.tourID);
+    const files = req.file;
+    const {filename} = files;
+    const thumb=(`/public/images/landing/${tour.tour_id}~${filename}`)
+    // const SharpMetod=new UploadFile(filename)
+    //  await  SharpMetod.sharpMetod()
   const result = new Image({
-     image:`/public/images/landing/${tour.tour_id}/${req.file.filename}`,
+     image:thumb,   
     tourID:req.body.tourID,
     tourAuthor:req.body.tourAuthor
   })
@@ -23,8 +29,10 @@ exports.deleteOne=async (req,res)=>{
             if(error){res.send(error)}
             else{
                 console.log(data);
-                const filePath=path.join(path.dirname(__dirname)+data.image)
-                console.log(path.join(path.dirname(__dirname).slice()))
+                if(data){
+                let n = path.join(path.dirname(__dirname)).length;
+                const filePath=path.join(path.dirname(__dirname).slice(0,n-7)+data.image);
+                // console.log(path.join(path.dirname(__dirname).slice(0,n-7)+data.image))
                 fs.unlink(filePath, async (err)=>{
                     if(err) throw err
                     await Image.findByIdAndDelete(req.params.id)
@@ -33,6 +41,9 @@ exports.deleteOne=async (req,res)=>{
                         data:"Success delete"
                     })
                 })
+            }else{
+                res.send('Image not found');
             }
+        }
         })
 }
