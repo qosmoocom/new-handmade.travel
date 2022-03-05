@@ -4,6 +4,7 @@ const days_map_Ctrl = require('../controllers/days_map_Ctrl')
 const multer = require('multer');
 const md5 = require('md5');
 const path = require('path');
+const { protect, admin, moderator } = require('../middleware/auth');
 
 const storage = multer.diskStorage({
     destination: function (req,file,cb) {
@@ -21,3 +22,4 @@ router.post('/add', upload.single('image'), days_map_Ctrl.createOne);
 router.delete('/:id',  days_map_Ctrl.deleteOne)
 
 module.exports = router;
+

@@ -15,12 +15,14 @@ const tourSchema = new mongoose.Schema(
       required: true,
     },
     tourAuthor: {
-      type: String,
+      type: mongoose.Schema.ObjectId,
+      ref: "User",
       required: true,
     },
     isItActive: {
       type: Boolean,
       required: true,
+      default: true
     },
     type_id: {
       type: String,
@@ -29,12 +31,7 @@ const tourSchema = new mongoose.Schema(
     language: {
       type: String,
       required: true,
-    },
-    userID: {
-      type: mongoose.Schema.ObjectId,
-      ref: "User",
-      required: true,
-    },
+    }
   },
   {
     timestamps: true,
