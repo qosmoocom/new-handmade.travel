@@ -1,7 +1,10 @@
 import Axios from "axios";
+import { useRouter } from "next/router";
+import { getAllTours } from "./userToursReducer";
 const defaultState = {
   users: [],
   isAdmin: false,
+  role: "",
 };
 
 export const loginReducer = (state = defaultState, action) => {
@@ -14,6 +17,7 @@ export const loginReducer = (state = defaultState, action) => {
     case "GET_ALL_USERS":
       return {
         ...state,
+        isAdmin: true,
         users: action.data.map((user) => {
           return {
             user: user.username,
@@ -25,30 +29,62 @@ export const loginReducer = (state = defaultState, action) => {
           };
         }),
       };
+    case "LOG_OUT": {
+      return {
+        ...state,
+        isAdmin: false,
+      };
+    }
     default:
       return state;
   }
 };
 
-export const getAllUsers = () => async (dispatch) => {
+export const getAllUsers = (data) => async (dispatch) => {
   try {
-    const response = await fetch("http://localhost:5000/api/user/all");
-    const data = await response.json();
+    console.log(data);
     dispatch({ type: "GET_ALL_USERS", data });
   } catch (e) {
     // error
   }
 };
 
-export const deleteUserId = (userId, role) => async (dispatch) => {
+export const login = (username, password) => async (dispatch) => {
   try {
-    if (role === "admin") {
-      const res = await Axios.delete(
-        `http://localhost:5000/api/user/${userId}`
-      );
-      const data = await res.data;
-      if (data.success) dispatch(getAllUsers());
-    }
+    const res = await Axios.post("http://localhost:5000/api/user/login", {
+      username,
+      password,
+    });
+    console.log(res);
+    const { token = "" } = await res.data;
+    localStorage.setItem("my-token", JSON.stringify(token));
+    // dispatch(updateAllPage());
+    dispatch(logMe());
+  } catch (error) {}
+};
+export const updateAllPage = () => async (dispatch) => {
+  console.log("salom");
+  await Axios.get("http://localhost:5000/api/user/all", {
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem("my-token")),
+    },
+  })
+    .then((r) => {
+      console.log(r.data);
+      dispatch(getAllUsers(r.data));
+      return r.data;
+    })
+    .catch((error) => {});
+};
+
+export const deleteUserId = (userId) => async (dispatch) => {
+  try {
+    await Axios.delete(`http://localhost:5000/api/user/${userId}`, {
+      headers: {
+        Authorization: JSON.parse(localStorage.getItem("my-token")),
+      },
+    });
+    dispatch(updateAllPage());
   } catch (error) {
     console.log("error in deleteUserId function:", error);
   }
@@ -60,10 +96,12 @@ export const updateUserId = (user, userId) => async (dispatch) => {
     password: user.password,
   };
   try {
-    const res = await Axios.put(
-      `http://localhost:5000/api/user/${userId}`,
-      newUser
-    );
+    const res = await Axios.put(`http://localhost:5000/api/user/${userId}`, {
+      headers: {
+        Authorization: JSON.parse(localStorage.getItem("my-token")),
+      },
+      body: newUser,
+    });
     const data = await res.data;
     if (data.success) {
       dispatch(getAllUsers());
@@ -73,17 +111,33 @@ export const updateUserId = (user, userId) => async (dispatch) => {
   }
 };
 
-export const createNewUser = () => async (dispatch) => {
+export const createNewUser = (newUser) => async (dispatch) => {
   try {
-    const newUser = {
-      username: "new username",
-      password: "new password",
-      role: "admin",
-    };
-    const res = await Axios.post("http://localhost:5000/api/user/", newUser);
-    const data = await res.data;
-    if (data.success) dispatch(getAllUsers());
+    await Axios.post("http://localhost:5000/api/user/", {
+      headers: { Authorization: JSON.parse(localStorage.getItem("my-token")) },
+      body: { username: "admin3", password: "3", role: "moderator" },
+    });
+    dispatch(getAllUsers());
   } catch (error) {
     console.log("error in the createNewUser function", error);
   }
+};
+
+export const logout = () => ({ type: "LOG_OUT" });
+
+export const logMe = () => async (dispatch) => {
+  try {
+    const res = await Axios.get("http://localhost:5000/api/user/me", {
+      headers: {
+        Authorization: JSON.parse(localStorage.getItem("my-token")) || "no",
+      },
+    });
+    const { role } = await res.data;
+    console.log("role", role);
+    if (role === "admin") {
+      dispatch(updateAllPage());
+    } else if (role === "moderator") {
+      dispatch(getAllTours());
+    }
+  } catch (error) {}
 };

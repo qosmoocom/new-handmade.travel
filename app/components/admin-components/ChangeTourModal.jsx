@@ -11,7 +11,7 @@ const ModalChangeTour = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 256, 0.2);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,12 +19,14 @@ const ModalChangeTour = styled.div`
   /* none active */
   opacity: -4;
   transition: opacity 400ms;
+  z-index: -21;
   &.active {
     opacity: 2;
+    z-index: 22;
   }
 
   .form {
-    background: rgba(0, 0, 256, 0.3);
+    background: rgba(255, 256, 256, 1);
     padding: 20px 40px;
     border-radius: 5px;
     display: flex;
@@ -37,7 +39,7 @@ const ModalChangeTour = styled.div`
       position: absolute;
       right: 5px;
       top: 5px;
-      color: #fff;
+      color: #161515;
       font-size: 18px;
       cursor: pointer;
     }
@@ -59,9 +61,11 @@ const ModalChangeTour = styled.div`
       margin-bottom: 10px;
       border: none;
       box-shadow: none;
-      border-bottom: 1px solid #fff;
-      color: #fff;
+      border: 1px solid #201f1f;
+      color: #1a1818;
       width: 100%;
+      margin-top: 5px;
+      padding: 5px;
     }
   }
 `;
@@ -72,15 +76,29 @@ export default function ChangeTourModal({
   changeHandler,
   onCancel,
 }) {
-  const { tourName, type_id, language, _id, userID } = isItOpen.tour;
+  const {
+    tourName,
+    type_id,
+    language,
+    _id,
+    userID,
+    tourStyles = "",
+    tourTexts = "",
+    tourAuthor = "",
+    isItActive = true,
+  } = isItOpen.tour;
   const dispatch = useDispatch();
-
+  console.log("tour", isItOpen.tour);
   const saveHandler = () => {
     const newUser = {
       tourName,
       type_id,
       language,
       userID,
+      tourTexts,
+      tourStyles,
+      tourAuthor,
+      isItActive,
     };
     dispatch(updateUserTour(_id, newUser));
     setTimeout(() => {
@@ -121,12 +139,15 @@ export default function ChangeTourModal({
 
         <div className="input-btn">
           <button
-            className="btn btn-dark"
+            className="btn btn-primary btn-1"
             onClick={saveHandler.bind(this, _id)}
           >
             save
           </button>
-          <button className="btn btn-dark" onClick={onCancel.bind(this, _id)}>
+          <button
+            className="btn btn-secondary"
+            onClick={onCancel.bind(this, _id)}
+          >
             cancel
           </button>
         </div>

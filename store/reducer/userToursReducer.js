@@ -26,7 +26,11 @@ export const userTourTypes = {
 // actions
 export const getAllTours = () => async (dispatch) => {
   try {
-    const res = await Axios.get("http://localhost:5000/api/tour/all");
+    const res = await Axios.get("http://localhost:5000/api/tour/all", {
+      headers: {
+        Authorization: JSON.parse(localStorage.getItem("my-token")),
+      },
+    });
     const data = await res.data;
     dispatch({ type: userTourTypes.getAllTours, tours: data });
   } catch (error) {

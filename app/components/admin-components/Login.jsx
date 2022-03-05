@@ -1,9 +1,13 @@
 import React, { useEffect, useReducer } from "react";
-import { getAllUsers } from "../../../store/reducer/loginReducer";
+import {
+  getAllUsers,
+  updateAllPage,
+} from "../../../store/reducer/loginReducer";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import { BsFillLockFill, BsUnlockFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../../store/reducer/loginReducer";
 const Wrapper = styled.div`
   background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
   min-height: 100vh;
@@ -105,9 +109,10 @@ function reducer(state, action) {
 
 export default function Login() {
   const [logState, logDispatch] = useReducer(reducer, defaultState);
+  const isUserAdmin = useSelector((state) => state.login.isAdmin);
+  console.log(isUserAdmin);
   const dispatch = useDispatch();
   const router = useRouter();
-  const login = useSelector((state) => state.login);
   const {
     form: { user, password },
   } = logState;
@@ -119,35 +124,37 @@ export default function Login() {
     }
   }, []);
 
-  const isAdmin = login.users.some(
-    (i) => i.user === user && i.password === password
-  );
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     logDispatch({ type: "changeInput", name, value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (isAdmin) {
-      dispatch({ type: "THIS_IS_ADMIN" });
-      localStorage.setItem("user", JSON.stringify(logState.form));
+  useEffect(() => {
+    console.log("isUserAdmin", isUserAdmin);
+    if (isUserAdmin) {
       router.push("/admin");
+    } else {
+      router.push("/login");
     }
+  }, [isUserAdmin]);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    dispatch(login(user, password));
+    if (isUserAdmin) router.push("/admin");
   };
 
   useEffect(async () => {
     dispatch(getAllUsers());
   }, []);
 
+  console.log("logState", logState);
   return (
     <Wrapper>
       <div className="login">
         <div className="form">
           <form className="login-form" onSubmit={handleSubmit}>
             <span className="material-icons">
-              {isAdmin ? <BsUnlockFill /> : <BsFillLockFill />}
+              <BsFillLockFill />
             </span>
             <input
               type="text"
@@ -163,9 +170,7 @@ export default function Login() {
               value={password}
               onChange={handleChange}
             />
-            <button disabled={!isAdmin} className={!isAdmin ? "disabled" : ""}>
-              login
-            </button>
+            <button>login</button>
           </form>
         </div>
       </div>

@@ -53,6 +53,8 @@ export default function NotSuperAdmin({ admin }) {
     }));
   };
 
+  const addNewTours = () => {};
+
   return (
     <Wrapper>
       {changeModalOpen.isOpen && (
@@ -74,13 +76,14 @@ export default function NotSuperAdmin({ admin }) {
 
       <div className="admin-section" id="admin">
         <div className="container">
-          <h4 className="text-end">Hello {admin.user}!</h4>
+          <h4 className="text-end">Hello {admin.username}!</h4>
           <h3 className="big-title">Your Tours</h3>
         </div>
         <Tours
           tours={tours}
           onOrOff={theTourActiveOrNoActiveHandler}
           onEdit={changeTourHandler}
+          addTour={addNewTours}
         />
       </div>
 

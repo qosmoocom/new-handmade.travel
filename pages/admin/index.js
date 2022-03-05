@@ -5,26 +5,13 @@ import Head from "next/head";
 // admin components
 import SuperAdmin from "./../../app/components/admin-components/SuperAdmin";
 import NotSuperAdmin from "./../../app/components/admin-components/NotSuperAdmin";
-import { getAllUsers } from "../../store/reducer/loginReducer";
+import { getAllUsers, updateAllPage } from "../../store/reducer/loginReducer";
+import Axios from "axios";
 export default function Index() {
-  const loginState = useSelector((state) => state.login);
-  const [admin, setAdmin] = useState(null);
+  const { isAdmin, users } = useSelector((state) => state.login);
   const dispatch = useDispatch();
-
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (user) {
-      const isAdmin = loginState.users.some(
-        (i) => i.user === user.user && i.password === user.password
-      );
-      if (isAdmin) {
-        setAdmin(user);
-      }
-    }
-  }, [loginState]);
-
-  useEffect(async () => {
-    dispatch(getAllUsers());
+    dispatch(updateAllPage());
   }, []);
 
   return (
@@ -40,43 +27,46 @@ export default function Index() {
           rel="stylesheet"
         />
       </Head>
-      <SwitchPage admin={admin} admins={loginState.users} />
+      <SwitchPage isAdmin={isAdmin} users={users} />
     </div>
   );
 }
 
-const SwitchPage = ({ admin, admins = [] }) => {
-  const dispatch = useDispatch();
+const SwitchPage = ({ isAdmin, users }) => {
+  const [user, setUser] = useState({});
+
   useEffect(async () => {
-    dispatch(getAllUsers());
-  }, []);
-
-  const { role } =
-    admins.find(
-      (i) => i.user === admin?.user && i.password === admin?.password
-    ) || false;
-
-  if (admin && role === "moderator") {
-    return (
+    try {
+      const res = await Axios.get("http://localhost:5000/api/user/me", {
+        headers: {
+          Authorization: JSON.parse(localStorage.getItem("my-token")) || "no",
+        },
+      });
+      const data = await res.data;
+      console.log("user", data);
+      setUser(data);
+    } catch (error) {}
+  }, [isAdmin]);
+  if (isAdmin) {
+    if (user.role === "admin") {
+      return (
+        <section>
+          <Head>
+            <title>Hello basic {user.username}</title>
+          </Head>
+          <SuperAdmin />
+        </section>
+      );
+    } else {
       <section>
         <Head>
-          <title>Hello big Admin</title>
+          <title>Hello {user.username}</title>
         </Head>
-        <SuperAdmin />
-      </section>
-    );
+        <NotSuperAdmin admin={user} />
+      </section>;
+    }
   }
 
-  if (admin && role === "admin") {
-    return (
-      <section>
-        <Head>
-          <title>Hello {admin.user}</title>
-        </Head>
-        <NotSuperAdmin admin={admin} />
-      </section>
-    );
-  }
   return (
     <section>
       <Head>
