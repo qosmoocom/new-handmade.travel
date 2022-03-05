@@ -6,9 +6,10 @@ const app = express();
 
 connectDB();
 
-app.use("/public/images", express.static(path));
+
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
+app.use("/public/images", express.static(path));
 app.use(cors());
 app.use(require("morgan")("dev"));
 

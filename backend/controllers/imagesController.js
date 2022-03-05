@@ -12,7 +12,7 @@ exports.createOne = async (req, res, next) => {
     // const SharpMetod=new UploadFile(filename)
     //  await  SharpMetod.sharpMetod()
   const result = new Image({
-     image:thumb,   
+    image:`/public/images/landing/${tour.tour_id}~${req.file.filename}`,   
     tourID:req.body.tourID,
     tourAuthor:req.body.tourAuthor
   })

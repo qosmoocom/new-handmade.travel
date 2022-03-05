@@ -12,8 +12,6 @@ const storage = multer.diskStorage({
         cb(null, './public/images/landing');
     },
     filename: function async(req,file,cb) {
-        // const tour = Tour.find({_id:req.body.tourID})
-        console.log("salom  ",file);
         cb(null, `${md5(Date.now())}${path.extname(file.originalname)}`);
     }
 });
