@@ -32,7 +32,7 @@ exports.login = async (req, res, next) => {
   const user = await User.findOne({ username: username }).select(["+password"]);
   if (!user) {
     res.status(401).json({ success: false, data: "Unauthorized" });
-  }
+  }else{
   const isMatch = await user.matchPassword(password);
   if (!isMatch) {
     res.status(401).json({ success: false, data: "Invalid credentials" });
@@ -43,6 +43,7 @@ exports.login = async (req, res, next) => {
       token,
     });
   }
+}
 };
 
 exports.getMe = async (req, res) => {

@@ -24,7 +24,7 @@ const tourSchema = new mongoose.Schema(
       required: true,
       default: true
     },
-    type_id: {
+    tour_id: {
       type: String,
       required: true,
     },
