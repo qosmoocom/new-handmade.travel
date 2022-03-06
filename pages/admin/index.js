@@ -4,6 +4,7 @@ import { getAllUsers } from "../../store/reducer/usersReducer";
 import Admin from "../../app/components/admin/Admin";
 import Moderator from "./../../app/components/admin/Moderator";
 import { useDispatch } from "react-redux";
+import { getAllMyTours } from "../../store/reducer/toursReducer";
 
 const Index = () => {
   const [logData, setLogData] = useState(null);
@@ -16,6 +17,7 @@ const Index = () => {
     return <Admin />;
   }
   if (logData && logData.role === "moderator") {
+    dispatch(getAllMyTours());
     return <Moderator />;
   }
 

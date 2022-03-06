@@ -1,27 +1,59 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineClose } from "react-icons/ai";
+import { useSelector } from "react-redux";
 
-export default function UserCreateAndUpdate() {
+export default function UserCreateAndUpdate({
+  onCreateClose,
+  onChange,
+  tour: { tourName, tour_id, language },
+  onSave,
+  onSaveUpdate,
+}) {
+  const { isItCreate, isItUpdate } = useSelector((state) => state.tours);
   return (
-    <Wrapper className={"active"}>
+    <Wrapper className={isItCreate || isItUpdate ? "active" : ""}>
       <div className="form">
-        <AiOutlineClose className="close-btn" />
+        <AiOutlineClose className="close-btn" onClick={onCreateClose} />
         <div className="input-box">
           <label>Tourname:</label>
-          <input type="text" name="tourName" placeholder="Enter tour name" />
+          <input
+            type="text"
+            onChange={onChange}
+            name="tourName"
+            value={tourName}
+            placeholder="Enter tour name"
+          />
         </div>
         <div className="input-box">
           <label>Tour Id</label>
-          <input type="text" name="tour_id" placeholder="Enter tour Id" />
+          <input
+            type="text"
+            name="tour_id"
+            onChange={onChange}
+            value={tour_id}
+            placeholder="Enter tour Id"
+          />
         </div>
         <div className="input-box">
           <label>Tour Lang</label>
-          <input type="text" name="language" placeholder="Enter tour lang" />
+          <input
+            type="text"
+            name="language"
+            onChange={onChange}
+            value={language}
+            placeholder="Enter tour lang"
+          />
         </div>
 
         <div className="input-btn">
-          <button className="btn btn-primary btn-1">save</button>
+          <button
+            className="btn btn-primary btn-1"
+            onClick={isItCreate ? onSave : onSaveUpdate}
+            disabled={!(tourName && tour_id && language)}
+          >
+            save
+          </button>
           <button className="btn btn-secondary">cancel</button>
         </div>
       </div>

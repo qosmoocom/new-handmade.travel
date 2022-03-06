@@ -22,7 +22,7 @@ const tourSchema = new mongoose.Schema(
     isItActive: {
       type: Boolean,
       required: true,
-      default: true
+      default: true,
     },
     tour_id: {
       type: String,
@@ -31,7 +31,7 @@ const tourSchema = new mongoose.Schema(
     language: {
       type: String,
       required: true,
-    }
+    },
   },
   {
     timestamps: true,

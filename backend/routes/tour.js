@@ -13,7 +13,7 @@ const { protect, admin, moderator } = require("../middleware/auth");
 router.post("/add", protect, moderator, createOne);
 router.get("/all", protect, admin, getItems);
 router.get("/:id", protect, admin, moderator, getItem);
-router.put("/:id", protect, admin, moderator, updateOne);
+router.put("/:id", protect, moderator, updateOne);
 router.get("/byUser/:userID", protect, moderator, getItemByUser);
 router.delete("/:id", protect, admin, deleteOne);
 

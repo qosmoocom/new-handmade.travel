@@ -308,7 +308,7 @@ export function Modal3() {
                 <Text name="modal_3_date">{getItem("modal_3_date")}</Text>
                 <div className={`input-box ${classAddError("date")}`}>
                   <select value={form.date} name="date" onChange={handleChange}>
-                    <option value="" selected disabled hidden></option>
+                    <option value="" disabled hidden></option>
                     {getItem("prices_data", "prices_data").map(
                       (item, index) => {
                         return <option key={index}>{item?.date}</option>;
@@ -327,7 +327,7 @@ export function Modal3() {
                     name="price"
                     onChange={handleChange}
                   >
-                    <option value="" selected disabled hidden></option>
+                    <option value="" disabled hidden></option>
                     {getItem("rate_name_data", "rate_name_data").map(
                       (item, index) => {
                         return (
