@@ -25,6 +25,7 @@ exports.updateOne = async (req, res, next) => {
     (result.tour_id = req.body.tour_id),
     (result.language = req.body.language),
     (result.tourTexts = req.body.tourTexts),
+    (result.tourStyles = req.body.tourStyles),
     (result.tourAuthor = req.body.tourAuthor),
     (result.isItActive = req.body.isItActive),
     await result
