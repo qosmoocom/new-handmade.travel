@@ -39,9 +39,6 @@ export default function Index() {
         console.log("error");
       }
     }, 500);
-    // if (data && (data.role === "admin" || data.role === "moderator")) {
-    // router.push("/admin");
-    // }
   };
 
   const getUser = async () => {

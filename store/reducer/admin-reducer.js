@@ -358,7 +358,8 @@ export const AdminReducer = (state = defaultState, action) => {
     case types.editTour: {
       return {
         ...state,
-        isEdit: action.payload,
+        ...JSON.parse(action.data.tourTexts),
+        isEdit: true,
       };
     }
     default:

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useRouter } from "next/router";
 import {
   createNewTour,
   updateMyTours,
@@ -14,14 +15,15 @@ import { FaEdit, FaRegClone } from "react-icons/fa";
 import UserCreateAndUpdate from "./TourCreateAndUpdate";
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
-
-import { toCSS, toJSON } from "css-convert-json";
-import { cssText } from "./globalCss";
+import { defaultState } from "./../../../store/defaultData";
 
 export default function Moderator() {
   const toursState = useSelector((state) => state.tours);
-  const defaultTexts = JSON.stringify(useSelector((state) => state.admin));
+  const router = useRouter();
+  const defaultTexts = JSON.stringify(defaultState);
+
   const isLoginMe = JSON.parse(localStorage.getItem("isLoginMe"));
+
   const dispatch = useDispatch();
   const defaultTour = {
     tourName: "",
@@ -31,6 +33,7 @@ export default function Moderator() {
     tour_id: "",
     language: "",
   };
+
   const [tour, setTour] = useState(defaultTour);
 
   const createNewTourHandler = () => {
@@ -125,6 +128,10 @@ export default function Moderator() {
       })
     );
   };
+
+  const tourPagePath = (path) => {
+    router.push(path);
+  };
   return (
     <>
       <UserCreateAndUpdate
@@ -140,7 +147,12 @@ export default function Moderator() {
             <h4>Hello {isLoginMe?.username}</h4>
             <h3>
               tours
-              <span className="log-out">
+              <span
+                className="log-out"
+                onClick={() => {
+                  localStorage.clear();
+                }}
+              >
                 <Link href={"/login"}>log out</Link>
               </span>
             </h3>
@@ -168,7 +180,12 @@ export default function Moderator() {
                     <th scope="row">{index + 1}</th>
                     <td className="item-w-t">{tour.tourName}</td>
                     <td className="item-w-t">
-                      <Link href={"/"}>{tour.tour_id}</Link>
+                      <span
+                        className="tour-page-path"
+                        onClick={() => tourPagePath(`/update/tour/${tour._id}`)}
+                      >
+                        {tour.tour_id}
+                      </span>
                     </td>
                     <td className="item-w-t">{tour.language}</td>
                     <td className="item-w-t">
@@ -235,5 +252,15 @@ const Wrapper = styled.div`
     float: right;
     clear: both;
     margin-top: 0.2rem;
+  }
+
+  .tour-page-path {
+    color: blue;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 300ms;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;

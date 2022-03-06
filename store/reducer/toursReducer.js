@@ -1,4 +1,6 @@
 import Axios from "axios";
+import { types } from "../types";
+import { loaderOff, loaderOn } from "./loaderReducer";
 
 import { getConfig } from "./usersReducer";
 
@@ -6,6 +8,7 @@ const initialState = {
   tours: [],
   isItCreate: false,
   isItUpdate: false,
+  tour: null,
 };
 
 // reducer
@@ -32,6 +35,9 @@ export const toursReducer = (state = initialState, action) => {
         ...state,
         isItUpdate: true,
       };
+
+    case toursTypes.getMeOneTour:
+      return { ...state, tour: action.data };
     default:
       return state;
   }
@@ -43,6 +49,7 @@ export const toursTypes = {
   closeModal: "ADMIN/CLOSE_TOUR_MODAL",
   updateTour: "ADMIN/MY_TOURS/UPDATE_TOUR",
   getMeTours: "ADMIN/MY_TOURS/GET_ME_TOURS",
+  getMeOneTour: "ADMIN/GET_ME_ONE_TOUR",
 };
 
 // tours actions
@@ -53,19 +60,23 @@ export const createNewTour = (newTour) => async (dispatch) => {
     const data = await res.data;
     dispatch(getAllMyTours());
     dispatch(closeCreatTourModal());
+    dispatch(loaderOff());
   } catch (error) {
     console.log("error in the createNewTour function", error);
   }
 };
 
 export const getAllMyTours = () => async (dispatch) => {
+  dispatch(loaderOn());
   const id = JSON.parse(localStorage.getItem("isLoginMe"))._id;
   const api = `http://localhost:5000/api/tour/byUser/${id}`;
   try {
     const res = await Axios.get(api, getConfig());
     const data = await res.data;
     dispatch({ type: toursTypes.getMeTours, data });
+    dispatch(loaderOff());
   } catch (error) {
+    dispatch(loaderOn());
     console.log("Error it is Tour all", error);
   }
 };
@@ -88,6 +99,23 @@ export const updateMyTours = (userId, newTour) => async (dispatch) => {
 export const checkedTourClone = (cloneTour) => async (dispatch) => {
   dispatch(createNewTour(cloneTour));
 };
+
+export const getMyOneTour = (id) => async (dispatch) => {
+  dispatch(loaderOn());
+  const api = `http://localhost:5000/api/tour/${id}`;
+  try {
+    const res = await Axios.get(api, getConfig());
+    const data = await res.data;
+    dispatch(setOneTour(data));
+    setTimeout(() => {
+      dispatch(loaderOff());
+      dispatch({ type: types.editTour, data });
+    }, 500);
+  } catch (error) {
+    console.log("error in the getMeOneTour function", error);
+  }
+};
 export const newTourCreatModal = () => ({ type: toursTypes.createTour });
 export const closeCreatTourModal = () => ({ type: toursTypes.closeModal });
 export const updateTourModal = () => ({ type: toursTypes.updateTour });
+export const setOneTour = (data) => ({ type: toursTypes.getMeOneTour, data });
