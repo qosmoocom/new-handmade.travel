@@ -27,14 +27,14 @@ exports.updateOne = async (req, res, next) => {
     (result.tourTexts = req.body.tourTexts),
     (result.tourAuthor = req.body.tourAuthor),
     (result.isItActive = req.body.isItActive),
-  await result
-    .save()
-    .then(() => {
-      res.status(200).json(result);
-    })
-    .catch((error) => {
-      res.status(400).json({ message: "Badly", data: error });
-    });
+    await result
+      .save()
+      .then(() => {
+        res.status(200).json(result);
+      })
+      .catch((error) => {
+        res.status(400).json({ message: "Badly", data: error });
+      });
 };
 exports.deleteOne = async (req, res, next) => {
   await Tour.findByIdAndDelete({ _id: req.params.id });
@@ -46,7 +46,7 @@ exports.getItem = async (req, res, next) => {
   res.status(200).json(result);
 };
 exports.getItemByUser = async (req, res, next) => {
-  const result = await Tour.find({userID:req.params.userID});
+  const result = await Tour.find({ tourAuthor: req.params.userID });
   res.status(200).json(result);
 };
 exports.getItems = async (req, res, next) => {
