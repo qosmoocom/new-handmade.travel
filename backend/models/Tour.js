@@ -10,10 +10,6 @@ const tourSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    tourStyles: {
-      type: String,
-      required: true,
-    },
     tourAuthor: {
       type: mongoose.Schema.ObjectId,
       ref: "User",

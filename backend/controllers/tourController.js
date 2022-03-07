@@ -6,7 +6,6 @@ exports.createOne = async (req, res, next) => {
     tour_id: req.body.tour_id,
     language: req.body.language,
     tourTexts: req.body.tourTexts,
-    tourStyles: req.body.tourStyles,
     tourAuthor: req.body.tourAuthor,
   });
   await result

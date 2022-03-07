@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router()
-const {createOne, getItem, getItems, updateOne, deleteOne} = require('../controllers/texstController');
+const {createOne, getItem, getItems, updateOne, deleteOne} = require('../controllers/styleController');
 
 router.post('/', createOne)
 router.get('/all',getItems)

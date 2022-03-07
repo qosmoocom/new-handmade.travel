@@ -16,7 +16,7 @@ app.use(require("morgan")("dev"));
 
 app.use('/api/user', require('./routes/user'));
 app.use('/api/tour', require('./routes/tour'));
-app.use('/api/text', require('./routes/text'));
+app.use('/api/style', require('./routes/style'));
 app.use('/api/images', require('./routes/images'));
 
 app.listen(5000, console.log("Listening on port 5000"));
