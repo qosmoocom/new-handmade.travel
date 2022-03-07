@@ -54,3 +54,8 @@ exports.getItems = async (req, res, next) => {
   const result = await Tour.find();
   res.status(200).json(result);
 };
+
+exports.getItemsUser = async (req, res, next) => {
+  const result = await Tour.find({ isItActive: true });
+  res.status(200).json(result);
+};
