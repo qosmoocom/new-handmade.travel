@@ -44,7 +44,7 @@ export const usersTypes = {
 
 // actions
 export const userLogin = (values) => async (dispatch) => {
-  const api = `http://localhost:5000/api/user/login`;
+  const api = `/api/user/login`;
 
   try {
     const res = await Axios.post(api, values);
@@ -72,7 +72,7 @@ export const getConfig = () => {
 };
 
 export const getUser = () => async (dispatch) => {
-  const api = `http://localhost:5000/api/user/me`;
+  const api = `/api/user/me`;
   try {
     const res = await Axios.get(api, getConfig());
     const data = await res.data;
@@ -84,7 +84,7 @@ export const getUser = () => async (dispatch) => {
 };
 
 export const getAllUsers = () => async (dispatch) => {
-  const api = `http://localhost:5000/api/user/all`;
+  const api = `/api/user/all`;
   try {
     const res = await Axios.get(api, getConfig());
     const data = await res.data;
@@ -95,7 +95,7 @@ export const getAllUsers = () => async (dispatch) => {
 };
 
 export const deleteUserId = (userId) => async (dispatch) => {
-  const api = `http://localhost:5000/api/user/${userId}`;
+  const api = `/api/user/${userId}`;
   try {
     const res = await Axios.delete(api, getConfig());
     const data = await res.data;
@@ -106,7 +106,7 @@ export const deleteUserId = (userId) => async (dispatch) => {
 };
 
 export const createUser = (newUser) => async (dispatch) => {
-  const api = `http://localhost:5000/api/user/`;
+  const api = `/api/user/`;
   try {
     const res = await Axios.post(api, newUser, getConfig());
     const data = await res.data;
@@ -120,7 +120,7 @@ export const createUser = (newUser) => async (dispatch) => {
 };
 
 export const updateUserId = (newUser, _id) => async (dispatch) => {
-  const api = `http://localhost:5000/api/user/${_id}`;
+  const api = `/api/user/${_id}`;
   try {
     const res = await Axios.put(api, newUser, getConfig());
     const data = await res.data;

@@ -12,7 +12,7 @@ export default function Index() {
   const dispatch = useDispatch();
   const [isItPath, setIsItPath] = useState(false);
   const fetchData = async (id) => {
-    const api = `http://localhost:5000/api/tour/${id}`;
+    const api = `/api/tour/${id}`;
 
     try {
       const res = await Axios.get(api);

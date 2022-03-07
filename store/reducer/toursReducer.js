@@ -54,7 +54,7 @@ export const toursTypes = {
 
 // tours actions
 export const createNewTour = (newTour) => async (dispatch) => {
-  const api = `http://localhost:5000/api/tour/add`;
+  const api = `/api/tour/add`;
   try {
     const res = await Axios.post(api, newTour, getConfig());
     const data = await res.data;
@@ -69,7 +69,7 @@ export const createNewTour = (newTour) => async (dispatch) => {
 export const getAllMyTours = () => async (dispatch) => {
   dispatch(loaderOn());
   const id = JSON.parse(localStorage.getItem("isLoginMe"))._id;
-  const api = `http://localhost:5000/api/tour/byUser/${id}`;
+  const api = `/api/tour/byUser/${id}`;
   try {
     const res = await Axios.get(api, getConfig());
     const data = await res.data;
@@ -82,7 +82,7 @@ export const getAllMyTours = () => async (dispatch) => {
 };
 
 export const updateMyTours = (userId, newTour) => async (dispatch) => {
-  const api = `http://localhost:5000/api/tour/${userId}`;
+  const api = `/api/tour/${userId}`;
   try {
     await Axios.put(api, newTour, getConfig());
     // const data = await res.data;
@@ -102,7 +102,7 @@ export const checkedTourClone = (cloneTour) => async (dispatch) => {
 
 export const getMyOneTour = (id) => async (dispatch) => {
   dispatch(loaderOn());
-  const api = `http://localhost:5000/api/tour/${id}`;
+  const api = `/api/tour/${id}`;
   try {
     const res = await Axios.get(api, getConfig());
     const data = await res.data;

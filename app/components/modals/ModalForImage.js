@@ -185,7 +185,7 @@ export default function ImageForModal() {
     try {
       const res = await axios({
         method: "post",
-        url: "http://localhost:5000/api/images/add",
+        url: "/api/images/add",
         data: formData,
         headers: { "Content-Type": "multipart/form-data" },
       });

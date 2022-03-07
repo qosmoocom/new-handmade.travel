@@ -43,7 +43,7 @@ export default function Index() {
 
   const getUser = async () => {
     const token = localStorage.getItem("token");
-    const api = `http://localhost:5000/api/user/me`;
+    const api = `/api/user/me`;
     const config = {
       headers: {
         Authorization: token,
