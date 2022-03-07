@@ -2,13 +2,13 @@ const express = require("express");
 const connectDB = require("./config/db");
 const cors = require("cors");
 const path = require('path');
-const pathdir = require('path').join(__dirname, '/public/images/landing')
+const pathdir = require('path').join(__dirname, '/public/images')
 const app = express();
 
 connectDB();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/public/images/landing", express.static(pathdir));
+app.use("/public/images", express.static(pathdir));
 app.use(cors());
 app.use(require("morgan")("dev"));
 

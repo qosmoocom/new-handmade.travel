@@ -11,7 +11,7 @@ const {
 } = require("../controllers/tourController");
 const { protect, admin, moderator } = require("../middleware/auth");
 
-router.post("/add", protect, moderator, createOne);
+router.post("/add",/* protect, moderator,*/ createOne);
 router.get("/all", protect, admin, getItems);
 router.get("/:id", protect, moderator, getItem);
 router.put("/:id", protect, moderator, updateOne);

@@ -11,6 +11,10 @@ const imageSchema = new mongoose.Schema(
       ref: "Tour",
       required: true,
     },
+    tour_id:{
+      type: String,
+      required:true
+    },
     tourAuthor: {
       type: mongoose.Schema.ObjectId,
       ref: "User",
