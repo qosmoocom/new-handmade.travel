@@ -110,6 +110,7 @@ export const getMyOneTour = (id) => async (dispatch) => {
     setTimeout(() => {
       dispatch(loaderOff());
       dispatch({ type: types.editTour, data });
+      dispatch({ type: types.editorOn });
     }, 500);
   } catch (error) {
     console.log("error in the getMeOneTour function", error);

@@ -36,6 +36,7 @@ export default function Index() {
       isEdit: false,
       keywords,
     });
+
     const tour = globalState.tours.tour;
     const {
       isItActive,

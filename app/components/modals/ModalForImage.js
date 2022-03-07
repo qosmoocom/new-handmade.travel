@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
@@ -122,6 +123,7 @@ const Wrapper = styled.div`
 export default function ImageForModal() {
   const dispatch = useDispatch();
   const bigState = useSelector((state) => state.admin);
+  const [selectFile, setSelectFile] = useState(null);
   const { editImage } = bigState;
   const {
     open = false,
@@ -171,18 +173,38 @@ export default function ImageForModal() {
     }
   }, [open]);
 
-  const onSaveHandler = () => {
-    dispatch({
-      type: types.editImage,
-      payload: {
-        isSave: true,
-        newAlt: state.alt,
-        newHref: state.href,
-        newTitle: state.title,
-      },
-    });
-  };
+  const onSaveHandler = async () => {
+    console.log("state", state);
 
+    const formData = new FormData();
+    formData.append("tour_id", "art");
+    formData.append("image", selectFile);
+    formData.append("tourID", "6225aaa8f83c01fc3cd98c55");
+    formData.append("tourAuthor", "6225a950f83c01fc3cd98c21");
+
+    try {
+      const res = await axios({
+        method: "post",
+        url: "http://localhost:5000/api/images/add",
+        data: formData,
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      const { data, success } = await res.data;
+      setTimeout(() => {
+        dispatch({
+          type: types.editImage,
+          payload: {
+            isSave: true,
+            newAlt: state.alt,
+            newHref: data.image.replace("/public", ""),
+            newTitle: state.title,
+          },
+        });
+      }, 300);
+    } catch (error) {
+      console.log("error daata", error);
+    }
+  };
   useEffect(() => {
     document.addEventListener("keydown", (e) => {
       if (e.code === "Escape") {
@@ -212,7 +234,9 @@ export default function ImageForModal() {
               type="file"
               id="file"
               style={{ display: "none" }}
-              onChange={changeHandler}
+              onChange={(event) => {
+                setSelectFile(event.target.files[0]);
+              }}
               name="href"
             />
             обновить изображение

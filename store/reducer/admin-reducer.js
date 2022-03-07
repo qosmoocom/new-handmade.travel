@@ -362,6 +362,18 @@ export const AdminReducer = (state = defaultState, action) => {
         isEdit: true,
       };
     }
+    case types.editorOff: {
+      return {
+        ...state,
+        isEdit: false,
+      };
+    }
+    case types.editorOn: {
+      return {
+        ...state,
+        isEdit: true,
+      };
+    }
     default:
       return state;
   }
