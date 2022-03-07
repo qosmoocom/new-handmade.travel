@@ -47,7 +47,7 @@ exports.getItem = async (req, res, next) => {
   res.status(200).json(result);
 };
 exports.getItemByUser = async (req, res, next) => {
-  const result = await Tour.find({ tourAuthor: req.params.userID });
+  const result = await Tour.find({ tourAuthor: req.params.id });
   res.status(200).json(result);
 };
 exports.getItems = async (req, res, next) => {
