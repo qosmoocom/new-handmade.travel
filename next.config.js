@@ -14,11 +14,11 @@ module.exports = {
       script: "server/index.js",
       watch: true,
       env: {
-        PORT: 3000,
+        PORT: 3007,
         NODE_ENV: "development",
       },
       env_production: {
-        PORT: 3000,
+        PORT: 3007,
         NODE_ENV: "production",
       },
     },
