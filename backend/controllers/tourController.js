@@ -55,6 +55,14 @@ exports.getItems = async (req, res, next) => {
 };
 
 exports.getItemsUser = async (req, res, next) => {
-  const result = await Tour.find({ isItActive: true });
-  res.status(200).json(result);
+  try {
+    const result = await Tour.find({
+      isItActive: true,
+      tour_id: req.params.tour_id,
+      language: req.params.id,
+    });
+    res.status(200).json(result);
+  } catch (error) {
+    console.log(error);
+  }
 };
