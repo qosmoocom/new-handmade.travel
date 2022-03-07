@@ -2,7 +2,7 @@
   "name": "my-next-app",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node backend/server.js",
     "build": "next build",
     "lint": "next lint",
     "start": "node backend/server.js"

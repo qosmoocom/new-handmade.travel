@@ -11,14 +11,14 @@ module.exports = {
   apps: [
     {
       name: "app",
-      script: "server/index.js",
+      script: "backend/server.js",
       watch: true,
       env: {
-        PORT: 3007,
+        PORT: 3005,
         NODE_ENV: "development",
       },
       env_production: {
-        PORT: 3007,
+        PORT: 3005,
         NODE_ENV: "production",
       },
     },
