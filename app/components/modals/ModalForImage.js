@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
+import { useRouter } from "next/router";
 import { AiOutlineClose } from "react-icons/ai";
 import { types } from "../../../store/types";
 const Wrapper = styled.div`
@@ -121,6 +122,8 @@ const Wrapper = styled.div`
   }
 `;
 export default function ImageForModal() {
+  const router = useRouter();
+  console.log(router);
   const dispatch = useDispatch();
   const bigState = useSelector((state) => state.admin);
   const [selectFile, setSelectFile] = useState(null);
@@ -179,8 +182,8 @@ export default function ImageForModal() {
     const formData = new FormData();
     formData.append("tour_id", "art");
     formData.append("image", selectFile);
-    formData.append("tourID", "6225aaa8f83c01fc3cd98c55");
-    formData.append("tourAuthor", "6225a950f83c01fc3cd98c21");
+    formData.append("tourID", router.query.id);
+    formData.append("tourAuthor", JSON.parse(localStorage["isLoginMe"])._id);
 
     try {
       const res = await axios({
