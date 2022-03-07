@@ -15,7 +15,7 @@ import { FaEdit, FaRegClone } from "react-icons/fa";
 import UserCreateAndUpdate from "./TourCreateAndUpdate";
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
-import { defaultState } from "./../../../store/defaultData";
+import { defaultState } from "../../../store/defaultData";
 
 export default function Moderator() {
   const toursState = useSelector((state) => state.tours);
