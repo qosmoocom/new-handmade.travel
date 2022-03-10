@@ -1,14 +1,15 @@
 import Axios from "axios";
 import { types } from "../types";
 import { loaderOff, loaderOn } from "./loaderReducer";
-
 import { getConfig } from "./usersReducer";
+import { cssText } from "./../../app/components/admin/globalCss";
 
 const initialState = {
   tours: [],
   isItCreate: false,
   isItUpdate: false,
   tour: null,
+  tourStyle: "",
 };
 
 // reducer
@@ -35,9 +36,13 @@ export const toursReducer = (state = initialState, action) => {
         ...state,
         isItUpdate: true,
       };
-
     case toursTypes.getMeOneTour:
       return { ...state, tour: action.data };
+    case toursTypes.setTourStyle:
+      return {
+        ...state,
+        tourStyle: action.style,
+      };
     default:
       return state;
   }
@@ -50,17 +55,32 @@ export const toursTypes = {
   updateTour: "ADMIN/MY_TOURS/UPDATE_TOUR",
   getMeTours: "ADMIN/MY_TOURS/GET_ME_TOURS",
   getMeOneTour: "ADMIN/GET_ME_ONE_TOUR",
+  setTourStyle: "ADMIN/SET_TOUR_STYLE",
 };
 
 // tours actions
 export const createNewTour = (newTour) => async (dispatch) => {
   const api = `/api/tour/add`;
+  const api2 = `/api/style/`;
   try {
     const res = await Axios.post(api, newTour, getConfig());
     const data = await res.data;
     dispatch(getAllMyTours());
     dispatch(closeCreatTourModal());
     dispatch(loaderOff());
+    const { _id } = data;
+    const my_style_data = {
+      tourID: _id,
+      styles: cssText,
+    };
+    await Axios.post(api2, my_style_data)
+      .then((res) => res.data)
+      .then((data) => {
+        console.log("res style created:", data);
+      })
+      .catch((styleError) => {
+        console.log("style is not create, there is a error", styleError);
+      });
   } catch (error) {
     console.log("error in the createNewTour function", error);
   }
@@ -116,7 +136,20 @@ export const getMyOneTour = (id) => async (dispatch) => {
     console.log("error in the getMeOneTour function", error);
   }
 };
+
+export const getMyTourStyle = (id) => async (dispatch) => {
+  const api = `/api/style/${id}`;
+  try {
+    const res = await Axios.get(api);
+    const data = await res.data;
+    dispatch(setStyle(data.styles));
+  } catch (error) {
+    console.log("getMyTourStyle error ", error);
+  }
+};
+
 export const newTourCreatModal = () => ({ type: toursTypes.createTour });
 export const closeCreatTourModal = () => ({ type: toursTypes.closeModal });
 export const updateTourModal = () => ({ type: toursTypes.updateTour });
 export const setOneTour = (data) => ({ type: toursTypes.getMeOneTour, data });
+export const setStyle = (style) => ({ type: toursTypes.setTourStyle, style });

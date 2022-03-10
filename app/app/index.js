@@ -1,8 +1,9 @@
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/router";
 
-import { createContext, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { createContext, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import Header from "./header";
 import FirstUtp from "./first-utp";
@@ -30,12 +31,16 @@ import ModalForText from "../components/modals/ModalForText";
 import ModalForLink from "../components/modals/ModalForLink";
 import ModalForImage from "../components/modals/ModalForImage";
 import ModalForCheckedIcon from "../components/modals/ModalForCheckedIcon";
+import { getMyTourStyle } from "../../store/reducer/toursReducer";
 
 export const AppContext = createContext(null);
 
 export default function Index() {
   const state = useSelector((state) => state.admin);
   const modalOpen = useSelector((state) => state.modal.isOpen);
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const appStyle = useSelector((state) => state.tours.tourStyle);
   const getItem = (name = "", group = "") => {
     if (!group) return state[name]?.value; // value is string
     if (group) return state[group]["data"]; // array
@@ -56,9 +61,19 @@ export default function Index() {
     }
   }, [modalOpen]);
 
+  useEffect(() => {
+    if (router?.query?.id) {
+      dispatch(getMyTourStyle(router.query.id));
+    }
+  }, [router]);
+
   return (
     <AppContext.Provider value={defaultValue}>
       {/* modals */}
+
+      <style global jsx>
+        {appStyle}
+      </style>
 
       <Modal1 />
       <Modal2 />

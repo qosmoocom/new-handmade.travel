@@ -71,6 +71,7 @@ export default function Index() {
           <Link href={"/admin"}>back admin</Link>{" "}
           <Link href={"/login"}>back login</Link>
         </div>
+
         <App />
         <KeywordsPage
           keywords={keywords}
@@ -88,7 +89,7 @@ export default function Index() {
       <Head>
         <title>sorry you are not an admin</title>
       </Head>
-      <Error404 />
+      <Loader />
     </div>
   );
 }
