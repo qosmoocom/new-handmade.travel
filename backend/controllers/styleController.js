@@ -16,7 +16,7 @@ exports.createOne = async (req, res, next) => {
 };
 
 exports.updateOne = async (req, res, next) => {
-  const result = await Style.findByIdAndUpdate(req.params.id);
+  const result = await Style.findOneAndUpdate({ tourID: req.params.id });
   (result.tourID = req.body.tourID), (result.styles = req.body.styles);
   await result
     .save()
@@ -28,7 +28,7 @@ exports.updateOne = async (req, res, next) => {
     });
 };
 exports.deleteOne = async (req, res, next) => {
-  await Style.findByIdAndDelete({ _id: req.params.id });
+  await Style.findOneAndUpdate({ tourID: req.params.id });
   res.status(200).json([]);
 };
 
