@@ -6,6 +6,7 @@ import { loaderOff, loaderOn } from "./../../store/reducer/loaderReducer";
 import Loader from "../../app/components/Loader";
 import { useEffect, useState } from "react";
 import { types } from "../../store/types";
+import { getMyTourStyle } from "../../store/reducer/toursReducer";
 export default function Index() {
   const router = useRouter();
   const path = router.query;
@@ -17,8 +18,8 @@ export default function Index() {
     try {
       const res = await Axios.get(api);
       const data = await res.data;
-      console.log("data", data);
       dispatch({ type: types.editTour, data: data[0] });
+      dispatch(getMyTourStyle(data[0]._id));
       dispatch({ type: types.editorOff });
       const tour_id = data[0].tour_id;
       const isItActive = data[0].isItActive;

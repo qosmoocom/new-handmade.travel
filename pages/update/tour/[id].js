@@ -69,7 +69,8 @@ export default function Index() {
         <div className="right-btns">
           <button onClick={saveHandler}>save</button>
           <Link href={"/admin"}>back admin</Link>{" "}
-          <Link href={"/login"}>back login</Link>
+          <Link href={"/login"}>back login</Link>{" "}
+          <Link href={`/update/style/${_id}`}>edit css</Link>
         </div>
 
         <App />

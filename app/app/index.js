@@ -71,38 +71,39 @@ export default function Index() {
     <AppContext.Provider value={defaultValue}>
       {/* modals */}
 
-      <style global jsx>
-        {appStyle}
-      </style>
+      {appStyle && (
+        <>
+          <style global jsx>
+            {appStyle}
+          </style>
+          <Modal1 />
+          <Modal2 />
+          <Modal3 />
+          {/* ___modals */}
+          <Header />
+          <FirstUtp />
+          <SecondUtp />
+          <TourProgram />
+          <ActionDetail />
+          <Price />
+          <Rate />
+          <ActionPicture />
+          <Gallery />
+          <Author />
+          <WhyWithUs />
+          <Samele />
+          <Reviews />
+          <Benefit />
+          <Faq />
+          <OtherTour />
+          <Footer />
 
-      <Modal1 />
-      <Modal2 />
-      <Modal3 />
-      {/* ___modals */}
-      <Header />
-      <FirstUtp />
-      <SecondUtp />
-      <TourProgram />
-      <ActionDetail />
-      <Price />
-      <Rate />
-      <ActionPicture />
-      <Gallery />
-      <Author />
-      <WhyWithUs />
-      <Samele />
-      <Reviews />
-      <Benefit />
-      <Faq />
-      <OtherTour />
-      <Footer />
-
-      {/* these are refreshing components */}
-      <ModalForText />
-      <ModalForLink />
-      <ModalForImage />
-      <ModalForCheckedIcon />
-      {/* -------------- */}
+          <ModalForText />
+          <ModalForLink />
+          <ModalForImage />
+          <ModalForCheckedIcon />
+        </>
+      )}
     </AppContext.Provider>
   );
 }
