@@ -1,3 +1,4 @@
+import Axios from "axios";
 import { AppContext } from "..";
 import { useReducer, useEffect, useState, useContext } from "react";
 import styled from "styled-components";
@@ -40,6 +41,10 @@ const reducer = (state, action) => {
           [name]: value,
         },
       };
+    }
+
+    case "FORM_CLEAR": {
+      return initialState;
     }
 
     default:
@@ -115,12 +120,38 @@ export const Modal1 = () => {
   };
 
   // form on submit
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorWorker((prev) => ({ ...prev, error_worker: true }));
     const { form } = modalState;
     for (let keyName in form) {
       handleErrorlistener(keyName, form[keyName]);
+    }
+
+    const {
+      tours: {
+        tour: { _id },
+      },
+    } = globalState;
+    try {
+      const api = `/api/action_phone/`;
+      const data = {
+        action_id: "1",
+        tourID: _id,
+        name: form.name,
+        phone: form.phone,
+        send_email: getItem("footer_col_email"),
+        date: form.date,
+        time: form.time,
+      };
+      const res = await Axios.post(api, data);
+      const resD = await res.data;
+      if (resD.success) {
+        handleClose();
+        modalDispatch({ type: "FORM_CLEAR" });
+      }
+    } catch (error) {
+      console.log("not submit there is error", error);
     }
   };
 
@@ -128,10 +159,11 @@ export const Modal1 = () => {
     const { errors, error_worker } = errorWorker;
     const isError =
       errors.find((item) => item.type === name).error && error_worker;
-    if (isError) return "error";
+    if (isError) return "";
     return "";
   };
 
+  const itIsActive = Object.values(form).every((value) => value);
   return (
     <>
       <Wrapper className={isOpen ? "active" : ""}>
@@ -170,7 +202,7 @@ export const Modal1 = () => {
                   onChange={(event) => {
                     handleChange(event);
                   }}
-                  value={form.number}
+                  value={form.phone}
                 />
               </div>
             </label>
@@ -210,7 +242,11 @@ export const Modal1 = () => {
             </label>
           </div>
           <div style={{ textAlign: "center" }}>
-            <button type="submit">
+            <button
+              type="submit"
+              className={!itIsActive ? "disabled" : ""}
+              disabled={!itIsActive}
+            >
               <Text name="modal_1_btn">{getItem("modal_1_btn")}</Text>
             </button>
           </div>
@@ -423,6 +459,11 @@ const Wrapper = styled.div`
       cursor: pointer;
       text-transform: uppercase;
       font-size: 18px;
+      &.disabled {
+        transition: 0.3s;
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
       @media (min-width: 320px) {
         margin-top: 10px;
         padding: 4px 30px;

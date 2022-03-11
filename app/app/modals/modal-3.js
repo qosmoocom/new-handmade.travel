@@ -50,6 +50,7 @@ export function Modal3() {
   const { getItem } = useContext(AppContext);
   const [modalState, setModalState] = useState(defaultState);
   const globalState = useSelector((state) => state);
+  const [total, setTotal] = useState("");
   const globalDispatch = useDispatch();
 
   // componentDidMount
@@ -139,14 +140,12 @@ export function Modal3() {
     const { errors, error_worker } = modalState.error_watch;
     const isError =
       errors.find((item) => item.type === name).error && error_worker;
-    if (isError) return "error";
+    if (isError) return "";
     return "";
   };
 
   // form on submit
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
+  const handleSubmit = async (e) => {
     setModalState((prev) => ({
       ...prev,
       error_watch: {
@@ -158,6 +157,14 @@ export function Modal3() {
     for (let keyName in form) {
       handleErrorlistener(keyName, form[keyName]);
     }
+
+    const price =
+      getItem("rate_name_data", "rate_name_data")
+        .find((i) => i.rate_name_head === form.price)
+        .rate_money.replace(/\D/gi, "") *
+      (Number(form.years_12_) + Number(form.years_2_12_) * 0.5);
+
+    setTotal(parseInt(price) * 100);
   };
 
   const CheckedMessanger = (messanger_name) => {
@@ -177,6 +184,18 @@ export function Modal3() {
 
   //  modalState items
   const { isOpen, my_messenger, form, error_watch } = modalState;
+
+  const itIsSubmit =
+    form.name &&
+    form.phone &&
+    form.email &&
+    form.date &&
+    form.price &&
+    form.years_12_ &&
+    Number(form.years_12_) + Number(form.years_2_12_) <=
+      Number(form.one_people) +
+        Number(form.two_people) +
+        Number(form.three_people);
   return (
     <>
       <Wrapper className={isOpen ? "active" : ""}>
@@ -190,17 +209,22 @@ export function Modal3() {
           }}
           onClick={handleClose}
         />
-        <form action="https://pay.ofb.uz" method="POST" onSubmit={handleSubmit}>
+        <form
+          action="https://pay.ofb.uz"
+          method="POST"
+          onSubmit={handleSubmit}
+          id="sasasac"
+        >
           <input
             type="hidden"
             name="merchantId"
             value="666fbf0b490841a5a8a8f4c8ec268d2cSzRkMlYwRTdKUUVnNllvYS80Y2xaTFFJMDNxK3hueitnVUlPUmpEZ3k0azdsVktQZ2lZQWtYNm92SEcwMUM2OQ=="
           />
-          <input type="hidden" name="amount" value={0} />
+          <input type="hidden" name="amount" value={total} />
           <input type="hidden" name="currency" value="USD" />
           <input type="hidden" name="description" value="Gastoro_ru" />
           <input type="hidden" name="callback" value="http://handmade.travel" />
-          <input type="hidden" name="order_id" value={"order_id"} />
+          <input type="hidden" name="order_id" value={Date.now().toString()} />
 
           <section>
             <div className="exit-btn" onClick={handleClose}>
@@ -478,7 +502,11 @@ export function Modal3() {
               </label>
             </div>
             <div className="form-group" style={{ textAlign: "center" }}>
-              <button type="submit">
+              <button
+                type="submit"
+                disabled={!itIsSubmit}
+                className={!itIsSubmit ? "disabled" : ""}
+              >
                 <Text name="modal_3_divide_btn">
                   {getItem("modal_3_divide_btn")}
                 </Text>
@@ -935,6 +963,11 @@ const Wrapper = styled.div`
       background: #bf7246;
       border-radius: 5px;
       margin-top: 20px;
+      &.disabled {
+        transition: 0.3s;
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
       width: 350px;
       cursor: pointer;
       text-transform: uppercase;

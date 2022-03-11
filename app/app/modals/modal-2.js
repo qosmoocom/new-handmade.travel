@@ -1,3 +1,4 @@
+import Axios from "axios";
 import { AppContext } from "..";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState, useContext } from "react";
@@ -119,12 +120,12 @@ export function Modal2() {
     const { errors, error_worker } = modalState.error_watch;
     const isError =
       errors.find((item) => item.type === name).error && error_worker;
-    if (isError) return "error";
+    if (isError) return "";
     return "";
   };
 
   // form on submit
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     setModalState((prev) => ({
@@ -138,6 +139,32 @@ export function Modal2() {
     for (let keyName in form) {
       handleErrorlistener(keyName, form[keyName]);
     }
+
+    const {
+      tours: {
+        tour: { _id },
+      },
+    } = globalState;
+    try {
+      const api = `/api/action_more/`;
+      const data = {
+        action_id: "2",
+        tourID: _id,
+        name: form.name,
+        phone: form.phone,
+        send_email: getItem("footer_col_email"),
+        email: form.email,
+        messanger: `${my_messenger.check_messenger}: ${form.messenger_user} `,
+        commit: form.commit,
+      };
+      const res = await Axios.post(api, data);
+      const resD = await res.data;
+      if (resD.success) {
+        handleClose();
+        setModalState(defaultState);
+      }
+      console.log("data bu:", resD);
+    } catch (error) {}
   };
 
   const CheckedMessanger = (messanger_name) => {
@@ -157,6 +184,8 @@ export function Modal2() {
 
   //  modalState items
   const { isOpen, my_messenger, form, error_watch } = modalState;
+
+  const isSubmit = form.name && form.phone && form.email;
   return (
     <>
       <Wrapper className={isOpen ? "active" : ""}>
@@ -278,7 +307,11 @@ export function Modal2() {
                 </div>
               </div>
               <div style={{ textAlign: "center" }}>
-                <button type="submit">
+                <button
+                  type="submit"
+                  disabled={!isSubmit}
+                  className={!isSubmit ? "disabled" : ""}
+                >
                   <Text name="modal_2_btn">{getItem("modal_2_btn")}</Text>
                 </button>
               </div>
@@ -349,6 +382,11 @@ const Wrapper = styled.div`
     width: 350px;
     cursor: pointer;
     text-transform: uppercase;
+    &.disabled {
+      transition: 0.3s;
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
     font-size: 18px;
     @media (min-width: 320px) {
       padding: 4px 30px;
