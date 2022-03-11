@@ -13,14 +13,12 @@
 // app.use(cors());
 // app.use(require("morgan")("dev"));
 
-
 // app.use('/api/user', require('./routes/user'));
 // app.use('/api/tour', require('./routes/tour'));
 // app.use('/api/style', require('./routes/style'));
 // app.use('/api/images', require('./routes/images'));
 
 // app.listen(5000, console.log("Listening on port 5000"));
-
 
 const express = require("express");
 const connectDB = require("./config/db");
@@ -49,6 +47,11 @@ app.prepare().then(() => {
   server.use("/api/tour", require("./routes/tour"));
   server.use("/api/style", require("./routes/style"));
   server.use("/api/images", require("./routes/images"));
+
+  // modal apis
+  server.use("/api/action_bron", require("./routes/sendEmail"));
+  // server.use("/api/action_more", require("./routes/Action_more_router"));
+  // server.use("/api/action_phone", require("./routes/Action_phone_router"));
 
   server.get("*", (req, res) => {
     return handle(req, res);
