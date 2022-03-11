@@ -51,7 +51,7 @@ export default function KeywordsPage({ onSave, keywords, setKeywords }) {
     const { name, value } = event.target;
     setKeywords((oldState) => ({ ...oldState, [name]: value }));
   };
-  const { meta_key, meta_des, yan_met } = keywords;
+  const { meta_key, meta_des, yan_met, title } = keywords;
   return (
     <Wrapper>
       <div className="form-box">
@@ -81,6 +81,16 @@ export default function KeywordsPage({ onSave, keywords, setKeywords }) {
             type="text"
             name="yan_met"
             value={yan_met}
+            onChange={changeHandler}
+          />
+        </div>
+
+        <div className="input-box">
+          <label>Title</label>
+          <input
+            type="text"
+            name="title"
+            value={title}
             onChange={changeHandler}
           />
         </div>

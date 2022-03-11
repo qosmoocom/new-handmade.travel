@@ -53,6 +53,7 @@ const Wrapper = styled.div`
     font-size: 18px;
     outline: none;
     border: none;
+    padding: 0 0 10px 10px;
     &::-webkit-scrollbar {
       display: none;
     }
@@ -79,4 +80,7 @@ const Wrapper = styled.div`
       }
     }
   }
+
+  overflow: hidden;
+  height: 100vh;
 `;

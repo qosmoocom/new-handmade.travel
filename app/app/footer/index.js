@@ -6,6 +6,7 @@ import { Pdf1 } from "./pdf-1";
 import { Pdf2 } from "./pdf-2";
 import Text from "../../components/Text";
 import Image from "../../components/Image";
+import Script from "next/script";
 const Full_screen = styled.div`
   position: relative;
   overflow: hidden;
@@ -947,6 +948,120 @@ export default function index({ footer }) {
   const openCheckPdf = (id) => setCheckPdf(id);
 
   const pdf = !checkPdf ? "" : checkPdf === "pdf_1" ? <Pdf1 /> : <Pdf2 />;
+  function yandexMetirka(id) {
+    "use strict";
+
+    // Флаг, что Метрика уже загрузилась.
+    var loadedMetrica = false,
+      // Переменная для хранения таймера.
+      timerId;
+
+    // Для бота Яндекса грузим Метрику сразу без "отложки",
+    // чтобы в панели Метрики были зелёные кружочки
+    // при проверке корректности установки счётчика.
+    if (navigator.userAgent.indexOf("YandexMetrika") > -1) {
+      loadMetrica();
+    } else {
+      window.addEventListener("scroll", loadMetrica, { passive: true });
+
+      window.addEventListener("touchstart", loadMetrica);
+
+      document.addEventListener("mouseenter", loadMetrica);
+
+      document.addEventListener("click", loadMetrica);
+
+      document.addEventListener("DOMContentLoaded", loadFallback);
+    }
+
+    function loadFallback() {
+      timerId = setTimeout(loadMetrica, 1000);
+    }
+
+    function loadMetrica(e) {
+      if (e && e.type) {
+        console.log(e.type);
+      } else {
+        console.log("DOMContentLoaded");
+      }
+
+      if (loadedMetrica) {
+        return;
+      }
+
+      (function (m, e, t, r, i, k, a) {
+        m[i] =
+          m[i] ||
+          function () {
+            (m[i].a = m[i].a || []).push(arguments);
+          };
+        m[i].l = 1 * new Date();
+        (k = e.createElement(t)),
+          (a = e.getElementsByTagName(t)[0]),
+          (k.async = 1),
+          (k.src = r),
+          a.parentNode.insertBefore(k, a);
+      })(
+        window,
+        document,
+        "script",
+        "https://mc.yandex.ru/metrika/tag.js",
+        "ym"
+      );
+
+      ym(id, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: true,
+      });
+
+      {
+        /* <noscript><div><img src="https://mc.yandex.ru/watch/86955280" style="position:absolute; left:-9999px;" alt="" /></div></noscript> */
+      }
+
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "4544213979029989");
+      fbq("track", "PageView");
+
+      // (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+      //       var f = d.getElementsByTagName(s)[0],
+      //           j = d.createElement(s),
+      //           dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+      // })(window, document, 'script', 'dataLayer', 'GTM-MX4JKC7')
+
+      loadedMetrica = true;
+
+      clearTimeout(timerId);
+
+      window.removeEventListener("scroll", loadMetrica);
+      window.removeEventListener("touchstart", loadMetrica);
+      document.removeEventListener("mouseenter", loadMetrica);
+      document.removeEventListener("click", loadMetrica);
+      document.removeEventListener("DOMContentLoaded", loadFallback);
+    }
+  }
 
   return (
     <>
@@ -1364,6 +1479,96 @@ export default function index({ footer }) {
           </Container>
         </div>
       </Full_screen>
+
+      <Script
+        id="yandexx"
+        // strategy="afterInteractive"
+        strategy="lazyOnload"
+        dangerouslySetInnerHTML={{
+          __html: `
+    (function () {
+   'use strict';
+
+   // Флаг, что Метрика уже загрузилась.
+   var loadedMetrica = false,
+
+      // Переменная для хранения таймера.
+      timerId;
+
+   // Для бота Яндекса грузим Метрику сразу без "отложки",
+   // чтобы в панели Метрики были зелёные кружочки
+   // при проверке корректности установки счётчика.
+   if (navigator.userAgent.indexOf('YandexMetrika') > -1) {
+      loadMetrica();
+   } else {
+      window.addEventListener('scroll', loadMetrica, { passive: true });
+
+      window.addEventListener('touchstart', loadMetrica);
+
+      document.addEventListener('mouseenter', loadMetrica);
+
+      document.addEventListener('click', loadMetrica);
+
+      document.addEventListener('DOMContentLoaded', loadFallback);
+   }
+
+   function loadFallback() {
+      timerId = setTimeout(loadMetrica, 1000);
+   }
+
+   function loadMetrica(e) {
+
+      if (e && e.type) {
+         console.log(e.type);
+      } else {
+         console.log('DOMContentLoaded');
+      }
+
+      if (loadedMetrica) {
+         return;
+      }
+
+      (function (m, e, t, r, i, k, a) {
+         m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+         m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+      })
+         (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+      ym(${getItem("app_yandex_metirka_id")}, "init", {
+         clickmap: true,
+         trackLinks: true,
+         accurateTrackBounce: true,
+         webvisor: true
+      });
+
+
+   
+{/* <noscript><div><img src="https://mc.yandex.ru/watch/86955280" style="position:absolute; left:-9999px;" alt="" /></div></noscript> */}
+
+
+      !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s) }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js'); fbq('init', '4544213979029989'); fbq('track', 'PageView');
+
+      // (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'}); 
+      //       var f = d.getElementsByTagName(s)[0],
+      //           j = d.createElement(s),
+      //           dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+      // })(window, document, 'script', 'dataLayer', 'GTM-MX4JKC7')
+
+
+      loadedMetrica = true;
+
+      clearTimeout(timerId);
+
+      window.removeEventListener('scroll', loadMetrica);
+      window.removeEventListener('touchstart', loadMetrica);
+      document.removeEventListener('mouseenter', loadMetrica);
+      document.removeEventListener('click', loadMetrica);
+      document.removeEventListener('DOMContentLoaded', loadFallback);
+   }
+})()
+  `,
+        }}
+      />
     </>
   );
 }

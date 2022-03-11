@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
@@ -32,6 +33,7 @@ import ModalForLink from "../components/modals/ModalForLink";
 import ModalForImage from "../components/modals/ModalForImage";
 import ModalForCheckedIcon from "../components/modals/ModalForCheckedIcon";
 import { getMyTourStyle } from "../../store/reducer/toursReducer";
+import Keyword from "./keywords";
 
 export const AppContext = createContext(null);
 
@@ -76,10 +78,33 @@ export default function Index() {
           <style global jsx>
             {appStyle}
           </style>
+
+          <Head>
+            <title>{getItem("app_title")}</title>
+            <meta name="keywords" content={getItem("app_keywords")} />
+            <meta name="description" content={getItem("app_description")} />
+          </Head>
+
           <Modal1 />
           <Modal2 />
           <Modal3 />
           {/* ___modals */}
+          {/* yandex */}
+          <div>
+            <img
+              src={`https://mc.yandex.ru/watch/${getItem(
+                "app_yandex_metirka_id"
+              )}`}
+              style={{ position: "absolute", left: "-9999px" }}
+              alt=""
+            />
+            <img
+              height="1"
+              width="1"
+              src="https://www.facebook.com/tr?id=4544213979029989&ev=PageView&noscript=1"
+            />
+          </div>
+          {/* yanxdedx */}
           <Header />
           <FirstUtp />
           <SecondUtp />
@@ -102,6 +127,9 @@ export default function Index() {
           <ModalForLink />
           <ModalForImage />
           <ModalForCheckedIcon />
+
+          {/* keywords */}
+          <Keyword />
         </>
       )}
     </AppContext.Provider>

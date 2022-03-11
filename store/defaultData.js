@@ -1542,4 +1542,18 @@ export const defaultState = {
   modal_3_price: {
     value: "Услуги:",
   },
+  app_title: {
+    value: "handmade travel",
+  },
+  app_description: {
+    value: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Modi numquam quam porro accusantium culpa consectetur id officiis
+          voluptatem non suscipit?`,
+  },
+  app_keywords: {
+    value: "uzbekiston sayohat, samarqand sayohat.",
+  },
+  app_yandex_metirka_id: {
+    value: "124920342",
+  },
 };

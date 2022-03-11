@@ -12,7 +12,6 @@ import {
 
 import Loader from "./../../../app/components/Loader/index";
 import KeywordsPage from "../../../app/components/admin/KeywordsPage";
-import Error404 from "./../../../app/components/Error";
 import styled from "styled-components";
 import Link from "next/link";
 export default function Index() {
@@ -23,6 +22,7 @@ export default function Index() {
     meta_key: "",
     meta_des: "",
     yan_met: "",
+    title: "",
   });
   useEffect(() => {
     if (router.query.id) {
@@ -49,6 +49,7 @@ export default function Index() {
     } = tour;
 
     const saveHandler = () => {
+      console.log(updateTexts);
       const updateTour = {
         tourName,
         tourAuthor,
@@ -74,11 +75,6 @@ export default function Index() {
         </div>
 
         <App />
-        <KeywordsPage
-          keywords={keywords}
-          setKeywords={setKeywords}
-          onSave={saveHandler}
-        />
 
         {/* loader */}
         <Loader />
