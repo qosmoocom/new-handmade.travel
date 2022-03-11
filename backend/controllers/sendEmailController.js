@@ -36,46 +36,6 @@ exports.send_Email = async (req, res, next) => {
     service,
     send_email,
   } = req.body;
-  {
-    // let sendEmailUser = "";
-    // let action = req.body.action_id;
-    // art tour
-    // if (action == "art-ru-3" || action == "art-ru-4" || action == "art-ru-6") {
-    //   sendEmailUser = "narina@silkroaddestinations.com";
-    // }
-    // coach tour
-    // if (
-    //   action == "coach-ru-3" ||
-    //   action == "coach-ru-4" ||
-    //   action == "coach-ru-6"
-    // ) {
-    //   sendEmailUser = "fuzuliy@silkroaddestinations.com";
-    // }
-    // dance tour
-    // if (
-    //   action == "dance-ru-3" ||
-    //   action == "dance-ru-4" ||
-    //   action == "dance-ru-6"
-    // ) {
-    //   sendEmailUser = "narina@silkroaddestinations.com";
-    // }
-    // gastro tour
-    // if (
-    //   action == "gastro-ru-3" ||
-    //   action == "gastro-ru-4" ||
-    //   action == "gastro-ru-6"
-    // ) {
-    //   sendEmailUser = "russia@handmade.travel";
-    // }
-    // navruz tour
-    // if (
-    //   action == "navruz-ru-3" ||
-    //   action == "navruz-ru-4" ||
-    //   action == "navruz-ru-6"
-    // ) {
-    //   sendEmailUser = "umida@silkroaddestinations.com";
-    // }
-  }
 
   const msg = {
     to: `${send_email}`,

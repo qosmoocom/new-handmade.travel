@@ -49,9 +49,9 @@ app.prepare().then(() => {
   server.use("/api/images", require("./routes/images"));
 
   // modal apis
-  server.use("/api/action_bron", require("./routes/sendEmail"));
-  // server.use("/api/action_more", require("./routes/Action_more_router"));
-  // server.use("/api/action_phone", require("./routes/Action_phone_router"));
+  server.use("/api/action_bron", require("./routes/sendBronEmail"));
+  server.use("/api/action_more", require("./routes/sendMoreEmail"));
+  server.use("/api/action_phone", require("./routes/sendPhoneEmail"));
 
   server.get("*", (req, res) => {
     return handle(req, res);
