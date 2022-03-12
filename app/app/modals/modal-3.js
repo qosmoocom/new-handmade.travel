@@ -1,3 +1,4 @@
+import Axios from "axios";
 import { AppContext } from "..";
 import { useEffect, useState, useContext } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -50,7 +51,7 @@ export function Modal3() {
   const { getItem } = useContext(AppContext);
   const [modalState, setModalState] = useState(defaultState);
   const globalState = useSelector((state) => state);
-  const [total, setTotal] = useState("");
+  const [total, setTotal] = useState(0);
   const globalDispatch = useDispatch();
 
   // componentDidMount
@@ -124,7 +125,8 @@ export function Modal3() {
 
   // change Input element
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { value } = e.target;
+    const name = e.target.getAttribute("data-name");
     handleErrorlistener(name, value);
 
     setModalState((prev) => ({
@@ -163,8 +165,39 @@ export function Modal3() {
         .find((i) => i.rate_name_head === form.price)
         .rate_money.replace(/\D/gi, "") *
       (Number(form.years_12_) + Number(form.years_2_12_) * 0.5);
+    const extMoney = getItem("app_extra_money") * form.one_people;
+    setTotal(parseInt(price + extMoney) * 100);
 
-    setTotal(parseInt(price) * 100);
+    const api = `/api/action_bron/`;
+    const {
+      tours: {
+        tour: { _id },
+      },
+    } = globalState;
+    try {
+      const data = {
+        tourID: _id,
+        action_id: "modal-3",
+        name: form.name,
+        phone: form.phone,
+        email: form.email,
+        service: form.price,
+        start_date: form.date,
+        age_12_plus: form.years_12_,
+        age_2_12: form.years_2_12_,
+        age_6_2: form.months_6_years_2,
+        home_type: `Одноместное: ${form.one_people}; Двухместное:${form.two_people}; Трехместное:${form.three_people};`,
+        komment: form.commit,
+        send_email: getItem("footer_col_email"),
+        Удобный_мессенджер: `messanger name:${modalState.my_messenger.check_messenger}; messanger username:${form.messenger_user}`,
+      };
+
+      const res = await Axios.post(api, data);
+      const resData = await res.data;
+      console.log("bu data", resData);
+    } catch (error) {
+      e.preventDefault();
+    }
   };
 
   const CheckedMessanger = (messanger_name) => {
@@ -183,7 +216,7 @@ export function Modal3() {
   };
 
   //  modalState items
-  const { isOpen, my_messenger, form, error_watch } = modalState;
+  const { isOpen, my_messenger, form } = modalState;
 
   const itIsSubmit =
     form.name &&
@@ -210,10 +243,10 @@ export function Modal3() {
           onClick={handleClose}
         />
         <form
+          onSubmit={handleSubmit}
           action="https://pay.ofb.uz"
           method="POST"
-          onSubmit={handleSubmit}
-          id="sasasac"
+          id="FormTarget-3"
         >
           <input
             type="hidden"
@@ -222,7 +255,7 @@ export function Modal3() {
           />
           <input type="hidden" name="amount" value={total} />
           <input type="hidden" name="currency" value="USD" />
-          <input type="hidden" name="description" value="Gastoro_ru" />
+          <input type="hidden" name="description" value="handmade.travel" />
           <input type="hidden" name="callback" value="http://handmade.travel" />
           <input type="hidden" name="order_id" value={Date.now().toString()} />
 
@@ -242,7 +275,7 @@ export function Modal3() {
                 <div className={`input-box ${classAddError("name")}`}>
                   <input
                     type="text"
-                    name="name"
+                    data-name="name"
                     value={form.name}
                     onChange={handleChange}
                   />
@@ -256,7 +289,7 @@ export function Modal3() {
                   <input
                     type="tel"
                     className="input-phone"
-                    name="phone"
+                    data-name="phone"
                     value={form.phone}
                     onChange={handleChange}
                   />
@@ -269,7 +302,7 @@ export function Modal3() {
                 <div className={`input-box  ${classAddError("email")}`}>
                   <input
                     type="text"
-                    name="email"
+                    data-name="email"
                     value={form.email}
                     onChange={handleChange}
                   />
@@ -316,7 +349,7 @@ export function Modal3() {
                 </div>
                 <input
                   type="text"
-                  name="messenger_user"
+                  data-name="messenger_user"
                   value={form.messenger_user}
                   onChange={handleChange}
                 />
@@ -331,7 +364,11 @@ export function Modal3() {
               <label>
                 <Text name="modal_3_date">{getItem("modal_3_date")}</Text>
                 <div className={`input-box ${classAddError("date")}`}>
-                  <select value={form.date} name="date" onChange={handleChange}>
+                  <select
+                    value={form.date}
+                    data-name="date"
+                    onChange={handleChange}
+                  >
                     <option value="" disabled hidden></option>
                     {getItem("prices_data", "prices_data").map(
                       (item, index) => {
@@ -348,7 +385,7 @@ export function Modal3() {
                 <div className={`input-box ${classAddError("price")}`}>
                   <select
                     value={form.price}
-                    name="price"
+                    data-name="price"
                     onChange={handleChange}
                   >
                     <option value="" disabled hidden></option>
@@ -381,7 +418,7 @@ export function Modal3() {
                         type="number"
                         min={0}
                         max={15}
-                        name="years_12_"
+                        data-name="years_12_"
                         onChange={handleChange}
                         value={form.years_12_}
                       />
@@ -398,7 +435,7 @@ export function Modal3() {
                         type="number"
                         min={0}
                         max={15}
-                        name="years_2_12_"
+                        data-name="years_2_12_"
                         onChange={handleChange}
                         value={form.years_2_12_}
                       />
@@ -415,7 +452,7 @@ export function Modal3() {
                         type="number"
                         min={0}
                         max={15}
-                        name="months_6_years_2"
+                        data-name="months_6_years_2"
                         onChange={handleChange}
                         value={form.months_6_years_2}
                       />
@@ -442,7 +479,7 @@ export function Modal3() {
                         type="number"
                         min={0}
                         max={15}
-                        name="one_people"
+                        data-name="one_people"
                         onChange={handleChange}
                         value={form.one_people}
                       />
@@ -459,7 +496,7 @@ export function Modal3() {
                         type="number"
                         min={0}
                         max={15}
-                        name="two_people"
+                        data-name="two_people"
                         onChange={handleChange}
                         value={form.two_people}
                       />
@@ -476,7 +513,7 @@ export function Modal3() {
                         type="number"
                         min={0}
                         max={15}
-                        name="three_people"
+                        data-name="three_people"
                         onChange={handleChange}
                         value={form.three_people}
                       />
@@ -494,7 +531,7 @@ export function Modal3() {
                 <div className="input-box">
                   <textarea
                     rows={1}
-                    name="commit"
+                    data-name="commit"
                     onChange={handleChange}
                     value={form.commit}
                   />

@@ -1556,4 +1556,7 @@ export const defaultState = {
   app_yandex_metirka_id: {
     value: "124920342",
   },
+  app_extra_money: {
+    value: "69",
+  },
 };

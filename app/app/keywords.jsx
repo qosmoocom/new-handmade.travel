@@ -31,6 +31,10 @@ export default function Keyword() {
               {getItem("app_yandex_metirka_id")}
             </Text>
           </li>
+          <li>
+            extra money:{" "}
+            <Text name="app_extra_money">{getItem("app_extra_money")}</Text>
+          </li>
         </ul>
       </Wrapper>
     );
