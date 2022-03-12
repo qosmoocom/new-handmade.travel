@@ -34,6 +34,7 @@ import ModalForImage from "../components/modals/ModalForImage";
 import ModalForCheckedIcon from "../components/modals/ModalForCheckedIcon";
 import { getMyTourStyle } from "../../store/reducer/toursReducer";
 import Keyword from "./keywords";
+import { loaderOff } from "../../store/reducer/loaderReducer";
 
 export const AppContext = createContext(null);
 

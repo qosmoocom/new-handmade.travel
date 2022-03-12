@@ -139,11 +139,16 @@ export const getMyOneTour = (id) => async (dispatch) => {
 
 export const getMyTourStyle = (id) => async (dispatch) => {
   const api = `/api/style/${id}`;
+  dispatch(loaderOn());
   try {
     const res = await Axios.get(api);
     const data = await res.data;
     dispatch(setStyle(data.styles));
+    setTimeout(() => {
+      dispatch(loaderOff());
+    }, 500);
   } catch (error) {
+    dispatch(loaderOn());
     console.log("getMyTourStyle error ", error);
   }
 };

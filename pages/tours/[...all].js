@@ -14,7 +14,6 @@ export default function Index() {
   const [isItPath, setIsItPath] = useState(false);
   const fetchData = async (id) => {
     const api = `/api/tour/${id}`;
-
     try {
       const res = await Axios.get(api);
       const data = await res.data;
@@ -39,6 +38,7 @@ export default function Index() {
       return (
         <div>
           <App />
+          <Loader />
         </div>
       );
     }
