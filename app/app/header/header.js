@@ -440,14 +440,15 @@ export default function Header() {
         <div className="container">
           {/* getItem("head_img_url") */}
           <div className="header_bread">
-            <Link name="bread_crumbs" itIsClassName="header_bread" href={"/"}>
+            <Link name="bread_crumbs" itIsClassName="header_bread" hrefName={'bread_crumbs_href'} href={getItem('bread_crumbs_href')}>
               {getItem("bread_crumbs")}
             </Link>
 
             <Link
               name="bread_crumbs_gastro"
               itIsClassName="header_bread"
-              href={"/gasto"}
+              href={getItem('bread_crumbs_gastro_href')}
+              hrefName="bread_crumbs_gastro_href"
             >
               {getItem("bread_crumbs_gastro")}
             </Link>

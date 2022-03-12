@@ -108,15 +108,18 @@ export default function Moderator() {
     dispatch(updateMyTours(_id, updateTour));
   };
 
-  const onClone = ({
-    tourName,
-    tourTexts,
-    tourStyles,
-    tourAuthor,
-    tour_id,
-    language,
-    isItActive,
-  }) => {
+  const onClone = (tour) => {
+    const {
+      tourName,
+      tourTexts,
+      tourStyles,
+      tourAuthor,
+      tour_id,
+      language,
+      isItActive,
+    } = tour;
+    console.log("tour bubbb", tour)
+    const cssId = tour._id;
     dispatch(
       checkedTourClone({
         tourName,
@@ -126,7 +129,7 @@ export default function Moderator() {
         tour_id,
         language,
         isItActive,
-      })
+      }, cssId)
     );
   };
 
@@ -204,9 +207,8 @@ export default function Moderator() {
                           <FaRegClone />
                         </button>
                         <button
-                          className={`btn btn-${
-                            tour.isItActive ? "warning" : "danger"
-                          } btn-sm`}
+                          className={`btn btn-${tour.isItActive ? "warning" : "danger"
+                            } btn-sm`}
                           onClick={tourActiveOrNoActive.bind(this, tour)}
                         >
                           {tour.isItActive ? (

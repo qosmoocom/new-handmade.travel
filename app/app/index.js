@@ -20,6 +20,7 @@ import WhyWithUs from "./why-with-us";
 import Samele from "./samele";
 import Reviews from "./reviews";
 import Benefit from "./benefit";
+import ThirdUtp from "./third-utp";
 import Faq from "./faq";
 import OtherTour from "./other-tours";
 import Footer from "./footer/index";
@@ -35,6 +36,7 @@ import ModalForCheckedIcon from "../components/modals/ModalForCheckedIcon";
 import { getMyTourStyle } from "../../store/reducer/toursReducer";
 import Keyword from "./keywords";
 import { loaderOff } from "../../store/reducer/loaderReducer";
+
 
 export const AppContext = createContext(null);
 
@@ -118,6 +120,7 @@ export default function Index() {
           <Author />
           <WhyWithUs />
           <Samele />
+          <ThirdUtp />
           <Reviews />
           <Benefit />
           <Faq />

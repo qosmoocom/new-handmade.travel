@@ -13,11 +13,11 @@ const Wrapper = styled.span`
     color: #cc5a1a;
     font-size: 20px;
   }
-  &:hover .edit__icon {
+  /* &:hover .edit__icon {
     @media (min-width: 1200px) {
       display: block;
     }
-  }
+  } */
 `;
 export default function Index({
   src = "",

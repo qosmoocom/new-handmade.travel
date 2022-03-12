@@ -77,6 +77,8 @@ export const createNewTour = (newTour) => async (dispatch) => {
       .then((res) => res.data)
       .then((data) => {
         console.log("res style created:", data);
+        const tourID = data.tourID;
+        console.log("new tour", newTour)
       })
       .catch((styleError) => {
         console.log("style is not create, there is a error", styleError);
@@ -116,8 +118,38 @@ export const updateMyTours = (userId, newTour) => async (dispatch) => {
   }
 };
 
-export const checkedTourClone = (cloneTour) => async (dispatch) => {
-  dispatch(createNewTour(cloneTour));
+export const checkedTourClone = (newTour, cssID) => async (dispatch) => {
+  const api = `/api/tour/add`;
+  const api2 = `/api/style/`;
+  let newCssCode = '';
+  try {
+    await Axios.get(`/api/style/${cssID}`).then(res => res.data).then(css => {
+      newCssCode = css.styles;
+    })
+    const res = await Axios.post(api, newTour, getConfig());
+    const data = await res.data;
+    dispatch(getAllMyTours());
+    dispatch(closeCreatTourModal());
+    dispatch(loaderOff());
+    const { _id } = data;
+    console.log('eski css', newCssCode)
+    const my_style_data = {
+      tourID: _id,
+      styles: newCssCode,
+    };
+    await Axios.post(api2, my_style_data)
+      .then((res) => res.data)
+      .then((data) => {
+        console.log("res style created:", data);
+        const tourID = data.tourID;
+        console.log("new tour", newTour)
+      })
+      .catch((styleError) => {
+        console.log("style is not create, there is a error", styleError);
+      });
+  } catch (error) {
+    console.log("error in the createNewTour function", error);
+  }
 };
 
 export const getMyOneTour = (id) => async (dispatch) => {
