@@ -9,10 +9,16 @@ const {
   getItemByUser,
   getItemsUser,
 } = require("../controllers/tourController");
-const { protect, admin, moderator } = require("../middleware/auth");
+const {
+  protect,
+  admin,
+  moderator,
+  adminModerator,
+} = require("../middleware/auth");
 
-router.post("/add",/* protect, moderator,*/ createOne);
+router.post("/add", protect, moderator, createOne);
 router.get("/all", protect, admin, getItems);
+router.get("/all/clon", protect, moderatorAll, getItems);
 router.get("/:id", protect, moderator, getItem);
 router.put("/:id", protect, moderator, updateOne);
 router.get("/byUser/:id", protect, moderator, getItemByUser);
