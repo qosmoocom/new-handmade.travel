@@ -28,7 +28,7 @@ exports.updateOne = async (req, res, next) => {
     });
 };
 exports.deleteOne = async (req, res, next) => {
-  await Style.findOneAndUpdate({ tourID: req.params.id });
+  await Style.findByIdAndDelete({ tourID: req.params.id });
   res.status(200).json([]);
 };
 
