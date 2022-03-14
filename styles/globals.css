@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Akrobat", sans-serif;
+  font-family: 'Akrobat', sans-serif;
 }
 body {
   background-color: #fafafa;
@@ -1327,7 +1327,10 @@ body {
     margin-bottom: 52px;
   }
 }
-#tour-program .tour-program-list .tour-program-list-item .tour-program-list-title {
+#tour-program
+  .tour-program-list
+  .tour-program-list-item
+  .tour-program-list-title {
   font-size: 17px;
   font-weight: 500;
   line-height: 117.6%;
@@ -1340,25 +1343,43 @@ body {
   cursor: pointer;
 }
 @media (min-width: 992px) {
-  #tour-program .tour-program-list .tour-program-list-item .tour-program-list-title {
+  #tour-program
+    .tour-program-list
+    .tour-program-list-item
+    .tour-program-list-title {
     font-size: 20px;
   }
 }
-#tour-program .tour-program-list .tour-program-list-item .tour-program-list-title b {
+#tour-program
+  .tour-program-list
+  .tour-program-list-item
+  .tour-program-list-title
+  b {
   margin-right: 5px;
   color: black;
   font-weight: bold;
 }
-#tour-program .tour-program-list .tour-program-list-item .tour-program-list-title .arrow-btn {
+#tour-program
+  .tour-program-list
+  .tour-program-list-item
+  .tour-program-list-title
+  .arrow-btn {
   position: absolute;
   right: 0;
   top: 50%;
   transition: 0.4s;
 }
-#tour-program .tour-program-list .tour-program-list-item .tour-program-list-title .arrow-btn.active {
+#tour-program
+  .tour-program-list
+  .tour-program-list-item
+  .tour-program-list-title
+  .arrow-btn.active {
   transform: rotate(180deg);
 }
-#tour-program .tour-program-list .tour-program-list-item .tour-program-list-description {
+#tour-program
+  .tour-program-list
+  .tour-program-list-item
+  .tour-program-list-description {
   padding: 12px 0;
   overflow: hidden;
   display: none;
@@ -1366,17 +1387,29 @@ body {
   max-height: 0;
   opacity: 0;
 }
-#tour-program .tour-program-list .tour-program-list-item .tour-program-list-description.active {
+#tour-program
+  .tour-program-list
+  .tour-program-list-item
+  .tour-program-list-description.active {
   display: flex;
   transition: all 0.5s;
   flex-direction: column;
   opacity: 1;
 }
-#tour-program .tour-program-list .tour-program-list-item .tour-program-list-description .tour-program-list-texts {
+#tour-program
+  .tour-program-list
+  .tour-program-list-item
+  .tour-program-list-description
+  .tour-program-list-texts {
   padding-bottom: 10px;
   padding-left: 28px;
 }
-#tour-program .tour-program-list .tour-program-list-item .tour-program-list-description .tour-program-list-texts li {
+#tour-program
+  .tour-program-list
+  .tour-program-list-item
+  .tour-program-list-description
+  .tour-program-list-texts
+  li {
   font-weight: 300;
   font-size: 20px;
   line-height: 117.6%;
@@ -1384,19 +1417,32 @@ body {
   color: black;
   margin: 7px 0;
 }
-#tour-program .tour-program-list .tour-program-list-item .tour-program-list-description .tour-program-list-images {
+#tour-program
+  .tour-program-list
+  .tour-program-list-item
+  .tour-program-list-description
+  .tour-program-list-images {
   display: flex;
   align-items: center;
   flex-direction: column;
   padding: 0 10px;
 }
 @media (min-width: 992px) {
-  #tour-program .tour-program-list .tour-program-list-item .tour-program-list-description .tour-program-list-images {
+  #tour-program
+    .tour-program-list
+    .tour-program-list-item
+    .tour-program-list-description
+    .tour-program-list-images {
     flex-direction: row;
     column-gap: 20px;
   }
 }
-#tour-program .tour-program-list .tour-program-list-item .tour-program-list-description .tour-program-list-images li {
+#tour-program
+  .tour-program-list
+  .tour-program-list-item
+  .tour-program-list-description
+  .tour-program-list-images
+  li {
   position: relative;
   min-width: 266px;
   width: 100%;
@@ -1405,28 +1451,53 @@ body {
   margin-bottom: 10px;
 }
 @media (min-width: 576px) {
-  #tour-program .tour-program-list .tour-program-list-item .tour-program-list-description .tour-program-list-images li {
+  #tour-program
+    .tour-program-list
+    .tour-program-list-item
+    .tour-program-list-description
+    .tour-program-list-images
+    li {
     max-width: 300px;
     margin-bottom: 15px;
   }
 }
 @media (min-width: 768px) {
-  #tour-program .tour-program-list .tour-program-list-item .tour-program-list-description .tour-program-list-images li {
+  #tour-program
+    .tour-program-list
+    .tour-program-list-item
+    .tour-program-list-description
+    .tour-program-list-images
+    li {
     max-width: 420px;
   }
 }
 @media (min-width: 1200px) {
-  #tour-program .tour-program-list .tour-program-list-item .tour-program-list-description .tour-program-list-images li {
+  #tour-program
+    .tour-program-list
+    .tour-program-list-item
+    .tour-program-list-description
+    .tour-program-list-images
+    li {
     max-width: 358px;
     height: 250px;
   }
 }
 @media (min-width: 1400px) {
-  #tour-program .tour-program-list .tour-program-list-item .tour-program-list-description .tour-program-list-images li {
+  #tour-program
+    .tour-program-list
+    .tour-program-list-item
+    .tour-program-list-description
+    .tour-program-list-images
+    li {
     max-width: 420px;
   }
 }
-#tour-program .tour-program-list .tour-program-list-item .tour-program-list-description .tour-program-list-footer p {
+#tour-program
+  .tour-program-list
+  .tour-program-list-item
+  .tour-program-list-description
+  .tour-program-list-footer
+  p {
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -1436,7 +1507,13 @@ body {
   text-align: center;
   margin-top: 25px;
 }
-#tour-program .tour-program-list .tour-program-list-item .tour-program-list-description .tour-program-list-footer p label {
+#tour-program
+  .tour-program-list
+  .tour-program-list-item
+  .tour-program-list-description
+  .tour-program-list-footer
+  p
+  label {
   font-weight: bold;
   text-transform: uppercase;
   display: inline-block;
@@ -1688,12 +1765,22 @@ body {
   display: flex;
   align-items: center;
 }
-#rate .header-list .header-list-modal .rate-list-item .rate-list-item-title .excl {
+#rate
+  .header-list
+  .header-list-modal
+  .rate-list-item
+  .rate-list-item-title
+  .excl {
   margin: 5px 0 0 10px;
   position: absolute;
   font-size: 16px;
 }
-#rate .header-list .header-list-modal .rate-list-item .rate-list-item-title .bs_check {
+#rate
+  .header-list
+  .header-list-modal
+  .rate-list-item
+  .rate-list-item-title
+  .bs_check {
   position: absolute;
   right: 10px;
   top: 15px;
@@ -1703,7 +1790,12 @@ body {
   padding: 2px;
   font-size: 20px;
 }
-#rate .header-list .header-list-modal .rate-list-item .rate-list-item-title .last-icons {
+#rate
+  .header-list
+  .header-list-modal
+  .rate-list-item
+  .rate-list-item-title
+  .last-icons {
   position: absolute;
   right: 10px;
   top: 15px;
@@ -1712,17 +1804,34 @@ body {
   justify-content: center;
   column-gap: 3px;
 }
-#rate .header-list .header-list-modal .rate-list-item .rate-list-item-title .last-icons .icon {
+#rate
+  .header-list
+  .header-list-modal
+  .rate-list-item
+  .rate-list-item-title
+  .last-icons
+  .icon {
   color: #fff;
   border-radius: 50%;
   padding: 2px;
   font-size: 20px;
   background: #000;
 }
-#rate .header-list .header-list-modal .rate-list-item .rate-list-item-title .last-icons .icon.active {
+#rate
+  .header-list
+  .header-list-modal
+  .rate-list-item
+  .rate-list-item-title
+  .last-icons
+  .icon.active {
   background-color: #f19b2f;
 }
-#rate .header-list .header-list-modal .rate-list-item .rate-list-item-title .rate-list-item-descript {
+#rate
+  .header-list
+  .header-list-modal
+  .rate-list-item
+  .rate-list-item-title
+  .rate-list-item-descript {
   position: absolute;
   color: #000;
   display: none;
@@ -1736,10 +1845,20 @@ body {
   box-shadow: #ccc 1px 1px 10px 2px;
   background-color: #fff;
 }
-#rate .header-list .header-list-modal .rate-list-item .rate-list-item-title .rate-list-item-descript.active {
+#rate
+  .header-list
+  .header-list-modal
+  .rate-list-item
+  .rate-list-item-title
+  .rate-list-item-descript.active {
   display: none;
 }
-#rate .header-list .header-list-modal .rate-list-item .rate-list-item-title:hover .rate-list-item-descript {
+#rate
+  .header-list
+  .header-list-modal
+  .rate-list-item
+  .rate-list-item-title:hover
+  .rate-list-item-descript {
   display: block !important;
 }
 #rate .rate-header-list-table {
@@ -2509,7 +2628,7 @@ body {
   display: grid;
   height: 500px;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-areas: "img1 img1 img2 img3" "img1 img1 img4 img5";
+  grid-template-areas: 'img1 img1 img2 img3' 'img1 img1 img4 img5';
   grid-gap: 5px;
   max-width: 1130px;
 }
@@ -2519,7 +2638,7 @@ body {
     display: grid;
     height: 100%;
     grid-template-columns: repeat(1, 1fr);
-    grid-template-areas: "img1" "img2" "img3" "img4" "img5";
+    grid-template-areas: 'img1' 'img2' 'img3' 'img4' 'img5';
     grid-gap: 10px;
     padding-top: 5px;
   }
@@ -2531,7 +2650,7 @@ body {
     grid-template-columns: repeat(2, 1fr);
     width: 93%;
     padding-top: 0;
-    grid-template-areas: "img1 img1" "img1 img1" "img2 img3" "img4 img5";
+    grid-template-areas: 'img1 img1' 'img1 img1' 'img2 img3' 'img4 img5';
     grid-gap: 3px;
   }
 }
@@ -2541,7 +2660,7 @@ body {
     height: 400px;
     width: 100%;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: "img1 img1 img2 img3" "img1 img1 img4 img5";
+    grid-template-areas: 'img1 img1 img2 img3' 'img1 img1 img4 img5';
     grid-gap: 5px;
     max-width: 1130px;
   }

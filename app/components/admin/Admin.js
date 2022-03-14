@@ -1,9 +1,9 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import { AiOutlineUserAdd } from "react-icons/ai";
-import Link from "next/link";
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { AiOutlineUserAdd } from 'react-icons/ai';
+import Link from 'next/link';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
 import {
   deleteUserId,
   createUser,
@@ -11,37 +11,38 @@ import {
   closeCreateUserModal,
   updateUserModal,
   updateUserId,
-} from "../../../store/reducer/usersReducer";
+} from '../../../store/reducer/usersReducer';
 
-import UserCreateAndUpdate from "./UserCreateAndUpdate";
+import UserCreateAndUpdate from './UserCreateAndUpdate';
+import AllTours from './AllTours';
 export default function Admin() {
   const globalState = useSelector((state) => state.users);
   const dispatch = useDispatch();
   const [user, setUser] = useState({
-    username: "",
-    password: "",
+    username: '',
+    password: '',
   });
 
   const deleteHandler = (user) => {
     const { role, _id } = user;
-    if (role !== "admin") {
+    if (role !== 'admin') {
       dispatch(deleteUserId(_id));
     }
   };
 
   const createUserHandler = () => {
     dispatch(openCreateUserModal());
-    setUser({ username: "", password: "" });
+    setUser({ username: '', password: '' });
   };
 
   const onSaveNewUserHandler = () => {
-    const newUser = { ...user, role: "moderator" };
+    const newUser = { ...user, role: 'moderator' };
     dispatch(createUser(newUser));
   };
 
   const onCloseModal = () => {
     dispatch(closeCreateUserModal());
-    setUser({ username: "", password: "" });
+    setUser({ username: '', password: '' });
   };
 
   const onUpdateUserHandler = (oldUser) => {
@@ -77,10 +78,10 @@ export default function Admin() {
             <h3>
               users
               <span className="log-out" onClick={logOutHandler}>
-                <Link href={"/login"}>log out</Link>
+                <Link href={'/login'}>log out</Link>
               </span>
             </h3>
-            <table className="table">
+            <table className="table table-sm">
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -105,7 +106,7 @@ export default function Admin() {
                       <td className="item-w-t">
                         <span className="w-50 d-inline-block">
                           <button
-                            className={"btn btn-info"}
+                            className={'btn btn-info'}
                             onClick={onUpdateUserHandler.bind(this, user)}
                           >
                             edit
@@ -125,6 +126,7 @@ export default function Admin() {
                 })}
               </tbody>
             </table>
+            <AllTours />
           </div>
         </div>
       </Wrapper>

@@ -1,19 +1,19 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const StyleSchema = new mongoose.Schema(
   {
-    styles:{
-      type: Object,
+    styles: {
+      type: String,
     },
     tourID: {
       type: mongoose.Schema.ObjectId,
-      ref: "Tour",
+      ref: 'Tour',
       required: true,
-    }
+    },
   },
   {
     timestamps: true,
   }
 );
 
-module.exports = mongoose.model("Style", StyleSchema);
+module.exports = mongoose.model('Style', StyleSchema);

@@ -1,41 +1,45 @@
-import React, { useState } from "react";
-import { useRouter } from "next/router";
+import React, { useEffect, useState } from 'react';
+import Axios from 'axios';
+import { useRouter } from 'next/router';
+import { getConfig } from '../../../store/reducer/usersReducer';
 import {
   createNewTour,
   updateMyTours,
   newTourCreatModal,
   closeCreatTourModal,
   updateTourModal,
-  checkedTourClone,
-} from "../../../store/reducer/toursReducer";
-import styled from "styled-components";
-import Link from "next/link";
-import { HiOutlineDocumentAdd } from "react-icons/hi";
-import { FaEdit, FaRegClone } from "react-icons/fa";
-import UserCreateAndUpdate from "./TourCreateAndUpdate";
-import { useDispatch, useSelector } from "react-redux";
-import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
-import { defaultState } from "../../../store/defaultData";
-import { toJSON, toCSS } from "css-convert-json";
+  getAllMyTours,
+} from '../../../store/reducer/toursReducer';
+import styled from 'styled-components';
+import Link from 'next/link';
+import { HiOutlineDocumentAdd } from 'react-icons/hi';
+import { FaEdit, FaRegClone } from 'react-icons/fa';
+import UserCreateAndUpdate from './TourCreateAndUpdate';
+import { useDispatch, useSelector } from 'react-redux';
+import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
+import { defaultState } from '../../../store/defaultData';
+import { AiOutlineClose } from 'react-icons/ai';
 
 export default function Moderator() {
   const toursState = useSelector((state) => state.tours);
   const router = useRouter();
   const defaultTexts = JSON.stringify(defaultState);
 
-  const isLoginMe = JSON.parse(localStorage.getItem("isLoginMe"));
+  const isLoginMe = JSON.parse(localStorage.getItem('isLoginMe'));
 
   const dispatch = useDispatch();
   const defaultTour = {
-    tourName: "",
+    tourName: '',
     tourTexts: defaultTexts,
-    tourStyles: "none",
+    tourStyles: 'none',
     tourAuthor: isLoginMe._id,
-    tour_id: "",
-    language: "",
+    tour_id: '',
+    language: '',
   };
 
   const [tour, setTour] = useState(defaultTour);
+  const defaultCloneTour = { clone: false, tours: [], ct_id: '', cts: {} };
+  const [cloneTour, setCloneTour] = useState(defaultCloneTour);
 
   const createNewTourHandler = () => {
     dispatch(newTourCreatModal());
@@ -108,34 +112,80 @@ export default function Moderator() {
     dispatch(updateMyTours(_id, updateTour));
   };
 
-  const onClone = (tour) => {
-    const {
-      tourName,
-      tourTexts,
-      tourStyles,
-      tourAuthor,
-      tour_id,
-      language,
-      isItActive,
-    } = tour;
-    console.log("tour bubbb", tour)
-    const cssId = tour._id;
-    dispatch(
-      checkedTourClone({
-        tourName,
-        tourTexts,
-        tourStyles,
-        tourAuthor,
-        tour_id,
-        language,
-        isItActive,
-      }, cssId)
-    );
-  };
-
   const tourPagePath = (path) => {
     router.push(path);
   };
+
+  const onClone = async () => {
+    await getAllTours();
+  };
+
+  const getToursStyle = async (id) => {
+    const api = `/api/style/${id}`;
+    try {
+      const res = await Axios.get(api);
+      const data = await res.data;
+      setCloneTour((prev) => ({ ...prev, cts: data }));
+    } catch (error) {
+      console.log('error getTourStyle function ', error);
+    }
+  };
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    (async () => {
+      if (cloneTour.ct_id) {
+        await getToursStyle(cloneTour.ct_id);
+      }
+    })();
+  }, [cloneTour.ct_id]);
+
+  const getAllTours = async () => {
+    const api = `/api/tour/all/clon`;
+    try {
+      const res = await Axios.get(api, getConfig());
+      const data = await res.data;
+      setCloneTour((prev) => ({ ...prev, tours: data, clone: true }));
+    } catch (error) {
+      console.log('error in the Moderator Page ', error);
+    }
+  };
+
+  const handleCloneTour = async () => {
+    const api1 = `/api/tour/add`;
+    const api2 = `/api/style/`;
+    const { tours, ct_id, cts } = cloneTour;
+    const ct = tours.find((i) => i._id === ct_id);
+    try {
+      const newTour = {
+        language: ct.language,
+        tourAuthor: JSON.parse(localStorage.isLoginMe)._id,
+        tourName: ct.tourName,
+        tourStyles: 'none',
+        tourTexts: ct.tourTexts,
+        tour_id: ct.tour_id,
+      };
+      const resT = await Axios.post(api1, newTour, getConfig());
+      const resD = await resT.data;
+      const newTourId = resD._id;
+      console.log('cloneTour', cloneTour);
+
+      const newTourStyle = {
+        styles: cts.styles,
+        tourID: newTourId,
+      };
+      const resS = await Axios.post(api2, newTourStyle);
+      const dataS = await resS.data;
+      console.log('new style', dataS);
+      setTimeout(() => {
+        setCloneTour(() => defaultCloneTour);
+        dispatch(getAllMyTours());
+      }, 200);
+    } catch (error) {
+      console.log('not clone!', error);
+    }
+  };
+
   return (
     <>
       <UserCreateAndUpdate
@@ -145,7 +195,45 @@ export default function Moderator() {
         onSave={onSaveHandler}
         onSaveUpdate={onSaveUpdateTour}
       />
+
       <Wrapper>
+        <div className={`clone-tour-page ${cloneTour.clone ? 'active' : ''}`}>
+          <div className="form">
+            <div className="exit-btn">
+              <AiOutlineClose
+                className="icon"
+                onClick={() => setCloneTour(() => defaultCloneTour)}
+              />
+            </div>
+            <p className="title">All tours</p>
+            <ul>
+              {cloneTour.tours.map((t, index) => {
+                return (
+                  <li key={t._id}>
+                    <label htmlFor={t._id}>
+                      handmade.travel/tours/{t.tour_id}/{t.language}
+                    </label>
+                    <input
+                      type="radio"
+                      name="clone-tour"
+                      id={t._id}
+                      onChange={(e) => {
+                        setCloneTour((prev) => ({ ...prev, ct_id: t._id }));
+                      }}
+                    />
+                  </li>
+                );
+              })}
+            </ul>
+            <button
+              onClick={handleCloneTour}
+              className="btn btn-danger btn-sm float-end"
+              disabled={!cloneTour.ct_id}
+            >
+              clone
+            </button>
+          </div>
+        </div>
         <div className="admin-section" id="super-admin">
           <div className="container">
             <h4>Hello {isLoginMe?.username}</h4>
@@ -157,7 +245,7 @@ export default function Moderator() {
                   localStorage.clear();
                 }}
               >
-                <Link href={"/login"}>log out</Link>
+                <Link href={'/login'}>log out</Link>
               </span>
             </h3>
             <table className="table">
@@ -168,12 +256,18 @@ export default function Moderator() {
                   <th scope="col">Tour Id</th>
                   <th scope="col">Tour Lang</th>
                   <th scope="col">
-                    <div className="control-section">
+                    <div className="control-section d-flex">
                       <span>Controlls</span>
-                      <HiOutlineDocumentAdd
-                        className="add-user_icon"
-                        onClick={createNewTourHandler}
-                      />
+                      <div className="section-icon">
+                        <HiOutlineDocumentAdd
+                          className="add-user_icon"
+                          onClick={createNewTourHandler}
+                        />
+                        <FaRegClone
+                          onClick={onClone}
+                          style={{ cursor: 'pointer' }}
+                        />
+                      </div>
                     </div>
                   </th>
                 </tr>
@@ -195,20 +289,16 @@ export default function Moderator() {
                     <td className="item-w-t">
                       <div className="btn btn-group">
                         <button
-                          className={"btn btn-info btn-sm"}
+                          className={'btn btn-info btn-sm mx-1'}
                           onClick={openUdateTourModal.bind(this, tour)}
                         >
                           <FaEdit />
                         </button>
+
                         <button
-                          className="btn btn-success btn-sm mx-1"
-                          onClick={onClone.bind(this, tour)}
-                        >
-                          <FaRegClone />
-                        </button>
-                        <button
-                          className={`btn btn-${tour.isItActive ? "warning" : "danger"
-                            } btn-sm`}
+                          className={`btn btn-${
+                            tour.isItActive ? 'warning' : 'danger'
+                          } btn-sm`}
                           onClick={tourActiveOrNoActive.bind(this, tour)}
                         >
                           {tour.isItActive ? (
@@ -236,6 +326,13 @@ const Wrapper = styled.div`
   }
   .control-section {
     position: relative;
+
+    .section-icon {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-left: 10px;
+    }
   }
   .add-user_icon {
     font-size: 1.5rem;
@@ -256,7 +353,6 @@ const Wrapper = styled.div`
     clear: both;
     margin-top: 0.2rem;
   }
-
   .tour-page-path {
     color: blue;
     font-size: 16px;
@@ -264,6 +360,69 @@ const Wrapper = styled.div`
     transition: 300ms;
     &:hover {
       text-decoration: underline;
+    }
+  }
+
+  .clone-tour-page {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -212;
+    opacity: 0;
+    .form {
+      background-color: #000;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    &.active {
+      transition: opacity 1s;
+      z-index: 22;
+      opacity: 1;
+    }
+    p {
+      text-align: center;
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 2rem;
+    }
+    ul {
+      height: 200px;
+      overflow: hidden;
+      overflow-y: auto;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      li {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        color: #eee;
+        text-decoration: underline;
+
+        min-width: 300px;
+        justify-content: space-between;
+        input {
+          margin-left: 10px;
+          margin-top: 4px;
+        }
+      }
+    }
+
+    .exit-btn {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      .icon {
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+      }
     }
   }
 `;

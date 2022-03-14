@@ -1,4 +1,4 @@
-const Style = require("../models/Style");
+const Style = require('../models/Style');
 
 exports.createOne = async (req, res, next) => {
   const result = new Style({
@@ -11,24 +11,25 @@ exports.createOne = async (req, res, next) => {
       res.status(200).json(result);
     })
     .catch((error) => {
-      res.status(400).json({ message: "Data is not created", data: error });
+      res.status(400).json({ message: 'Data is not created', data: error });
     });
 };
 
 exports.updateOne = async (req, res, next) => {
-  const result = await Style.findOneAndUpdate({ tourID: req.params.id });
-  (result.tourID = req.body.tourID), (result.styles = req.body.styles);
-  await result
-    .save()
-    .then(() => {
-      res.status(200).json(result);
-    })
-    .catch((error) => {
-      res.status(400).json({ message: "Badly", data: error });
-    });
+  const result = await Style.updateOne({ tourID: req.params.id });
+  console.log('result:', result);
+  (result.styles = req.body.styles),
+    await result
+      .save()
+      .then(() => {
+        res.status(200).json(result);
+      })
+      .catch((error) => {
+        res.status(400).json({ message: 'Badly', data: error });
+      });
 };
 exports.deleteOne = async (req, res, next) => {
-  await Style.findByIdAndDelete({ tourID: req.params.id });
+  await Style.remove({ tourID: req.params.id });
   res.status(200).json([]);
 };
 

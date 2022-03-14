@@ -1,28 +1,27 @@
-import React, { useEffect, useState } from "react";
-import App from "../../../app/app";
+import React, { useEffect, useState } from 'react';
+import App from '../../../app/app';
 
-import Head from "next/head";
+import Head from 'next/head';
 
-import { useRouter } from "next/router";
-import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   getMyOneTour,
   updateMyTours,
-} from "../../../store/reducer/toursReducer";
+} from '../../../store/reducer/toursReducer';
 
-import Loader from "./../../../app/components/Loader/index";
-import KeywordsPage from "../../../app/components/admin/KeywordsPage";
-import styled from "styled-components";
-import Link from "next/link";
+import Loader from './../../../app/components/Loader/index';
+import styled from 'styled-components';
+import Link from 'next/link';
 export default function Index() {
   const router = useRouter();
   const dispatch = useDispatch();
   const globalState = useSelector((state) => state);
   const [keywords, setKeywords] = useState({
-    meta_key: "",
-    meta_des: "",
-    yan_met: "",
-    title: "",
+    meta_key: '',
+    meta_des: '',
+    yan_met: '',
+    title: '',
   });
   useEffect(() => {
     if (router.query.id) {
@@ -69,8 +68,8 @@ export default function Index() {
         </Head>
         <div className="right-btns">
           <button onClick={saveHandler}>save</button>
-          <Link href={"/admin"}>back admin</Link>{" "}
-          <Link href={"/login"}>back login</Link>{" "}
+          <Link href={'/admin'}>back admin</Link>{' '}
+          <Link href={'/login'}>back login</Link>{' '}
           <Link href={`/update/style/${_id}`}>edit css</Link>
         </div>
 

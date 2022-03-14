@@ -1,12 +1,12 @@
-import Axios from "axios";
-import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
-import App from "../../app/app";
-import { loaderOff, loaderOn } from "./../../store/reducer/loaderReducer";
-import Loader from "../../app/components/Loader";
-import { useEffect, useState } from "react";
-import { types } from "../../store/types";
-import { getMyTourStyle, setOneTour } from "../../store/reducer/toursReducer";
+import Axios from 'axios';
+import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
+import App from '../../app/app';
+import { loaderOff, loaderOn } from './../../store/reducer/loaderReducer';
+import Loader from '../../app/components/Loader';
+import { useEffect, useState } from 'react';
+import { types } from '../../store/types';
+import { getMyTourStyle, setOneTour } from '../../store/reducer/toursReducer';
 export default function Index() {
   const router = useRouter();
   const path = router.query;
@@ -17,6 +17,7 @@ export default function Index() {
     try {
       const res = await Axios.get(api);
       const data = await res.data;
+      console.log('bu data:', data);
       dispatch({ type: types.editTour, data: data[0] });
       dispatch(setOneTour(data[0]));
       dispatch(getMyTourStyle(data[0]._id));
@@ -25,14 +26,14 @@ export default function Index() {
       const isItActive = data[0].isItActive;
       const language = data[0].language;
       setIsItPath(
-        [tour_id, language].join("/") === path.all.join("/") && isItActive
+        [tour_id, language].join('/') === path.all.join('/') && isItActive
       );
     } catch (error) {
-      console.log("error data fetch", error);
+      console.log('error data fetch', error);
     }
   };
-  if (path?.all?.join("/")) {
-    fetchData(path.all.join("/"));
+  if (path?.all?.join('/')) {
+    fetchData(path.all.join('/'));
 
     if (isItPath) {
       return (
@@ -46,7 +47,7 @@ export default function Index() {
     return <Loader />;
   }
 
-  if (!path?.all?.join("/")) {
+  if (!path?.all?.join('/')) {
     dispatch(loaderOn());
     return <Loader />;
   }

@@ -1,22 +1,28 @@
-import Axios from "axios";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import Loader from "../../../app/components/Loader";
-import styled from "styled-components";
-import { useDispatch } from "react-redux";
-import { loaderOff, loaderOn } from "../../../store/reducer/loaderReducer";
+/* eslint-disable react-hooks/exhaustive-deps */
+import Axios from 'axios';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import Loader from '../../../app/components/Loader';
+import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { loaderOff, loaderOn } from '../../../store/reducer/loaderReducer';
 export default function Index() {
   const id = useRouter().query.id;
-  const [cssCode, setCssCode] = useState("");
+  const [cssCode, setCssCode] = useState('');
   const dispatch = useDispatch();
-  useEffect(async () => {
-    if (id) {
-      try {
-        const res = await Axios.get(`/api/style/${id}`);
-        const data = await res.data;
-        setCssCode(data.styles);
-      } catch (error) {}
-    }
+  useEffect(() => {
+    (async () => {
+      if (id) {
+        try {
+          const res = await Axios.get(`/api/style/${id}`);
+          const data = await res.data;
+          setCssCode(data.styles);
+          console.log('css code set global style:', data);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    })();
   }, [id]);
 
   const onSave = async () => {
@@ -27,8 +33,11 @@ export default function Index() {
         styles: cssCode,
       });
       const data = await res.data;
+      console.log('update tour style:data:', data);
       dispatch(loaderOff());
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <Wrapper>
