@@ -16,17 +16,17 @@ exports.createOne = async (req, res, next) => {
 };
 
 exports.updateOne = async (req, res, next) => {
-  const result = await Style.updateOne({ tourID: req.params.id });
-  console.log('result:', result);
-  (result.styles = req.body.styles),
-    await result
-      .save()
-      .then(() => {
-        res.status(200).json(result);
-      })
-      .catch((error) => {
-        res.status(400).json({ message: 'Badly', data: error });
-      });
+  await Style.findOneAndUpdate(
+    { tourID: req.params.id },
+    { tourID: req.body.tourID, styles: req.body.styles },
+    (error, result) => {
+      if (error) {
+        res.send(error);
+      } else {
+        res.send(result);
+      }
+    }
+  );
 };
 exports.deleteOne = async (req, res, next) => {
   await Style.remove({ tourID: req.params.id });
