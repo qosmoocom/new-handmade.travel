@@ -11,9 +11,11 @@ exports.createOne = async (req, res, next) => {
     tourAuthor:req.body.tourAuthor,
     tour_id:req.body.tour_id
   })
-  await result.save()
-  .then(() => {res.status(201).json({ success: true, data: result})})
-  .catch((error) => {res.status(400).json({ success: false, error: error })})
+  //await result.save()
+  //.then(() => {res.status(201).json({ success: true, data: result})})
+  //.catch((error) => {res.status(400).json({ success: false, error: error })})
+  await res.status(201).json({ success: true, data: result });
+  
 }
 
 

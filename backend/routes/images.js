@@ -16,6 +16,7 @@ const storage = multer.diskStorage({
         cb(null, `${req.body.tour_id}~${md5(Date.now())}${path.extname(file.originalname)}`);
     }
 });
+
 const upload = multer({storage: storage});
  
 router.post('/add',  upload.single('image'), Image.createOne)
@@ -24,8 +25,5 @@ router.get('/byTour/:tourID', Image.get_Image_TourId);
 router.get('/:id', Image.getOne);
 router.put('/:id',  upload.single('image'), Image.updateOne);
 router.delete('/:id',  Image.deleteOne);
-
-
-
 module.exports = router
 
