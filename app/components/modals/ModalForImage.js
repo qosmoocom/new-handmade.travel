@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
@@ -151,7 +151,8 @@ export default function ImageForModal() {
     }));
   };
 
-  const closeModalHandler = () => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const closeModalHandler = useCallback(() => {
     dispatch({
       type: types.editImage,
       payload: {
@@ -165,7 +166,7 @@ export default function ImageForModal() {
         newTitle: '',
       },
     });
-  };
+  });
 
   useEffect(() => {
     // when the editImage.open is updated
@@ -204,7 +205,7 @@ export default function ImageForModal() {
           },
         });
 
-        router.reload(window.location.pathname);
+        // router.reload(window.location.pathname);
       }, 300);
     } catch (error) {
       console.log('error daata', error);
