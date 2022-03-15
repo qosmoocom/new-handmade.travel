@@ -41,6 +41,7 @@ export default function Index({
 }) {
   const { isEdit: isAdmin } = useSelector((st) => st.admin);
   const dispatch = useDispatch();
+  // console.log('AAAsrc ', src);
   const doubleClickHandler = () => {
     if (isAdmin) {
       dispatch({
@@ -77,8 +78,9 @@ export default function Index({
           objectFit={objectFit}
           layout={layout}
           onDoubleClick={doubleClickHandler}
+          loading = "eager"
         />
-        <img src={src} />
+        
       </>
     );
   }
@@ -87,7 +89,7 @@ export default function Index({
       {/* <AiFillEdit className="edit__icon" /> */}
       <Image
         src={src}
-        key = {src}
+        key={src}
         width={width}
         height={height}
         alt={alt}
@@ -95,8 +97,8 @@ export default function Index({
         priority={priority === "important"}
         objectFit={objectFit}
         layout={layout}
+        loading="eager"
       />
-      <img src={src}/>
     </Wrapper>
   );
 }
