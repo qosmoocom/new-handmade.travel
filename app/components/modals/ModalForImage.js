@@ -194,6 +194,7 @@ export default function ImageForModal() {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       const { data, success } = await res.data;
+      console.log('DataAAA = ', data)
       setTimeout(() => {
         dispatch({
           type: types.editImage,

@@ -69,6 +69,7 @@ export default function Index({
     return (
       <Image
         src={src}
+        key = {src}
         alt={alt || ""}
         title={title || ""}
         priority={priority === "important"}
@@ -83,6 +84,7 @@ export default function Index({
       {/* <AiFillEdit className="edit__icon" /> */}
       <Image
         src={src}
+        key = {src}
         width={width}
         height={height}
         alt={alt}
