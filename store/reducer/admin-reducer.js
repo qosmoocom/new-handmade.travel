@@ -1,5 +1,5 @@
-import { types } from "../types";
-import { defaultState } from "../defaultData";
+import { types } from '../types';
+import { defaultState } from '../defaultData';
 export const AdminReducer = (state = defaultState, action) => {
   switch (action.type) {
     case types.editText: {
@@ -15,16 +15,16 @@ export const AdminReducer = (state = defaultState, action) => {
                   ? item
                   : {
                       ...item,
-                      [name]: newText || "",
+                      [name]: newText || '',
                     }
               ),
             },
             editText: {
               open: false,
-              group: "",
-              name: "",
-              newText: "",
-              list: "",
+              group: '',
+              name: '',
+              newText: '',
+              list: '',
             },
           };
         }
@@ -50,9 +50,9 @@ export const AdminReducer = (state = defaultState, action) => {
             },
             editText: {
               open: false,
-              group: "",
-              name: "",
-              newText: "",
+              group: '',
+              name: '',
+              newText: '',
             },
           };
         }
@@ -67,9 +67,9 @@ export const AdminReducer = (state = defaultState, action) => {
             },
             editText: {
               open: false,
-              group: "",
-              name: "",
-              newText: "",
+              group: '',
+              name: '',
+              newText: '',
             },
           };
         }
@@ -82,9 +82,9 @@ export const AdminReducer = (state = defaultState, action) => {
             },
             editText: {
               open: false,
-              group: "",
-              name: "",
-              newText: "",
+              group: '',
+              name: '',
+              newText: '',
             },
           };
         } else {
@@ -92,9 +92,9 @@ export const AdminReducer = (state = defaultState, action) => {
             ...state,
             editText: {
               open: false,
-              group: "",
-              name: "",
-              newText: "",
+              group: '',
+              name: '',
+              newText: '',
             },
           };
         }
@@ -132,11 +132,11 @@ export const AdminReducer = (state = defaultState, action) => {
             },
             editLink: {
               open: false,
-              group: "",
-              name: "",
-              href: "",
-              newHref: "",
-              newName: "",
+              group: '',
+              name: '',
+              href: '',
+              newHref: '',
+              newName: '',
               isSave: false,
             },
           };
@@ -158,11 +158,11 @@ export const AdminReducer = (state = defaultState, action) => {
             },
             editLink: {
               open: false,
-              group: "",
-              name: "",
-              href: "",
-              newHref: "",
-              newName: "",
+              group: '',
+              name: '',
+              href: '',
+              newHref: '',
+              newName: '',
               isSave: false,
             },
           };
@@ -193,9 +193,9 @@ export const AdminReducer = (state = defaultState, action) => {
                   : {
                       ...item,
                       img: {
-                        src: action.payload.newHref || "",
-                        alt: action.payload.newAlt || "",
-                        title: action.payload.newTitle || "",
+                        src: action.payload.newHref || '',
+                        alt: action.payload.newAlt || '',
+                        title: action.payload.newTitle || '',
                       },
                     }
               ),
@@ -203,12 +203,12 @@ export const AdminReducer = (state = defaultState, action) => {
             editImage: {
               open: false,
               isSave: false,
-              href: "",
-              newHref: "",
-              alt: "",
-              newAlt: "",
-              title: "",
-              newTitle: "",
+              href: '',
+              newHref: '',
+              alt: '',
+              newAlt: '',
+              title: '',
+              newTitle: '',
             },
           };
         }
@@ -228,9 +228,9 @@ export const AdminReducer = (state = defaultState, action) => {
                             ? img
                             : {
                                 ...img,
-                                src: action.payload.newHref || "",
-                                alt: action.payload.newAlt || "",
-                                title: action.payload.newTitle || "",
+                                src: action.payload.newHref || '',
+                                alt: action.payload.newAlt || '',
+                                title: action.payload.newTitle || '',
                               }
                       ),
                     }
@@ -239,12 +239,12 @@ export const AdminReducer = (state = defaultState, action) => {
             editImage: {
               open: false,
               isSave: false,
-              href: "",
-              newHref: "",
-              alt: "",
-              newAlt: "",
-              title: "",
-              newTitle: "",
+              href: '',
+              newHref: '',
+              alt: '',
+              newAlt: '',
+              title: '',
+              newTitle: '',
             },
           };
         }
@@ -265,12 +265,12 @@ export const AdminReducer = (state = defaultState, action) => {
           editImage: {
             open: false,
             isSave: false,
-            href: "",
-            newHref: "",
-            alt: "",
-            newAlt: "",
-            title: "",
-            newTitle: "",
+            href: '',
+            newHref: '',
+            alt: '',
+            newAlt: '',
+            title: '',
+            newTitle: '',
           },
         };
       }
@@ -317,10 +317,10 @@ export const AdminReducer = (state = defaultState, action) => {
     case types.checkEdit: {
       if (action.payload.isSave) {
         const {
-          index = "",
-          name = "",
-          group = "",
-          id = "",
+          index = '',
+          name = '',
+          group = '',
+          id = '',
         } = state.checkedEdit;
 
         return {
@@ -341,8 +341,8 @@ export const AdminReducer = (state = defaultState, action) => {
             isOpen: false,
             index: null,
             id: null,
-            group: "",
-            name: "",
+            group: '',
+            name: '',
           },
         };
       }
@@ -372,6 +372,17 @@ export const AdminReducer = (state = defaultState, action) => {
       return {
         ...state,
         isEdit: true,
+      };
+    }
+
+    case types.componentIsActive: {
+      const { name, checkbox_value } = action.payload;
+
+      return {
+        ...state,
+        app_sections_active: state.app_sections_active.map((item) =>
+          item.name === name ? { ...item, isActive: checkbox_value } : item
+        ),
       };
     }
     default:

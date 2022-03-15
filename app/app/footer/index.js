@@ -1,12 +1,15 @@
-import { useState, useEffect, useContext } from "react";
-import { AppContext } from "..";
-import styled from "styled-components";
-import Link from "../../components/Link";
-import { Pdf1 } from "./pdf-1";
-import { Pdf2 } from "./pdf-2";
-import Text from "../../components/Text";
-import Image from "../../components/Image";
-import Script from "next/script";
+/* eslint-disable jsx-a11y/alt-text */
+import { useState, useEffect, useContext } from 'react';
+import SectionActive from '../../components/SectionActive';
+import { useSelector } from 'react-redux';
+import { AppContext } from '..';
+import styled from 'styled-components';
+import Link from '../../components/Link';
+import { Pdf1 } from './pdf-1';
+import { Pdf2 } from './pdf-2';
+import Text from '../../components/Text';
+import Image from '../../components/Image';
+import Script from 'next/script';
 const Full_screen = styled.div`
   position: relative;
   overflow: hidden;
@@ -54,7 +57,7 @@ const Logo_icons = styled.div`
     position: absolute;
     width: 350%;
     height: 100%;
-    content: "";
+    content: '';
     top: 0;
     left: -130%;
     background: #f8f0f0;
@@ -154,7 +157,7 @@ const Contact_pay = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    content: "";
+    content: '';
     top: 0;
     right: -80%;
     background: #1e272e;
@@ -314,7 +317,7 @@ const Blog = styled.div`
     }
     label {
       margin-left: 10px;
-      font-family: "DM Sans", sans-serif;
+      font-family: 'DM Sans', sans-serif;
       font-display: swap;
       font-style: normal;
       font-weight: 500;
@@ -446,7 +449,7 @@ const Blog_bottom = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    content: "";
+    content: '';
     top: -2px;
     right: -90%;
     border-top: 2px solid #fff;
@@ -735,7 +738,7 @@ const MyModal = styled.div`
       display: flex;
       align-items: center;
       transition: all 300ms;
-      transform: translateX(${({ x50 }) => (x50 ? "0" : "-50%")});
+      transform: translateX(${({ x50 }) => (x50 ? '0' : '-50%')});
     }
   }
 `;
@@ -920,565 +923,481 @@ const Text_new = styled.div`
 `;
 
 export default function index({ footer }) {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { getItem } = useContext(AppContext);
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [x50, setX50] = useState(true);
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [m1, setM1] = useState(false);
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [checkPdf, setCheckPdf] = useState(null);
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [checkForm, setCheckForm] = useState(false);
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [windowSize, setWindowSize] = useState({ width: undefined });
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       function handleResize() {
         setWindowSize({
           width: window.innerWidth,
         });
       }
-      window.addEventListener("resize", handleResize);
+      window.addEventListener('resize', handleResize);
 
       handleResize();
 
-      return () => window.removeEventListener("resize", handleResize);
+      return () => window.removeEventListener('resize', handleResize);
     }
   }, []);
 
   const exitBtnHandle = () => setCheckPdf(null);
   const openCheckPdf = (id) => setCheckPdf(id);
 
-  const pdf = !checkPdf ? "" : checkPdf === "pdf_1" ? <Pdf1 /> : <Pdf2 />;
-  function yandexMetirka(id) {
-    "use strict";
+  const pdf = !checkPdf ? '' : checkPdf === 'pdf_1' ? <Pdf1 /> : <Pdf2 />;
 
-    // Флаг, что Метрика уже загрузилась.
-    var loadedMetrica = false,
-      // Переменная для хранения таймера.
-      timerId;
+  // component active no active
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const val = useSelector((state) => state.admin.app_sections_active).find(
+    (i) => i.name === 'footer'
+  );
 
-    // Для бота Яндекса грузим Метрику сразу без "отложки",
-    // чтобы в панели Метрики были зелёные кружочки
-    // при проверке корректности установки счётчика.
-    if (navigator.userAgent.indexOf("YandexMetrika") > -1) {
-      loadMetrica();
-    } else {
-      window.addEventListener("scroll", loadMetrica, { passive: true });
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { isEdit: thisIsNotClient } = useSelector((st) => st.admin);
 
-      window.addEventListener("touchstart", loadMetrica);
+  const bgYellow = {
+    background: val.isActive ? null : 'yellow',
+    opacity: val.isActive ? null : '0.2',
+    cursor: val.isActive ? null : 'not-allowed',
+  };
 
-      document.addEventListener("mouseenter", loadMetrica);
-
-      document.addEventListener("click", loadMetrica);
-
-      document.addEventListener("DOMContentLoaded", loadFallback);
-    }
-
-    function loadFallback() {
-      timerId = setTimeout(loadMetrica, 1000);
-    }
-
-    function loadMetrica(e) {
-      if (e && e.type) {
-        console.log(e.type);
-      } else {
-        console.log("DOMContentLoaded");
-      }
-
-      if (loadedMetrica) {
-        return;
-      }
-
-      (function (m, e, t, r, i, k, a) {
-        m[i] =
-          m[i] ||
-          function () {
-            (m[i].a = m[i].a || []).push(arguments);
-          };
-        m[i].l = 1 * new Date();
-        (k = e.createElement(t)),
-          (a = e.getElementsByTagName(t)[0]),
-          (k.async = 1),
-          (k.src = r),
-          a.parentNode.insertBefore(k, a);
-      })(
-        window,
-        document,
-        "script",
-        "https://mc.yandex.ru/metrika/tag.js",
-        "ym"
-      );
-
-      ym(id, "init", {
-        clickmap: true,
-        trackLinks: true,
-        accurateTrackBounce: true,
-        webvisor: true,
-      });
-
-      {
-        /* <noscript><div><img src="https://mc.yandex.ru/watch/86955280" style="position:absolute; left:-9999px;" alt="" /></div></noscript> */
-      }
-
-      !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod
-            ? n.callMethod.apply(n, arguments)
-            : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = "2.0";
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(
-        window,
-        document,
-        "script",
-        "https://connect.facebook.net/en_US/fbevents.js"
-      );
-      fbq("init", "4544213979029989");
-      fbq("track", "PageView");
-
-      // (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
-      //       var f = d.getElementsByTagName(s)[0],
-      //           j = d.createElement(s),
-      //           dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-      // })(window, document, 'script', 'dataLayer', 'GTM-MX4JKC7')
-
-      loadedMetrica = true;
-
-      clearTimeout(timerId);
-
-      window.removeEventListener("scroll", loadMetrica);
-      window.removeEventListener("touchstart", loadMetrica);
-      document.removeEventListener("mouseenter", loadMetrica);
-      document.removeEventListener("click", loadMetrica);
-      document.removeEventListener("DOMContentLoaded", loadFallback);
-    }
-  }
-
+  if (!thisIsNotClient && !val.isActive) return null;
+  // component active no active
   return (
     <>
-      <PDF_MODAL className={checkPdf ? "active" : ""}>
-        <span className="exit_modal" onClick={exitBtnHandle} />
-        <div className="modal_content">
-          <div className="exit-btn" onClick={exitBtnHandle}>
-            x
+      <SectionActive name={val.name} />
+      <div style={bgYellow}>
+        <PDF_MODAL className={checkPdf ? 'active' : ''}>
+          <span className="exit_modal" onClick={exitBtnHandle} />
+          <div className="modal_content">
+            <div className="exit-btn" onClick={exitBtnHandle}>
+              x
+            </div>
+            {pdf}
           </div>
-          {pdf}
-        </div>
-      </PDF_MODAL>
-      <MyModal x50={x50} className={m1 ? "active" : ""}>
-        <div className="span" onClick={() => setM1(false)}></div>
-        <div className="modal-container">
-          <button
-            className="arrow-right-btn"
-            onClick={() => setX50((prev) => !prev)}
-          >
-            <Image
-              src="/images/landing/gastro/footer/arrow-right.webp"
-              alt="Arrow right"
-              layout="fill"
-            />
-          </button>
-          <button
-            className="arrow-left-btn"
-            onClick={() => setX50((prev) => !prev)}
-          >
-            <Image
-              src="/images/landing/gastro/footer/arrow-left.webp"
-              layout="fill"
-            />
-          </button>
-          <button className="exit-btn" onClick={() => setM1(false)}>
-            x
-          </button>
-          <div className="img-slide">
-            <div className="slide-container">
-              {getItem("footer_letsinze_imgs", "footer_letsinze_imgs").map(
-                (item, index) => (
-                  <Image
-                    src={item.img.src}
-                    alt={item.img.alt}
-                    title={item.img.title}
-                    objectFit={"cover"}
-                    group="footer_letsinze_imgs"
-                    id={index}
-                    width={500}
-                    height={650}
-                    key={index}
-                  />
-                )
-              )}
+        </PDF_MODAL>
+        <MyModal x50={x50} className={m1 ? 'active' : ''}>
+          <div className="span" onClick={() => setM1(false)}></div>
+          <div className="modal-container">
+            <button
+              className="arrow-right-btn"
+              onClick={() => setX50((prev) => !prev)}
+            >
+              <Image
+                src="/images/landing/gastro/footer/arrow-right.webp"
+                alt="Arrow right"
+                layout="fill"
+              />
+            </button>
+            <button
+              className="arrow-left-btn"
+              onClick={() => setX50((prev) => !prev)}
+            >
+              <Image
+                src="/images/landing/gastro/footer/arrow-left.webp"
+                layout="fill"
+              />
+            </button>
+            <button className="exit-btn" onClick={() => setM1(false)}>
+              x
+            </button>
+            <div className="img-slide">
+              <div className="slide-container">
+                {getItem('footer_letsinze_imgs', 'footer_letsinze_imgs').map(
+                  (item, index) => (
+                    <Image
+                      src={item.img.src}
+                      alt={item.img.alt}
+                      title={item.img.title}
+                      objectFit={'cover'}
+                      group="footer_letsinze_imgs"
+                      id={index}
+                      width={500}
+                      height={650}
+                      key={index}
+                    />
+                  )
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      </MyModal>
-      <Full_screen id="contact">
-        <div className="container">
-          <Container>
-            <Logo_icons>
-              <Logo_blog>
-                <Logo>
-                  <Images>
+        </MyModal>
+        <Full_screen id="contact">
+          <div className="container">
+            <Container>
+              <Logo_icons>
+                <Logo_blog>
+                  <Logo>
+                    <Images>
+                      <Image
+                        layout="fill"
+                        src={getItem('footer_logo_img_src')}
+                        srcDataName={'footer_logo_img_src'}
+                        alt={getItem('footer_logo_img_alt')}
+                        altDataName={'footer_logo_img_alt'}
+                        title={getItem('footer_logo_img_title')}
+                        titleDataName={'footer_logo_img_title'}
+                      />
+                    </Images>
+                  </Logo>
+                  <Text_name>
+                    <h1>
+                      <Text name="footer_name">{getItem('footer_name')}</Text>
+                    </h1>
+                  </Text_name>
+                  <Icons>
+                    <span>
+                      <Link
+                        hrefName={'footer_fc_url'}
+                        href={getItem('footer_fc_url')}
+                        target="_blank"
+                      >
+                        <IconT>
+                          <Image
+                            layout="fill"
+                            src="/images/landing/gastro/messengrs/face.webp"
+                            alt="Facebook"
+                          />
+                        </IconT>
+                      </Link>
+                    </span>
+                    <span>
+                      <Link
+                        hrefName={'footer_in_url'}
+                        href={getItem('footer_in_url')}
+                        target="_blank"
+                      >
+                        <IconT>
+                          <Image
+                            layout="fill"
+                            src="/images/landing/gastro/messengrs/insta.webp"
+                            alt="Instagram"
+                          />
+                        </IconT>
+                      </Link>
+                    </span>
+                    <span>
+                      <Link
+                        hrefName={'footer_yt_url'}
+                        href={getItem('footer_yt_url')}
+                        target="_blank"
+                      >
+                        <IconT>
+                          <Image
+                            layout="fill"
+                            src="/images/landing/gastro/messengrs/youtube.webp"
+                            alt="Youtube"
+                          />
+                        </IconT>
+                      </Link>
+                    </span>
+                    <span>
+                      <Link
+                        hrefName={'footer_vk_url'}
+                        href={getItem('footer_vk_url')}
+                        target="_blank"
+                      >
+                        <IconT>
+                          <Image
+                            layout="fill"
+                            src="/images/landing/gastro/messengrs/vk.webp"
+                            alt="VKontakte"
+                          />
+                        </IconT>
+                      </Link>
+                    </span>
+                    <span>
+                      <Link
+                        hrefName="footer_tg_url"
+                        href={getItem('footer_tg_url')}
+                        target="_blank"
+                      >
+                        <IconT>
+                          <Image
+                            layout="fill"
+                            src="/images/landing/gastro/messengrs/teleg.webp"
+                            alt="Telegram"
+                          />
+                        </IconT>
+                      </Link>
+                    </span>
+                  </Icons>
+                  <Text_new>
+                    <p>
+                      <Text name="footer_title_1">
+                        {getItem('footer_title_1')}
+                      </Text>
+                    </p>
+                    <p>
+                      <Text name="footer_title_2">
+                        {getItem('footer_title_2')}
+                      </Text>
+                    </p>
+                    <p>
+                      <Text name="footer_title_3">
+                        {getItem('footer_title_3')}
+                      </Text>
+                    </p>
+                    <p>
+                      <Text name="footer_title_4">
+                        {getItem('footer_title_4')}
+                      </Text>
+                    </p>
+                  </Text_new>
+                </Logo_blog>
+              </Logo_icons>
+              <Contact_pay>
+                <Blog_top>
+                  <Email_blog>
+                    <Blog>
+                      <h1>
+                        <Text name="footer_col_name">
+                          {getItem('footer_col_name')}
+                        </Text>
+                      </h1>
+                      <form
+                        action="https://protosender.silkroaddestinations.uz/lists/gl344gvkd65c4/subscribe"
+                        method="post"
+                        acceptCharset="utf-8"
+                        target="_blank"
+                      >
+                        <div className="form-group">
+                          <Text
+                            type="important"
+                            name="footer_input_placeholder"
+                          >
+                            <input
+                              type="text"
+                              className=""
+                              name="EMAIL"
+                              placeholder={getItem('footer_input_placeholder')}
+                              required
+                            />
+                          </Text>
+                        </div>
+                        <div className="clearfix"></div>
+                        <div className="actions">
+                          <button
+                            type="submit"
+                            className=""
+                            disabled={!checkForm}
+                            style={{
+                              cursor: !checkForm ? 'default' : 'pointer',
+                              opacity: !checkForm ? '0.5' : '1',
+                            }}
+                          >
+                            <Text name="footer_want_btn">
+                              {getItem('footer_want_btn')}
+                            </Text>
+                          </button>
+                        </div>
+
+                        <div className="clearfix"></div>
+                      </form>
+                      <section className="section-p">
+                        <span onClick={() => openCheckPdf('pdf_2')}>
+                          <Text name="footer_col_srteficat">
+                            {getItem('footer_col_srteficat')}
+                          </Text>
+                        </span>
+                        <div>
+                          <input
+                            className="check"
+                            type="checkbox"
+                            id="checkId"
+                            onChange={(e) => setCheckForm(e.target.checked)}
+                            value={checkForm}
+                          />
+                          <label htmlFor="checkId" className="checkbox_info">
+                            <Text name="footer_col_check">
+                              {getItem('footer_col_check')}
+                            </Text>
+                          </label>
+                        </div>
+                      </section>
+                    </Blog>
+                  </Email_blog>
+                  <Contact_blog>
+                    <Con_blog>
+                      <h1>
+                        <Text name="footer_col_name_contact">
+                          {getItem('footer_col_name_contact')}
+                        </Text>
+                      </h1>
+                      <p>
+                        <Link
+                          hrefName={'footer_col_phone_hrefRU'}
+                          href={getItem('footer_col_phone_hrefRU')}
+                          name="footer_col_phone_ru"
+                        >
+                          {getItem('footer_col_phone_ru')}
+                        </Link>
+                      </p>
+                      <p>
+                        <Link
+                          name="footer_col_phone_uzb"
+                          hrefName={'footer_col_phone_hrefUZ'}
+                          href={getItem('footer_col_phone_hrefUZ')}
+                        >
+                          {getItem('footer_col_phone_uzb')}
+                        </Link>
+                      </p>
+                      <p>
+                        <Link
+                          hrefName={'footer_email_url'}
+                          href={getItem('footer_email_url')}
+                          name="footer_col_email"
+                        >
+                          {getItem('footer_col_email')}
+                        </Link>
+                      </p>
+                      <Icons_contact>
+                        <span>
+                          <Link
+                            hrefName={'footer_col_tg_href'}
+                            target="_blank"
+                            href={getItem('footer_col_tg_href')}
+                            name="footer_col_tg"
+                          >
+                            {getItem('footer_col_tg')}
+                          </Link>
+                        </span>
+                        <span>
+                          <Link
+                            hrefName={'footer_col_wa_href'}
+                            target="_blank"
+                            href={getItem('footer_col_wa_href')}
+                            name="footer_col_wh"
+                          >
+                            {getItem('footer_col_wh')}
+                          </Link>
+                        </span>
+                        <span>
+                          <Link
+                            hrefName={'footer_col_fa_href'}
+                            target="_blank"
+                            href={getItem('footer_col_fa_href')}
+                            name="footer_col_fa"
+                          >
+                            {getItem('footer_col_fa')}
+                          </Link>
+                        </span>
+                      </Icons_contact>
+                      <Pay_pal>
+                        <Pay>
+                          <Image
+                            layout="responsive"
+                            width={100}
+                            height={100}
+                            src="/images/landing/gastro/footer/visa.png"
+                            alt="Visa Crad"
+                          />
+                        </Pay>
+                        <Pay>
+                          <Image
+                            layout="responsive"
+                            width={100}
+                            height={90}
+                            src="/images/landing/gastro/footer/master.png"
+                            alt="MasterCard"
+                          />
+                        </Pay>
+                        <Pay>
+                          <Image
+                            layout="responsive"
+                            width={100}
+                            height={70}
+                            src="/images/landing/gastro/footer/union.png"
+                            alt="UnionPay Card"
+                          />
+                        </Pay>
+                      </Pay_pal>
+                    </Con_blog>
+                  </Contact_blog>
+                  <Seal>
                     <Image
                       layout="fill"
-                      src={getItem("footer_logo_img_src")}
-                      srcDataName={"footer_logo_img_src"}
-                      alt={getItem("footer_logo_img_alt")}
-                      altDataName={"footer_logo_img_alt"}
-                      title={getItem("footer_logo_img_title")}
-                      titleDataName={"footer_logo_img_title"}
+                      src="/images/landing/gastro/footer/seal.webp"
+                      alt="Вкусный Узбекистан"
+                      title="Вкусный Узбекистан"
                     />
-                  </Images>
-                </Logo>
-                <Text_name>
-                  <h1>
-                    <Text name="footer_name">{getItem("footer_name")}</Text>
-                  </h1>
-                </Text_name>
-                <Icons>
-                  <span>
-                    <Link
-                      hrefName={"footer_fc_url"}
-                      href={getItem("footer_fc_url")}
-                      target="_blank"
-                    >
-                      <IconT>
-                        <Image
-                          layout="fill"
-                          src="/images/landing/gastro/messengrs/face.webp"
-                          alt="Facebook"
-                        />
-                      </IconT>
-                    </Link>
-                  </span>
-                  <span>
-                    <Link
-                      hrefName={"footer_in_url"}
-                      href={getItem("footer_in_url")}
-                      target="_blank"
-                    >
-                      <IconT>
-                        <Image
-                          layout="fill"
-                          src="/images/landing/gastro/messengrs/insta.webp"
-                          alt="Instagram"
-                        />
-                      </IconT>
-                    </Link>
-                  </span>
-                  <span>
-                    <Link
-                      hrefName={"footer_yt_url"}
-                      href={getItem("footer_yt_url")}
-                      target="_blank"
-                    >
-                      <IconT>
-                        <Image
-                          layout="fill"
-                          src="/images/landing/gastro/messengrs/youtube.webp"
-                          alt="Youtube"
-                        />
-                      </IconT>
-                    </Link>
-                  </span>
-                  <span>
-                    <Link
-                      hrefName={"footer_vk_url"}
-                      href={getItem("footer_vk_url")}
-                      target="_blank"
-                    >
-                      <IconT>
-                        <Image
-                          layout="fill"
-                          src="/images/landing/gastro/messengrs/vk.webp"
-                          alt="VKontakte"
-                        />
-                      </IconT>
-                    </Link>
-                  </span>
-                  <span>
-                    <Link
-                      hrefName="footer_tg_url"
-                      href={getItem("footer_tg_url")}
-                      target="_blank"
-                    >
-                      <IconT>
-                        <Image
-                          layout="fill"
-                          src="/images/landing/gastro/messengrs/teleg.webp"
-                          alt="Telegram"
-                        />
-                      </IconT>
-                    </Link>
-                  </span>
-                </Icons>
-                <Text_new>
-                  <p>
-                    <Text name="footer_title_1">
-                      {getItem("footer_title_1")}
-                    </Text>
-                  </p>
-                  <p>
-                    <Text name="footer_title_2">
-                      {getItem("footer_title_2")}
-                    </Text>
-                  </p>
-                  <p>
-                    <Text name="footer_title_3">
-                      {getItem("footer_title_3")}
-                    </Text>
-                  </p>
-                  <p>
-                    <Text name="footer_title_4">
-                      {getItem("footer_title_4")}
-                    </Text>
-                  </p>
-                </Text_new>
-              </Logo_blog>
-            </Logo_icons>
-            <Contact_pay>
-              <Blog_top>
-                <Email_blog>
-                  <Blog>
-                    <h1>
-                      <Text name="footer_col_name">
-                        {getItem("footer_col_name")}
-                      </Text>
-                    </h1>
-                    <form
-                      action="https://protosender.silkroaddestinations.uz/lists/gl344gvkd65c4/subscribe"
-                      method="post"
-                      acceptCharset="utf-8"
-                      target="_blank"
-                    >
-                      <div className="form-group">
-                        <Text type="important" name="footer_input_placeholder">
-                          <input
-                            type="text"
-                            className=""
-                            name="EMAIL"
-                            placeholder={getItem("footer_input_placeholder")}
-                            required
-                          />
-                        </Text>
-                      </div>
-                      <div className="clearfix"></div>
-                      <div className="actions">
-                        <button
-                          type="submit"
-                          className=""
-                          disabled={!checkForm}
-                          style={{
-                            cursor: !checkForm ? "default" : "pointer",
-                            opacity: !checkForm ? "0.5" : "1",
-                          }}
-                        >
-                          <Text name="footer_want_btn">
-                            {getItem("footer_want_btn")}
-                          </Text>
-                        </button>
-                      </div>
-
-                      <div className="clearfix"></div>
-                    </form>
-                    <section className="section-p">
-                      <span onClick={() => openCheckPdf("pdf_2")}>
-                        <Text name="footer_col_srteficat">
-                          {getItem("footer_col_srteficat")}
-                        </Text>
-                      </span>
-                      <div>
-                        <input
-                          className="check"
-                          type="checkbox"
-                          id="checkId"
-                          onChange={(e) => setCheckForm(e.target.checked)}
-                          value={checkForm}
-                        />
-                        <label htmlFor="checkId" className="checkbox_info">
-                          <Text name="footer_col_check">
-                            {getItem("footer_col_check")}
-                          </Text>
-                        </label>
-                      </div>
-                    </section>
-                  </Blog>
-                </Email_blog>
-                <Contact_blog>
-                  <Con_blog>
-                    <h1>
-                      <Text name="footer_col_name_contact">
-                        {getItem("footer_col_name_contact")}
-                      </Text>
-                    </h1>
-                    <p>
-                      <Link
-                        hrefName={"footer_col_phone_hrefRU"}
-                        href={getItem("footer_col_phone_hrefRU")}
-                        name="footer_col_phone_ru"
-                      >
-                        {getItem("footer_col_phone_ru")}
-                      </Link>
-                    </p>
-                    <p>
-                      <Link
-                        name="footer_col_phone_uzb"
-                        hrefName={"footer_col_phone_hrefUZ"}
-                        href={getItem("footer_col_phone_hrefUZ")}
-                      >
-                        {getItem("footer_col_phone_uzb")}
-                      </Link>
-                    </p>
-                    <p>
-                      <Link
-                        hrefName={"footer_email_url"}
-                        href={getItem("footer_email_url")}
-                        name="footer_col_email"
-                      >
-                        {getItem("footer_col_email")}
-                      </Link>
-                    </p>
-                    <Icons_contact>
-                      <span>
-                        <Link
-                          hrefName={"footer_col_tg_href"}
-                          target="_blank"
-                          href={getItem("footer_col_tg_href")}
-                          name="footer_col_tg"
-                        >
-                          {getItem("footer_col_tg")}
-                        </Link>
-                      </span>
-                      <span>
-                        <Link
-                          hrefName={"footer_col_wa_href"}
-                          target="_blank"
-                          href={getItem("footer_col_wa_href")}
-                          name="footer_col_wh"
-                        >
-                          {getItem("footer_col_wh")}
-                        </Link>
-                      </span>
-                      <span>
-                        <Link
-                          hrefName={"footer_col_fa_href"}
-                          target="_blank"
-                          href={getItem("footer_col_fa_href")}
-                          name="footer_col_fa"
-                        >
-                          {getItem("footer_col_fa")}
-                        </Link>
-                      </span>
-                    </Icons_contact>
-                    <Pay_pal>
-                      <Pay>
-                        <Image
-                          layout="responsive"
-                          width={100}
-                          height={100}
-                          src="/images/landing/gastro/footer/visa.png"
-                          alt="Visa Crad"
-                        />
-                      </Pay>
-                      <Pay>
-                        <Image
-                          layout="responsive"
-                          width={100}
-                          height={90}
-                          src="/images/landing/gastro/footer/master.png"
-                          alt="MasterCard"
-                        />
-                      </Pay>
-                      <Pay>
-                        <Image
-                          layout="responsive"
-                          width={100}
-                          height={70}
-                          src="/images/landing/gastro/footer/union.png"
-                          alt="UnionPay Card"
-                        />
-                      </Pay>
-                    </Pay_pal>
-                  </Con_blog>
-                </Contact_blog>
-                <Seal>
-                  <Image
-                    layout="fill"
-                    src="/images/landing/gastro/footer/seal.webp"
-                    alt="Вкусный Узбекистан"
-                    title="Вкусный Узбекистан"
-                  />
-                </Seal>
-              </Blog_top>
-              <Blog_bottom>
-                <Fotter_Left>
-                  <ul>
-                    {getItem("footer_menu", "footer_menu").map(
-                      (link, linkIndex) => {
-                        if (
-                          getItem("footer_menu", "footer_menu").length - 1 >
-                          linkIndex
-                        ) {
-                          return (
-                            <li key={linkIndex}>
-                              <Link
-                                index={linkIndex}
-                                group="footer_menu"
-                                hrefName={"head_menu_href"}
-                                href={link.head_menu_href}
-                                name={"head_menu_title"}
-                              >
-                                {link.head_menu_title}
-                              </Link>
-                            </li>
-                          );
+                  </Seal>
+                </Blog_top>
+                <Blog_bottom>
+                  <Fotter_Left>
+                    <ul>
+                      {getItem('footer_menu', 'footer_menu').map(
+                        (link, linkIndex) => {
+                          if (
+                            getItem('footer_menu', 'footer_menu').length - 1 >
+                            linkIndex
+                          ) {
+                            return (
+                              <li key={linkIndex}>
+                                <Link
+                                  index={linkIndex}
+                                  group="footer_menu"
+                                  hrefName={'head_menu_href'}
+                                  href={link.head_menu_href}
+                                  name={'head_menu_title'}
+                                >
+                                  {link.head_menu_title}
+                                </Link>
+                              </li>
+                            );
+                          }
                         }
-                      }
-                    )}
-                  </ul>
-                </Fotter_Left>
-                <Fotter_Right>
-                  <Blog_Head>
-                    <h1>
-                      <Text name="footer_col_copy">
-                        {getItem("footer_col_copy")}
-                      </Text>
-                      <br />
-                      <Text name="footer_col_copy_code">
-                        {getItem("footer_col_copy_code")}
-                      </Text>
-                      <br />
-                      <Text name="footer_col_copy_let">
-                        {getItem("footer_col_copy_let")}
-                      </Text>
-                    </h1>
-                  </Blog_Head>
-                  <Modal_text>
-                    <span onClick={() => openCheckPdf("pdf_1")}>
-                      <Text name="footer_modal_1">
-                        {getItem("footer_modal_1")}
-                      </Text>
-                    </span>
-                    <span onClick={() => setM1(true)}>
-                      <Text name="footer_modal_2">
-                        {getItem("footer_modal_2")}
-                      </Text>
-                    </span>
-                  </Modal_text>
-                </Fotter_Right>
-              </Blog_bottom>
-            </Contact_pay>
-          </Container>
-        </div>
-      </Full_screen>
+                      )}
+                    </ul>
+                  </Fotter_Left>
+                  <Fotter_Right>
+                    <Blog_Head>
+                      <h1>
+                        <Text name="footer_col_copy">
+                          {getItem('footer_col_copy')}
+                        </Text>
+                        <br />
+                        <Text name="footer_col_copy_code">
+                          {getItem('footer_col_copy_code')}
+                        </Text>
+                        <br />
+                        <Text name="footer_col_copy_let">
+                          {getItem('footer_col_copy_let')}
+                        </Text>
+                      </h1>
+                    </Blog_Head>
+                    <Modal_text>
+                      <span onClick={() => openCheckPdf('pdf_1')}>
+                        <Text name="footer_modal_1">
+                          {getItem('footer_modal_1')}
+                        </Text>
+                      </span>
+                      <span onClick={() => setM1(true)}>
+                        <Text name="footer_modal_2">
+                          {getItem('footer_modal_2')}
+                        </Text>
+                      </span>
+                    </Modal_text>
+                  </Fotter_Right>
+                </Blog_bottom>
+              </Contact_pay>
+            </Container>
+          </div>
+        </Full_screen>
+      </div>
 
       <Script
         id="yandexx"
@@ -1486,87 +1405,87 @@ export default function index({ footer }) {
         strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `
-    (function () {
-   'use strict';
+                (function () {
+              'use strict';
 
-   // Флаг, что Метрика уже загрузилась.
-   var loadedMetrica = false,
+              // Флаг, что Метрика уже загрузилась.
+              var loadedMetrica = false,
 
-      // Переменная для хранения таймера.
-      timerId;
+                  // Переменная для хранения таймера.
+                  timerId;
 
-   // Для бота Яндекса грузим Метрику сразу без "отложки",
-   // чтобы в панели Метрики были зелёные кружочки
-   // при проверке корректности установки счётчика.
-   if (navigator.userAgent.indexOf('YandexMetrika') > -1) {
-      loadMetrica();
-   } else {
-      window.addEventListener('scroll', loadMetrica, { passive: true });
+              // Для бота Яндекса грузим Метрику сразу без "отложки",
+              // чтобы в панели Метрики были зелёные кружочки
+              // при проверке корректности установки счётчика.
+              if (navigator.userAgent.indexOf('YandexMetrika') > -1) {
+                  loadMetrica();
+              } else {
+                  window.addEventListener('scroll', loadMetrica, { passive: true });
 
-      window.addEventListener('touchstart', loadMetrica);
+                  window.addEventListener('touchstart', loadMetrica);
 
-      document.addEventListener('mouseenter', loadMetrica);
+                  document.addEventListener('mouseenter', loadMetrica);
 
-      document.addEventListener('click', loadMetrica);
+                  document.addEventListener('click', loadMetrica);
 
-      document.addEventListener('DOMContentLoaded', loadFallback);
-   }
+                  document.addEventListener('DOMContentLoaded', loadFallback);
+              }
 
-   function loadFallback() {
-      timerId = setTimeout(loadMetrica, 1000);
-   }
+              function loadFallback() {
+                  timerId = setTimeout(loadMetrica, 1000);
+              }
 
-   function loadMetrica(e) {
+              function loadMetrica(e) {
 
-      if (e && e.type) {
-         console.log(e.type);
-      } else {
-         console.log('DOMContentLoaded');
-      }
+                  if (e && e.type) {
+                    console.log(e.type);
+                  } else {
+                    console.log('DOMContentLoaded');
+                  }
 
-      if (loadedMetrica) {
-         return;
-      }
+                  if (loadedMetrica) {
+                    return;
+                  }
 
-      (function (m, e, t, r, i, k, a) {
-         m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
-         m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-      })
-         (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+                  (function (m, e, t, r, i, k, a) {
+                    m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+                    m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+                  })
+                    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-      ym(${getItem("app_yandex_metirka_id")}, "init", {
-         clickmap: true,
-         trackLinks: true,
-         accurateTrackBounce: true,
-         webvisor: true
-      });
-
-
-   
-{/* <noscript><div><img src="https://mc.yandex.ru/watch/86955280" style="position:absolute; left:-9999px;" alt="" /></div></noscript> */}
+                  ym(${getItem('app_yandex_metirka_id')}, "init", {
+                    clickmap: true,
+                    trackLinks: true,
+                    accurateTrackBounce: true,
+                    webvisor: true
+                  });
 
 
-      !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s) }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js'); fbq('init', '4544213979029989'); fbq('track', 'PageView');
-
-      // (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'}); 
-      //       var f = d.getElementsByTagName(s)[0],
-      //           j = d.createElement(s),
-      //           dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-      // })(window, document, 'script', 'dataLayer', 'GTM-MX4JKC7')
+              
+            {/* <noscript><div><img src="https://mc.yandex.ru/watch/86955280" style="position:absolute; left:-9999px;" alt="" /></div></noscript> */}
 
 
-      loadedMetrica = true;
+                  !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s) }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js'); fbq('init', '4544213979029989'); fbq('track', 'PageView');
 
-      clearTimeout(timerId);
+                  // (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'}); 
+                  //       var f = d.getElementsByTagName(s)[0],
+                  //           j = d.createElement(s),
+                  //           dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+                  // })(window, document, 'script', 'dataLayer', 'GTM-MX4JKC7')
 
-      window.removeEventListener('scroll', loadMetrica);
-      window.removeEventListener('touchstart', loadMetrica);
-      document.removeEventListener('mouseenter', loadMetrica);
-      document.removeEventListener('click', loadMetrica);
-      document.removeEventListener('DOMContentLoaded', loadFallback);
-   }
-})()
-  `,
+
+                  loadedMetrica = true;
+
+                  clearTimeout(timerId);
+
+                  window.removeEventListener('scroll', loadMetrica);
+                  window.removeEventListener('touchstart', loadMetrica);
+                  document.removeEventListener('mouseenter', loadMetrica);
+                  document.removeEventListener('click', loadMetrica);
+                  document.removeEventListener('DOMContentLoaded', loadFallback);
+              }
+            })()
+              `,
         }}
       />
     </>
