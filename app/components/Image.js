@@ -67,16 +67,19 @@ export default function Index({
 
   if (layout === "fill") {
     return (
-      <Image
-        src={src}
-        key = {src}
-        alt={alt || ""}
-        title={title || ""}
-        priority={priority === "important"}
-        objectFit={objectFit}
-        layout={layout}
-        onDoubleClick={doubleClickHandler}
-      />
+      <>
+        <Image
+          src={src}
+          key={src}
+          alt={alt || ""}
+          title={title || ""}
+          priority={priority === "important"}
+          objectFit={objectFit}
+          layout={layout}
+          onDoubleClick={doubleClickHandler}
+        />
+        <img src={src} />
+      </>
     );
   }
   return (
@@ -93,6 +96,7 @@ export default function Index({
         objectFit={objectFit}
         layout={layout}
       />
+      <img src={src}/>
     </Wrapper>
   );
 }
