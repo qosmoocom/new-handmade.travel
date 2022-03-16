@@ -12,9 +12,9 @@ exports.createOne = async (req, res, next) => {
   //     tour_id: req.body.tour_id,
   //   });
 
-  const result = { image: `/public/images/landing/${req.file.filename}` };
+//  const result = { image: `/public/images/landing/${req.file.filename}` };
 //   console.log("Анвар", result);
-  res.status(201).json({ success: true, data: result });
+//  res.status(201).json({ success: true, data: result });
 
   //await result.save()
   //.then(() => {res.status(201).json({ success: true, data: result})})
@@ -24,6 +24,22 @@ exports.createOne = async (req, res, next) => {
   //   await result.save()
   //   .then(() => {res.status(201).json({ success: true, data: result });})
   //   .catch((error) => {res.status(400).json({ success: false, error: error })})
+
+
+  try {
+       const result = await new Image({
+         image: `/public/images/landing/${req.file.filename}`,
+         tourID: req.body.tourID,
+         tourAuthor: req.body.tourAuthor,
+         tour_id: req.body.tour_id,
+       });
+    await result.save();
+    res.status(201).json({ success: true, data: result });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "XisobRaqam created error ", data: error.message });
+  }
 };
 
 exports.deleteOne = async (req, res) => {
