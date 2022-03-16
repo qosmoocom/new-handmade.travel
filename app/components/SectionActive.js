@@ -38,7 +38,7 @@ export default function SectionActive({ name }) {
 
 const Wrapper = styled.div`
   position: relative;
-  z-index: 2221212;
+  z-index: 22;
   label {
     cursor: pointer;
     min-width: 150px;

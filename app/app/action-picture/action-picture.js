@@ -6,13 +6,25 @@ import Text from '../../components/Text';
 import { AppContext } from '..';
 export default function ActionPicture() {
   const { getItem } = useContext(AppContext);
-
+  // modal 2 opened
+  const dispatch = useDispatch();
+  const handleOnModal2 = () => {
+    const payload = {
+      currentModal: 'MODAL_3',
+      actionModal: 'ACTION 2',
+    };
+    dispatch({ type: 'MODAL_OPEN', payload });
+  };
   // component active no active
   const val = useSelector((state) => state.admin.app_sections_active).find(
     (i) => i.name === 'action-picture'
   );
 
   const { isEdit: thisIsNotClient } = useSelector((st) => st.admin);
+
+  const bronBtnActive = useSelector(
+    (state) => state.admin.app_sections_active
+  ).find((i) => i.name === 'rate').isActive;
 
   const bgYellow = {
     background: val.isActive ? null : 'yellow',
@@ -28,11 +40,13 @@ export default function ActionPicture() {
       <div id="action-picture" style={bgYellow}>
         <div className="container">
           <div className="action-picture-btn">
-            <button>
-              <Text name="action_picture_btn_bron">
-                {getItem('action_picture_btn_bron')}
-              </Text>
-            </button>
+            {bronBtnActive && (
+              <button style={{ cursor: 'pointer' }} onClick={handleOnModal2}>
+                <Text name="action_picture_btn_bron">
+                  {getItem('action_picture_btn_bron')}
+                </Text>
+              </button>
+            )}
           </div>
         </div>
         <div className="wrapper-content">
