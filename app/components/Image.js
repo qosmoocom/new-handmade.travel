@@ -42,7 +42,6 @@ export default function Index({
 }) {
   const { isEdit: isAdmin } = useSelector((st) => st.admin);
   const dispatch = useDispatch();
-
   const [src, setSrc] = useState('');
   useEffect(() => {
     setSrc(imgSrc);
@@ -74,36 +73,56 @@ export default function Index({
   if (layout === 'fill' && src) {
     return (
       <>
-        <Image
-          src={src}
-          key={src}
-          alt={alt || ''}
-          title={title || ''}
-          priority={priority === 'important'}
-          objectFit={objectFit}
-          layout={layout}
-          onDoubleClick={doubleClickHandler}
-          loading="eager"
-        />
+        {isAdmin ? (
+          <img
+            src={src}
+            alt={alt || ''}
+            title={title || ''}
+            onDoubleClick={doubleClickHandler}
+            style={{ width: '100%', height: '100%', objectFit: objectFit }}
+          />
+        ) : (
+          <Image
+            src={src}
+            alt={alt || ''}
+            title={title || ''}
+            priority={priority === 'important'}
+            objectFit={objectFit}
+            layout={layout}
+            onDoubleClick={doubleClickHandler}
+            loading="eager"
+          />
+        )}
       </>
     );
   }
   return (
-    <Wrapper onDoubleClick={doubleClickHandler}>
-      {/* <AiFillEdit className="edit__icon" /> */}
+    <Wrapper>
       {src && (
-        <Image
-          src={src}
-          key={src}
-          width={width}
-          height={height}
-          alt={alt}
-          title={title}
-          priority={priority === 'important'}
-          objectFit={objectFit}
-          layout={layout}
-          loading="eager"
-        />
+        <>
+          {isAdmin ? (
+            <img
+              onDoubleClick={doubleClickHandler}
+              style={{ width: '100%', height: '100%', objectFit: objectFit }}
+              src={src}
+              style={{ width: '100%', height: '100%' }}
+            />
+          ) : (
+            <Image
+              src={src}
+              key={src}
+              width={width}
+              height={height}
+              onDoubleClick={doubleClickHandler}
+              alt={alt}
+              title={title}
+              priority={priority === 'important'}
+              objectFit={objectFit}
+              layout={layout}
+              loading="eager"
+            />
+          )}
+        </>
       )}
     </Wrapper>
   );

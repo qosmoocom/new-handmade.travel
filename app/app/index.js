@@ -77,6 +77,9 @@ export default function Index() {
   return (
     <AppContext.Provider value={defaultValue}>
       {/* modals */}
+      <Head>
+        <title>Loading..</title>
+      </Head>
 
       {appStyle && (
         <>

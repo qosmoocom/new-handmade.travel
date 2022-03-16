@@ -117,7 +117,7 @@ export const getMyOneTour = (id) => async (dispatch) => {
     const data = await res.data;
     dispatch(setOneTour(data));
     setTimeout(() => {
-      dispatch(loaderOff());
+      // dispatch(loaderOff());
       dispatch({ type: types.editTour, data });
       dispatch({ type: types.editorOn });
     }, 500);
@@ -126,7 +126,7 @@ export const getMyOneTour = (id) => async (dispatch) => {
 
 export const getMyTourStyle = (id) => async (dispatch) => {
   const api = `/api/style/${id}`;
-  dispatch(loaderOn());
+  // dispatch(loaderOn());
   try {
     const res = await Axios.get(api);
     const data = await res.data;

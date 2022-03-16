@@ -1,10 +1,11 @@
+import Head from 'next/head';
 import Axios from 'axios';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 import App from '../../app/app';
-import { loaderOff, loaderOn } from './../../store/reducer/loaderReducer';
+import { loaderOn } from './../../store/reducer/loaderReducer';
 import Loader from '../../app/components/Loader';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { types } from '../../store/types';
 import { getMyTourStyle, setOneTour } from '../../store/reducer/toursReducer';
 export default function Index() {
@@ -17,9 +18,9 @@ export default function Index() {
     try {
       const res = await Axios.get(api);
       const data = await res.data;
+      dispatch(getMyTourStyle(data[0]._id));
       dispatch({ type: types.editTour, data: data[0] });
       dispatch(setOneTour(data[0]));
-      dispatch(getMyTourStyle(data[0]._id));
       dispatch({ type: types.editorOff });
       const tour_id = data[0].tour_id;
       const isItActive = data[0].isItActive;
@@ -35,19 +36,43 @@ export default function Index() {
     if (isItPath) {
       return (
         <div>
+          <Head>
+            <title>Loading...</title>
+          </Head>
           <App />
           <Loader />
         </div>
       );
     }
 
-    return <Loader />;
+    return (
+      <div>
+        <Head>
+          <title>Loading..</title>
+        </Head>
+        <Loader />
+      </div>
+    );
   }
 
   if (!path?.all?.join('/')) {
     dispatch(loaderOn());
-    return <Loader />;
+    return (
+      <div>
+        <Head>
+          <title>Loading..</title>
+        </Head>
+        <Loader />
+      </div>
+    );
   }
 
-  return <p>error</p>;
+  return (
+    <div>
+      <Head>
+        <title>Loading..</title>
+      </Head>
+      <Loader />
+    </div>
+  );
 }
