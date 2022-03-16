@@ -1,22 +1,40 @@
-import React, { useContext } from "react";
-import { AppContext } from "..";
-import Text from "../../components/Text";
-import Image from "../../components/Image";
-import Item from "../../components/Item";
+import SectionActive from '../../components/SectionActive';
+import { useSelector } from 'react-redux';
+import React, { useContext } from 'react';
+import { AppContext } from '..';
+import Text from '../../components/Text';
+import Image from '../../components/Image';
+import Item from '../../components/Item';
 export default function ThirdUtp() {
   const { getItem } = useContext(AppContext);
+
+  // component active no active
+  const val = useSelector((state) => state.admin.app_sections_active).find(
+    (i) => i.name === 'action-detail'
+  );
+
+  const { isEdit: thisIsNotClient } = useSelector((st) => st.admin);
+
+  const bgYellow = {
+    background: val.isActive ? null : 'yellow',
+    opacity: val.isActive ? null : '0.2',
+    cursor: val.isActive ? null : 'not-allowed',
+  };
+
+  if (!thisIsNotClient && !val.isActive) return null;
+  // component active no active
   return (
     <div id="third-utp">
       <div className="container">
         <div className="third-utp-title">
           <h2>
             <Text name="third_utp_title" itIsClassName="third-utp-title">
-              {getItem("third_utp_title")}
+              {getItem('third_utp_title')}
             </Text>
           </h2>
         </div>
         <div className="row">
-          {getItem("third_utp_list", "third_utp_list").map((item, index) => {
+          {getItem('third_utp_list', 'third_utp_list').map((item, index) => {
             return (
               <Item
                 group="third_utp_list"
@@ -32,7 +50,7 @@ export default function ThirdUtp() {
                       alt={item.img.alt}
                       title={item.img.title}
                       itIsClassName="third-utp-item-img-box"
-                      group={"third_utp_list"}
+                      group={'third_utp_list'}
                       id={index}
                       priority
                       objectFit="cover"
