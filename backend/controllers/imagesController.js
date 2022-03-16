@@ -6,15 +6,17 @@ const UploadFile = require("../config/Sharp");
 
 exports.createOne = async (req, res, next) => {
     try {
-        const result = await new Image({
+        const result = new Image({
     image: `/public/images/landing/${req.file.filename}`,
     tourID: req.body.tourID,
     tourAuthor: req.body.tourAuthor,
     tour_id: req.body.tour_id,
     });
     await result.save()
-    res.status(201).json({ success: true, data: result})
+    res.send({data:result})
+    console.log(result)
     } catch (error) {
+        console.log(error.message)
         res.status(500).json({ success: false, err: error, message:error.message})
     }
   
