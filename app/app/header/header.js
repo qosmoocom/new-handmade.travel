@@ -73,6 +73,9 @@ export default function Header() {
     (i) => i.name === 'header'
   );
 
+  const bronBtnActive = useSelector(
+    (state) => state.admin.app_sections_active
+  ).find((i) => i.name === 'rate').isActive;
   const { isEdit: thisIsNotClient } = useSelector((st) => st.admin);
 
   const bgYellow = {
@@ -144,11 +147,18 @@ export default function Header() {
               </div>
               {/* ---------- */}
               {/* right-section or to-book-btn and tel-me-btn */}
-              <button className="to-book-btn" onClick={handleOnModal2}>
-                <Text name="to_book_btn" itIsClassName="to-book-btn">
-                  {getItem('to_book_btn')}
-                </Text>
-              </button>
+              {bronBtnActive && (
+                <button
+                  style={{ cursor: 'pointer' }}
+                  className="to-book-btn"
+                  onClick={handleOnModal2}
+                >
+                  <Text name="to_book_btn" itIsClassName="to-book-btn">
+                    {getItem('to_book_btn')}
+                  </Text>
+                </button>
+              )}
+
               <Link
                 className="tel-me-btn"
                 href={getItem('head_phone_href')}

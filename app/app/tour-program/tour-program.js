@@ -24,15 +24,6 @@ export default function TourProgram() {
     }));
   };
 
-  useEffect(() => {
-    setToggle((prev) => ({
-      ...prev,
-      maxHeight: document.querySelectorAll('.tour-program-list-description')[
-        toggle.count
-      ].scrollHeight,
-    }));
-  }, [toggle.count]);
-
   // component active no active
   const val = useSelector((state) => state.admin.app_sections_active).find(
     (i) => i.name === 'tour-program'
@@ -45,6 +36,16 @@ export default function TourProgram() {
     opacity: val.isActive ? null : '0.2',
     cursor: val.isActive ? null : 'not-allowed',
   };
+  useEffect(() => {
+    if (val.isActive) {
+      setToggle((prev) => ({
+        ...prev,
+        maxHeight: document.querySelectorAll('.tour-program-list-description')[
+          toggle.count
+        ].scrollHeight,
+      }));
+    }
+  }, [toggle.count, val.isActive]);
 
   if (!thisIsNotClient && !val.isActive) return null;
   // component active no active
