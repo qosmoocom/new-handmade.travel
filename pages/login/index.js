@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { useRouter } from "next/router";
-import { useSelector, useDispatch } from "react-redux";
-import Axios from "axios";
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useSelector, useDispatch } from 'react-redux';
+import Axios from 'axios';
 
 // import redux actions
-import { userLogin } from "../../store/reducer/usersReducer";
+import { userLogin } from '../../store/reducer/usersReducer';
 
 // import componets
-import LogIn from "../../app/components/admin/LogIn";
+import LogIn from '../../app/components/admin/LogIn';
 
 export default function Index() {
   const router = useRouter();
@@ -17,8 +17,8 @@ export default function Index() {
   // defaultState
   const defaultState = {
     values: {
-      username: "",
-      password: "",
+      username: '',
+      password: '',
     },
   };
   const [loginState, setLoginState] = useState(defaultState);
@@ -30,19 +30,18 @@ export default function Index() {
     dispatch(userLogin(values));
 
     setTimeout(() => {
-      const data = JSON.parse(localStorage.getItem("isLoginMe"));
-      if (data && data.role === "admin") {
-        router.push("/admin");
-      } else if (data && data.role === "moderator") {
-        router.push("/admin");
+      const data = JSON.parse(localStorage.getItem('isLoginMe'));
+      if (data && data.role === 'admin') {
+        router.push('/admin');
+      } else if (data && data.role === 'moderator') {
+        router.push('/admin');
       } else {
-        console.log("error");
       }
     }, 500);
   };
 
   const getUser = async () => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem('token');
     const api = `/api/user/me`;
     const config = {
       headers: {
@@ -53,10 +52,8 @@ export default function Index() {
       const res = await Axios.get(api, config);
       const data = await res.data;
       // username and role on save in the localStorage
-      localStorage.setItem("isLoginMe", JSON.stringify(data));
-    } catch (error) {
-      console.log("error in the getUser", error);
-    }
+      localStorage.setItem('isLoginMe', JSON.stringify(data));
+    } catch (error) {}
   };
 
   // change handle form

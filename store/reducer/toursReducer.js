@@ -76,18 +76,10 @@ export const createNewTour = (newTour) => async (dispatch) => {
     await Axios.post(api2, my_style_data)
       .then((res) => res.data)
       .then((data) => {
-        console.log('res style created:', data);
         const tourID = data.tourID;
-        console.log('new tour', newTour);
       })
-      .catch((styleError) => {
-        console.log('style is not create, there is a error', styleError);
-      });
-
-    console.log('create new tour and style:\n data:');
-  } catch (error) {
-    console.log('error in the createNewTour function', error);
-  }
+      .catch((styleError) => {});
+  } catch (error) {}
 };
 
 export const getAllMyTours = () => async (dispatch) => {
@@ -99,10 +91,8 @@ export const getAllMyTours = () => async (dispatch) => {
     const data = await res.data;
     dispatch({ type: toursTypes.getMeTours, data });
     dispatch(loaderOff());
-    console.log('get my all tours', data);
   } catch (error) {
     dispatch(loaderOn());
-    console.log('Error it is Tour all', error);
   }
 };
 
@@ -116,10 +106,7 @@ export const updateMyTours = (userId, newTour) => async (dispatch) => {
     setTimeout(() => {
       dispatch(closeCreatTourModal());
     }, 500);
-    console.log(`update my tour\n data:${data}`);
-  } catch (error) {
-    console.log('error in the updateMyTours function', error);
-  }
+  } catch (error) {}
 };
 
 export const getMyOneTour = (id) => async (dispatch) => {
@@ -134,16 +121,11 @@ export const getMyOneTour = (id) => async (dispatch) => {
       dispatch({ type: types.editTour, data });
       dispatch({ type: types.editorOn });
     }, 500);
-
-    console.log('get my one tour:');
-  } catch (error) {
-    console.log('error in the getMeOneTour function', error);
-  }
+  } catch (error) {}
 };
 
 export const getMyTourStyle = (id) => async (dispatch) => {
   const api = `/api/style/${id}`;
-  console.log('api bu', api);
   dispatch(loaderOn());
   try {
     const res = await Axios.get(api);
@@ -152,10 +134,8 @@ export const getMyTourStyle = (id) => async (dispatch) => {
     setTimeout(() => {
       dispatch(loaderOff());
     }, 500);
-    console.log('get my tour style;');
   } catch (error) {
     dispatch(loaderOn());
-    console.log('getMyTourStyle error ', error);
   }
 };
 

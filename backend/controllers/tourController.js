@@ -1,4 +1,4 @@
-const Tour = require("../models/Tour");
+const Tour = require('../models/Tour');
 
 exports.createOne = async (req, res, next) => {
   const result = new Tour({
@@ -15,7 +15,7 @@ exports.createOne = async (req, res, next) => {
       res.status(200).json(result);
     })
     .catch((error) => {
-      res.status(400).json({ message: "Data is not created", data: error });
+      res.status(400).json({ message: 'Data is not created', data: error });
     });
 };
 
@@ -34,7 +34,7 @@ exports.updateOne = async (req, res, next) => {
         res.status(200).json(result);
       })
       .catch((error) => {
-        res.status(400).json({ message: "Badly", data: error });
+        res.status(400).json({ message: 'Badly', data: error });
       });
 };
 exports.deleteOne = async (req, res, next) => {
@@ -63,7 +63,5 @@ exports.getItemsUser = async (req, res, next) => {
       language: req.params.id,
     });
     res.status(200).json(result);
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 };

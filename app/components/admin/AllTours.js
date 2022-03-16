@@ -20,9 +20,7 @@ function AllTours() {
       setTimeout(() => {
         setLoading(false);
       }, 200);
-    } catch (error) {
-      console.log('error in the AllTours Page ', error);
-    }
+    } catch (error) {}
   };
 
   //   delete tour
@@ -36,9 +34,7 @@ function AllTours() {
       if (data) {
         await getAllTours();
       }
-    } catch (error) {
-      console.log('error in the deleteTour', error);
-    }
+    } catch (error) {}
   };
 
   //   componentDidMount

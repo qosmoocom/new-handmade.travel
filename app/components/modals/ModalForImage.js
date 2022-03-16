@@ -123,7 +123,6 @@ const Wrapper = styled.div`
 `;
 export default function ImageForModal() {
   const router = useRouter();
-  console.log(router);
   const dispatch = useDispatch();
   const bigState = useSelector((state) => state.admin);
   const [selectFile, setSelectFile] = useState(null);
@@ -178,8 +177,6 @@ export default function ImageForModal() {
   }, [alt, href, open, title]);
 
   const onSaveHandler = async () => {
-    console.log('state', state);
-
     const formData = new FormData();
     formData.append('tour_id', 'art');
     formData.append('image', selectFile);
@@ -194,7 +191,6 @@ export default function ImageForModal() {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       const { data, success } = await res.data;
-      console.log('DataAAA = ', data)
       setTimeout(() => {
         dispatch({
           type: types.editImage,
@@ -208,9 +204,7 @@ export default function ImageForModal() {
 
         // router.reload(window.location.pathname);
       }, 300);
-    } catch (error) {
-      console.log('error daata', error);
-    }
+    } catch (error) {}
   };
   useEffect(() => {
     document.addEventListener('keydown', (e) => {

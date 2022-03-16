@@ -17,10 +17,7 @@ export default function Index() {
           const res = await Axios.get(`/api/style/${id}`);
           const data = await res.data;
           setCssCode(data.styles);
-          console.log('css code set global style:', data);
-        } catch (error) {
-          console.log(error);
-        }
+        } catch (error) {}
       }
     })();
   }, [id]);
@@ -33,11 +30,8 @@ export default function Index() {
         styles: cssCode,
       });
       const data = await res.data;
-      console.log('update tour style:data:', data);
       dispatch(loaderOff());
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
   return (
     <Wrapper>

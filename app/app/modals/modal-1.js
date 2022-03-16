@@ -1,37 +1,37 @@
-import Axios from "axios";
-import { AppContext } from "..";
-import { useReducer, useEffect, useState, useContext } from "react";
-import styled from "styled-components";
-import { AiOutlineClose } from "react-icons/ai";
-import { useSelector, useDispatch } from "react-redux";
-import Text from "../../components/Text";
+import Axios from 'axios';
+import { AppContext } from '..';
+import { useReducer, useEffect, useState, useContext } from 'react';
+import styled from 'styled-components';
+import { AiOutlineClose } from 'react-icons/ai';
+import { useSelector, useDispatch } from 'react-redux';
+import Text from '../../components/Text';
 const initialState = {
   isOpen: false,
   form: {
-    name: "",
-    phone: "",
-    date: "",
-    time: "",
+    name: '',
+    phone: '',
+    date: '',
+    time: '',
   },
 };
 const reducer = (state, action) => {
   const { type, payload } = action;
   switch (type) {
-    case "MODAL_THE_OPEN": {
+    case 'MODAL_THE_OPEN': {
       return {
         ...state,
         isOpen: true,
       };
     }
 
-    case "MODAL_THE_CLOSE": {
+    case 'MODAL_THE_CLOSE': {
       return {
         ...state,
         isOpen: false,
       };
     }
 
-    case "FORM_CHANGE": {
+    case 'FORM_CHANGE': {
       const { name, value } = payload;
 
       return {
@@ -43,7 +43,7 @@ const reducer = (state, action) => {
       };
     }
 
-    case "FORM_CLEAR": {
+    case 'FORM_CLEAR': {
       return initialState;
     }
 
@@ -57,10 +57,10 @@ export const Modal1 = () => {
   const [errorWorker, setErrorWorker] = useState({
     error_worker: false,
     errors: [
-      { type: "name", error: false },
-      { type: "phone", error: false },
-      { type: "date", error: false },
-      { type: "time", error: false },
+      { type: 'name', error: false },
+      { type: 'phone', error: false },
+      { type: 'date', error: false },
+      { type: 'time', error: false },
     ],
   });
   const globalState = useSelector((state) => state);
@@ -73,19 +73,19 @@ export const Modal1 = () => {
     // there is "modal" in modalReducer
     const { isOpen, currentModal } = modal;
 
-    if (isOpen && currentModal === "MODAL_1") {
+    if (isOpen && currentModal === 'MODAL_1') {
       modalDispatch({
-        type: "MODAL_THE_OPEN",
+        type: 'MODAL_THE_OPEN',
       });
     }
 
     if (!isOpen && !currentModal) {
-      modalDispatch({ type: "MODAL_THE_CLOSE" });
+      modalDispatch({ type: 'MODAL_THE_CLOSE' });
     }
   }, [modal]);
 
   // modal close
-  const handleClose = () => globalDispatch({ type: "MODAL_CLOSE" });
+  const handleClose = () => globalDispatch({ type: 'MODAL_CLOSE' });
 
   // form change
   const handleChange = (event) => {
@@ -95,19 +95,19 @@ export const Modal1 = () => {
       name,
       value,
     };
-    modalDispatch({ type: "FORM_CHANGE", payload });
+    modalDispatch({ type: 'FORM_CHANGE', payload });
   };
 
   // error listener
   const handleErrorlistener = (name, value) => {
     let isError = true;
-    if (name === "name") {
+    if (name === 'name') {
       isError = !(value.length > 2 && value.length < 20);
     }
-    if (name === "phone") {
+    if (name === 'phone') {
       isError = !(value.length > 8 && value.length < 20);
     }
-    if (name === "date" || name === "time") {
+    if (name === 'date' || name === 'time') {
       isError = !value;
     }
 
@@ -136,11 +136,11 @@ export const Modal1 = () => {
     try {
       const api = `/api/action_phone/`;
       const data = {
-        action_id: "1",
+        action_id: '1',
         tourID: _id,
         name: form.name,
         phone: form.phone,
-        send_email: getItem("footer_col_email"),
+        send_email: getItem('footer_col_email'),
         date: form.date,
         time: form.time,
       };
@@ -148,25 +148,23 @@ export const Modal1 = () => {
       const resD = await res.data;
       if (resD.success) {
         handleClose();
-        modalDispatch({ type: "FORM_CLEAR" });
+        modalDispatch({ type: 'FORM_CLEAR' });
       }
-    } catch (error) {
-      console.log("not submit there is error", error);
-    }
+    } catch (error) {}
   };
 
   const classAddError = (name) => {
     const { errors, error_worker } = errorWorker;
     const isError =
       errors.find((item) => item.type === name).error && error_worker;
-    if (isError) return "";
-    return "";
+    if (isError) return '';
+    return '';
   };
 
   const itIsActive = Object.values(form).every((value) => value);
   return (
     <>
-      <Wrapper className={isOpen ? "active" : ""}>
+      <Wrapper className={isOpen ? 'active' : ''}>
         <span className="span" onClick={handleClose} />
         <form onSubmit={handleSubmit} id="form-1">
           <div className="exit-btn" onClick={handleClose}>
@@ -174,13 +172,13 @@ export const Modal1 = () => {
           </div>
           <div className="title">
             <h3>
-              <Text name="modal_1_title">{getItem("modal_1_title")}</Text>
+              <Text name="modal_1_title">{getItem('modal_1_title')}</Text>
             </h3>
           </div>
           <div className="input-box">
             <label>
-              <Text name="modal_1_username">{getItem("modal_1_username")}</Text>
-              <div className={`input ${classAddError("name")}`}>
+              <Text name="modal_1_username">{getItem('modal_1_username')}</Text>
+              <div className={`input ${classAddError('name')}`}>
                 <input
                   type="text"
                   name="name"
@@ -194,8 +192,8 @@ export const Modal1 = () => {
           </div>
           <div className="input-box">
             <label>
-              <Text name="modal_1_phone">{getItem("modal_1_phone")}</Text>
-              <div className={`input ${classAddError("phone")}`}>
+              <Text name="modal_1_phone">{getItem('modal_1_phone')}</Text>
+              <div className={`input ${classAddError('phone')}`}>
                 <input
                   type="number"
                   name="phone"
@@ -209,10 +207,10 @@ export const Modal1 = () => {
           </div>
           <div className="input-box cuset-data">
             <label>
-              <Text name="modal_1_date">{getItem("modal_1_date")}</Text>
+              <Text name="modal_1_date">{getItem('modal_1_date')}</Text>
               <div
-                className={`input ${classAddError("date")}`}
-                style={{ display: "flex", alignItems: "center" }}
+                className={`input ${classAddError('date')}`}
+                style={{ display: 'flex', alignItems: 'center' }}
               >
                 <input
                   type="date"
@@ -225,10 +223,10 @@ export const Modal1 = () => {
               </div>
             </label>
             <label>
-              <Text name="modal_1_time">{getItem("modal_1_time")}</Text>
+              <Text name="modal_1_time">{getItem('modal_1_time')}</Text>
               <div
-                className={`input ${classAddError("time")}`}
-                style={{ display: "flex", alignItems: "center" }}
+                className={`input ${classAddError('time')}`}
+                style={{ display: 'flex', alignItems: 'center' }}
               >
                 <input
                   type="time"
@@ -241,24 +239,24 @@ export const Modal1 = () => {
               </div>
             </label>
           </div>
-          <div style={{ textAlign: "center" }}>
+          <div style={{ textAlign: 'center' }}>
             <button
               type="submit"
-              className={!itIsActive ? "disabled" : ""}
+              className={!itIsActive ? 'disabled' : ''}
               disabled={!itIsActive}
             >
-              <Text name="modal_1_btn">{getItem("modal_1_btn")}</Text>
+              <Text name="modal_1_btn">{getItem('modal_1_btn')}</Text>
             </button>
           </div>
           <div className="error-commet">
             <p>
               <Text name="modal_1_description_1">
-                {getItem("modal_1_description_1")}
+                {getItem('modal_1_description_1')}
               </Text>
             </p>
             <div className="text_two">
               <Text style={{ left: 0 }} name="modal_1_description_2">
-                {getItem("modal_1_description_2")}
+                {getItem('modal_1_description_2')}
               </Text>
             </div>
           </div>
@@ -363,11 +361,11 @@ const Wrapper = styled.div`
       outline: none;
       border: none;
       background: none;
-      &[type="text"] {
+      &[type='text'] {
         width: 90%;
       }
 
-      &[type="number"] {
+      &[type='number'] {
         width: 90%;
 
         &::-webkit-outer-spin-button,
@@ -377,7 +375,7 @@ const Wrapper = styled.div`
         }
 
         /* Firefox */
-        &[type="number"] {
+        &[type='number'] {
           -moz-appearance: textfield;
         }
       }
@@ -446,7 +444,7 @@ const Wrapper = styled.div`
       }
     }
 
-    button[type="submit"] {
+    button[type='submit'] {
       padding: 8px 30px;
       border: none;
       outline: none;

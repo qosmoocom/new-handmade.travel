@@ -17,7 +17,6 @@ export default function Index() {
     try {
       const res = await Axios.get(api);
       const data = await res.data;
-      console.log('bu data:', data);
       dispatch({ type: types.editTour, data: data[0] });
       dispatch(setOneTour(data[0]));
       dispatch(getMyTourStyle(data[0]._id));
@@ -28,9 +27,7 @@ export default function Index() {
       setIsItPath(
         [tour_id, language].join('/') === path.all.join('/') && isItActive
       );
-    } catch (error) {
-      console.log('error data fetch', error);
-    }
+    } catch (error) {}
   };
   if (path?.all?.join('/')) {
     fetchData(path.all.join('/'));

@@ -1,4 +1,4 @@
-import Axios from "axios";
+import Axios from 'axios';
 const defaultState = {
   users: [],
   isCreateUser: false,
@@ -36,10 +36,10 @@ export const usersReducer = (state = defaultState, action) => {
 
 // types
 export const usersTypes = {
-  getAllUsers: "ADMIN/GET_ALL_USERS",
-  createNewUser: "ADMIN/CREATE_NEW_USER",
-  closeNewUser: "ADMIN/CREATE_NEW_USER_MODAL_CLOSE",
-  updateUser: "ADMIN/UPDATE_USER",
+  getAllUsers: 'ADMIN/GET_ALL_USERS',
+  createNewUser: 'ADMIN/CREATE_NEW_USER',
+  closeNewUser: 'ADMIN/CREATE_NEW_USER_MODAL_CLOSE',
+  updateUser: 'ADMIN/UPDATE_USER',
 };
 
 // actions
@@ -52,16 +52,15 @@ export const userLogin = (values) => async (dispatch) => {
 
     // token on save in the localstorage
     const token = data.token;
-    localStorage.setItem("token", token);
+    localStorage.setItem('token', token);
     dispatch(getUser());
   } catch (error) {
     localStorage.clear();
-    console.log("error in the userLogin function", error);
   }
 };
 
 export const getConfig = () => {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token');
   const config = {
     headers: {
       Authorization: token,
@@ -77,10 +76,8 @@ export const getUser = () => async (dispatch) => {
     const res = await Axios.get(api, getConfig());
     const data = await res.data;
     // username and role on save in the localStorage
-    localStorage.setItem("isLoginMe", JSON.stringify(data));
-  } catch (error) {
-    console.log("error in the getUser", error);
-  }
+    localStorage.setItem('isLoginMe', JSON.stringify(data));
+  } catch (error) {}
 };
 
 export const getAllUsers = () => async (dispatch) => {
@@ -89,9 +86,7 @@ export const getAllUsers = () => async (dispatch) => {
     const res = await Axios.get(api, getConfig());
     const data = await res.data;
     dispatch({ type: usersTypes.getAllUsers, data });
-  } catch (error) {
-    console.log("error in the getAllUsers", error);
-  }
+  } catch (error) {}
 };
 
 export const deleteUserId = (userId) => async (dispatch) => {
@@ -100,9 +95,7 @@ export const deleteUserId = (userId) => async (dispatch) => {
     const res = await Axios.delete(api, getConfig());
     const data = await res.data;
     if (data.success) dispatch(getAllUsers());
-  } catch (error) {
-    console.log("error in the deleteUserId function", error);
-  }
+  } catch (error) {}
 };
 
 export const createUser = (newUser) => async (dispatch) => {
@@ -114,9 +107,7 @@ export const createUser = (newUser) => async (dispatch) => {
       dispatch(getAllUsers());
       dispatch(closeCreateUserModal());
     }
-  } catch (error) {
-    console.log("error in the createUser", error);
-  }
+  } catch (error) {}
 };
 
 export const updateUserId = (newUser, _id) => async (dispatch) => {
@@ -128,9 +119,7 @@ export const updateUserId = (newUser, _id) => async (dispatch) => {
       dispatch(getAllUsers());
       dispatch(closeCreateUserModal());
     }
-  } catch (error) {
-    console.log("error in the updateUserId", error);
-  }
+  } catch (error) {}
 };
 
 export const openCreateUserModal = () => ({ type: usersTypes.createNewUser });

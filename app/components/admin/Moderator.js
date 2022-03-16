@@ -126,9 +126,7 @@ export default function Moderator() {
       const res = await Axios.get(api);
       const data = await res.data;
       setCloneTour((prev) => ({ ...prev, cts: data }));
-    } catch (error) {
-      console.log('error getTourStyle function ', error);
-    }
+    } catch (error) {}
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -146,9 +144,7 @@ export default function Moderator() {
       const res = await Axios.get(api, getConfig());
       const data = await res.data;
       setCloneTour((prev) => ({ ...prev, tours: data, clone: true }));
-    } catch (error) {
-      console.log('error in the Moderator Page ', error);
-    }
+    } catch (error) {}
   };
 
   const handleCloneTour = async () => {
@@ -168,7 +164,6 @@ export default function Moderator() {
       const resT = await Axios.post(api1, newTour, getConfig());
       const resD = await resT.data;
       const newTourId = resD._id;
-      console.log('cloneTour', cloneTour);
 
       const newTourStyle = {
         styles: cts.styles,
@@ -176,14 +171,11 @@ export default function Moderator() {
       };
       const resS = await Axios.post(api2, newTourStyle);
       const dataS = await resS.data;
-      console.log('new style', dataS);
       setTimeout(() => {
         setCloneTour(() => defaultCloneTour);
         dispatch(getAllMyTours());
       }, 200);
-    } catch (error) {
-      console.log('not clone!', error);
-    }
+    } catch (error) {}
   };
 
   return (

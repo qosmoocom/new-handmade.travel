@@ -63,8 +63,6 @@ export function Modal3() {
   }, [priceType]);
   const priceConvertNewMoney = async (val) => {
     const api = `https://api.exchangerate.host/convert?from=${val}&to=USD`;
-    console.log('price type:', val);
-    console.log("pulni farqini bilish uchun zapros jo'natildi..");
     try {
       const res = await Axios.get(api);
       const data = await res.data;
@@ -72,11 +70,7 @@ export function Modal3() {
       if (data.result) {
         setPriceDiff({ type: val, current: Number(data.result) });
       }
-
-      console.log('pulni farqi aniqlandi: farq ', Number(data.result));
-    } catch (error) {
-      console.log('error in the priceConvertNewMoney function ', error);
-    }
+    } catch (error) {}
   };
 
   // componentDidMount
@@ -238,7 +232,6 @@ export function Modal3() {
 
       const res = await Axios.post(api, data);
       const resData = await res.data;
-      console.log('bu data', resData);
     } catch (error) {
       e.preventDefault();
     }
@@ -262,7 +255,6 @@ export function Modal3() {
   //  modalState items
   const { isOpen, my_messenger, form } = modalState;
 
-  console.log('priceDiff', priceDiff);
   const itIsSubmit =
     form.name &&
     form.phone &&

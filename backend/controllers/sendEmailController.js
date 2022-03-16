@@ -1,26 +1,26 @@
-const sendEmail = require("../utils/sendEmail");
+const sendEmail = require('../utils/sendEmail');
 exports.send_Email = async (req, res, next) => {
   let easy_message;
   let comments;
   let age_2_12;
   let age_6_2;
   if (!req.body.Удобный_мессенджер) {
-    easy_message = "Нет информации";
+    easy_message = 'Нет информации';
   } else {
     easy_message = req.body.Удобный_мессенджер;
   }
   if (!req.body.komment) {
-    comments = "Нет информации";
+    comments = 'Нет информации';
   } else {
     comments = req.body.komment;
   }
   if (!req.body.age_2_12) {
-    age_2_12 = "Нет информации";
+    age_2_12 = 'Нет информации';
   } else {
     age_2_12 = req.body.age_2_12;
   }
   if (!req.body.age_6_2) {
-    age_6_2 = "Нет информации";
+    age_6_2 = 'Нет информации';
   } else {
     age_6_2 = req.body.age_6_2;
   }
@@ -39,7 +39,7 @@ exports.send_Email = async (req, res, next) => {
 
   const msg = {
     to: `${send_email}`,
-    subject: "Handmade.travel",
+    subject: 'Handmade.travel',
     html: `
       <h2 style="text-aligin:center"> Заявка на бронирование тура<h2/>
       <div style="
@@ -137,8 +137,6 @@ exports.send_Email = async (req, res, next) => {
   };
   try {
     await sendEmail(msg);
-    res.status(200).json({ success: true, data: "Email is sent" });
-  } catch (err) {
-    console.log(err);
-  }
+    res.status(200).json({ success: true, data: 'Email is sent' });
+  } catch (err) {}
 };

@@ -1,25 +1,24 @@
-const Image = require("../models/Images");
-const Tour = require("../models/Tour");
-const path = require("path");
-const fs = require("fs");
-const UploadFile = require("../config/Sharp");
+const Image = require('../models/Images');
+const Tour = require('../models/Tour');
+const path = require('path');
+const fs = require('fs');
+const UploadFile = require('../config/Sharp');
 
 exports.createOne = async (req, res, next) => {
-    try {
-        const result = new Image({
-    image: `/public/images/landing/${req.file.filename}`,
-    tourID: req.body.tourID,
-    tourAuthor: req.body.tourAuthor,
-    tour_id: req.body.tour_id,
+  try {
+    const result = new Image({
+      image: `/public/images/landing/${req.file.filename}`,
+      tourID: req.body.tourID,
+      tourAuthor: req.body.tourAuthor,
+      tour_id: req.body.tour_id,
     });
     // await result.save()
-    res.send({data:result})
-    console.log(result)
-    } catch (error) {
-        console.log(error.message)
-        res.status(500).json({ success: false, err: error, message:error.message})
-    }
-  
+    res.send({ data: result });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ success: false, err: error, message: error.message });
+  }
 };
 
 exports.deleteOne = async (req, res) => {
@@ -27,7 +26,6 @@ exports.deleteOne = async (req, res) => {
     if (error) {
       res.send(error);
     } else {
-      console.log(data);
       if (data) {
         let n = path.join(path.dirname(__dirname)).length;
         const filePath = path.join(
@@ -38,11 +36,11 @@ exports.deleteOne = async (req, res) => {
           await Image.findByIdAndDelete(req.params.id);
           res.status(200).json({
             success: true,
-            data: "Success delete",
+            data: 'Success delete',
           });
         });
       } else {
-        res.send("Image not found");
+        res.send('Image not found');
       }
     }
   });
@@ -72,10 +70,10 @@ exports.updateOne = async (req, res, next) => {
   result
     .save()
     .then(() => {
-      res.status(200).json("Successufly updated");
+      res.status(200).json('Successufly updated');
     })
     .catch((error) => {
-      res.status(400).json({ message: "Badly", data: error });
+      res.status(400).json({ message: 'Badly', data: error });
     });
 };
 

@@ -1,8 +1,8 @@
-import Image from "next/image";
-import { useDispatch, useSelector } from "react-redux";
-import { types } from "../../store/types";
-import styled from "styled-components";
-import { useEffect, useState } from "react";
+import Image from 'next/image';
+import { useDispatch, useSelector } from 'react-redux';
+import { types } from '../../store/types';
+import styled from 'styled-components';
+import { useEffect, useState } from 'react';
 const Wrapper = styled.span`
   position: relative;
   .edit__icon {
@@ -24,31 +24,29 @@ export default function Index({
   src: imgSrc,
   width,
   height,
-  alt = "",
-  title = "",
-  objectFit = "",
-  layout = "",
-  itIsClassName = "",
-  srcDataName = "",
-  altDataName = "",
-  titleDataName = "",
-  id = "",
-  group = "",
-  list = "",
-  name = "",
-  parentId = "",
-  childId = "",
+  alt = '',
+  title = '',
+  objectFit = '',
+  layout = '',
+  itIsClassName = '',
+  srcDataName = '',
+  altDataName = '',
+  titleDataName = '',
+  id = '',
+  group = '',
+  list = '',
+  name = '',
+  parentId = '',
+  childId = '',
   priority,
 }) {
   const { isEdit: isAdmin } = useSelector((st) => st.admin);
   const dispatch = useDispatch();
 
-  const [src, setSrc] = useState("");
+  const [src, setSrc] = useState('');
   useEffect(() => {
-    console.log('img uzgardi',imgSrc);
     setSrc(imgSrc);
   }, [imgSrc]);
-  // console.log('AAAsrc ', src);
   const doubleClickHandler = () => {
     if (isAdmin) {
       dispatch({
@@ -73,15 +71,15 @@ export default function Index({
     }
   };
 
-  if (layout === "fill" && src) {
+  if (layout === 'fill' && src) {
     return (
       <>
         <Image
           src={src}
           key={src}
-          alt={alt || ""}
-          title={title || ""}
-          priority={priority === "important"}
+          alt={alt || ''}
+          title={title || ''}
+          priority={priority === 'important'}
           objectFit={objectFit}
           layout={layout}
           onDoubleClick={doubleClickHandler}
@@ -101,7 +99,7 @@ export default function Index({
           height={height}
           alt={alt}
           title={title}
-          priority={priority === "important"}
+          priority={priority === 'important'}
           objectFit={objectFit}
           layout={layout}
           loading="eager"

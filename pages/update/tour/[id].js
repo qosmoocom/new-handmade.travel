@@ -48,7 +48,6 @@ export default function Index() {
     } = tour;
 
     const saveHandler = () => {
-      console.log(updateTexts);
       const updateTour = {
         tourName,
         tourAuthor,

@@ -1,9 +1,9 @@
-const sendEmail = require("../utils/sendEmail");
+const sendEmail = require('../utils/sendEmail');
 exports.send_phone_email = async (req, res, next) => {
   const { action_id, name, date, phone, time, send_email } = req.body;
   const msg = {
     to: `${send_email}`,
-    subject: "Handmade.travel",
+    subject: 'Handmade.travel',
     html: `
       <h2 style="text-aligin:center"> Перезвоните пожалуйста клиенту <h2/>
       <div style="position: relative;
@@ -50,8 +50,6 @@ exports.send_phone_email = async (req, res, next) => {
   };
   try {
     await sendEmail(msg);
-    res.status(200).json({ success: true, data: "Email is sent" });
-  } catch (err) {
-    console.log(err);
-  }
+    res.status(200).json({ success: true, data: 'Email is sent' });
+  } catch (err) {}
 };
