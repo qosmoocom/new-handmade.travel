@@ -12,7 +12,7 @@ exports.createOne = async (req, res, next) => {
     tourAuthor: req.body.tourAuthor,
     tour_id: req.body.tour_id,
     });
-    await result.save()
+    // await result.save()
     res.send({data:result})
     console.log(result)
     } catch (error) {
