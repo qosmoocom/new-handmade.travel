@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { types } from "../../store/types";
 import styled from "styled-components";
+import { useEffect, useState } from "react";
 const Wrapper = styled.span`
   position: relative;
   .edit__icon {
@@ -20,7 +21,7 @@ const Wrapper = styled.span`
   } */
 `;
 export default function Index({
-  src = "",
+  src: imgSrc,
   width,
   height,
   alt = "",
@@ -41,6 +42,11 @@ export default function Index({
 }) {
   const { isEdit: isAdmin } = useSelector((st) => st.admin);
   const dispatch = useDispatch();
+
+  const [src, setSrc] = useState("");
+  useEffect(() => {
+    setSrc(imgSrc);
+  }, [src, imgSrc]);
   // console.log('AAAsrc ', src);
   const doubleClickHandler = () => {
     if (isAdmin) {
@@ -66,7 +72,7 @@ export default function Index({
     }
   };
 
-  if (layout === "fill") {
+  if (layout === "fill" && src) {
     return (
       <>
         <Image
@@ -78,27 +84,28 @@ export default function Index({
           objectFit={objectFit}
           layout={layout}
           onDoubleClick={doubleClickHandler}
-          loading = "eager"
+          loading="eager"
         />
-        
       </>
     );
   }
   return (
     <Wrapper onDoubleClick={doubleClickHandler}>
       {/* <AiFillEdit className="edit__icon" /> */}
-      <Image
-        src={src}
-        key={src}
-        width={width}
-        height={height}
-        alt={alt}
-        title={title}
-        priority={priority === "important"}
-        objectFit={objectFit}
-        layout={layout}
-        loading="eager"
-      />
+      {src && (
+        <Image
+          src={src}
+          key={src}
+          width={width}
+          height={height}
+          alt={alt}
+          title={title}
+          priority={priority === "important"}
+          objectFit={objectFit}
+          layout={layout}
+          loading="eager"
+        />
+      )}
     </Wrapper>
   );
 }
