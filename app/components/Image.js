@@ -45,6 +45,7 @@ export default function Index({
 
   const [src, setSrc] = useState("");
   useEffect(() => {
+    console.log('img uzgardi',imgSrc);
     setSrc(imgSrc);
   }, [imgSrc]);
   // console.log('AAAsrc ', src);
