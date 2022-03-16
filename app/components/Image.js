@@ -46,7 +46,7 @@ export default function Index({
   const [src, setSrc] = useState("");
   useEffect(() => {
     setSrc(imgSrc);
-  }, [src, imgSrc]);
+  }, [imgSrc]);
   // console.log('AAAsrc ', src);
   const doubleClickHandler = () => {
     if (isAdmin) {
