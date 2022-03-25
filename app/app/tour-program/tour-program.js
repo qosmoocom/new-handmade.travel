@@ -1,13 +1,13 @@
-import SectionActive from '../../components/SectionActive';
-import { useSelector } from 'react-redux';
-import React, { useContext, useEffect, useRef } from 'react';
-import { IoIosArrowDown } from 'react-icons/io';
-import { AppContext } from '..';
-import Text from '../../components/Text';
-import Image from '../../components/Image';
-import Item from '../../components/Item';
+import SectionActive from "../../components/SectionActive";
+import { useSelector } from "react-redux";
+import React, { useContext, useEffect, useRef } from "react";
+import { IoIosArrowDown } from "react-icons/io";
+import { AppContext } from "..";
+import Text from "../../components/Text";
+import Image from "../../components/Image";
+import Item from "../../components/Item";
 // import Image from "next/image";
-import { useState } from 'react';
+import { useState } from "react";
 export default function TourProgram() {
   const { getItem } = useContext(AppContext);
   const [toggle, setToggle] = useState({
@@ -20,27 +20,27 @@ export default function TourProgram() {
     setToggle((prevToggle) => ({
       ...prevToggle,
       count: id,
-      isOpen: true,
+      isOpen: id === prevToggle.count ? !prevToggle.isOpen : true,
     }));
   };
 
   // component active no active
   const val = useSelector((state) => state.admin.app_sections_active).find(
-    (i) => i.name === 'tour-program'
+    (i) => i.name === "tour-program"
   );
 
   const { isEdit: thisIsNotClient } = useSelector((st) => st.admin);
 
   const bgYellow = {
-    background: val.isActive ? null : 'yellow',
-    opacity: val.isActive ? null : '0.2',
-    cursor: val.isActive ? null : 'not-allowed',
+    background: val.isActive ? null : "yellow",
+    opacity: val.isActive ? null : "0.2",
+    cursor: val.isActive ? null : "not-allowed",
   };
   useEffect(() => {
     if (val.isActive) {
       setToggle((prev) => ({
         ...prev,
-        maxHeight: document.querySelectorAll('.tour-program-list-description')[
+        maxHeight: document.querySelectorAll(".tour-program-list-description")[
           toggle.count
         ].scrollHeight,
       }));
@@ -58,13 +58,13 @@ export default function TourProgram() {
           <div className="tour-program-title">
             <h2>
               <Text name="tour_program_title">
-                {getItem('tour_program_title')}
+                {getItem("tour_program_title")}
               </Text>
             </h2>
           </div>
           {/* tour-program-list */}
           <div className="tour-program-list">
-            {getItem('tour_program', 'tour_program_list').map((tour, index) => {
+            {getItem("tour_program", "tour_program_list").map((tour, index) => {
               return (
                 <Item
                   group="tour_program_list"
@@ -91,13 +91,13 @@ export default function TourProgram() {
                     <Text
                       list="tour_program_list"
                       parentId={index}
-                      name={'title'}
+                      name={"title"}
                     >
                       {tour?.title}
                     </Text>
                     <IoIosArrowDown
                       className={`arrow-btn ${
-                        index === toggle.count && toggle.isOpen ? 'active' : ''
+                        index === toggle.count && toggle.isOpen ? "active" : ""
                       }`}
                     />
                   </div>
@@ -105,12 +105,12 @@ export default function TourProgram() {
                   {/* tour-program-list-description section */}
                   <div
                     className={`tour-program-list-description ${
-                      index === toggle.count && toggle.isOpen ? 'active' : ''
+                      index === toggle.count && toggle.isOpen ? "active" : ""
                     }`}
                     style={{
                       maxHeight:
                         index === toggle.count && toggle.isOpen
-                          ? toggle.maxHeight + 'px'
+                          ? toggle.maxHeight + "px"
                           : null,
                       transition: `all 0.5s`,
                     }}
@@ -122,7 +122,7 @@ export default function TourProgram() {
                             <Text
                               list="tour_program_list"
                               parentId={index}
-                              name={'textList'}
+                              name={"textList"}
                               childId={childIndex}
                               itIsClassName="tour-program-list-texts"
                             >
@@ -143,10 +143,10 @@ export default function TourProgram() {
                               layout="fill"
                               parentId={index}
                               childId={img.id}
-                              name={'imageList'}
-                              list={'tour_program_list'}
+                              name={"imageList"}
+                              list={"tour_program_list"}
                               title={img?.title}
-                              itIsClassName={'tour-program-list-images'}
+                              itIsClassName={"tour-program-list-images"}
                             />
                           </li>
                         );
@@ -155,8 +155,22 @@ export default function TourProgram() {
                     {tour?.footerTextLabel && tour?.footerText && (
                       <div className="tour-program-list-footer">
                         <p>
-                          <label> {tour?.footerTextLabel}</label>
-                          {tour?.footerText}
+                          <label>
+                            <Text
+                              list="tour_program_list"
+                              parentId={index}
+                              name="footerTextLabel"
+                            >
+                              {tour?.footerTextLabel}
+                            </Text>
+                          </label>
+                          <Text
+                            list="tour_program_list"
+                            parentId={index}
+                            name="footerText"
+                          >
+                            {tour?.footerText}
+                          </Text>
                         </p>
                       </div>
                     )}

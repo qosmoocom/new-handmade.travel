@@ -1,38 +1,39 @@
-import Axios from 'axios';
-import { AppContext } from '..';
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState, useContext } from 'react';
-import { AiOutlineClose } from 'react-icons/ai';
-import { MdOutlineArrowForwardIos } from 'react-icons/md';
+import Axios from "axios";
+import { toast } from "react-toastify";
+import { AppContext } from "..";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useState, useContext } from "react";
+import { AiOutlineClose } from "react-icons/ai";
+import { MdOutlineArrowForwardIos } from "react-icons/md";
 import {
   FaFacebookF,
   FaInstagram,
   FaWhatsapp,
   FaTelegramPlane,
-} from 'react-icons/fa';
-import styled from 'styled-components';
-import Text from '../../components/Text';
+} from "react-icons/fa";
+import styled from "styled-components";
+import Text from "../../components/Text";
 const defaultState = {
   isOpen: false,
   my_messenger: {
     isActive: false,
-    check_messenger: '',
+    check_messenger: "",
   },
   form: {
-    name: '',
-    phone: '',
-    email: '',
-    messenger_user: '',
-    commit: '',
+    name: "",
+    phone: "",
+    email: "",
+    messenger_user: "",
+    commit: "",
   },
   error_watch: {
     error_worker: false,
     errors: [
-      { type: 'name', error: false },
-      { type: 'phone', error: false },
-      { type: 'email', error: false },
-      { type: 'messenger_user', error: false },
-      { type: 'commit', error: false },
+      { type: "name", error: false },
+      { type: "phone", error: false },
+      { type: "email", error: false },
+      { type: "messenger_user", error: false },
+      { type: "commit", error: false },
     ],
   },
 };
@@ -45,7 +46,7 @@ export function Modal2() {
   // componentDidMount
   useEffect(() => {
     const { isOpen, currentModal } = globalState.modal;
-    if (isOpen && currentModal === 'MODAL_2') {
+    if (isOpen && currentModal === "MODAL_2") {
       setModalState((prev) => ({ ...prev, isOpen: true }));
     } else {
       setModalState((prev) => ({ ...prev, isOpen: false }));
@@ -53,7 +54,7 @@ export function Modal2() {
   }, [globalState.modal]);
 
   // modal close
-  const handleClose = () => globalDispatch({ type: 'MODAL_CLOSE' });
+  const handleClose = () => globalDispatch({ type: "MODAL_CLOSE" });
 
   // handleToggleMessenger
   const handleToggleMessenger = () => {
@@ -76,19 +77,19 @@ export function Modal2() {
   // error listener
   const handleErrorlistener = (name, value) => {
     let isError = true;
-    if (name === 'name') {
+    if (name === "name") {
       isError = !(value.length > 2 && value.length < 20);
     }
 
-    if (name === 'phone') {
+    if (name === "phone") {
       isError = !(value.length > 8 && value.length < 20);
     }
 
-    if (name === 'email') {
+    if (name === "email") {
       isError = !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/gi.test(value);
     }
 
-    if (name === 'messenger_user' || name === 'commit') {
+    if (name === "messenger_user" || name === "commit") {
       isError = false;
     }
 
@@ -120,8 +121,8 @@ export function Modal2() {
     const { errors, error_worker } = modalState.error_watch;
     const isError =
       errors.find((item) => item.type === name).error && error_worker;
-    if (isError) return '';
-    return '';
+    if (isError) return "";
+    return "";
   };
 
   // form on submit
@@ -148,11 +149,11 @@ export function Modal2() {
     try {
       const api = `/api/action_more/`;
       const data = {
-        action_id: '2',
+        action_id: "2",
         tourID: _id,
         name: form.name,
         phone: form.phone,
-        send_email: getItem('footer_col_email'),
+        send_email: getItem("footer_col_email"),
         email: form.email,
         messanger: `${my_messenger.check_messenger}: ${form.messenger_user} `,
         commit: form.commit,
@@ -162,22 +163,25 @@ export function Modal2() {
       if (resD.success) {
         handleClose();
         setModalState(defaultState);
+        toast.success("Ваша информация отправлена.", {
+          position: "top-right",
+        });
       }
     } catch (error) {}
   };
 
   const CheckedMessanger = (messanger_name) => {
     switch (messanger_name) {
-      case 'facebook':
+      case "facebook":
         return <FaFacebookF className="item facebook" />;
-      case 'whatsapp':
+      case "whatsapp":
         return <FaWhatsapp className="item whatsapp" />;
-      case 'telegram':
+      case "telegram":
         return <FaTelegramPlane className="item telegram" />;
-      case 'instagram':
+      case "instagram":
         return <FaInstagram className="item instagram" />;
       default:
-        return '';
+        return "";
     }
   };
 
@@ -187,7 +191,7 @@ export function Modal2() {
   const isSubmit = form.name && form.phone && form.email;
   return (
     <>
-      <Wrapper className={isOpen ? 'active' : ''}>
+      <Wrapper className={isOpen ? "active" : ""}>
         <div className="span" onClick={handleClose} />
         <section>
           <div className="exit-btn" onClick={handleClose}>
@@ -195,21 +199,21 @@ export function Modal2() {
           </div>
           <div>
             <h3>
-              <Text name="modal_2_title">{getItem('modal_2_title')}</Text>
+              <Text name="modal_2_title">{getItem("modal_2_title")}</Text>
             </h3>
             <p className="info_one">
               <Text name="modal_2_description_1" style={{ left: 0 }}>
-                {getItem('modal_2_description_1')}
+                {getItem("modal_2_description_1")}
               </Text>
             </p>
             <form onSubmit={handleSubmit}>
               <div className="form-box">
                 <label htmlFor="name">
                   <Text name="modal_2_username">
-                    {getItem('modal_2_username')}
+                    {getItem("modal_2_username")}
                   </Text>
                 </label>
-                <div className={`input-box ${classAddError('name')}`}>
+                <div className={`input-box ${classAddError("name")}`}>
                   <input
                     type="text"
                     name="name"
@@ -221,9 +225,9 @@ export function Modal2() {
 
               <div className="form-box">
                 <label htmlFor="tel">
-                  <Text name="modal_2_phone">{getItem('modal_2_phone')}</Text>
+                  <Text name="modal_2_phone">{getItem("modal_2_phone")}</Text>
                 </label>
-                <div className={`input-box ${classAddError('phone')}`}>
+                <div className={`input-box ${classAddError("phone")}`}>
                   <input
                     type="number"
                     name="phone"
@@ -235,9 +239,9 @@ export function Modal2() {
 
               <div className="form-box">
                 <label htmlFor="email">
-                  <Text name="modal_2_email">{getItem('modal_2_email')}</Text>
+                  <Text name="modal_2_email">{getItem("modal_2_email")}</Text>
                 </label>
-                <div className={`input-box ${classAddError('email')}`}>
+                <div className={`input-box ${classAddError("email")}`}>
                   <input
                     type="email"
                     name="email"
@@ -250,14 +254,14 @@ export function Modal2() {
               <div className="form-box">
                 <label htmlFor="my_messenger">
                   <Text name="modal_2_convenient_messenger">
-                    {getItem('modal_2_convenient_messenger')}
+                    {getItem("modal_2_convenient_messenger")}
                   </Text>
                 </label>
                 <div className={`input-box`}>
                   <button
                     type="button"
                     className={`my_messenger_btn ${
-                      my_messenger.isActive ? 'active' : ''
+                      my_messenger.isActive ? "active" : ""
                     }`}
                     onClick={handleToggleMessenger}
                   >
@@ -265,24 +269,24 @@ export function Modal2() {
                   </button>
                   <div
                     className={`my_messenger__modal ${
-                      my_messenger.isActive ? 'active' : ''
+                      my_messenger.isActive ? "active" : ""
                     }`}
                   >
                     <FaFacebookF
                       className="item facebook"
-                      onClick={handleClickMessengerItem.bind(this, 'facebook')}
+                      onClick={handleClickMessengerItem.bind(this, "facebook")}
                     />
                     <FaInstagram
                       className="item instagram"
-                      onClick={handleClickMessengerItem.bind(this, 'instagram')}
+                      onClick={handleClickMessengerItem.bind(this, "instagram")}
                     />
                     <FaWhatsapp
                       className="item whatsapp"
-                      onClick={handleClickMessengerItem.bind(this, 'whatsapp')}
+                      onClick={handleClickMessengerItem.bind(this, "whatsapp")}
                     />
                     <FaTelegramPlane
                       className="item telegram"
-                      onClick={handleClickMessengerItem.bind(this, 'telegram')}
+                      onClick={handleClickMessengerItem.bind(this, "telegram")}
                     />
                   </div>
                   <input
@@ -299,25 +303,25 @@ export function Modal2() {
 
               <div className="form-box">
                 <label htmlFor="name">
-                  <Text name="modal_2_commit">{getItem('modal_2_commit')}</Text>
+                  <Text name="modal_2_commit">{getItem("modal_2_commit")}</Text>
                 </label>
                 <div className={`input-box`}>
                   <textarea name="commit" onChange={handleChange} />
                 </div>
               </div>
-              <div style={{ textAlign: 'center' }}>
+              <div style={{ textAlign: "center" }}>
                 <button
                   type="submit"
                   disabled={!isSubmit}
-                  className={!isSubmit ? 'disabled' : ''}
+                  className={!isSubmit ? "disabled" : ""}
                 >
-                  <Text name="modal_2_btn">{getItem('modal_2_btn')}</Text>
+                  <Text name="modal_2_btn">{getItem("modal_2_btn")}</Text>
                 </button>
               </div>
             </form>
             <p className="info_last">
               <Text name="modal_2_description_2">
-                {getItem('modal_2_description_2')}
+                {getItem("modal_2_description_2")}
               </Text>
             </p>
           </div>
@@ -369,7 +373,7 @@ const Wrapper = styled.div`
     z-index: 2222;
   }
 
-  button[type='submit'] {
+  button[type="submit"] {
     padding: 8px 30px;
     border: none;
     outline: none;
@@ -773,11 +777,11 @@ const Wrapper = styled.div`
       }
 
       input {
-        &[type='text'] {
+        &[type="text"] {
           width: 90%;
         }
 
-        &[type='number'] {
+        &[type="number"] {
           width: 90%;
 
           &::-webkit-outer-spin-button,
@@ -787,7 +791,7 @@ const Wrapper = styled.div`
           }
 
           /* Firefox */
-          &[type='number'] {
+          &[type="number"] {
             -moz-appearance: textfield;
           }
         }

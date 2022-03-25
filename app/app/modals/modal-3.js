@@ -1,49 +1,50 @@
-import Axios from 'axios';
-import { AppContext } from '..';
-import { useEffect, useState, useContext } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import styled from 'styled-components';
-import { AiOutlineClose } from 'react-icons/ai';
-import Text from '../../components/Text';
-import { MdOutlineArrowForwardIos } from 'react-icons/md';
+import { toast } from "react-toastify";
+import Axios from "axios";
+import { AppContext } from "..";
+import { useEffect, useState, useContext } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import styled from "styled-components";
+import { AiOutlineClose } from "react-icons/ai";
+import Text from "../../components/Text";
+import { MdOutlineArrowForwardIos } from "react-icons/md";
 import {
   FaFacebookF,
   FaInstagram,
   FaWhatsapp,
   FaTelegramPlane,
-} from 'react-icons/fa';
+} from "react-icons/fa";
 const defaultState = {
   isOpen: false,
   my_messenger: {
     isActive: false,
-    check_messenger: '',
+    check_messenger: "",
   },
   form: {
-    name: '',
-    phone: '',
-    email: '',
-    messenger_user: '',
-    years_12_: '',
-    years_2_12_: '',
-    date: '',
-    price: '',
-    months_6_years_2: '',
-    one_people: '',
-    two_people: '',
-    three_people: '',
-    commit: '',
+    name: "",
+    phone: "",
+    email: "",
+    messenger_user: "",
+    years_12_: "",
+    years_2_12_: "",
+    date: "",
+    price: "",
+    months_6_years_2: "",
+    one_people: "",
+    two_people: "",
+    three_people: "",
+    commit: "",
   },
   error_watch: {
     error_worker: false,
     errors: [
-      { type: 'name', error: false },
-      { type: 'phone', error: false },
-      { type: 'email', error: false },
-      { type: 'messenger_user', error: false },
-      { type: 'years_12_', error: false },
-      { type: 'commit', error: false },
-      { type: 'date', error: false },
-      { type: 'price', error: false },
+      { type: "name", error: false },
+      { type: "phone", error: false },
+      { type: "email", error: false },
+      { type: "messenger_user", error: false },
+      { type: "years_12_", error: false },
+      { type: "commit", error: false },
+      { type: "date", error: false },
+      { type: "price", error: false },
     ],
   },
 };
@@ -52,12 +53,12 @@ export function Modal3() {
   const [modalState, setModalState] = useState(defaultState);
   const globalState = useSelector((state) => state);
   const [total, setTotal] = useState(0);
-  const [priceDiff, setPriceDiff] = useState({ type: 'USD', current: 1 });
-  const priceType = getItem('app_price_type');
+  const [priceDiff, setPriceDiff] = useState({ type: "USD", current: 1 });
+  const priceType = getItem("app_price_type");
   const globalDispatch = useDispatch();
 
   useEffect(() => {
-    if (priceType && priceType !== 'USD') {
+    if (priceType && priceType !== "USD") {
       priceConvertNewMoney(priceType);
     }
   }, [priceType]);
@@ -76,7 +77,7 @@ export function Modal3() {
   // componentDidMount
   useEffect(() => {
     const { isOpen, currentModal } = globalState.modal;
-    if (isOpen && currentModal === 'MODAL_3') {
+    if (isOpen && currentModal === "MODAL_3") {
       setModalState((prev) => ({ ...prev, isOpen: true }));
     } else {
       setModalState((prev) => ({ ...prev, isOpen: false }));
@@ -84,7 +85,7 @@ export function Modal3() {
   }, [globalState.modal]);
 
   // modal close
-  const handleClose = () => globalDispatch({ type: 'MODAL_CLOSE' });
+  const handleClose = () => globalDispatch({ type: "MODAL_CLOSE" });
 
   // handleToggleMessenger
   const handleToggleMessenger = () => {
@@ -111,23 +112,23 @@ export function Modal3() {
   // error listener
   const handleErrorlistener = (name, value) => {
     let isError = true;
-    if (name === 'name') {
+    if (name === "name") {
       isError = !(value.length > 2 && value.length < 20);
     }
 
-    if (name === 'phone') {
+    if (name === "phone") {
       isError = !(value.length > 8 && value.length < 20);
     }
 
-    if (name === 'email') {
+    if (name === "email") {
       isError = !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/gi.test(value);
     }
 
-    if (name === 'messenger_user' || name === 'commit') {
+    if (name === "messenger_user" || name === "commit") {
       isError = false;
     }
 
-    if (name === 'years_12_' || name === 'date' || name === 'price') {
+    if (name === "years_12_" || name === "date" || name === "price") {
       isError = !value;
     }
 
@@ -145,7 +146,7 @@ export function Modal3() {
   // change Input element
   const handleChange = (e) => {
     const { value } = e.target;
-    const name = e.target.getAttribute('data-name');
+    const name = e.target.getAttribute("data-name");
     handleErrorlistener(name, value);
 
     setModalState((prev) => ({
@@ -161,8 +162,8 @@ export function Modal3() {
     const { errors, error_worker } = modalState.error_watch;
     const isError =
       errors.find((item) => item.type === name).error && error_worker;
-    if (isError) return '';
-    return '';
+    if (isError) return "";
+    return "";
   };
 
   // form on submit
@@ -180,26 +181,26 @@ export function Modal3() {
     }
 
     const price =
-      getItem('rate_name_data', 'rate_name_data')
+      getItem("rate_name_data", "rate_name_data")
         .find((i) => i.rate_name_head === form.price)
-        .rate_money.replace(/\D/gi, '') *
+        .rate_money.replace(/\D/gi, "") *
       (Number(form.years_12_) + Number(form.years_2_12_) * 0.5);
     // qushimcha pulni anqlash = extra money
     let ex_mony_type_name;
 
     if (
       form.price ===
-        getItem('rate_name_data', 'rate_name_data')[0].rate_name_head ||
+        getItem("rate_name_data", "rate_name_data")[0].rate_name_head ||
       form.price ===
-        getItem('rate_name_data', 'rate_name_data')[1].rate_name_head
+        getItem("rate_name_data", "rate_name_data")[1].rate_name_head
     ) {
-      ex_mony_type_name = 'app_extra_money_first';
+      ex_mony_type_name = "app_extra_money_first";
     }
     if (
       form.price ===
-      getItem('rate_name_data', 'rate_name_data')[2].rate_name_head
+      getItem("rate_name_data", "rate_name_data")[2].rate_name_head
     ) {
-      ex_mony_type_name = 'app_extra_money_second';
+      ex_mony_type_name = "app_extra_money_second";
     }
 
     const extMoney = getItem(ex_mony_type_name) * form.one_people;
@@ -215,7 +216,7 @@ export function Modal3() {
     try {
       const data = {
         tourID: _id,
-        action_id: 'modal-3',
+        action_id: "modal-3",
         name: form.name,
         phone: form.phone,
         email: form.email,
@@ -226,12 +227,15 @@ export function Modal3() {
         age_6_2: form.months_6_years_2,
         home_type: `Одноместное: ${form.one_people}; Двухместное:${form.two_people}; Трехместное:${form.three_people};`,
         komment: form.commit,
-        send_email: getItem('footer_col_email'),
+        send_email: getItem("footer_col_email"),
         Удобный_мессенджер: `messanger name:${modalState.my_messenger.check_messenger}; messanger username:${form.messenger_user}`,
       };
 
       const res = await Axios.post(api, data);
       const resData = await res.data;
+      toast.success("Ваша информация отправлена.", {
+        position: "top-right",
+      });
     } catch (error) {
       e.preventDefault();
     }
@@ -239,16 +243,16 @@ export function Modal3() {
 
   const CheckedMessanger = (messanger_name) => {
     switch (messanger_name) {
-      case 'facebook':
+      case "facebook":
         return <FaFacebookF className="item facebook" />;
-      case 'whatsapp':
+      case "whatsapp":
         return <FaWhatsapp className="item whatsapp" />;
-      case 'telegram':
+      case "telegram":
         return <FaTelegramPlane className="item telegram" />;
-      case 'instagram':
+      case "instagram":
         return <FaInstagram className="item instagram" />;
       default:
-        return '';
+        return "";
     }
   };
 
@@ -277,14 +281,14 @@ export function Modal3() {
   //   // component active no active
   return (
     <>
-      <Wrapper className={isOpen ? 'active' : ''}>
+      <Wrapper className={isOpen ? "active" : ""}>
         <div
           style={{
-            position: 'absolute',
+            position: "absolute",
             top: 0,
             left: 0,
-            width: '100%',
-            height: '100%',
+            width: "100%",
+            height: "100%",
           }}
           onClick={handleClose}
         />
@@ -314,15 +318,15 @@ export function Modal3() {
               <AiOutlineClose />
             </div>
             <h3 className="title">
-              <Text name="modal_3_title">{getItem('modal_3_title')}</Text>
+              <Text name="modal_3_title">{getItem("modal_3_title")}</Text>
             </h3>
 
             <div className="form-group">
               <label>
                 <Text name="modal_3_username">
-                  {getItem('modal_3_username')}
+                  {getItem("modal_3_username")}
                 </Text>
-                <div className={`input-box ${classAddError('name')}`}>
+                <div className={`input-box ${classAddError("name")}`}>
                   <input
                     type="text"
                     data-name="name"
@@ -334,8 +338,8 @@ export function Modal3() {
             </div>
             <div className="form-group">
               <label>
-                <Text name="modal_3_phone">{getItem('modal_3_phone')}</Text>
-                <div className={`input-box ${classAddError('phone')}`}>
+                <Text name="modal_3_phone">{getItem("modal_3_phone")}</Text>
+                <div className={`input-box ${classAddError("phone")}`}>
                   <input
                     type="tel"
                     className="input-phone"
@@ -348,8 +352,8 @@ export function Modal3() {
             </div>
             <div className="form-group">
               <label>
-                <Text name="modal_3_email">{getItem('modal_3_email')}</Text>
-                <div className={`input-box  ${classAddError('email')}`}>
+                <Text name="modal_3_email">{getItem("modal_3_email")}</Text>
+                <div className={`input-box  ${classAddError("email")}`}>
                   <input
                     type="text"
                     data-name="email"
@@ -362,14 +366,14 @@ export function Modal3() {
             <div className="form-box">
               <label htmlFor="my_messenger">
                 <Text name="modal_3_convenient_messenger">
-                  {getItem('modal_3_convenient_messenger')}
+                  {getItem("modal_3_convenient_messenger")}
                 </Text>
               </label>
               <div className={`input-box`}>
                 <button
                   type="button"
                   className={`my_messenger_btn ${
-                    my_messenger.isActive ? 'active' : ''
+                    my_messenger.isActive ? "active" : ""
                   }`}
                   onClick={handleToggleMessenger}
                 >
@@ -377,24 +381,24 @@ export function Modal3() {
                 </button>
                 <div
                   className={`my_messenger__modal ${
-                    my_messenger.isActive ? 'active' : ''
+                    my_messenger.isActive ? "active" : ""
                   }`}
                 >
                   <FaFacebookF
                     className="item facebook"
-                    onClick={handleClickMessengerItem.bind(this, 'facebook')}
+                    onClick={handleClickMessengerItem.bind(this, "facebook")}
                   />
                   <FaInstagram
                     className="item instagram"
-                    onClick={handleClickMessengerItem.bind(this, 'instagram')}
+                    onClick={handleClickMessengerItem.bind(this, "instagram")}
                   />
                   <FaWhatsapp
                     className="item whatsapp"
-                    onClick={handleClickMessengerItem.bind(this, 'whatsapp')}
+                    onClick={handleClickMessengerItem.bind(this, "whatsapp")}
                   />
                   <FaTelegramPlane
                     className="item telegram"
-                    onClick={handleClickMessengerItem.bind(this, 'telegram')}
+                    onClick={handleClickMessengerItem.bind(this, "telegram")}
                   />
                 </div>
                 <input
@@ -412,15 +416,15 @@ export function Modal3() {
             {/* selects */}
             <div className="form-group">
               <label>
-                <Text name="modal_3_date">{getItem('modal_3_date')}</Text>
-                <div className={`input-box ${classAddError('date')}`}>
+                <Text name="modal_3_date">{getItem("modal_3_date")}</Text>
+                <div className={`input-box ${classAddError("date")}`}>
                   <select
                     value={form.date}
                     data-name="date"
                     onChange={handleChange}
                   >
                     <option value="" disabled hidden></option>
-                    {getItem('prices_data', 'prices_data').map(
+                    {getItem("prices_data", "prices_data").map(
                       (item, index) => {
                         return <option key={index}>{item?.date}</option>;
                       }
@@ -431,15 +435,15 @@ export function Modal3() {
             </div>
             <div className="form-group">
               <label>
-                <Text name="modal_3_price">{getItem('modal_3_price')}</Text>
-                <div className={`input-box ${classAddError('price')}`}>
+                <Text name="modal_3_price">{getItem("modal_3_price")}</Text>
+                <div className={`input-box ${classAddError("price")}`}>
                   <select
                     value={form.price}
                     data-name="price"
                     onChange={handleChange}
                   >
                     <option value="" disabled hidden></option>
-                    {getItem('rate_name_data', 'rate_name_data').map(
+                    {getItem("rate_name_data", "rate_name_data").map(
                       (item, index) => {
                         return (
                           <option key={index}>{item?.rate_name_head}</option>
@@ -454,16 +458,16 @@ export function Modal3() {
             <div className="form-group">
               <label>
                 <Text name="modal_3_participants_title">
-                  {getItem('modal_3_participants_title')}
+                  {getItem("modal_3_participants_title")}
                 </Text>
                 <div className="inputs-box">
                   <div className="item">
                     <span>
                       <Text name="modal_3_participants_one">
-                        {getItem('modal_3_participants_one')}
+                        {getItem("modal_3_participants_one")}
                       </Text>
                     </span>
-                    <div className={`input-box ${classAddError('years_12_')}`}>
+                    <div className={`input-box ${classAddError("years_12_")}`}>
                       <input
                         type="number"
                         min={0}
@@ -477,7 +481,7 @@ export function Modal3() {
                   <div className="item">
                     <span>
                       <Text name="modal_3_participants_two">
-                        {getItem('modal_3_participants_two')}
+                        {getItem("modal_3_participants_two")}
                       </Text>
                     </span>
                     <div className="input-box">
@@ -494,7 +498,7 @@ export function Modal3() {
                   <div className="item">
                     <span>
                       <Text name="modal_3_participants_three">
-                        {getItem('modal_3_participants_three')}
+                        {getItem("modal_3_participants_three")}
                       </Text>
                     </span>
                     <div className="input-box">
@@ -515,13 +519,13 @@ export function Modal3() {
             <div className="form-group">
               <label>
                 <Text name="modal_3_divide_title">
-                  {getItem('modal_3_divide_title')}
+                  {getItem("modal_3_divide_title")}
                 </Text>
                 <div className="inputs-box">
                   <div className="item">
                     <span>
                       <Text name="modal_3_divide_one">
-                        {getItem('modal_3_divide_one')}
+                        {getItem("modal_3_divide_one")}
                       </Text>
                     </span>
                     <div className={`input-box`}>
@@ -538,7 +542,7 @@ export function Modal3() {
                   <div className="item">
                     <span>
                       <Text name="modal_3_divide_two">
-                        {getItem('modal_3_divide_two')}
+                        {getItem("modal_3_divide_two")}
                       </Text>
                     </span>
                     <div className={`input-box`}>
@@ -555,7 +559,7 @@ export function Modal3() {
                   <div className="item">
                     <span>
                       <Text name="modal_3_divide_three">
-                        {getItem('modal_3_divide_three')}
+                        {getItem("modal_3_divide_three")}
                       </Text>
                     </span>
                     <div className={`input-box `}>
@@ -576,7 +580,7 @@ export function Modal3() {
             <div className="form-group">
               <label>
                 <Text name="modal_3_divide_four">
-                  {getItem('modal_3_divide_four')}
+                  {getItem("modal_3_divide_four")}
                 </Text>
                 <div className="input-box">
                   <textarea
@@ -588,21 +592,21 @@ export function Modal3() {
                 </div>
               </label>
             </div>
-            <div className="form-group" style={{ textAlign: 'center' }}>
+            <div className="form-group" style={{ textAlign: "center" }}>
               <button
                 type="submit"
                 disabled={!itIsSubmit}
-                className={!itIsSubmit ? 'disabled' : ''}
+                className={!itIsSubmit ? "disabled" : ""}
               >
                 <Text name="modal_3_divide_btn">
-                  {getItem('modal_3_divide_btn')}
+                  {getItem("modal_3_divide_btn")}
                 </Text>
               </button>
             </div>
             <div className="form-group">
               <p id="warning">
                 <Text name="modal_3_divide_description">
-                  {getItem('modal_3_divide_description')}
+                  {getItem("modal_3_divide_description")}
                 </Text>
               </p>
             </div>
@@ -783,11 +787,11 @@ const Wrapper = styled.div`
     }
 
     .input-phone {
-      &[type='text'] {
+      &[type="text"] {
         width: 90%;
       }
 
-      &[type='number'] {
+      &[type="number"] {
         width: 90%;
 
         &::-webkit-outer-spin-button,
@@ -797,7 +801,7 @@ const Wrapper = styled.div`
         }
 
         /* Firefox */
-        &[type='number'] {
+        &[type="number"] {
           -moz-appearance: textfield;
         }
       }
@@ -850,7 +854,7 @@ const Wrapper = styled.div`
           padding: 3px;
         }
         input {
-          &[type='tel'] {
+          &[type="tel"] {
             padding-left: 4px;
           }
           @media (min-width: 320px) {
@@ -983,7 +987,7 @@ const Wrapper = styled.div`
       }
       p:nth-child(2) {
         font-size: 16px;
-        font-family: 'Akrobat', sans-serif;
+        font-family: "Akrobat", sans-serif;
         line-height: 20px;
         @media (min-width: 320px) {
           font-size: 12px;
@@ -1041,7 +1045,7 @@ const Wrapper = styled.div`
       }
     }
 
-    button[type='submit'] {
+    button[type="submit"] {
       padding: 8px 30px;
       border: none;
       outline: none;
@@ -1325,11 +1329,11 @@ const Wrapper = styled.div`
     }
 
     input {
-      &[type='text'] {
+      &[type="text"] {
         width: 90%;
       }
 
-      &[type='number'] {
+      &[type="number"] {
         width: 90%;
 
         &::-webkit-outer-spin-button,
@@ -1339,7 +1343,7 @@ const Wrapper = styled.div`
         }
 
         /* Firefox */
-        &[type='number'] {
+        &[type="number"] {
           -moz-appearance: textfield;
         }
       }

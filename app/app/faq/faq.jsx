@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import SectionActive from '../../components/SectionActive';
+import SectionActive from "../../components/SectionActive";
 import { AppContext } from "..";
 import Image from "../../components/Image";
 import Text from "../../components/Text";
 import Item from "../../components/Item";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 export default function Faq() {
   const { getItem } = useContext(AppContext);
   const [state, setState] = useState({
@@ -22,8 +23,8 @@ export default function Faq() {
       height: !prevState.isToggle
         ? height
         : prevState.currentItem !== id
-          ? height
-          : null,
+        ? height
+        : null,
       currentItem: id,
       isToggle: prevState.currentItem !== id ? true : !prevState.isToggle,
     }));
@@ -42,18 +43,17 @@ export default function Faq() {
     setBtnActive((prev) => prev.map((_, index) => id + 1 >= index));
   };
 
-
   // component active no active
   const val = useSelector((state) => state.admin.app_sections_active).find(
-    (i) => i.name === 'faq'
+    (i) => i.name === "faq"
   );
 
   const { isEdit: thisIsNotClient } = useSelector((st) => st.admin);
 
   const bgYellow = {
-    background: val.isActive ? null : 'yellow',
-    opacity: val.isActive ? null : '0.2',
-    cursor: val.isActive ? null : 'not-allowed',
+    background: val.isActive ? null : "yellow",
+    opacity: val.isActive ? null : "0.2",
+    cursor: val.isActive ? null : "not-allowed",
   };
 
   if (!thisIsNotClient && !val.isActive) return null;
@@ -75,7 +75,7 @@ export default function Faq() {
               if (btnActive[parseInt(index / 5)]) {
                 return (
                   <Item group="faqData" itemId={index} key={index}>
-                    <div className="list-item">
+                    <div className="list-item" style={{ position: "relative" }}>
                       <h3
                         className="list-item-title"
                         onClick={(event) => toggleHandler(event, index)}
@@ -84,6 +84,21 @@ export default function Faq() {
                           {item?.title}
                         </Text>
                       </h3>
+                      <div
+                        className="icons"
+                        style={{
+                          position: "absolute",
+                          right: "5px",
+                          top: "12px",
+                          fontSize: "20px",
+                        }}
+                      >
+                        {!(state.currentItem === index && state.height) ? (
+                          <AiOutlinePlus className="icon" />
+                        ) : (
+                          <AiOutlineMinus className="icon" />
+                        )}
+                      </div>
                       <div
                         className="list-item-texts"
                         style={{
@@ -121,7 +136,9 @@ export default function Faq() {
                           parseInt(index / 5) + 1 &&
                           !btnActive.every((i) => i) && (
                             <button
-                              onClick={() => pageDownHandler(parseInt(index / 5))}
+                              onClick={() =>
+                                pageDownHandler(parseInt(index / 5))
+                              }
                             >
                               <Text name="faq_more_btn">
                                 {getItem("faq_more_btn")}

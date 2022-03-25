@@ -1,15 +1,15 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { useState, useEffect, useContext } from 'react';
-import SectionActive from '../../components/SectionActive';
-import { useSelector } from 'react-redux';
-import { AppContext } from '..';
-import styled from 'styled-components';
-import Link from '../../components/Link';
-import { Pdf1 } from './pdf-1';
-import { Pdf2 } from './pdf-2';
-import Text from '../../components/Text';
-import Image from '../../components/Image';
-import Script from 'next/script';
+import { useState, useEffect, useContext } from "react";
+import SectionActive from "../../components/SectionActive";
+import { useSelector } from "react-redux";
+import { AppContext } from "..";
+import styled from "styled-components";
+import Link from "../../components/Link";
+import { Pdf1 } from "./pdf-1";
+import { Pdf2 } from "./pdf-2";
+import Text from "../../components/Text";
+import Image from "../../components/Image";
+import Script from "next/script";
 const Full_screen = styled.div`
   position: relative;
   overflow: hidden;
@@ -57,7 +57,7 @@ const Logo_icons = styled.div`
     position: absolute;
     width: 350%;
     height: 100%;
-    content: '';
+    content: "";
     top: 0;
     left: -130%;
     background: #f8f0f0;
@@ -157,7 +157,7 @@ const Contact_pay = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    content: '';
+    content: "";
     top: 0;
     right: -80%;
     background: #1e272e;
@@ -317,7 +317,7 @@ const Blog = styled.div`
     }
     label {
       margin-left: 10px;
-      font-family: 'DM Sans', sans-serif;
+      font-family: "DM Sans", sans-serif;
       font-display: swap;
       font-style: normal;
       font-weight: 500;
@@ -388,12 +388,16 @@ const Con_blog = styled.div`
       font-display:swap; */
       font-style: normal;
       font-weight: 500;
-      font-size: 25px;
+      font-size: 22px;
+
       line-height: 117.6%;
       letter-spacing: 0.005em;
       color: #ffffff;
       text-decoration: none;
       cursor: pointer;
+      @media (min-width: 576px) {
+        font-size: 25px;
+      }
     }
   }
 `;
@@ -449,7 +453,7 @@ const Blog_bottom = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    content: '';
+    content: "";
     top: -2px;
     right: -90%;
     border-top: 2px solid #fff;
@@ -738,7 +742,7 @@ const MyModal = styled.div`
       display: flex;
       align-items: center;
       transition: all 300ms;
-      transform: translateX(${({ x50 }) => (x50 ? '0' : '-50%')});
+      transform: translateX(${({ x50 }) => (x50 ? "0" : "-50%")});
     }
   }
 `;
@@ -940,38 +944,38 @@ export default function index({ footer }) {
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       function handleResize() {
         setWindowSize({
           width: window.innerWidth,
         });
       }
-      window.addEventListener('resize', handleResize);
+      window.addEventListener("resize", handleResize);
 
       handleResize();
 
-      return () => window.removeEventListener('resize', handleResize);
+      return () => window.removeEventListener("resize", handleResize);
     }
   }, []);
 
   const exitBtnHandle = () => setCheckPdf(null);
   const openCheckPdf = (id) => setCheckPdf(id);
 
-  const pdf = !checkPdf ? '' : checkPdf === 'pdf_1' ? <Pdf1 /> : <Pdf2 />;
+  const pdf = !checkPdf ? "" : checkPdf === "pdf_1" ? <Pdf1 /> : <Pdf2 />;
 
   // component active no active
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const val = useSelector((state) => state.admin.app_sections_active).find(
-    (i) => i.name === 'footer'
+    (i) => i.name === "footer"
   );
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { isEdit: thisIsNotClient } = useSelector((st) => st.admin);
 
   const bgYellow = {
-    background: val.isActive ? null : 'yellow',
-    opacity: val.isActive ? null : '0.2',
-    cursor: val.isActive ? null : 'not-allowed',
+    background: val.isActive ? null : "yellow",
+    opacity: val.isActive ? null : "0.2",
+    cursor: val.isActive ? null : "not-allowed",
   };
 
   if (!thisIsNotClient && !val.isActive) return null;
@@ -980,7 +984,7 @@ export default function index({ footer }) {
     <>
       <SectionActive name={val.name} />
       <div style={bgYellow}>
-        <PDF_MODAL className={checkPdf ? 'active' : ''}>
+        <PDF_MODAL className={checkPdf ? "active" : ""}>
           <span className="exit_modal" onClick={exitBtnHandle} />
           <div className="modal_content">
             <div className="exit-btn" onClick={exitBtnHandle}>
@@ -989,7 +993,7 @@ export default function index({ footer }) {
             {pdf}
           </div>
         </PDF_MODAL>
-        <MyModal x50={x50} className={m1 ? 'active' : ''}>
+        <MyModal x50={x50} className={m1 ? "active" : ""}>
           <div className="span" onClick={() => setM1(false)}></div>
           <div className="modal-container">
             <button
@@ -1016,13 +1020,13 @@ export default function index({ footer }) {
             </button>
             <div className="img-slide">
               <div className="slide-container">
-                {getItem('footer_letsinze_imgs', 'footer_letsinze_imgs').map(
+                {getItem("footer_letsinze_imgs", "footer_letsinze_imgs").map(
                   (item, index) => (
                     <Image
                       src={item.img.src}
                       alt={item.img.alt}
                       title={item.img.title}
-                      objectFit={'cover'}
+                      objectFit={"cover"}
                       group="footer_letsinze_imgs"
                       id={index}
                       width={500}
@@ -1044,25 +1048,25 @@ export default function index({ footer }) {
                     <Images>
                       <Image
                         layout="fill"
-                        src={getItem('footer_logo_img_src')}
-                        srcDataName={'footer_logo_img_src'}
-                        alt={getItem('footer_logo_img_alt')}
-                        altDataName={'footer_logo_img_alt'}
-                        title={getItem('footer_logo_img_title')}
-                        titleDataName={'footer_logo_img_title'}
+                        src={getItem("footer_logo_img_src")}
+                        srcDataName={"footer_logo_img_src"}
+                        alt={getItem("footer_logo_img_alt")}
+                        altDataName={"footer_logo_img_alt"}
+                        title={getItem("footer_logo_img_title")}
+                        titleDataName={"footer_logo_img_title"}
                       />
                     </Images>
                   </Logo>
                   <Text_name>
                     <h1>
-                      <Text name="footer_name">{getItem('footer_name')}</Text>
+                      <Text name="footer_name">{getItem("footer_name")}</Text>
                     </h1>
                   </Text_name>
                   <Icons>
                     <span>
                       <Link
-                        hrefName={'footer_fc_url'}
-                        href={getItem('footer_fc_url')}
+                        hrefName={"footer_fc_url"}
+                        href={getItem("footer_fc_url")}
                         target="_blank"
                       >
                         <IconT>
@@ -1076,8 +1080,8 @@ export default function index({ footer }) {
                     </span>
                     <span>
                       <Link
-                        hrefName={'footer_in_url'}
-                        href={getItem('footer_in_url')}
+                        hrefName={"footer_in_url"}
+                        href={getItem("footer_in_url")}
                         target="_blank"
                       >
                         <IconT>
@@ -1091,8 +1095,8 @@ export default function index({ footer }) {
                     </span>
                     <span>
                       <Link
-                        hrefName={'footer_yt_url'}
-                        href={getItem('footer_yt_url')}
+                        hrefName={"footer_yt_url"}
+                        href={getItem("footer_yt_url")}
                         target="_blank"
                       >
                         <IconT>
@@ -1106,8 +1110,8 @@ export default function index({ footer }) {
                     </span>
                     <span>
                       <Link
-                        hrefName={'footer_vk_url'}
-                        href={getItem('footer_vk_url')}
+                        hrefName={"footer_vk_url"}
+                        href={getItem("footer_vk_url")}
                         target="_blank"
                       >
                         <IconT>
@@ -1122,7 +1126,7 @@ export default function index({ footer }) {
                     <span>
                       <Link
                         hrefName="footer_tg_url"
-                        href={getItem('footer_tg_url')}
+                        href={getItem("footer_tg_url")}
                         target="_blank"
                       >
                         <IconT>
@@ -1138,22 +1142,22 @@ export default function index({ footer }) {
                   <Text_new>
                     <p>
                       <Text name="footer_title_1">
-                        {getItem('footer_title_1')}
+                        {getItem("footer_title_1")}
                       </Text>
                     </p>
                     <p>
                       <Text name="footer_title_2">
-                        {getItem('footer_title_2')}
+                        {getItem("footer_title_2")}
                       </Text>
                     </p>
                     <p>
                       <Text name="footer_title_3">
-                        {getItem('footer_title_3')}
+                        {getItem("footer_title_3")}
                       </Text>
                     </p>
                     <p>
                       <Text name="footer_title_4">
-                        {getItem('footer_title_4')}
+                        {getItem("footer_title_4")}
                       </Text>
                     </p>
                   </Text_new>
@@ -1165,7 +1169,7 @@ export default function index({ footer }) {
                     <Blog>
                       <h1>
                         <Text name="footer_col_name">
-                          {getItem('footer_col_name')}
+                          {getItem("footer_col_name")}
                         </Text>
                       </h1>
                       <form
@@ -1183,7 +1187,7 @@ export default function index({ footer }) {
                               type="text"
                               className=""
                               name="EMAIL"
-                              placeholder={getItem('footer_input_placeholder')}
+                              placeholder={getItem("footer_input_placeholder")}
                               required
                             />
                           </Text>
@@ -1195,12 +1199,12 @@ export default function index({ footer }) {
                             className=""
                             disabled={!checkForm}
                             style={{
-                              cursor: !checkForm ? 'default' : 'pointer',
-                              opacity: !checkForm ? '0.5' : '1',
+                              cursor: !checkForm ? "default" : "pointer",
+                              opacity: !checkForm ? "0.5" : "1",
                             }}
                           >
                             <Text name="footer_want_btn">
-                              {getItem('footer_want_btn')}
+                              {getItem("footer_want_btn")}
                             </Text>
                           </button>
                         </div>
@@ -1208,9 +1212,9 @@ export default function index({ footer }) {
                         <div className="clearfix"></div>
                       </form>
                       <section className="section-p">
-                        <span onClick={() => openCheckPdf('pdf_2')}>
+                        <span onClick={() => openCheckPdf("pdf_2")}>
                           <Text name="footer_col_srteficat">
-                            {getItem('footer_col_srteficat')}
+                            {getItem("footer_col_srteficat")}
                           </Text>
                         </span>
                         <div>
@@ -1223,7 +1227,7 @@ export default function index({ footer }) {
                           />
                           <label htmlFor="checkId" className="checkbox_info">
                             <Text name="footer_col_check">
-                              {getItem('footer_col_check')}
+                              {getItem("footer_col_check")}
                             </Text>
                           </label>
                         </div>
@@ -1234,65 +1238,65 @@ export default function index({ footer }) {
                     <Con_blog>
                       <h1>
                         <Text name="footer_col_name_contact">
-                          {getItem('footer_col_name_contact')}
+                          {getItem("footer_col_name_contact")}
                         </Text>
                       </h1>
                       <p>
                         <Link
-                          hrefName={'footer_col_phone_hrefRU'}
-                          href={getItem('footer_col_phone_hrefRU')}
+                          hrefName={"footer_col_phone_hrefRU"}
+                          href={getItem("footer_col_phone_hrefRU")}
                           name="footer_col_phone_ru"
                         >
-                          {getItem('footer_col_phone_ru')}
+                          {getItem("footer_col_phone_ru")}
                         </Link>
                       </p>
                       <p>
                         <Link
                           name="footer_col_phone_uzb"
-                          hrefName={'footer_col_phone_hrefUZ'}
-                          href={getItem('footer_col_phone_hrefUZ')}
+                          hrefName={"footer_col_phone_hrefUZ"}
+                          href={getItem("footer_col_phone_hrefUZ")}
                         >
-                          {getItem('footer_col_phone_uzb')}
+                          {getItem("footer_col_phone_uzb")}
                         </Link>
                       </p>
                       <p>
                         <Link
-                          hrefName={'footer_email_url'}
-                          href={getItem('footer_email_url')}
+                          hrefName={"footer_email_url"}
+                          href={getItem("footer_email_url")}
                           name="footer_col_email"
                         >
-                          {getItem('footer_col_email')}
+                          {getItem("footer_col_email")}
                         </Link>
                       </p>
                       <Icons_contact>
                         <span>
                           <Link
-                            hrefName={'footer_col_tg_href'}
+                            hrefName={"footer_col_tg_href"}
                             target="_blank"
-                            href={getItem('footer_col_tg_href')}
+                            href={getItem("footer_col_tg_href")}
                             name="footer_col_tg"
                           >
-                            {getItem('footer_col_tg')}
+                            {getItem("footer_col_tg")}
                           </Link>
                         </span>
                         <span>
                           <Link
-                            hrefName={'footer_col_wa_href'}
+                            hrefName={"footer_col_wa_href"}
                             target="_blank"
-                            href={getItem('footer_col_wa_href')}
+                            href={getItem("footer_col_wa_href")}
                             name="footer_col_wh"
                           >
-                            {getItem('footer_col_wh')}
+                            {getItem("footer_col_wh")}
                           </Link>
                         </span>
                         <span>
                           <Link
-                            hrefName={'footer_col_fa_href'}
+                            hrefName={"footer_col_fa_href"}
                             target="_blank"
-                            href={getItem('footer_col_fa_href')}
+                            href={getItem("footer_col_fa_href")}
                             name="footer_col_fa"
                           >
-                            {getItem('footer_col_fa')}
+                            {getItem("footer_col_fa")}
                           </Link>
                         </span>
                       </Icons_contact>
@@ -1339,10 +1343,10 @@ export default function index({ footer }) {
                 <Blog_bottom>
                   <Fotter_Left>
                     <ul>
-                      {getItem('footer_menu', 'footer_menu').map(
+                      {getItem("footer_menu", "footer_menu").map(
                         (link, linkIndex) => {
                           if (
-                            getItem('footer_menu', 'footer_menu').length - 1 >
+                            getItem("footer_menu", "footer_menu").length - 1 >
                             linkIndex
                           ) {
                             return (
@@ -1350,9 +1354,9 @@ export default function index({ footer }) {
                                 <Link
                                   index={linkIndex}
                                   group="footer_menu"
-                                  hrefName={'head_menu_href'}
+                                  hrefName={"head_menu_href"}
                                   href={link.head_menu_href}
-                                  name={'head_menu_title'}
+                                  name={"head_menu_title"}
                                 >
                                   {link.head_menu_title}
                                 </Link>
@@ -1367,27 +1371,27 @@ export default function index({ footer }) {
                     <Blog_Head>
                       <h1>
                         <Text name="footer_col_copy">
-                          {getItem('footer_col_copy')}
+                          {getItem("footer_col_copy")}
                         </Text>
                         <br />
                         <Text name="footer_col_copy_code">
-                          {getItem('footer_col_copy_code')}
+                          {getItem("footer_col_copy_code")}
                         </Text>
                         <br />
                         <Text name="footer_col_copy_let">
-                          {getItem('footer_col_copy_let')}
+                          {getItem("footer_col_copy_let")}
                         </Text>
                       </h1>
                     </Blog_Head>
                     <Modal_text>
-                      <span onClick={() => openCheckPdf('pdf_1')}>
+                      <span onClick={() => openCheckPdf("pdf_1")}>
                         <Text name="footer_modal_1">
-                          {getItem('footer_modal_1')}
+                          {getItem("footer_modal_1")}
                         </Text>
                       </span>
                       <span onClick={() => setM1(true)}>
                         <Text name="footer_modal_2">
-                          {getItem('footer_modal_2')}
+                          {getItem("footer_modal_2")}
                         </Text>
                       </span>
                     </Modal_text>
@@ -1453,7 +1457,7 @@ export default function index({ footer }) {
                   })
                     (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-                  ym(${getItem('app_yandex_metirka_id')}, "init", {
+                  ym(${getItem("app_yandex_metirka_id")}, "init", {
                     clickmap: true,
                     trackLinks: true,
                     accurateTrackBounce: true,

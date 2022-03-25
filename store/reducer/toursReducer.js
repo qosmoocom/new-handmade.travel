@@ -1,15 +1,15 @@
-import Axios from 'axios';
-import { types } from '../types';
-import { loaderOff, loaderOn } from './loaderReducer';
-import { getConfig } from './usersReducer';
-import { cssText } from './../../app/components/admin/globalCss';
+import Axios from "axios";
+import { types } from "../types";
+import { loaderOff, loaderOn } from "./loaderReducer";
+import { getConfig } from "./usersReducer";
+import { cssText } from "./../../app/components/admin/globalCss";
 
 const initialState = {
   tours: [],
   isItCreate: false,
   isItUpdate: false,
   tour: null,
-  tourStyle: '',
+  tourStyle: "",
 };
 
 // reducer
@@ -50,12 +50,12 @@ export const toursReducer = (state = initialState, action) => {
 
 // tours types
 export const toursTypes = {
-  createTour: 'ADMIN/MY_TOURS/CREATE_NEW_TOUR',
-  closeModal: 'ADMIN/CLOSE_TOUR_MODAL',
-  updateTour: 'ADMIN/MY_TOURS/UPDATE_TOUR',
-  getMeTours: 'ADMIN/MY_TOURS/GET_ME_TOURS',
-  getMeOneTour: 'ADMIN/GET_ME_ONE_TOUR',
-  setTourStyle: 'ADMIN/SET_TOUR_STYLE',
+  createTour: "ADMIN/MY_TOURS/CREATE_NEW_TOUR",
+  closeModal: "ADMIN/CLOSE_TOUR_MODAL",
+  updateTour: "ADMIN/MY_TOURS/UPDATE_TOUR",
+  getMeTours: "ADMIN/MY_TOURS/GET_ME_TOURS",
+  getMeOneTour: "ADMIN/GET_ME_ONE_TOUR",
+  setTourStyle: "ADMIN/SET_TOUR_STYLE",
 };
 
 // tours actions
@@ -84,7 +84,7 @@ export const createNewTour = (newTour) => async (dispatch) => {
 
 export const getAllMyTours = () => async (dispatch) => {
   dispatch(loaderOn());
-  const id = JSON.parse(localStorage.getItem('isLoginMe'))._id;
+  const id = JSON.parse(localStorage.getItem("isLoginMe"))._id;
   const api = `/api/tour/byUser/${id}`;
   try {
     const res = await Axios.get(api, getConfig());
@@ -102,7 +102,7 @@ export const updateMyTours = (userId, newTour) => async (dispatch) => {
     const res = await Axios.put(api, newTour, getConfig());
     const data = await res.data;
 
-    dispatch(getAllMyTours());
+    // dispatch(getAllMyTours());
     setTimeout(() => {
       dispatch(closeCreatTourModal());
     }, 500);

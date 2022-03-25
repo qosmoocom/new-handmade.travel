@@ -1,9 +1,9 @@
-import { useRouter } from 'next/router';
-import { AiFillEdit } from 'react-icons/ai';
-import { useDispatch, useSelector } from 'react-redux';
-import { types } from '../../store/types';
-import styled from 'styled-components';
-import parse from 'html-react-parser';
+import { useRouter } from "next/router";
+import { AiFillEdit } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { types } from "../../store/types";
+import styled from "styled-components";
+import parse from "html-react-parser";
 const Wrapper = styled.span`
   position: relative;
   .edit__icon {
@@ -22,15 +22,15 @@ const Wrapper = styled.span`
   }
 `;
 const Typography = ({
-  children = '',
-  group = '',
-  name = '',
-  itIsClassName = '',
-  id = '',
-  parentId = '',
-  list = '',
-  childId = '',
-  type = '',
+  children = "",
+  group = "",
+  name = "",
+  itIsClassName = "",
+  id = "",
+  parentId = "",
+  list = "",
+  childId = "",
+  type = "",
   style = {},
 }) => {
   const dispatch = useDispatch();
@@ -51,7 +51,7 @@ const Typography = ({
     });
   };
 
-  if (type === 'important') {
+  if (type === "important") {
     return (
       <Wrapper>
         {isAdmin && (
