@@ -37,7 +37,7 @@ body {
 }
 #header {
   position: relative;
-  padding-top: 40px;
+  padding-top: 0px;
 }
 @media (min-width: 992px) {
   .header_navbar {
@@ -1986,11 +1986,11 @@ body {
   }
 }
 #rate .content-2 .rate_footer_title {
-  font-size: 16px;
+  font-size: 14px;
 }
 @media (min-width: 768px) {
   #rate .content-2 .rate_footer_title {
-    font-size: 23px;
+    font-size: 21px;
   }
 }
 #rate .content-2 .rate_footer_list {

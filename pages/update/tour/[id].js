@@ -92,7 +92,7 @@ export default function Index() {
   return (
     <div>
       <Head>
-        <title>sorry you are not an admin</title>
+        <title>Loading...</title>
       </Head>
       <Loader />
     </div>
