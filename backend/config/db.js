@@ -4,6 +4,12 @@ const mongoose = require('mongoose');
 // const dbUri =mkd;
  const dbUri = "mongodb://localhost:27017/handmade";
 
+// mongosh "mongodb+srv://cluster0.uoe1t.mongodb.net/myFirstDatabase" --apiVersion 1 --username anvar
+// MTh21o8C3pQN16bV
+//mongoexport --uri mongodb+srv://admin:MTh21o8C3pQN16bV@cluster0.uoe1t.mongodb.net/myFirstDatabase --collection users --type json --out users.json
+
+// mongoexport --uri mongodb+srv://admin:MTh21o8C3pQN16bV@cluster0.uoe1t.mongodb.net/myFirstDatabase --collection users --type json --out users.json
+
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(dbUri, {
