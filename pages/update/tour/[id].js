@@ -1,27 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import App from '../../../app/app';
+import React, { useEffect, useState } from "react";
+import App from "../../../app/app";
 
-import Head from 'next/head';
+import Head from "next/head";
 
-import { useRouter } from 'next/router';
-import { useDispatch, useSelector } from 'react-redux';
+import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
 import {
   getMyOneTour,
   updateMyTours,
-} from '../../../store/reducer/toursReducer';
+} from "../../../store/reducer/toursReducer";
 
-import Loader from './../../../app/components/Loader/index';
-import styled from 'styled-components';
-import Link from 'next/link';
+import Loader from "./../../../app/components/Loader/index";
+import styled from "styled-components";
+import Link from "next/link";
+import { toast } from "react-toastify";
 export default function Index() {
   const router = useRouter();
   const dispatch = useDispatch();
   const globalState = useSelector((state) => state);
   const [keywords, setKeywords] = useState({
-    meta_key: '',
-    meta_des: '',
-    yan_met: '',
-    title: '',
+    meta_key: "",
+    meta_des: "",
+    yan_met: "",
+    title: "",
   });
   useEffect(() => {
     if (router.query.id) {
@@ -58,6 +59,15 @@ export default function Index() {
         tourTexts: updateTexts,
       };
       dispatch(updateMyTours(_id, updateTour));
+      toast("Ваша информация сохраняется", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     };
 
     return (
@@ -67,8 +77,8 @@ export default function Index() {
         </Head>
         <div className="right-btns">
           <button onClick={saveHandler}>save</button>
-          <Link href={'/admin'}>back admin</Link>{' '}
-          <Link href={'/login'}>back login</Link>{' '}
+          <Link href={"/admin"}>back admin</Link>{" "}
+          <Link href={"/login"}>back login</Link>{" "}
           <Link href={`/update/style/${_id}`}>edit css</Link>
         </div>
 
@@ -82,7 +92,7 @@ export default function Index() {
   return (
     <div>
       <Head>
-        <title>sorry you are not an admin</title>
+        <title>Loading...</title>
       </Head>
       <Loader />
     </div>
@@ -95,7 +105,7 @@ const Wrapper = styled.div`
     position: fixed;
     left: 10px;
     bottom: 10px;
-    z-index: 22;
+    z-index: 222;
     button {
       color: #fff;
       background: rgb(0, 0, 0);

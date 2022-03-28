@@ -1,43 +1,43 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import Head from 'next/head';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { useRouter } from 'next/router';
+import Head from "next/head";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/router";
 
-import { createContext, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { createContext, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import Header from './header';
-import FirstUtp from './first-utp';
-import SecondUtp from './second-utp';
-import TourProgram from './tour-program';
-import ActionDetail from './action-detail';
-import Price from './prices';
-import Rate from './rate';
-import ActionPicture from './action-picture';
-import Gallery from './gallery';
-import Author from './author';
-import WhyWithUs from './why-with-us';
-import Samele from './samele';
-import Reviews from './reviews';
-import Benefit from './benefit';
-import ThirdUtp from './third-utp';
-import Faq from './faq';
-import OtherTour from './other-tours';
-import Footer from './footer/index';
-import { Modal1 } from './modals/modal-1';
-import { Modal2 } from './modals/modal-2';
-import { Modal3 } from './modals/modal-3';
+import Header from "./header";
+import FirstUtp from "./first-utp";
+import SecondUtp from "./second-utp";
+import TourProgram from "./tour-program";
+import ActionDetail from "./action-detail";
+import Price from "./prices";
+import Rate from "./rate";
+import ActionPicture from "./action-picture";
+import Gallery from "./gallery";
+import Author from "./author";
+import WhyWithUs from "./why-with-us";
+import Samele from "./samele";
+import Reviews from "./reviews";
+import Benefit from "./benefit";
+import ThirdUtp from "./third-utp";
+import Faq from "./faq";
+import OtherTour from "./other-tours";
+import Footer from "./footer/index";
+import { Modal1 } from "./modals/modal-1";
+import { Modal2 } from "./modals/modal-2";
+import { Modal3 } from "./modals/modal-3";
 
 // components
-import ModalForText from '../components/modals/ModalForText';
-import ModalForLink from '../components/modals/ModalForLink';
-import ModalForImage from '../components/modals/ModalForImage';
-import ModalForCheckedIcon from '../components/modals/ModalForCheckedIcon';
-import { getMyTourStyle } from '../../store/reducer/toursReducer';
-import Keyword from './keywords';
-import { loaderOff } from '../../store/reducer/loaderReducer';
+import ModalForText from "../components/modals/ModalForText";
+import ModalForLink from "../components/modals/ModalForLink";
+import ModalForImage from "../components/modals/ModalForImage";
+import ModalForCheckedIcon from "../components/modals/ModalForCheckedIcon";
+import { getMyTourStyle } from "../../store/reducer/toursReducer";
+import Keyword from "./keywords";
+import { loaderOff } from "../../store/reducer/loaderReducer";
 
 export const AppContext = createContext(null);
 
@@ -47,9 +47,9 @@ export default function Index() {
   const dispatch = useDispatch();
   const router = useRouter();
   const appStyle = useSelector((state) => state.tours.tourStyle);
-  const getItem = (name = '', group = '') => {
+  const getItem = (name = "", group = "") => {
     if (!group) return state[name]?.value; // value is string
-    if (group) return state[group]['data']; // array
+    if (group) return state[group]["data"]; // array
   };
   const defaultValue = { getItem };
 
@@ -88,9 +88,9 @@ export default function Index() {
           </style>
 
           <Head>
-            <title>{getItem('app_title')}</title>
-            <meta name="keywords" content={getItem('app_keywords')} />
-            <meta name="description" content={getItem('app_description')} />
+            <title>{getItem("app_title")}</title>
+            <meta name="keywords" content={getItem("app_keywords")} />
+            <meta name="description" content={getItem("app_description")} />
           </Head>
 
           <Modal1 />
@@ -101,9 +101,9 @@ export default function Index() {
           <div>
             <img
               src={`https://mc.yandex.ru/watch/${getItem(
-                'app_yandex_metirka_id'
+                "app_yandex_metirka_id"
               )}`}
-              style={{ position: 'absolute', left: '-9999px' }}
+              style={{ position: "absolute", left: "-9999px" }}
               alt=""
             />
             <img
@@ -139,6 +139,17 @@ export default function Index() {
 
           {/* keywords */}
           <Keyword />
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
         </>
       )}
     </AppContext.Provider>

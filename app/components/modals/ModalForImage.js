@@ -1,10 +1,10 @@
-import axios from 'axios';
-import React, { useEffect, useState, useCallback } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import styled from 'styled-components';
-import { useRouter } from 'next/router';
-import { AiOutlineClose } from 'react-icons/ai';
-import { types } from '../../../store/types';
+import axios from "axios";
+import React, { useEffect, useState, useCallback } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import styled from "styled-components";
+import { useRouter } from "next/router";
+import { AiOutlineClose } from "react-icons/ai";
+import { types } from "../../../store/types";
 const Wrapper = styled.div`
   position: fixed;
   top: 0;
@@ -129,18 +129,18 @@ export default function ImageForModal() {
   const { editImage } = bigState;
   const {
     open = false,
-    itIsClassName = '',
-    group = '',
-    href = '',
-    alt = '',
-    title = '',
-    id = '',
+    itIsClassName = "",
+    group = "",
+    href = "",
+    alt = "",
+    title = "",
+    id = "",
   } = editImage;
 
   const [state, setState] = useState({
-    href: '',
-    alt: '',
-    title: '',
+    href: "",
+    alt: "",
+    title: "",
   });
 
   const changeHandler = (e) => {
@@ -157,12 +157,12 @@ export default function ImageForModal() {
       payload: {
         open: false,
         isSave: false,
-        href: '',
-        newHref: '',
-        alt: '',
-        newAlt: '',
-        title: '',
-        newTitle: '',
+        href: "",
+        newHref: "",
+        alt: "",
+        newAlt: "",
+        title: "",
+        newTitle: "",
       },
     });
   });
@@ -172,50 +172,69 @@ export default function ImageForModal() {
     if (open) {
       setState({ href, alt, title });
     } else {
-      setState({ href: '', alt: '', title: '' });
+      setState({ href: "", alt: "", title: "" });
     }
   }, [alt, href, open, title]);
 
   const onSaveHandler = async () => {
-    const formData = new FormData();
-    formData.append('tour_id', 'art');
-    formData.append('image', selectFile);
-    formData.append('tourID', router.query.id);
-    formData.append('tourAuthor', JSON.parse(localStorage['isLoginMe'])._id);
+    if (selectFile) {
+      const formData = new FormData();
+      formData.append("tour_id", "art");
+      formData.append("image", selectFile);
+      formData.append("tourID", router.query.id);
+      formData.append("tourAuthor", JSON.parse(localStorage["isLoginMe"])._id);
 
-    try {
-      const res = await axios({
-        method: 'post',
-        url: '/api/images/add',
-        data: formData,
-        headers: { 'Content-Type': 'multipart/form-data' },
-      });
-      const { data, success } = await res.data;
-      setTimeout(() => {
-        dispatch({
-          type: types.editImage,
-          payload: {
-            isSave: true,
-            newAlt: state.alt,
-            newHref: data.image.replace('/public', ''),
-            newTitle: state.title,
-          },
+      try {
+        const res = await axios({
+          method: "post",
+          url: "/api/images/add",
+          data: formData,
+          headers: { "Content-Type": "multipart/form-data" },
         });
+        const { data, success } = await res.data;
+        setTimeout(() => {
+          dispatch({
+            type: types.editImage,
+            payload: {
+              isSave: true,
+              newAlt: state.alt,
+              newHref: data.image.replace("/public", ""),
+              newTitle: state.title,
+            },
+          });
 
-        // router.reload(window.location.pathname);
-      }, 300);
-    } catch (error) {}
+          console.log("yangi img qushildi...");
+          // router.reload(window.location.pathname);
+        }, 300);
+        setSelectFile(null);
+      } catch (error) {}
+    }
+
+    if (!selectFile) {
+      dispatch({
+        type: types.editImage,
+        payload: {
+          isSave: true,
+          newAlt: state.alt,
+          newTitle: state.title,
+          newHref: state.href,
+        },
+      });
+    }
+
+    closeModalHandler();
   };
+
   useEffect(() => {
-    document.addEventListener('keydown', (e) => {
-      if (e.code === 'Escape') {
+    document.addEventListener("keydown", (e) => {
+      if (e.code === "Escape") {
         closeModalHandler();
       }
     });
   }, [closeModalHandler]);
 
   return (
-    <Wrapper className={open ? 'active' : ''}>
+    <Wrapper className={open ? "active" : ""}>
       <div className="modal-after-click" onClick={closeModalHandler} />
       <div className="wrap-container">
         <AiOutlineClose className="close-btn" onClick={closeModalHandler} />
@@ -234,7 +253,7 @@ export default function ImageForModal() {
             <input
               type="file"
               id="file"
-              style={{ display: 'none' }}
+              style={{ display: "none" }}
               onChange={(event) => {
                 setSelectFile(event.target.files[0]);
               }}

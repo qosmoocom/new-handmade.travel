@@ -1,31 +1,31 @@
-import SectionActive from '../../components/SectionActive';
-import { useSelector } from 'react-redux';
-import React, { useContext } from 'react';
-import { AppContext } from '..';
-import Image from '../../components/Image';
-import Text from '../../components/Text';
-import Item from '../../components/Item';
-import { FaPlane } from 'react-icons/fa';
+import SectionActive from "../../components/SectionActive";
+import { useSelector } from "react-redux";
+import React, { useContext } from "react";
+import { AppContext } from "..";
+import Image from "../../components/Image";
+import Text from "../../components/Text";
+import Item from "../../components/Item";
+import { FaPlane } from "react-icons/fa";
 export default function Reviews() {
   const { getItem } = useContext(AppContext);
   const handleTop = () => {
     window.scroll({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
   // component active no active
   const val = useSelector((state) => state.admin.app_sections_active).find(
-    (i) => i.name === 'action-detail'
+    (i) => i.name === "action-detail"
   );
 
   const { isEdit: thisIsNotClient } = useSelector((st) => st.admin);
 
   const bgYellow = {
-    background: val.isActive ? null : 'yellow',
-    opacity: val.isActive ? null : '0.2',
-    cursor: val.isActive ? null : 'not-allowed',
+    background: val.isActive ? null : "yellow",
+    opacity: val.isActive ? null : "0.2",
+    cursor: val.isActive ? null : "not-allowed",
   };
 
   if (!thisIsNotClient && !val.isActive) return null;
@@ -35,17 +35,17 @@ export default function Reviews() {
     <>
       <SectionActive name={val.name} />
       <div id="reviews" style={bgYellow}>
-        <div className="container">
+        <div className="container" id="coment">
           <div className="content">
             <div className="reviews-title">
               <h1>
                 <Text itIsClassName="reviews-title" name="reviews_title">
-                  {getItem('reviews_title')}
+                  {getItem("reviews_title")}
                 </Text>
               </h1>
             </div>
             <div className="cards">
-              {getItem('reviewsData', 'reviewsData').map((item, index) => {
+              {getItem("reviewsData", "reviewsData").map((item, index) => {
                 return (
                   <Item
                     group="reviewsData"
@@ -88,11 +88,11 @@ export default function Reviews() {
                 );
               })}
             </div>
-            <div className="plane" style={{ paddingTop: '1rem' }}>
+            <div className="plane" style={{ paddingTop: "1rem" }}>
               <article onClick={handleTop}>
                 <FaPlane className="plane-btn" />
                 <p>
-                  <Text name="prices_top_btn">{getItem('prices_top_btn')}</Text>
+                  <Text name="prices_top_btn">{getItem("prices_top_btn")}</Text>
                 </p>
               </article>
             </div>
