@@ -8,7 +8,9 @@ const mongoose = require('mongoose');
 // MTh21o8C3pQN16bV
 //mongoexport --uri mongodb+srv://admin:MTh21o8C3pQN16bV@cluster0.uoe1t.mongodb.net/myFirstDatabase --collection users --type json --out users.json
 
-// mongoexport --uri mongodb+srv://admin:MTh21o8C3pQN16bV@cluster0.uoe1t.mongodb.net/myFirstDatabase --collection users --type json --out users.json
+//mongoexport --uri mongodb+srv://admin:MTh21o8C3pQN16bV@cluster0.uoe1t.mongodb.net/myFirstDatabase --collection users --type json --out users.json
+
+// mongoimport users.json -d myFirstDatabase -c users --drop
 
 const connectDB = async () => {
   try {
