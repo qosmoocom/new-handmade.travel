@@ -13,8 +13,7 @@ const Index = () => {
   useEffect(() => {
     setLogData(JSON.parse(localStorage.getItem("isLoginMe")));
   }, []);
-
-  // if (logData && logData.role === "admin") {
+  if (logData && logData.role === "admin") {
     dispatch(getAllUsers());
     return (
       <div>
@@ -22,19 +21,18 @@ const Index = () => {
         <Loader />
       </div>
     );
-  // }
+  }
+  if (logData && logData.role === "moderator") {
+    dispatch(getAllMyTours());
+    return (
+      <div>
+        <Moderator />
+        <Loader />
+      </div>
+    );
+  }
 
-  // if (logData && logData.role === "moderator") {
-  //   dispatch(getAllMyTours());
-  //   return (
-  //     <div>
-  //       <Moderator />
-  //       <Loader />
-  //     </div>
-  //   );
-  // }
-
-  // return <div>Index</div>;
+  return <div>Index</div>;
 };
 
 export default Index;

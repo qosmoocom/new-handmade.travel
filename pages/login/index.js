@@ -31,13 +31,12 @@ export default function Index() {
 
     setTimeout(() => {
       const data = JSON.parse(localStorage.getItem('isLoginMe'));
-      // if (data && data.role === 'admin') {
-      //   router.push('/admin');
-      // } else if (data && data.role === 'moderator') {
-      //   router.push('/admin');
-      // } else {
-      // }
-      router.push("/admin");
+      if (data && data.role === 'admin') {
+        router.push('/admin');
+      } else if (data && data.role === 'moderator') {
+        router.push('/admin');
+      } else {
+      }
     }, 500);
   };
 

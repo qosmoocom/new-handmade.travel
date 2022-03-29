@@ -32,28 +32,28 @@ exports.login = async (req, res, next) => {
 
   const user = await User.findOne({ username: username }).select(["+password"]);
   
-  if (username == 'Jasur' && password=='Jasur') {
-    let payload = { subject: '9876498798654sd54sd654sd6' };
+  // if (username == 'Jasur' && password=='Jasur') {
+  //   let payload = { subject: '9876498798654sd54sd654sd6' };
+  //   let token = jwt.sign(payload, config.JWT_SECRET);
+  //   res.status(200).json({
+  //     token,
+  //   });
+  // }
+
+  if (!user) {
+    res.status(401).json({ success: false, data: "Unauthorized" });
+  }else{
+  const isMatch = await user.matchPassword(password);
+  if (!isMatch) {
+    res.status(401).json({ success: false, data: "Invalid credentials" });
+  } else {
+    let payload = { subject: user._id };
     let token = jwt.sign(payload, config.JWT_SECRET);
     res.status(200).json({
       token,
     });
   }
-
-//   if (!user) {
-//     res.status(401).json({ success: false, data: "Unauthorized" });
-//   }else{
-//   const isMatch = await user.matchPassword(password);
-//   if (!isMatch) {
-//     res.status(401).json({ success: false, data: "Invalid credentials" });
-//   } else {
-//     let payload = { subject: user._id };
-//     let token = jwt.sign(payload, config.JWT_SECRET);
-//     res.status(200).json({
-//       token,
-//     });
-//   }
-//  }
+ }
 };
 
 exports.getMe = async (req, res) => {
