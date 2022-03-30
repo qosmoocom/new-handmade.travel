@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import gif from "./loading.gif";
+import gif from "./airplane.gif";
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
