@@ -203,7 +203,7 @@ export default function ImageForModal() {
             },
           });
 
-          console.log("yangi img qushildi...");
+          // console.log("yangi img qushildi...");
           // router.reload(window.location.pathname);
         }, 300);
         setSelectFile(null);

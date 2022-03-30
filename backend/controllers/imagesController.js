@@ -1,24 +1,25 @@
-const Image = require("../models/Images");
-const Tour = require("../models/Tour");
-const path = require("path");
-const fs = require("fs");
-const UploadFile = require("../config/Sharp");
+const Image = require('../models/Images');
+const Tour = require('../models/Tour');
+const path = require('path');
+const fs = require('fs');
+const UploadFile = require('../config/Sharp');
 
 exports.createOne = async (req, res, next) => {
-  // try {
-  //   const result = new Image({
-  //     image: `/public/images/landing/${req.file.filename}`,
-  //     tourID: req.body.tourID,
-  //     tourAuthor: req.body.tourAuthor,
-  //     tour_id: req.body.tour_id,
-  //   });
-  //   // await result.save()
-  //   res.send({ data: result });
-  // } catch (error) {
-  //   res
-  //     .status(800)
-  //     .json({ success: false, err: error, message: error.message });
-  // }
+  try {
+    const result = new Image({
+      image: `/public/images/landing/${req.file.filename}`,
+      tourID: req.body.tourID,
+      tourAuthor: req.body.tourAuthor,
+      tour_id: req.body.tour_id,
+    });
+    // await result.save()
+    res.send({ data: result });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ success: false, err: error, message: error.message });
+      //.json({ success: false, err: 'Anvar', message: 'Шахоб' });
+  }
 };
 
 exports.deleteOne = async (req, res) => {
@@ -36,11 +37,11 @@ exports.deleteOne = async (req, res) => {
           await Image.findByIdAndDelete(req.params.id);
           res.status(200).json({
             success: true,
-            data: "Success delete",
+            data: 'Success delete',
           });
         });
       } else {
-        res.send("Image not found");
+        res.send('Image not found');
       }
     }
   });
@@ -70,10 +71,10 @@ exports.updateOne = async (req, res, next) => {
   result
     .save()
     .then(() => {
-      res.status(200).json("Successufly updated");
+      res.status(200).json('Successufly updated');
     })
     .catch((error) => {
-      res.status(400).json({ message: "Badly", data: error });
+      res.status(400).json({ message: 'Badly', data: error });
     });
 };
 
