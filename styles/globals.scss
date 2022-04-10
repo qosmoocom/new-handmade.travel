@@ -103,6 +103,26 @@ body {
     }
   }
 }
+.header_btns {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 12px;
+  .header_navbar_social-m {
+    @media (min-width: 992px) {
+      display: none;
+    }
+  }
+}
+
+.header_icons_and_btns {
+  .header_navbar_social-m {
+    display: none;
+    @media (min-width: 992px) {
+      display: flex;
+    }
+  }
+}
+
 .mobile-menu-icon {
   margin-left: 10px;
   font-size: 18px;
@@ -284,7 +304,7 @@ body {
       width: 155px;
       height: 155px;
       border-radius: 50%;
-      box-shadow: rgb(0 0 0 / 25%) 4px 4px 4px;
+      box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.25);
       display: inline-block;
       padding: 3px;
     }
@@ -341,7 +361,7 @@ body {
 }
 
 .header_navbar_right-box {
-  position: absolute;
+  // position: absolute;
   right: 10px;
   top: 40px;
   z-index: 2;
@@ -356,7 +376,7 @@ body {
     right: 41px;
   }
   @media (min-width: 1400px) {
-    right: 123px;
+    right: 300px;
   }
 }
 
@@ -444,7 +464,7 @@ body {
     }
     .header_navbar_logo_box {
       border-radius: 50%;
-      box-shadow: rgb(0 0 0 / 25%) 4px 4px 4px;
+      box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.25);
       display: inline-block;
       padding: 3px;
       width: 85px;
@@ -512,7 +532,7 @@ body {
   top: 0;
   left: 0;
   background: #fff;
-  box-shadow: rgb(1 1 1 / 30%) 1px 7px 10px;
+  box-shadow: rgba(1, 1, 1, 0.3) 1px 7px 10px;
   z-index: -3;
   opacity: 0;
   transition: 0.4s;
@@ -1563,7 +1583,7 @@ body {
             padding: 10px;
             border-radius: 5px;
             max-width: 220px;
-            box-shadow: rgb(204 204 204) 1px 1px 10px 2px;
+            box-shadow: inset 1px 1px 10px 2px rgba(204, 204, 204, 1);
             background-color: #fff;
             &.active {
               display: none;
@@ -1613,7 +1633,7 @@ body {
         padding: 10px;
         border-radius: 5px;
         max-width: 220px;
-        box-shadow: rgb(204 204 204) 1px 1px 10px 2px;
+        box-shadow: inset 1px 1px 10px 2px rgba(204, 204, 204, 1);
         background-color: #fff;
         &.active {
           display: none;
@@ -1658,7 +1678,7 @@ body {
         font-weight: 700;
       }
       &.fist-item {
-        background: rgb(191 114 70 / 10%);
+        background: rgba(191, 114, 70, 0.1);
         border-bottom: 1px solid rgb(30, 30, 30);
         font-size: 20px;
         align-items: center;
@@ -1718,7 +1738,7 @@ body {
         font-size: 14px;
         padding: 5px 0;
         line-height: 1.1;
-        color: rgb(0 0 0 / 87%);
+        color: rgba(0, 0, 0, 0.87);
 
         @media (min-width: 768px) {
           font-size: 17px;

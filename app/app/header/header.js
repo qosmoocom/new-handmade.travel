@@ -175,10 +175,43 @@ export default function Header() {
         {/* /fixed header in scroll */}
 
         {/* mobile menu  */}
-        <AiOutlineMenu
-          className="mobile-menu-icon"
-          onClick={openLeftMenuHandler}
-        />
+        <div className="header_btns">
+          <AiOutlineMenu
+            className="mobile-menu-icon"
+            onClick={openLeftMenuHandler}
+          />
+          <div className="header_navbar_social-m">
+            <div className="header_navbar_social-m-item telegram-icon">
+              <Link
+                href={`${getItem("head_tg_href")}`}
+                hrefName="head_tg_href"
+                itIsClassName="header_navbar_social-m-item telegram-icon"
+              >
+                <BsTelegram className="header_navbar_telegram-icon" />
+              </Link>
+            </div>
+            {/* BsTwitter */}
+            <div className="header_navbar_social-m-item whatsapp-icon">
+              <Link
+                href={`${getItem("head_wt_href")}`}
+                hrefName="head_wt_href"
+                itIsClassName="header_navbar_social-m-item whatsapp-icon"
+              >
+                <IoLogoWhatsapp className="header_navbar_whatsapp-icon" />
+              </Link>
+            </div>
+
+            <div className="header_navbar_social-m-item facebook-icon">
+              <Link
+                href={`${getItem("head_fc_href")}`}
+                hrefName="head_fc_href"
+                itIsClassName="header_navbar_social-m-item facebook-icon"
+              >
+                <BsFacebook className="header_navbar_facebook-icon" />
+              </Link>
+            </div>
+          </div>
+        </div>
         <div className={`mobile-left-menu-wrapper ${isOpen ? "active" : ""}`}>
           <span className="mobile-after-bg" onClick={closeLeftMenuHandler} />
 
@@ -351,91 +384,96 @@ export default function Header() {
                 {/* /navbar texts box */}
               </div>
             </div>
-            {/* navbar right items */}
-            <div className="header_navbar_right-box">
-              <div className="header_navbar_phone">
-                <IoMdCall className="header_navbar_phone-icon" />
-                <Link
-                  name="head_phone_ru"
-                  href={`${getItem("head_phone_href")}`}
-                  hrefName={"head_phone_href"}
-                  itIsClassName="header_navbar_phone"
-                >
-                  {getItem("head_phone_ru")}
-                </Link>
-              </div>
-              <div className="header_navbar_social-m">
-                <div className="header_navbar_social-m-item telegram-icon">
+            <div className="header_icons_and_btns">
+              {/* navbar right items */}
+              <div className="header_navbar_right-box">
+                <div className="header_navbar_phone">
+                  <IoMdCall className="header_navbar_phone-icon" />
                   <Link
-                    href={`${getItem("head_tg_href")}`}
-                    hrefName="head_tg_href"
-                    itIsClassName="header_navbar_social-m-item telegram-icon"
+                    name="head_phone_ru"
+                    href={`${getItem("head_phone_href")}`}
+                    hrefName={"head_phone_href"}
+                    itIsClassName="header_navbar_phone"
                   >
-                    <BsTelegram className="header_navbar_telegram-icon" />
+                    {getItem("head_phone_ru")}
                   </Link>
                 </div>
-                {/* BsTwitter */}
-                <div className="header_navbar_social-m-item whatsapp-icon">
-                  <Link
-                    href={`${getItem("head_wt_href")}`}
-                    hrefName="head_wt_href"
-                    itIsClassName="header_navbar_social-m-item whatsapp-icon"
-                  >
-                    <IoLogoWhatsapp className="header_navbar_whatsapp-icon" />
-                  </Link>
-                </div>
+                <div className="header_navbar_social-m big">
+                  <div className="header_navbar_social-m-item telegram-icon">
+                    <Link
+                      href={`${getItem("head_tg_href")}`}
+                      hrefName="head_tg_href"
+                      itIsClassName="header_navbar_social-m-item telegram-icon"
+                    >
+                      <BsTelegram className="header_navbar_telegram-icon" />
+                    </Link>
+                  </div>
+                  {/* BsTwitter */}
+                  <div className="header_navbar_social-m-item whatsapp-icon">
+                    <Link
+                      href={`${getItem("head_wt_href")}`}
+                      hrefName="head_wt_href"
+                      itIsClassName="header_navbar_social-m-item whatsapp-icon"
+                    >
+                      <IoLogoWhatsapp className="header_navbar_whatsapp-icon" />
+                    </Link>
+                  </div>
 
-                <div className="header_navbar_social-m-item facebook-icon">
-                  <Link
-                    href={`${getItem("head_fc_href")}`}
-                    hrefName="head_fc_href"
-                    itIsClassName="header_navbar_social-m-item facebook-icon"
-                  >
-                    <BsFacebook className="header_navbar_facebook-icon" />
-                  </Link>
+                  <div className="header_navbar_social-m-item facebook-icon">
+                    <Link
+                      href={`${getItem("head_fc_href")}`}
+                      hrefName="head_fc_href"
+                      itIsClassName="header_navbar_social-m-item facebook-icon"
+                    >
+                      <BsFacebook className="header_navbar_facebook-icon" />
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-            {/* /navbar right items */}
+              {/* /navbar right items */}
 
-            {/* btn-logo-mobile */}
-            <div className="btn-logo-and-mobile">
-              <div className="header_navbar_btn_mobile">
-                <button style={{ cursor: "pointer" }} onClick={handleOnModal1}>
-                  <Text
-                    name="head_btn_call"
-                    itIsClassName="header_navbar_btn_mobile"
+              {/* btn-logo-mobile */}
+              <div className="btn-logo-and-mobile">
+                <div className="header_navbar_btn_mobile">
+                  <button
+                    style={{ cursor: "pointer" }}
+                    onClick={handleOnModal1}
                   >
-                    {getItem("head_btn_call")}
-                  </Text>
-                </button>
-              </div>
-              <div className="header_navbar_logo_mobile">
-                <div className="header_navbar_logo_box">
-                  <Image
-                    priority
-                    width={logoWidth}
-                    height={logoWidth}
-                    objectFit="contain"
-                    itIsClassName="header_navbar_logo_box"
-                    srcDataName={"my_logo_img_url"}
-                    src={getItem("my_logo_img_url")}
-                    altDataName={"logofixed_img_alt"}
-                    alt={getItem("logofixed_img_alt")}
-                    titleDataName={"logofixed_img_title"}
-                    title={getItem("logofixed_img_title")}
-                  />
+                    <Text
+                      name="head_btn_call"
+                      itIsClassName="header_navbar_btn_mobile"
+                    >
+                      {getItem("head_btn_call")}
+                    </Text>
+                  </button>
                 </div>
-                <div
-                  className="header_navbar_logo_text"
-                  data-name="my_logo_text"
-                >
-                  <Text
-                    name={"my_logo_text"}
-                    itIsClassName="header_navbar_logo_text"
+                <div className="header_navbar_logo_mobile">
+                  <div className="header_navbar_logo_box">
+                    <Image
+                      priority
+                      width={logoWidth}
+                      height={logoWidth}
+                      objectFit="contain"
+                      itIsClassName="header_navbar_logo_box"
+                      srcDataName={"my_logo_img_url"}
+                      src={getItem("my_logo_img_url")}
+                      altDataName={"logofixed_img_alt"}
+                      alt={getItem("logofixed_img_alt")}
+                      titleDataName={"logofixed_img_title"}
+                      title={getItem("logofixed_img_title")}
+                    />
+                  </div>
+                  <div
+                    className="header_navbar_logo_text"
+                    data-name="my_logo_text"
                   >
-                    {getItem("my_logo_text")}
-                  </Text>
+                    <Text
+                      name={"my_logo_text"}
+                      itIsClassName="header_navbar_logo_text"
+                    >
+                      {getItem("my_logo_text")}
+                    </Text>
+                  </div>
                 </div>
               </div>
             </div>
