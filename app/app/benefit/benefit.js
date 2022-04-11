@@ -6,8 +6,8 @@ import Image from '../../components/Image';
 import Text from '../../components/Text';
 export default function Benefit() {
   const { getItem } = useContext(AppContext);
-
-   const handleOnModal2 = () => {
+  const dispatch = useDispatch();
+  const handleOnModal2 = () => {
     const payload = {
       currentModal: 'MODAL_3',
       actionModal: 'ACTION 2',
