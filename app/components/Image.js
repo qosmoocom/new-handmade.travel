@@ -70,7 +70,9 @@ export default function Index({
     }
   };
 
-
+  const myLoader = ({ src, width, quality }) => {
+    return `https://okeey.uz/${src}?w=${width}&q=${quality || 75}`;
+  };
   
   if (layout === "fill" && src) {
     return (
@@ -84,21 +86,23 @@ export default function Index({
             style={{ width: "100%", height: "100%", objectFit: objectFit }}
           />
         ) : (
-          <img
+          <Image
+            loader={myLoader}
             src={src}
             alt={alt || ""}
             title={title || ""}
+            priority={priority === "important"}
+            objectFit={objectFit}
+            layout={layout}
             onDoubleClick={doubleClickHandler}
-            style={{ width: "100%", height: "100%", objectFit: objectFit }}
+            loading="eager"
           />
         )}
       </>
     );
   }
 
-  const myLoader = ({ src, width, quality }) => {
-    return `https://okeey.uz/${src}?w=${width}&q=${quality || 75}`;
-  };
+  
   return (
     <Wrapper>
       {src && (
@@ -113,7 +117,6 @@ export default function Index({
           ) : (
             
             <Image
-              loader={myLoader}
               src={src}
               key={src}
               width={width}
