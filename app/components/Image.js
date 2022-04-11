@@ -98,6 +98,10 @@ export default function Index({
       </>
     );
   }
+
+  const myLoader = ({ src, width, quality }) => {
+    return `https://okeey.uz/${src}?w=${width}&q=${quality || 75}`;
+  };
   return (
     <Wrapper>
       {src && (
@@ -110,8 +114,8 @@ export default function Index({
               // style={{ width: "100%", height: "100%" }}
             />
           ) : (
-                        
             <Image
+              loader={myLoader}
               src={src}
               key={src}
               width={width}
