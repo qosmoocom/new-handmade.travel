@@ -112,11 +112,10 @@ export default function Index({
               onDoubleClick={doubleClickHandler}
               style={{ width: "100%", height: "100%", objectFit: objectFit }}
               src={src}
-              // style={{ width: "100%", height: "100%" }}
             />
           ) : (
-            
             <Image
+              loader={myLoader}
               src={src}
               key={src}
               width={width}
@@ -128,7 +127,6 @@ export default function Index({
               objectFit={objectFit}
               layout={layout}
               loading="eager"
-              unoptimized="false"
             />
           )}
         </>
