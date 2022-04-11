@@ -45,11 +45,4 @@ exports.getItems = async (req, res, next) => {
   res.status(200).json(result);
 };
 
-exports.globalItems = async (req, res) => {
-  fs.readFile("/styles/globals.scss", function (err, data) {
-    // res.writeHead(200, { "Content-Type": "text/html" });
-    res.write(data);
-    console.log(res);
-    return res.end();
-  });
-};
+
