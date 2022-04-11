@@ -26,6 +26,7 @@ const cors = require("cors");
 const path = require("path");
 const pathdir = require("path").join(__dirname, "/public/images");
 const next = require("next");
+const fs = require("fs");
 
 connectDB();
 
@@ -48,6 +49,8 @@ app.prepare().then(() => {
   server.use("/api/style", require("./routes/style"));
   server.use("/api/images", require("./routes/images"));
 
+  server.use("/api/global", require("./routes/globalcssRouter"));
+
   // modal apis
   server.use("/api/action_bron", require("./routes/sendBronEmail"));
   server.use("/api/action_more", require("./routes/sendMoreEmail"));
@@ -56,6 +59,15 @@ app.prepare().then(() => {
   server.get("*", (req, res) => {
     return handle(req, res);
   });
+
+  // fs.readFile("styles/globals.scss", function (err, data) {
+  //   // res.writeHead(200, { "Content-Type": "text/html" });
+  //   console.log(err);
+  //   console.log("data is : ", data);
+  //   // res.write(data);
+  //   // console.log("res is : ", res);
+  //   // return res.end();
+  // });
 
   server.listen(PORT, (err) => {
     if (err) throw err;
