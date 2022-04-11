@@ -84,15 +84,12 @@ export default function Index({
             style={{ width: "100%", height: "100%", objectFit: objectFit }}
           />
         ) : (
-          <Image
+          <img
             src={src}
             alt={alt || ""}
             title={title || ""}
-            priority={priority === "important"}
-            objectFit={objectFit}
-            layout={layout}
             onDoubleClick={doubleClickHandler}
-            loading="eager"
+            style={{ width: "100%", height: "100%", objectFit: objectFit }}
           />
         )}
       </>
@@ -114,13 +111,22 @@ export default function Index({
               // style={{ width: "100%", height: "100%" }}
             />
           ) : (
-            <img
-              onDoubleClick={doubleClickHandler}
-              style={{ width: "100%", height: "100%", objectFit: objectFit }}
-              src={src}
-              // style={{ width: "100%", height: "100%" }}
-            />
             
+            <Image
+              loader={myLoader}
+              src={src}
+              key={src}
+              width={width}
+              height={height}
+              onDoubleClick={doubleClickHandler}
+              alt={alt}
+              title={title}
+              priority={priority === "important"}
+              objectFit={objectFit}
+              layout={layout}
+              loading="eager"
+              unoptimized="false"
+            />
           )}
         </>
       )}
