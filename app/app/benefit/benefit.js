@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { AppContext } from '..';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import SectionActive from '../../components/SectionActive';
 import Image from '../../components/Image';
 import Text from '../../components/Text';
