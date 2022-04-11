@@ -3331,7 +3331,7 @@ body {
   height: 500px;
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
-      grid-template-areas: "img1 img1 img2 img3" "img1 img1 img4 img5";
+      grid-template-areas: "img1 img1 img2 img3" "img1 img1 img4 img5";
   grid-gap: 5px;
   max-width: 1130px;
 }
@@ -3344,7 +3344,7 @@ body {
     height: 100%;
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
-        grid-template-areas: "img1" "img2" "img3" "img4" "img5";
+        grid-template-areas: "img1" "img2" "img3" "img4" "img5";
     grid-gap: 10px;
     padding-top: 5px;
   }
@@ -3359,7 +3359,7 @@ body {
         grid-template-columns: repeat(2, 1fr);
     width: 93%;
     padding-top: 0;
-        grid-template-areas: "img1 img1" "img1 img1" "img2 img3" "img4 img5";
+        grid-template-areas: "img1 img1" "img1 img1" "img2 img3" "img4 img5";
     grid-gap: 3px;
   }
 }
@@ -3372,7 +3372,7 @@ body {
     width: 100%;
     -ms-grid-columns: (1fr)[4];
         grid-template-columns: repeat(4, 1fr);
-        grid-template-areas: "img1 img1 img2 img3" "img1 img1 img4 img5";
+        grid-template-areas: "img1 img1 img2 img3" "img1 img1 img4 img5";
     grid-gap: 5px;
     max-width: 1130px;
   }

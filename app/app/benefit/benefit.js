@@ -7,6 +7,14 @@ import Text from '../../components/Text';
 export default function Benefit() {
   const { getItem } = useContext(AppContext);
 
+   const handleOnModal2 = () => {
+    const payload = {
+      currentModal: 'MODAL_3',
+      actionModal: 'ACTION 2',
+    };
+    dispatch({ type: 'MODAL_OPEN', payload });
+  };
+
   // component active no active
   const val = useSelector((state) => state.admin.app_sections_active).find(
     (i) => i.name === 'benefit'
@@ -23,6 +31,8 @@ export default function Benefit() {
   if (!thisIsNotClient && !val.isActive) return null;
   // component active no active
 
+
+
   return (
     <>
       <SectionActive name={val.name} />
@@ -31,7 +41,7 @@ export default function Benefit() {
         <div className="container">
           <div className="benefit-title">
             <h2>
-              <Text name="benefit_title">{getItem('benefit_title')}</Text>
+              <Text name="benefit_title">{getItem("benefit_title")}</Text>
             </h2>
           </div>
         </div>
@@ -39,26 +49,26 @@ export default function Benefit() {
           <Image
             objectFit="cover"
             layout="fill"
-            src={getItem('benefit_img_url')}
-            alt={getItem('benefit_img_alt')}
-            title={getItem('benefit_img_title')}
-            srcDataName={'benefit_img_url'}
-            altDasrcDataName={'benefit_img_alt'}
-            titleDasrcDataName={'benefit_img_title'}
-            priority={'important'}
+            src={getItem("benefit_img_url")}
+            alt={getItem("benefit_img_alt")}
+            title={getItem("benefit_img_title")}
+            srcDataName={"benefit_img_url"}
+            altDasrcDataName={"benefit_img_alt"}
+            titleDasrcDataName={"benefit_img_title"}
+            priority={"important"}
           />
 
           <div className="benefit-text-section">
             <h1>
               <b>
                 <Text name="benefit_center_title">
-                  {getItem('benefit_center_title')}
+                  {getItem("benefit_center_title")}
                 </Text>
               </b>
             </h1>
             <p>
               <Text name="benefit_center_info">
-                {getItem('benefit_center_info')}
+                {getItem("benefit_center_info")}
               </Text>
             </p>
           </div>
@@ -70,13 +80,13 @@ export default function Benefit() {
               <div className="info">
                 <p>
                   <Text name="benefit_action_text">
-                    {getItem('benefit_action_text')}
+                    {getItem("benefit_action_text")}
                   </Text>
                 </p>
               </div>
-              <button>
+              <button style={{ cursor: "pointer" }} onClick={handleOnModal2}>
                 <Text name="benefit_action_btn">
-                  {getItem('benefit_action_btn')}
+                  {getItem("benefit_action_btn")}
                 </Text>
               </button>
             </div>
