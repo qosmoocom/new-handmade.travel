@@ -76,10 +76,21 @@ export default function Index() {
           <title>Edit My Tour</title>
         </Head>
         <div className="right-btns">
-          <button onClick={saveHandler}>save</button>
-          <Link href={"/admin"}>back admin</Link>{" "}
-          <Link href={"/login"}>back login</Link>{" "}
-          <Link href={`/update/style/${_id}`}>edit css</Link>
+          <button className="save" onClick={saveHandler}>
+            save
+          </button>
+          <Link href={"/admin"}>
+            <button className="back_admin"> back admin</button>
+          </Link>{" "}
+          <Link href={"/login"}>
+            <button className="back_login">back login</button>
+          </Link>{" "}
+          <Link href={`/update/style/${_id}`}>
+            <button className="edit_css">edit css</button>
+          </Link>
+          <Link href={"/update/style"}>
+            <button className="global_css">global css</button>
+          </Link>
         </div>
 
         <App />
@@ -117,9 +128,23 @@ const Wrapper = styled.div`
       border-radius: 6px;
       transition: 0.4s;
       margin-right: 10px;
+      letter-spacing: 2px;
       &:focus {
         box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.2);
       }
+    }
+    .back_admin {
+      background: #73c35f;
+    }
+    .back_login {
+      background: #306280;
+    }
+    .edit_css {
+      background: #5d2f3a;
+    }
+    .global_css {
+      background: #b4c35f;
+      color: #7e4e4e;
     }
   }
 `;

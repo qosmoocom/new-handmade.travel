@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 import { AppContext } from "..";
 import Item from "../../components/Item";
 import Text from "../../components/Text";
-import { FaPlane } from "react-icons/fa";
+import { IoIosAirplane } from "react-icons/io";
 export default function Price() {
   const { getItem } = useContext(AppContext);
   const handleTop = () => {
@@ -81,7 +81,8 @@ export default function Price() {
             </div>
             <div className="plane" id="text">
               <article onClick={handleTop}>
-                <FaPlane className="plane-btn" />
+                <IoIosAirplane className="plane-btn" />
+
                 <p>
                   <Text name="prices_top_btn">{getItem("prices_top_btn")}</Text>
                 </p>

@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import { useDispatch, useSelector } from 'react-redux';
-import { types } from '../../store/types';
-import styled from 'styled-components';
-import { useEffect, useState } from 'react';
+import Image from "next/image";
+import { useDispatch, useSelector } from "react-redux";
+import { types } from "../../store/types";
+import styled from "styled-components";
+import { useEffect, useState } from "react";
 const Wrapper = styled.span`
   position: relative;
   .edit__icon {
@@ -24,25 +24,25 @@ export default function Index({
   src: imgSrc,
   width,
   height,
-  alt = '',
-  title = '',
-  objectFit = '',
-  layout = '',
-  itIsClassName = '',
-  srcDataName = '',
-  altDataName = '',
-  titleDataName = '',
-  id = '',
-  group = '',
-  list = '',
-  name = '',
-  parentId = '',
-  childId = '',
+  alt = "",
+  title = "",
+  objectFit = "",
+  layout = "",
+  itIsClassName = "",
+  srcDataName = "",
+  altDataName = "",
+  titleDataName = "",
+  id = "",
+  group = "",
+  list = "",
+  name = "",
+  parentId = "",
+  childId = "",
   priority,
 }) {
   const { isEdit: isAdmin } = useSelector((st) => st.admin);
   const dispatch = useDispatch();
-  const [src, setSrc] = useState('');
+  const [src, setSrc] = useState("");
   useEffect(() => {
     setSrc(imgSrc);
   }, [imgSrc]);
@@ -70,23 +70,25 @@ export default function Index({
     }
   };
 
-  if (layout === 'fill' && src) {
+
+  
+  if (layout === "fill" && src) {
     return (
       <>
         {isAdmin ? (
           <img
             src={src}
-            alt={alt || ''}
-            title={title || ''}
+            alt={alt || ""}
+            title={title || ""}
             onDoubleClick={doubleClickHandler}
-            style={{ width: '100%', height: '100%', objectFit: objectFit }}
+            style={{ width: "100%", height: "100%", objectFit: objectFit }}
           />
         ) : (
           <Image
             src={src}
-            alt={alt || ''}
-            title={title || ''}
-            priority={priority === 'important'}
+            alt={alt || ""}
+            title={title || ""}
+            priority={priority === "important"}
             objectFit={objectFit}
             layout={layout}
             onDoubleClick={doubleClickHandler}
@@ -103,11 +105,12 @@ export default function Index({
           {isAdmin ? (
             <img
               onDoubleClick={doubleClickHandler}
-              style={{ width: '100%', height: '100%', objectFit: objectFit }}
+              style={{ width: "100%", height: "100%", objectFit: objectFit }}
               src={src}
-              style={{ width: '100%', height: '100%' }}
+              // style={{ width: "100%", height: "100%" }}
             />
           ) : (
+                        
             <Image
               src={src}
               key={src}
@@ -116,10 +119,11 @@ export default function Index({
               onDoubleClick={doubleClickHandler}
               alt={alt}
               title={title}
-              priority={priority === 'important'}
+              priority={priority === "important"}
               objectFit={objectFit}
               layout={layout}
               loading="eager"
+              unoptimized="false"
             />
           )}
         </>

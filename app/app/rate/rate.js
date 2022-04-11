@@ -2,7 +2,7 @@ import SectionActive from "../../components/SectionActive";
 import { BsExclamationCircle, BsCheck2 } from "react-icons/bs";
 import parse from "html-react-parser";
 import { IoIosMail, IoMdCall } from "react-icons/io";
-import { FaPlane } from "react-icons/fa";
+import { IoIosAirplane } from "react-icons/io";
 import { RiMessageFill } from "react-icons/ri";
 import React, { useContext, useState } from "react";
 
@@ -12,6 +12,7 @@ import Item from "../../components/Item";
 import { AppContext } from "..";
 import { useDispatch, useSelector } from "react-redux";
 import { types } from "../../../store/types";
+import Image from "next/image";
 
 function DataIs({ isOpen = false, tariffNum = "" }) {
   const { getItem } = useContext(AppContext);
@@ -244,11 +245,10 @@ export default function Rate() {
                       <div className="list-table-th jcc">
                         {index === sizeData - 1 ? (
                           <div className="last-icons">
-                            <IoIosMail className="icon active" />
-                            <RiMessageFill className="icon active" />
-                            <IoMdCall
-                              className={`icon`}
-                              style={{ background: "#686868b0" }}
+                            <Image
+                              src="/images/phone1.jpg"
+                              width={80}
+                              height={20}
                             />
                           </div>
                         ) : (
@@ -270,11 +270,10 @@ export default function Rate() {
                       <div className="list-table-th jcc">
                         {index === sizeData - 1 ? (
                           <div className="last-icons">
-                            <IoIosMail className="icon active" />
-                            <RiMessageFill className="icon active" />
-                            <IoMdCall
-                              className={`icon`}
-                              style={{ background: "#686868b0" }}
+                            <Image
+                              src="/images/phone1.jpg"
+                              width={80}
+                              height={20}
                             />
                           </div>
                         ) : (
@@ -296,9 +295,11 @@ export default function Rate() {
                       <div className="list-table-th jcc">
                         {index === sizeData - 1 ? (
                           <div className="last-icons">
-                            <IoIosMail className="icon active" />
-                            <RiMessageFill className="icon active" />
-                            <IoMdCall className={`icon active`} />
+                            <Image
+                              src="/images/phone3.jpg"
+                              width={80}
+                              height={20}
+                            />
                           </div>
                         ) : (
                           item.actives[2] && (
@@ -330,7 +331,7 @@ export default function Rate() {
               </p>
               <div className="plane">
                 <article onClick={handleTop}>
-                  <FaPlane className="plane-btn" />
+                  <IoIosAirplane className="plane-btn" />
                   <p>
                     <Text name="prices_top_btn">
                       {getItem("prices_top_btn")}

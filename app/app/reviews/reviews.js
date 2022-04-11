@@ -5,7 +5,7 @@ import { AppContext } from "..";
 import Image from "../../components/Image";
 import Text from "../../components/Text";
 import Item from "../../components/Item";
-import { FaPlane } from "react-icons/fa";
+import { IoIosAirplane } from "react-icons/io";
 export default function Reviews() {
   const { getItem } = useContext(AppContext);
   const handleTop = () => {
@@ -90,7 +90,7 @@ export default function Reviews() {
             </div>
             <div className="plane" style={{ paddingTop: "1rem" }}>
               <article onClick={handleTop}>
-                <FaPlane className="plane-btn" />
+                <IoIosAirplane className="plane-btn" />
                 <p>
                   <Text name="prices_top_btn">{getItem("prices_top_btn")}</Text>
                 </p>

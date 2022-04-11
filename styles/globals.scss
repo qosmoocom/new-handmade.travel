@@ -945,6 +945,7 @@ body {
 
 // third-utp style started
 #third-utp {
+  margin-top: 30px;
   .third-utp-title {
     h2 {
       font-weight: bold;
@@ -1305,19 +1306,21 @@ body {
   .content {
     @media (min-width: 768px) {
       display: flex;
+      justify-content: space-between;
       align-items: center;
       column-gap: 20px;
     }
 
     .content-left {
+      // padding-right: 50px;
       @media (min-width: 768px) {
-        width: 80%;
+        width: 70%;
       }
       @media (min-width: 1200px) {
         width: 77%;
       }
-      @media (min-width: 1200px) {
-        width: 70%;
+      @media (min-width: 1400px) {
+        width: 60%;
       }
     }
 
@@ -1351,7 +1354,7 @@ body {
     }
 
     @media (min-width: 1200px) {
-      font-size: 32px;
+      font-size: 33px;
     }
   }
 
@@ -1377,6 +1380,9 @@ body {
 
     @media (min-width: 1200px) {
       font-size: 25px;
+    }
+    @media (min-width: 1300px) {
+      font-size: 30px;
     }
   }
 
@@ -1825,7 +1831,7 @@ body {
         }
         @media (min-width: 1200px) {
           font-size: 32px;
-          font-weight: 600;
+          font-weight: 800;
         }
         @media (min-width: 1400px) {
           font-size: 33px;
@@ -2351,6 +2357,7 @@ body {
     height: auto;
     display: flex;
     flex-direction: column;
+    margin-top: 30px;
   }
   .author-title {
     position: relative;
