@@ -47,7 +47,7 @@ export default function Benefit() {
         <div className="benefit-bg">
           <div className="benefit-wrapper">
             <div className="img-box-benefit">
-              <Image
+              <img
                 src={getItem("benefit_img_url")}
                 alt={getItem("benefit_img_alt")}
                 title={getItem("benefit_img_title")}
