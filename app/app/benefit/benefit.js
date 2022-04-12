@@ -1,20 +1,19 @@
-
-import React, { useContext } from 'react';
-import { AppContext } from '..';
+import React, { useContext } from "react";
+import { AppContext } from "..";
 import { useDispatch, useSelector } from "react-redux";
-import SectionActive from '../../components/SectionActive';
-import Image from '../../components/Image';
-import Text from '../../components/Text';
+import SectionActive from "../../components/SectionActive";
+import Image from "../../components/Image";
+import Text from "../../components/Text";
 
 export default function Benefit() {
   const { getItem } = useContext(AppContext);
   const dispatch = useDispatch();
   const handleOnModal2 = () => {
     const payload = {
-      currentModal: 'MODAL_3',
-      actionModal: 'ACTION 2',
+      currentModal: "MODAL_3",
+      actionModal: "ACTION 2",
     };
-    dispatch({ type: 'MODAL_OPEN', payload });
+    dispatch({ type: "MODAL_OPEN", payload });
   };
 
   // component active no active
@@ -33,8 +32,6 @@ export default function Benefit() {
   if (!thisIsNotClient && !val.isActive) return null;
   // component active no active
 
-
-
   return (
     <>
       <SectionActive name={val.name} />
@@ -47,7 +44,7 @@ export default function Benefit() {
             </h2>
           </div>
         </div>
-<<<<<<< HEAD
+        {/* <<<<<<< HEAD */}
         <div className="benefit-bg">
           <div className="benefit-wrapper">
             {/* <div className="benefit-image"> */}
@@ -78,7 +75,7 @@ export default function Benefit() {
                 </Text>
               </p>
             </div>
-=======
+            {/* =======
         <div className="benefit-wrapper">
           <Image
             objectFit="cover"
@@ -105,7 +102,7 @@ export default function Benefit() {
                 {getItem("benefit_center_info")}
               </Text>
             </p>
->>>>>>> daf7772dce65925c189c578d3c4d7035b64742b4
+>>>>>>> daf7772dce65925c189c578d3c4d7035b64742b4 */}
           </div>
         </div>
 
