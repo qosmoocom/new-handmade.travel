@@ -1,4 +1,5 @@
 import "../public/fonts/Akrobat/fonts.css";
+import "../public/fonts/Mulish/fonts.css";
 import "../styles/globals.scss";
 
 import store from "../store";
