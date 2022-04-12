@@ -952,7 +952,7 @@ export const defaultState = {
     value: `ПУТЕШЕСТВОВАТЬ С НАМИ НЕ ТОЛЬКО ИНТЕРЕСНО И ВКУСНО, НО И ВЫГОДНО!`,
   },
   benefit_img_url: {
-    value: "/images/landing/gastro/benefit/img.png",
+    value: "/images/landing/gastro/benefit/mozaic.webp",
   },
   benefit_img_alt: {
     value: "Самаркандские лепёшки на базаре",

@@ -1,23 +1,23 @@
-import React, { useContext } from 'react';
-import { AppContext } from '..';
-import { useSelector } from 'react-redux';
-import SectionActive from '../../components/SectionActive';
-import Image from '../../components/Image';
-import Text from '../../components/Text';
+import React, { useContext } from "react";
+import { AppContext } from "..";
+import { useSelector } from "react-redux";
+import SectionActive from "../../components/SectionActive";
+import Image from "../../components/Image";
+import Text from "../../components/Text";
 export default function Benefit() {
   const { getItem } = useContext(AppContext);
 
   // component active no active
   const val = useSelector((state) => state.admin.app_sections_active).find(
-    (i) => i.name === 'benefit'
+    (i) => i.name === "benefit"
   );
 
   const { isEdit: thisIsNotClient } = useSelector((st) => st.admin);
 
   const bgYellow = {
-    background: val.isActive ? null : 'yellow',
-    opacity: val.isActive ? null : '0.2',
-    cursor: val.isActive ? null : 'not-allowed',
+    background: val.isActive ? null : "yellow",
+    opacity: val.isActive ? null : "0.2",
+    cursor: val.isActive ? null : "not-allowed",
   };
 
   if (!thisIsNotClient && !val.isActive) return null;
@@ -31,36 +31,40 @@ export default function Benefit() {
         <div className="container">
           <div className="benefit-title">
             <h2>
-              <Text name="benefit_title">{getItem('benefit_title')}</Text>
+              <Text name="benefit_title">{getItem("benefit_title")}</Text>
             </h2>
           </div>
         </div>
-        <div className="benefit-wrapper">
-          <Image
-            objectFit="cover"
-            layout="fill"
-            src={getItem('benefit_img_url')}
-            alt={getItem('benefit_img_alt')}
-            title={getItem('benefit_img_title')}
-            srcDataName={'benefit_img_url'}
-            altDasrcDataName={'benefit_img_alt'}
-            titleDasrcDataName={'benefit_img_title'}
-            priority={'important'}
-          />
+        <div className="benefit-bg">
+          <div className="benefit-wrapper">
+            {/* <div className="benefit-image"> */}
+            <Image
+              objectFit="cover"
+              layout="fill"
+              src={getItem("benefit_img_url")}
+              alt={getItem("benefit_img_alt")}
+              title={getItem("benefit_img_title")}
+              srcDataName={"benefit_img_url"}
+              altDasrcDataName={"benefit_img_alt"}
+              titleDasrcDataName={"benefit_img_title"}
+              priority={"important"}
+            />
+            {/* </div> */}
 
-          <div className="benefit-text-section">
-            <h1>
-              <b>
-                <Text name="benefit_center_title">
-                  {getItem('benefit_center_title')}
+            <div className="benefit-text-section">
+              <h1>
+                <b>
+                  <Text name="benefit_center_title">
+                    {getItem("benefit_center_title")}
+                  </Text>
+                </b>
+              </h1>
+              <p>
+                <Text name="benefit_center_info">
+                  {getItem("benefit_center_info")}
                 </Text>
-              </b>
-            </h1>
-            <p>
-              <Text name="benefit_center_info">
-                {getItem('benefit_center_info')}
-              </Text>
-            </p>
+              </p>
+            </div>
           </div>
         </div>
 
@@ -70,13 +74,13 @@ export default function Benefit() {
               <div className="info">
                 <p>
                   <Text name="benefit_action_text">
-                    {getItem('benefit_action_text')}
+                    {getItem("benefit_action_text")}
                   </Text>
                 </p>
               </div>
               <button>
                 <Text name="benefit_action_btn">
-                  {getItem('benefit_action_btn')}
+                  {getItem("benefit_action_btn")}
                 </Text>
               </button>
             </div>
