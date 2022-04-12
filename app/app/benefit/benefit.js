@@ -44,10 +44,8 @@ export default function Benefit() {
             </h2>
           </div>
         </div>
-        {/* <<<<<<< HEAD */}
         <div className="benefit-bg">
           <div className="benefit-wrapper">
-            {/* <div className="benefit-image"> */}
             <Image
               objectFit="cover"
               layout="fill"
@@ -59,8 +57,6 @@ export default function Benefit() {
               titleDasrcDataName={"benefit_img_title"}
               priority={"important"}
             />
-            {/* </div> */}
-
             <div className="benefit-text-section">
               <h1>
                 <b>
@@ -75,34 +71,6 @@ export default function Benefit() {
                 </Text>
               </p>
             </div>
-            {/* =======
-        <div className="benefit-wrapper">
-          <Image
-            objectFit="cover"
-            layout="fill"
-            src={getItem("benefit_img_url")}
-            alt={getItem("benefit_img_alt")}
-            title={getItem("benefit_img_title")}
-            srcDataName={"benefit_img_url"}
-            altDasrcDataName={"benefit_img_alt"}
-            titleDasrcDataName={"benefit_img_title"}
-            priority={"important"}
-          />
-
-          <div className="benefit-text-section">
-            <h1>
-              <b>
-                <Text name="benefit_center_title">
-                  {getItem("benefit_center_title")}
-                </Text>
-              </b>
-            </h1>
-            <p>
-              <Text name="benefit_center_info">
-                {getItem("benefit_center_info")}
-              </Text>
-            </p>
->>>>>>> daf7772dce65925c189c578d3c4d7035b64742b4 */}
           </div>
         </div>
 
