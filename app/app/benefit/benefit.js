@@ -44,17 +44,18 @@ export default function Benefit() {
             </h2>
           </div>
         </div>
-        <div className="benefit-bg">
+        {/* <div className="benefit-bg">
           <div className="benefit-wrapper">
-            <div className="img-box-benefit">
-              <Image
+            <div className="img-box">
+              <img
+                // style={{ width: "100%", height: "100%"}}
                 src={getItem("benefit_img_url")}
                 alt={getItem("benefit_img_alt")}
                 title={getItem("benefit_img_title")}
                 srcDataName={"benefit_img_url"}
                 altDasrcDataName={"benefit_img_alt"}
                 titleDasrcDataName={"benefit_img_title"}
-                itIsClassName="img-box-benefit"
+                itIsClassName="img-box"
                 layout="fill"
                 objectFit="cover"
               />
@@ -73,6 +74,40 @@ export default function Benefit() {
                   {getItem("benefit_center_info")}
                 </Text>
               </p>
+            </div>
+          </div>
+        </div> */}
+
+        <div className="wrapper-content">
+          <div className="container">
+            <div className="content-left">
+              <div className="content">
+                <h3 className="content-left-title">
+                  <Text name="action_picture_head">
+                    {getItem("benefit_center_title")}
+                  </Text>
+                </h3>
+                <p className="content-left-descript">
+                  <Text name="action_picture_text">
+                    {getItem("benefit_center_info")}
+                  </Text>
+                </p>
+              </div>
+            </div>
+            <div className="content-right">
+              <div className="img-box">
+                <Image
+                  src={getItem("benefit_img_url")}
+                  alt={getItem("benefit_img_alt")}
+                  title={getItem("benefit_img_title")}
+                  srcDataName={"benefit_img_url"}
+                  altDasrcDataName={"benefit_img_alt"}
+                  titleDasrcDataName={"benefit_img_title"}
+                  layout="fill"
+                  objectFit="cover"
+                  itIsClassName="img-box"
+                />
+              </div>
             </div>
           </div>
         </div>

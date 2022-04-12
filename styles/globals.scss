@@ -1758,7 +1758,10 @@ body {
 // rate style end
 
 // action-picture section style started
-#action-picture {
+
+
+#action-picture
+{
   .action-picture-btn {
     text-align: center;
     padding: 25px 0;
@@ -2942,6 +2945,7 @@ body {
   padding-bottom: 20px;
   .benefit-title {
     position: relative;
+    margin-bottom:20px;
     h2 {
       /* font-family: "Akrobat", sans-serif;
     font-display:swap; */
@@ -2963,119 +2967,7 @@ body {
       }
     }
   }
-  .benefit-bg{
-    background: rgb(191, 114, 70);
-    width: 100%;
-    max-height: 200px;
-    padding: 20px 0 20px 10px;
-    margin-top: 30px;
-
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-
-    @media (min-width:768px) {
-      padding:0 0 0 20px;
-      max-height: 250px;
-    }
-    @media (min-width:1200px) {
-      max-height: 300px;
-    }
-    @media (min-width:1400px) {
-      max-height: 350px;
-    }
-      .benefit-wrapper {
-
-        height: 100%;
-        margin:0 auto;
-        min-width: 320px;
-        width: 100%;
-        position: relative;
-        display: flex;
-        flex-flow: row-reverse;
-        padding:10px;
-        justify-content: flex-end;
-        align-items: center;
-        img {
-          position: absolute;
-          right :0;
-          top:0;
-          height: 100%;
-          display: none;
-          @media (min-width:768px) {
-            display: block;
-            width: 40% !important;
-            
-          }
-      
-        }
-      
-        .benefit-text-section {
-          width: 100%;
-          margin: auto;
-          z-index: 5;
-          
-          @media (min-width:1200px){
-            width: 1140px;
-
-          }
-          @media (min-width:1400px) {
-            width: 1320px;
-          }
-          h1 {
-            font-size: 22px;
-            text-align: start;
-            margin-bottom: 10px;
-            font-weight: bold;
-            color: #fff;
-            margin: 15px 0 20px 0;
-      
-            @media (min-width: 576px) {
-              font-size: 24px;
-            }
-      
-            @media (min-width: 992px) {
-              font-size: 27px;
-            }
-
-            @media (min-width: 1200px) {
-              font-size: 30px;
-            }
-                        @media (min-width: 1400px) {
-              font-size: 33px;
-            }
-
-            
-      
-            b {
-              font-weight: bold;
-            }
-          }
-      
-          p {
-            font-size: 15px;
-            text-align: start;
-            color: #fff;
-            margin-bottom: 40px;
-            max-width: 100%;
-      
-            @media (min-width: 768px) {
-              font-size: 22px;
-              max-width: 450px;
-            }
-      
-            @media (min-width: 992px) {
-              font-size: 28px;
-              max-width: 500px;
-            }
-            @media (min-width: 1400px) {
-              max-width: 600px;
-            }
-          }
-        }
-      }
-  }
-
+  
   .action-wrapper {
     background: rgba(191, 114, 70, 0.3);
     box-shadow: 5px 5px 15px rgba(1, 1, 1, 0.6);
@@ -3194,6 +3086,141 @@ body {
     }
   }
 }
+
+#benefit{
+  
+  .wrapper-content {
+    background-color: rgb(191, 114, 70);
+    .container {
+      @media (min-width: 768px) {
+        display: flex;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        height:300px;
+      }
+      @media (min-width: 992px) {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+      }
+    }
+    .content-left {
+      
+      .content-left-title {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 117.6%;
+        letter-spacing: 0.005em;
+        color: rgb(255, 255, 255);
+        padding: 30px 0 10px 0;
+
+        @media (min-width: 576px) {
+          font-size: 22px;
+          font-weight: 500;
+          padding-top: 20px;
+        }
+
+        @media (min-width: 768px) {
+          padding-top: 50px;
+        }
+
+        @media (min-width: 992px) {
+          font-size: 25px;
+          font-weight: 600;
+        }
+        @media (min-width: 1200px) {
+          font-size: 32px;
+          font-weight: 800;
+        }
+        @media (min-width: 1400px) {
+          font-size: 33px;
+        }
+      }
+      .content-left-descript {
+        line-height: 117.6%;
+        letter-spacing: 0.005em;
+        color: rgb(255, 255, 255);
+        max-width: 718px;
+        font-weight: 500;
+        font-size: 16px;
+        padding-bottom: 20px;
+
+        @media (min-width: 576px) {
+          font-size: 18px;
+        }
+
+        @media (min-width: 768px) {
+          padding-bottom: 40px;
+          font-size: 20px;
+        }
+
+        @media (min-width: 992px) {
+          font-size: 24px;
+        }
+        @media (min-width: 1200px) {
+          font-size: 26px;
+        }
+        @media (min-width: 1400px) {
+          font-size: 27px;
+        }
+      }
+
+      @media (min-width: 768px) {
+        width: 60%;
+        padding-left: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      @media (min-width: 992px) {
+        padding-left: 30px;
+        // justify-content: flex-start;
+        padding-left: 15px;
+      }
+      @media (min-width: 1400px) {
+        padding-left: 0px;
+        justify-content: center;
+      }
+      .content {
+        @media (min-width: 768px) {
+          max-width: 450px;
+        }
+        @media (min-width: 992px) {
+          max-width: 566px;
+        }
+        @media (min-width: 1200px) {
+          max-width: 678px;
+        }
+        @media (min-width: 1400px) {
+          max-width: 736px;
+        }
+      }
+    }
+  }
+  .content-right {
+    display: none;
+    width: 40%;
+
+    @media (min-width: 768px) {
+      display: block;
+    }
+
+    .img-box {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      transform: translateX(12px);
+    }
+  }
+}
+
+#benefit .wrapper-content .content-left {
+  @media (min-width: 1500px) {
+    padding-left: 142px;
+  }  
+}
+
 // benefit section style finesh
 
 // #faq section style started
