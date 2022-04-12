@@ -1,6 +1,38 @@
 import Head from "next/head";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+import Conveniences from "../app/home-page/conveniences";
+import Header from "../app/home-page/header";
+import Sec_Header from "../app/home-page/second-header";
+import Tours from "../app/home-page/tours";
 export default function Home() {
+  const [lang, setLang] = useState("uz");
+  const [div, setDiv] = useState("");
+  useEffect(() => {
+    console.log(window.navigator.language === "es");
+    if (window.navigator.language) {
+      setLang("es");
+    }
+    if (window.navigator.language == "en") {
+      setLang("en");
+    }
+    if (window.navigator.language == "ru") {
+      setLang("ru");
+    }
+  }, []);
+  useEffect(() => {
+    console.log(lang);
+    console.log(div);
+    if (lang == "es") {
+      setDiv("ispancha");
+    }
+    if (lang == "en") {
+      setDiv("inglizcha");
+    }
+    if (lang == "ru") {
+      setDiv("ruscha");
+    }
+  }, [lang]);
   return (
     <div>
       <Head>
@@ -9,13 +41,18 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Section>
+      {/* <Section>
         <section>
           <p>Xush kelibsiz Handmade.Travel ga</p>
           <p>Добро пожаловать на Handmade.travel</p>
           <p>Wecome to handmade.travel</p>
         </section>
-      </Section>
+      </Section> */}
+      <Header />
+      <Sec_Header />
+      <Tours />
+      <Conveniences />
+      {div}
     </div>
   );
 }
