@@ -118,7 +118,10 @@ export default function TourProgram() {
                     <ul className="tour-program-list-texts">
                       {tour?.textList?.map((textItem, childIndex) => {
                         return (
-                          <li key={textItem.id}>
+                          <li
+                            key={textItem.id}
+                            className={`tour-program-list-text-id-${index}-${textItem.id}`}
+                          >
                             <Text
                               list="tour_program_list"
                               parentId={index}
@@ -135,7 +138,10 @@ export default function TourProgram() {
                     <ul className="tour-program-list-images">
                       {tour?.imageList?.map((img) => {
                         return (
-                          <li key={img.id}>
+                          <li
+                            key={img.id}
+                            className={`tour-program-list-image-id-${index}-${img.id}`}
+                          >
                             <Image
                               objectFit="cover"
                               src={img?.src}
@@ -153,7 +159,9 @@ export default function TourProgram() {
                       })}
                     </ul>
                     {tour?.footerTextLabel && tour?.footerText && (
-                      <div className="tour-program-list-footer">
+                      <div
+                        className={`tour-program-list-footer tour-program-list-footer-id-${index}`}
+                      >
                         <p>
                           <label>
                             <Text

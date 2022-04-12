@@ -28,9 +28,6 @@ export default function Index() {
       setIsItPath(
         [tour_id, language].join("/") === path.all.join("/") && isItActive
       );
-      console.log([tour_id, language].join("/"));
-      console.log(path.all.join("/"));
-      console.log(isItActive);
     } catch (error) {
       setTimeout(() => {
         router.push("/404");
@@ -39,11 +36,9 @@ export default function Index() {
   };
 
   if (path?.all?.join("/")) {
-    console.log("f1");
     fetchData(path.all.join("/"));
 
     if (isItPath) {
-      console.log("f11");
       return (
         <div>
           <Head>
@@ -66,7 +61,6 @@ export default function Index() {
   }
 
   if (!path?.all?.join("/")) {
-    console.log("f2");
     dispatch(loaderOn());
     return (
       <div>
@@ -77,7 +71,6 @@ export default function Index() {
       </div>
     );
   }
-  console.log("f");
 
   return (
     <div>

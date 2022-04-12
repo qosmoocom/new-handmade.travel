@@ -46,17 +46,15 @@ export default function Benefit() {
         </div>
         <div className="benefit-bg">
           <div className="benefit-wrapper">
-            <Image
-              objectFit="cover"
-              layout="fill"
+            <img
               src={getItem("benefit_img_url")}
               alt={getItem("benefit_img_alt")}
               title={getItem("benefit_img_title")}
               srcDataName={"benefit_img_url"}
               altDasrcDataName={"benefit_img_alt"}
               titleDasrcDataName={"benefit_img_title"}
-              priority={"important"}
             />
+
             <div className="benefit-text-section">
               <h1>
                 <b>
