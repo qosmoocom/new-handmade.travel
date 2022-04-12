@@ -1,18 +1,11 @@
-<<<<<<< HEAD
-import React, { useContext } from "react";
-import { AppContext } from "..";
-import { useSelector } from "react-redux";
-import SectionActive from "../../components/SectionActive";
-import Image from "../../components/Image";
-import Text from "../../components/Text";
-=======
+
 import React, { useContext } from 'react';
 import { AppContext } from '..';
 import { useDispatch, useSelector } from "react-redux";
 import SectionActive from '../../components/SectionActive';
 import Image from '../../components/Image';
 import Text from '../../components/Text';
->>>>>>> daf7772dce65925c189c578d3c4d7035b64742b4
+
 export default function Benefit() {
   const { getItem } = useContext(AppContext);
   const dispatch = useDispatch();
