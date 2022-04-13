@@ -11,7 +11,7 @@ const Wrapper = styled.span`
     display: none;
     position: absolute;
     left: 0px;
-    top: -15%;
+    top: -5%;
     color: #cc5a1a;
     font-size: 20px;
   }
