@@ -83,12 +83,12 @@ export default function Benefit() {
             <div className="content-left">
               <div className="content">
                 <h3 className="content-left-title">
-                  <Text name="action_picture_head">
+                  <Text name="benefit_center_title">
                     {getItem("benefit_center_title")}
                   </Text>
                 </h3>
                 <p className="content-left-descript">
-                  <Text name="action_picture_text">
+                  <Text name="benefit_center_info">
                     {getItem("benefit_center_info")}
                   </Text>
                 </p>
