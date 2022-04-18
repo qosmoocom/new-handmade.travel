@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Onetour from "../components/oneTour";
 import Toursgroup from "../components/ToursGroup";
@@ -10,13 +10,13 @@ const Section = styled.div`
   }
   max-width: 1250px;
   margin: 0 auto;
-  padding: 0 10px;
+  /* padding: 0 10px; */
 
   .title {
     display: flex;
     flex-flow: column;
     margin-bottom: 50px;
-    /* padding: 0 50px; */
+    padding: 0 20px;
     @media (min-width: 1024px) {
       flex-flow: row;
       justify-content: space-between;
@@ -59,6 +59,7 @@ const Section = styled.div`
   }
   .select {
     margin-bottom: 30px;
+    padding: 0 20px;
     display: none;
     @media (min-width: 768px) {
       display: block;
@@ -97,12 +98,23 @@ const Section = styled.div`
       margin-left: 6px;
     }
   }
+  #tours {
+    display: flex;
+    flex-flow: row wrap;
+    /* grid-column: auto; */
+    /* grid-gap: 30px; */
+    /* height: 930px; */
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    scroll-behavior: smooth;
+  }
   .more {
     align-items: center;
     display: flex;
     justify-content: center;
     margin-top: 70px;
-    display: none;
+    /* display: none; */
     button {
       width: 188px;
       height: 56px;
@@ -113,16 +125,90 @@ const Section = styled.div`
       margin: auto;
     }
   }
+  .none {
+    display: none;
+  }
 `;
 
 const Tours = () => {
-  const RightBtn = () => {
-    document.getElementById("tours").scrollBy(310, 0);
+  const [count, setCount] = useState(4);
+  const [tours, setTours] = useState(false);
+  const [btn, setBtn] = useState(false);
+  // const RightBtn = () => {
+  //   document.getElementById("tours").scrollBy(310, 0);
+  // };
+
+  // const LeftBtn = () => {
+  //   document.getElementById("tours").scrollBy(-310, 0);
+  // };
+  const data = [
+    {
+      img: "/images/home/tour1.webp",
+      title: "Art tour in Uzbekistan",
+      author: "Husnora",
+    },
+    {
+      img: "/images/home/tour2.webp",
+      title: "Gastronomic tour",
+      author: "Husnora",
+    },
+    {
+      img: "/images/home/tour3.png",
+      title: "Ziarat tour in Uzbekistan",
+      author: "Husnora",
+    },
+    {
+      img: "/images/home/tour4.png",
+      title: "Art tour in Uzbekistan",
+      author: "Husnora",
+    },
+    {
+      img: "/images/home/tour1.webp",
+      title: "Navruz tour in 2022",
+      author: "Husnora",
+    },
+    {
+      img: "/images/home/tour2.webp",
+      title: "Gastronomic tour",
+      author: "Husnora",
+    },
+    {
+      img: "/images/home/tour3.png",
+      title: "Navruz tour in 2022",
+      author: "Husnora",
+    },
+    {
+      img: "/images/home/tour4.png",
+      title: "Gastronomic tour",
+      author: "Husnora",
+    },
+  ];
+  let arr = [];
+  useEffect(() => {
+    for (let i = 0; i < count; i++) {
+      arr.push(data[i]);
+    }
+    console.log(arr);
+    setTours(
+      arr?.map((tour, index) => {
+        return <Onetour data={tour} key={index} />;
+      })
+    );
+    console.log(tours);
+  }, [count]);
+
+  const handlerMore = () => {
+    console.log(count);
+    console.log(data.length);
+    if (count < data.length - 2) {
+      setCount(count + 2);
+    }
+    if (count == data.length - 2) {
+      setCount(count + 2);
+      setBtn(true);
+    }
   };
 
-  const LeftBtn = () => {
-    document.getElementById("tours").scrollBy(-310, 0);
-  };
   return (
     <Section>
       <div className="title">
@@ -142,16 +228,16 @@ const Tours = () => {
           <li>Best Price</li>
         </ul>
       </div>
-      <div className="navigate">
+      {/* <div className="navigate">
         <div className="left-btn btn" onClick={LeftBtn}>
           <FiChevronLeft size={20} style={{ color: "#545961" }} />
         </div>
         <div className="right-btn btn" onClick={RightBtn}>
           <FiChevronRight size={20} style={{ color: "#545961" }} />
         </div>
-      </div>
-      <Toursgroup />
-      <div className="more">
+      </div> */}
+      <div id="tours">{tours}</div>
+      <div className={`${btn ? "none" : ""} more`} onClick={handlerMore}>
         <button>Explore More</button>.
       </div>
     </Section>

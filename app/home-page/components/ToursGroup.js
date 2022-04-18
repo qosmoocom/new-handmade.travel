@@ -5,10 +5,10 @@ import Onetour from "./oneTour";
 const Section = styled.div`
   #tours {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row wrap;
     /* grid-column: auto; */
     /* grid-gap: 30px; */
-    height: 930px;
+    /* height: 930px; */
     width: 100%;
     margin: auto;
     overflow: hidden;

@@ -4,11 +4,15 @@ import styled from "styled-components";
 import { TiStarFullOutline } from "react-icons/ti";
 
 const Section = styled.div`
-  width: 140px;
+  width: 47%;
+  max-width: 290px;
   border-radius: 12px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   transition-duration: 0.1s;
-  margin: 5px 2px;
+  margin: 10px 4px;
+  @media (min-width: 768px) {
+    margin: 15px 9px;
+  }
   &:hover {
     transform: translateY(-5px);
     cursor: pointer;
@@ -29,7 +33,7 @@ const Section = styled.div`
   .price-day {
     display: flex;
     justify-content: space-between;
-    margin: 10px 10px;
+    margin: 10px 5px;
     .price {
       font-size: 14px;
       line-height: 18px;
@@ -45,15 +49,15 @@ const Section = styled.div`
   }
   .name {
     font-weight: 600;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 15px;
     color: #1b1d21;
-    margin: 0 10px;
+    margin: 0 5px;
   }
   .author-rate {
     display: flex;
     justify-content: space-between;
-    margin: 20px 10px 10px;
+    margin: 20px 5px 5px;
     .author {
       font-weight: 400;
       font-size: 12px;
@@ -66,22 +70,22 @@ const Section = styled.div`
   }
 `;
 
-const Onetour = () => {
+const Onetour = ({ data }) => {
   return (
     <Section>
       <div
         className="image"
         style={{ borderTopRadius: "12px", overflow: "hidden" }}
       >
-        <Image src="/images/3.webp" width={290} height={280} />
+        <Image src={data.img} width={290} height={280} />
       </div>
       <div className="price-day">
         <p className="price">$ 1510</p>
         <p className="day">8 days</p>
       </div>
-      <div className="name">Art tour in Uzbekistan</div>
+      <div className="name">{data.title}</div>
       <div className="author-rate">
-        <p className="author">Husnora</p>
+        <p className="author">{data.author}</p>
         <div className="stars" style={{ color: "#f58634" }}>
           <TiStarFullOutline size={12} />
           <TiStarFullOutline size={12} />
