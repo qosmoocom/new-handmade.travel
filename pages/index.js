@@ -9,6 +9,7 @@ import Header from "../app/home-page/header";
 import Tours from "../app/home-page/tours";
 import Video from "../app/home-page/video-area";
 import Residens from "../app/home-page/residens";
+import BenefitsMobi from "../app/home-page/benefits-mobi";
 export default function Home() {
   const [lang, setLang] = useState("uz");
   const [div, setDiv] = useState("");
@@ -54,6 +55,7 @@ export default function Home() {
 
         <Navbar />
         <Header />
+        <BenefitsMobi />
         <Tours />
         <Benefits />
         <Video />

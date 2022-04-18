@@ -1,14 +1,13 @@
 import React from "react";
+import BenefitMobi from "../components/benefit_mobi";
 import styled from "styled-components";
 import Benefit from "../components/benefit";
 
 const Section = styled.div`
-  display: none;
-  margin: auto;
-  margin-top: 90px;
+  margin: 50px auto;
   max-width: 1250px;
   @media (min-width: 768px) {
-    display: block;
+  display: none;    
   }
 
   .benefit-title {
@@ -39,10 +38,26 @@ const Section = styled.div`
   }
 `;
 
-const Benefits = () => {
-  let data = [0, 1, 2, 3, 4, 5];
-  const items = data.map(() => {
-    return <Benefit />;
+const BenefitsMobi = () => {
+  let data = [
+    {
+      img: "/images/home/benefit1.webp",
+      title: "Best Quality",
+      disc: "Sometimes features require a short description. This can be detailed description or just a short text",
+    },
+    {
+      img: "/images/home/benefit2.webp",
+      title: "Discount trip",
+      disc: "Sometimes features require a short description. This can be detailed description or just a short text",
+    },
+    {
+      img: "/images/home/benefit3.webp",
+      title: "Excellent Trip",
+      disc: "Sometimes features require a short description. This can be detailed description or just a short text",
+    },
+  ];
+  const items = data.map((item, index) => {
+    return <BenefitMobi key={index} data={item} />;
   });
   return (
     <Section>
@@ -54,4 +69,4 @@ const Benefits = () => {
   );
 };
 
-export default Benefits;
+export default BenefitsMobi;

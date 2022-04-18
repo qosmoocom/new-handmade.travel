@@ -2,12 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const Section = styled.div`
-  max-width: 377px;
-  padding: 40px 40px;
+  max-width: 357px;
+  padding: 20px;
   transition-duration: 0.1s;
-  @media (min-width: 800px) {
-    max-width: 400px;
-  }
   * {
     font-family: "Mulish";
     box-sizing: border-box;
@@ -49,8 +46,8 @@ const Section = styled.div`
     }
     .text {
       font-weight: 400;
-      font-size: 16px;
-      line-height: 28px;
+      font-size: 14px;
+      line-height: 18px;
       color: #1b1d21;
       margin-bottom: 20px;
     }
@@ -64,22 +61,18 @@ const Section = styled.div`
   }
 `;
 
-const Benefit = () => {
+const BenefitMobi = ({ data }) => {
   return (
     <Section>
       <div className="image">
-        <img src="/images/like.svg" alt="" />
+        <img src={data.img} alt="" />
       </div>
       <div className="texts">
-        <p className="title">Excellent Trip</p>
-        <p className="text">
-          Sometimes features require a short description. This can be detailed
-          description or just a short text.
-        </p>
-        <a href="#">Learn More ></a>
+        <p className="title">{data.title}</p>
+        <p className="text">{data.disc}</p>
       </div>
     </Section>
   );
 };
 
-export default Benefit;
+export default BenefitMobi;

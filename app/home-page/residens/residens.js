@@ -5,11 +5,11 @@ import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 
 const Residens = () => {
   const RightBtn = () => {
-    document.getElementById("residens").scrollBy(330, 0);
+    document.getElementById("residens").scrollBy(310, 0);
   };
 
   const LeftBtn = () => {
-    document.getElementById("residens").scrollBy(-330, 0);
+    document.getElementById("residens").scrollBy(-325, 0);
   };
   const data = [0, 1, 2, 3, 4];
   const items = data.map(() => {
@@ -35,6 +35,8 @@ const Residens = () => {
 
 const Section = styled.div`
   margin-top: 70px;
+  margin-bottom: 30px;
+  padding: 10px;
   @media (min-width: 360px) {
     padding: 20px;
   }
