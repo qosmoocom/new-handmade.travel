@@ -15,20 +15,98 @@ const Section = styled.div`
     margin: auto;
     margin-bottom: 40px;
     display: flex;
+    flex-flow: column;
     justify-content: space-between;
+    @media (min-width: 768px) {
+      flex-flow: row;
+    }
     /* grid-template-columns: auto auto auto auto auto; */
     li {
       list-style: none;
       margin-bottom: 22px;
     }
+    .home {
+      align-items: center;
+      text-align: center;
+      @media (min-width: 768px) {
+        text-align: start;
+        justify-content: start;
+      }
+      .logo {
+        justify-content: center;
+        @media (min-width: 768px) {
+          text-align: start;
+          justify-content: start;
+        }
+      }
+      .info {
+        ul {
+          li {
+            justify-content: center;
+            @media (min-width: 768px) {
+              text-align: start;
+              justify-content: start;
+            }
+          }
+        }
+      }
+      .icons {
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .tours {
+      display: none;
+      @media (min-width: 500px) {
+        display: block;
+      }
+      @media (min-width: 768px) {
+        display: none;
+      }
+      @media (min-width: 1200px) {
+        display: block;
+      }
+    }
+    .form {
+      form {
+        /* flex-flow: row; */
+        justify-content: space-between;
+      }
+    }
+    .div {
+      /* width: 25%; */
+      display: flex;
+      justify-content: space-around;
+      margin-top: 30px;
+      @media (min-width: 768px) {
+        width: 33%;
+      }
+      @media (min-width: 1200px) {
+        width: 60%;
+      }
+    }
     .container {
-      width: fit-content;
-      margin: 0;
+      padding: 10px 30px;
+      margin: auto;
+      @media (min-width: 768px) {
+        width: fit-content;
+        max-width: 270px;
+        padding: 0;
+      }
       form {
         display: flex;
         flex-flow: column;
+        @media (min-width: 360px) {
+          align-items: center;
+          flex-flow: row;
+        }
+        @media (min-width: 768px) {
+          flex-flow: column;
+          align-items: flex-start;
+        }
         input,
         button {
+          height: 40px;
           background: #f4f4f4;
           border-radius: 8px;
           padding: 14px 20px;
@@ -44,6 +122,14 @@ const Section = styled.div`
           text-align: center;
           color: #ffffff;
           margin-top: 12px;
+          @media (min-width: 360px) {
+            margin-top: 0;
+            padding: 0 20px;
+          }
+          @media (min-width: 768px) {
+            margin-top: 12px;
+            width: 100%;
+          }
         }
       }
       h4 {
@@ -90,7 +176,7 @@ const Section = styled.div`
       }
       .icons {
         a {
-          margin-right: 30px;
+          margin: 0 15px;
         }
       }
     }
@@ -98,7 +184,7 @@ const Section = styled.div`
   .small {
     background: rgb(209, 202, 202);
     width: 100%;
-    padding: 20px;
+    padding: 5px 20px;
     & > div {
       max-width: 1250px;
       margin: auto;
@@ -107,12 +193,17 @@ const Section = styled.div`
     }
     .author {
       font-weight: 400;
-      font-size: 14px;
+      font-size: 12px;
       line-height: 20px;
+      text-align: center;
     }
     .terms {
       display: flex;
       justify-content: space-between;
+      display: none;
+      @media (min-width: 1200px) {
+        display: flex;
+      }
       div {
         font-weight: 600;
         font-size: 14px;
@@ -128,7 +219,7 @@ const Footer = () => {
   return (
     <Section>
       <div className="big">
-        <div className="container">
+        <div className="container home">
           <div className="logo">
             <Image src="/images/Navbar.png" width={44} height={38} />
             <h4>HANDMADE.TRAVEL</h4>
@@ -173,34 +264,36 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <div className="container">
-          <h4>Tours</h4>
-          <ul>
-            <li>Special Deals</li>
-            <li>Popular</li>
-            <li>Recomendation</li>
-            <li>Best price</li>
-          </ul>
+        <div className="div">
+          <div className="container tours">
+            <h4>Tours</h4>
+            <ul>
+              <li>Special Deals</li>
+              <li>Popular</li>
+              <li>Recomendation</li>
+              <li>Best price</li>
+            </ul>
+          </div>
+          <div className="container">
+            <h4>About</h4>
+            <ul>
+              <li>How to Book</li>
+              <li>Coreers</li>
+              <li>About us</li>
+              <li>Blog</li>
+            </ul>
+          </div>
+          <div className="container">
+            <h4>Services</h4>
+            <ul>
+              <li>Flight</li>
+              <li>Hotels</li>
+              <li>Train</li>
+              <li>Guide</li>
+            </ul>
+          </div>
         </div>
-        <div className="container">
-          <h4>About</h4>
-          <ul>
-            <li>How to Book</li>
-            <li>Coreers</li>
-            <li>About us</li>
-            <li>Blog</li>
-          </ul>
-        </div>
-        <div className="container">
-          <h4>Services</h4>
-          <ul>
-            <li>Flight</li>
-            <li>Hotels</li>
-            <li>Train</li>
-            <li>Guide</li>
-          </ul>
-        </div>
-        <div className="container">
+        <div className="container form">
           <h4>Subscribe Us</h4>
           <form action="">
             <input

@@ -2,9 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 const Section = styled.div`
+  display: none;
   max-width: 1250px;
   margin: auto;
   margin-bottom: 120px;
+  @media (min-width: 1200px) {
+    display: block;
+  }
   .title {
     font-weight: 600;
     font-size: 40px;
@@ -26,6 +30,7 @@ const Video = () => {
         <iframe
           width="1200"
           height="675"
+          // style={{ width: "100%", height: "auto" }}
           src="https://www.youtube.com/embed/wtHZ803VE-w?start=4"
           title="YouTube video player"
           frameborder="0"

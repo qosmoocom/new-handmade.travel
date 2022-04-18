@@ -8,6 +8,7 @@ import Navbar from "../app/home-page/navbar";
 import Header from "../app/home-page/header";
 import Tours from "../app/home-page/tours";
 import Video from "../app/home-page/video-area";
+import Residens from "../app/home-page/residens";
 export default function Home() {
   const [lang, setLang] = useState("uz");
   const [div, setDiv] = useState("");
@@ -55,9 +56,10 @@ export default function Home() {
         <Header />
         <Tours />
         <Benefits />
-        {/* <Video /> */}
-        {/* <Customers /> */}
-        {/* <Footer /> */}
+        <Video />
+        <Customers />
+        <Residens />
+        <Footer />
       </Section>
       {/* {div} */}
     </div>

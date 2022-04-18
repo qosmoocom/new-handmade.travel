@@ -7,6 +7,10 @@ const Section = styled.div`
   max-width: 1250px;
   margin: auto;
   margin-bottom: 110px;
+  display: none;
+  @media (min-width: 1200px) {
+    display: block;
+  }
   .title {
     font-weight: 700;
     font-size: 39px;
