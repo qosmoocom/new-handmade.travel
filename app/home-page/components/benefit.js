@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Section = styled.div`
+  max-width: 357px;
   padding: 40px 40px;
   transition-duration: 0.1s;
   * {

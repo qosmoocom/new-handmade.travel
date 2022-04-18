@@ -11,6 +11,7 @@ const Section = styled.div`
   transition-duration: 0.2s;
   margin: 0 10px;
   z-index: 5;
+
   &:hover {
     background: #ffffff;
     box-shadow: 0px 15px 50px rgba(162, 162, 162, 0.2);
