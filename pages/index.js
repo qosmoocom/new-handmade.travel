@@ -1,10 +1,13 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import Conveniences from "../app/home-page/conveniences";
+import Benefits from "../app/home-page/benefits";
+import Customers from "../app/home-page/customers";
+import Footer from "../app/home-page/footer";
+import Navbar from "../app/home-page/navbar";
 import Header from "../app/home-page/header";
-import Sec_Header from "../app/home-page/second-header";
 import Tours from "../app/home-page/tours";
+import Video from "../app/home-page/video-area";
 export default function Home() {
   const [lang, setLang] = useState("uz");
   const [div, setDiv] = useState("");
@@ -41,29 +44,39 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* <Section>
-        <section>
+      <Section>
+        {/* <section>
           <p>Xush kelibsiz Handmade.Travel ga</p>
           <p>Добро пожаловать на Handmade.travel</p>
           <p>Wecome to handmade.travel</p>
-        </section>
-      </Section> */}
-      <Header />
-      <Sec_Header />
-      <Tours />
-      <Conveniences />
-      {div}
+        </section> */}
+
+        <Navbar />
+        <Header />
+        <Tours />
+        <Benefits />
+        {/* <Video /> */}
+        {/* <Customers /> */}
+        {/* <Footer /> */}
+      </Section>
+      {/* {div} */}
     </div>
   );
 }
 
 const Section = styled.div`
-  height: 100vh;
+  background-color: #fff;
+  user-select: none;
+  /* height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  user-select: none;
-  section {
+  user-select: none; */
+  * {
+    font-family: "Mulish";
+    font-style: normal;
+  }
+  /* section {
     padding: 20px;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
   }
@@ -73,5 +86,5 @@ const Section = styled.div`
     font-size: 20px;
     letter-spacing: 0.6px;
     margin-bottom: 20px;
-  }
+  } */
 `;
