@@ -10,8 +10,8 @@ const Wrapper = styled.span`
     cursor: default;
     display: none;
     position: absolute;
-    left: -15px;
-    top: 45%;
+    left: 0px;
+    top: -5%;
     color: #cc5a1a;
     font-size: 20px;
   }

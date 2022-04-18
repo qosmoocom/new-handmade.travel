@@ -74,7 +74,7 @@ export default function TourProgram() {
                 >
                   {/* tour-program-list-title section */}
                   <div
-                    className="tour-program-list-title"
+                    className={`tour-program-list-title tour-program-list-title-id-${index}`}
                     onClick={(e) => toogleHandler(e, index)}
                   >
                     <label>
@@ -106,7 +106,7 @@ export default function TourProgram() {
                   <div
                     className={`tour-program-list-description ${
                       index === toggle.count && toggle.isOpen ? "active" : ""
-                    }`}
+                    } tour-program-list-description-id-${index}`}
                     style={{
                       maxHeight:
                         index === toggle.count && toggle.isOpen

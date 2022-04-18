@@ -1760,8 +1760,7 @@ body {
 // action-picture section style started
 
 
-#action-picture
-{
+#action-picture{
   .action-picture-btn {
     text-align: center;
     padding: 25px 0;
@@ -1798,18 +1797,8 @@ body {
 
   .wrapper-content {
     background-color: rgb(191, 114, 70);
-    .container {
-      @media (min-width: 768px) {
-        display: flex;
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-      }
-      @media (min-width: 992px) {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-      }
+    .container{
+      display:flex;
     }
     .content-left {
       .content-left-title {
@@ -1846,7 +1835,7 @@ body {
         line-height: 117.6%;
         letter-spacing: 0.005em;
         color: rgb(255, 255, 255);
-        max-width: 718px;
+        // max-width: 650px;
         font-weight: 500;
         font-size: 14px;
         padding-bottom: 20px;
@@ -1891,13 +1880,13 @@ body {
           max-width: 450px;
         }
         @media (min-width: 992px) {
-          max-width: 566px;
+          max-width: 550px;
         }
         @media (min-width: 1200px) {
-          max-width: 678px;
+          max-width: 650px;
         }
         @media (min-width: 1400px) {
-          max-width: 736px;
+          max-width: 700px;
         }
       }
     }
@@ -1905,16 +1894,18 @@ body {
   .content-right {
     display: none;
     width: 40%;
-
+    position: relative;
     @media (min-width: 768px) {
       display: block;
     }
 
     .img-box {
-      position: relative;
+      position:absolute;
+      left:0;
+      top:0;
+      width:800px;
       height: 100%;
-      width: 100%;
-      transform: translateX(12px);
+      
     }
   }
 }
@@ -2991,11 +2982,8 @@ body {
       }
       .info {
         p {
-          /* font-family: "Akrobat", sans-serif;
-      font-display:swap; */
           font-weight: 500;
           margin-top: 50px;
-          /* padding: 40px 0; */
           font-size: 30px;
           line-height: 117.6%;
           text-align: justify;
@@ -3097,12 +3085,13 @@ body {
         width: 100%;
         max-width: 100%;
         margin: 0;
-        height:300px;
+        height:200px;
       }
       @media (min-width: 992px) {
         width: 100%;
         max-width: 100%;
         margin: 0;
+        height:300px;
       }
     }
     .content-left {
