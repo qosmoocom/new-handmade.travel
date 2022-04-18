@@ -2,10 +2,129 @@ import React from "react";
 import styled from "styled-components";
 import Onetour from "../components/oneTour";
 import Toursgroup from "../components/ToursGroup";
+import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
+
+const Section = styled.div`
+  * {
+    font-family: "Mulish";
+  }
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  .title {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 50px;
+    /* padding: 0 50px; */
+    @media (min-width: 1024px) {
+      flex-flow: row;
+      justify-content: space-between;
+    }
+    h3 {
+      font-size: 25px;
+      font-weight: 700;
+      line-height: 35px;
+      color: #323232;
+      margin-bottom: 15px;
+      /* max-width: 40%; */
+      @media (min-width: 1024px) {
+        font-size: 40px;
+        line-height: 50px;
+        width: 40%;
+      }
+      @media (min-width: 1300px) {
+        font-size: 48px;
+        line-height: 60px;
+      }
+      span {
+        color: #f3692e;
+      }
+    }
+    p {
+      font-size: 12px;
+      line-height: 14px;
+      color: #1b1d21;
+      /* max-width: 45%; */
+      @media (min-width: 1024px) {
+        font-size: 17px;
+        line-height: 30px;
+        width: 50%;
+      }
+      @media (min-width: 1300px) {
+        font-size: 20px;
+        line-height: 36px;
+      }
+    }
+  }
+  .select {
+    margin-bottom: 30px;
+    display: none;
+    @media (min-width: 768px) {
+      display: block;
+    }
+    ul {
+      display: flex;
+      li {
+        list-style: none;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 25px;
+        color: #646464;
+        margin-right: 40px;
+
+        padding-bottom: 10px;
+        @media (min-width: 1300px) {
+          font-size: 20px;
+        }
+      }
+      .active {
+        color: #323232;
+        border-bottom: #f58634 2px solid;
+      }
+    }
+  }
+  .navigate {
+    display: flex;
+    justify-content: end;
+    @media (min-width: 1240px) {
+      display: none;
+    }
+    .btn {
+      border-radius: 50%;
+      border: 1px solid #545961;
+      padding: 8px 10px;
+      margin-left: 6px;
+    }
+  }
+  .more {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+    display: none;
+    button {
+      width: 188px;
+      height: 56px;
+      border-radius: 12px;
+      border: none;
+      color: #fff;
+      background-color: #f58634;
+      margin: auto;
+    }
+  }
+`;
 
 const Tours = () => {
+  const RightBtn = () => {
+    document.getElementById("tours").scrollBy(310, 0);
+  };
+
+  const LeftBtn = () => {
+    document.getElementById("tours").scrollBy(-310, 0);
+  };
   return (
-    <Tourss>
+    <Section>
       <div className="title">
         <h3>
           Choose the <span>best</span> tour for vacation
@@ -23,77 +142,20 @@ const Tours = () => {
           <li>Best Price</li>
         </ul>
       </div>
+      <div className="navigate">
+        <div className="left-btn btn" onClick={LeftBtn}>
+          <FiChevronLeft size={20} style={{ color: "#545961" }} />
+        </div>
+        <div className="right-btn btn" onClick={RightBtn}>
+          <FiChevronRight size={20} style={{ color: "#545961" }} />
+        </div>
+      </div>
       <Toursgroup />
       <div className="more">
-        <button>Explore More</button>
+        <button>Explore More</button>.
       </div>
-    </Tourss>
+    </Section>
   );
 };
-
-const Tourss = styled.div`
-  * {
-    font-family: "Mulish";
-  }
-  max-width: 1250px;
-  margin: 0 auto;
-  .title {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 50px;
-    /* padding: 0 50px; */
-    h3 {
-      font-size: 48px;
-      font-weight: 700;
-      line-height: 60px;
-      color: #323232;
-      max-width: 40%;
-      span {
-        color: #f3692e;
-      }
-    }
-    p {
-      font-size: 20px;
-      line-height: 36px;
-      color: #1b1d21;
-      max-width: 45%;
-    }
-  }
-  .select {
-    margin-bottom: 30px;
-    ul {
-      display: flex;
-      li {
-        list-style: none;
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 25px;
-        color: #646464;
-        margin-right: 40px;
-
-        padding-bottom: 10px;
-      }
-      .active {
-        color: #323232;
-        border-bottom: #f58634 2px solid;
-      }
-    }
-  }
-  .more {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    margin-top: 70px;
-    button {
-      width: 188px;
-      height: 56px;
-      border-radius: 12px;
-      border: none;
-      color: #fff;
-      background-color: #f58634;
-      margin: auto;
-    }
-  }
-`;
 
 export default Tours;

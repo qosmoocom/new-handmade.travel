@@ -1,17 +1,5 @@
-/* @font-face {
-  font-family: "Mulish";
-  src: url('akrobat-black-webfont.woff2') format('woff2'),
-         url('akrobat-black-webfont.woff') format('woff');
-  src: url("/fonts/Akrobat/Akrobat-Black.otf");
-  font-style: normal;
-  font-weight: 900;
-  font-display:swap;
-} */
-
 @font-face {
   font-family: "Mulish";
-  /* src: url('akrobat-bold-webfont.woff2') format('woff2'),
-         url('akrobat-bold-webfont.woff') format('woff'); */
   src: url("/fonts/Mulish/Mulish-Bold.ttf");
   font-style: normal;
   font-weight: 700;
@@ -20,8 +8,6 @@
 
 @font-face {
   font-family: "Mulish";
-  /* src: url('akrobat-extrabold-webfont.woff2') format('woff2'),
-         url('akrobat-extrabold-webfont.woff') format('woff'); */
   src: url("/fonts/Mulish/Mulish-ExtraBold.ttf");
   font-style: normal;
   font-weight: 800;
@@ -30,8 +16,6 @@
 
 @font-face {
   font-family: "Mulish";
-  /* src: url('akrobat-extralight-webfont.woff2') format('woff2'),
-         url('akrobat-extralight-webfont.woff') format('woff'); */
   src: url("/fonts/Mulish/Mulish-ExtraLight.ttf");
   font-style: normal;
   font-weight: 200;
@@ -40,8 +24,6 @@
 
 @font-face {
   font-family: "Mulish";
-  /* src: url('akrobat-light-webfont.woff2') format('woff2'),
-         url('akrobat-light-webfont.woff') format('woff'); */
   src: url("/fonts/Mulish/Mulish-Light.ttf");
   font-style: normal;
   font-weight: 300;
@@ -50,8 +32,6 @@
 
 @font-face {
   font-family: "Mulish";
-  /* src: url('akrobat-regular-webfont.woff2') format('woff2'),
-         url('akrobat-regular-webfont.woff') format('woff'); */
   src: url("/fonts/Mulish/Mulish-Regular.ttf");
   font-style: normal;
   font-weight: 400;
@@ -60,20 +40,8 @@
 
 @font-face {
   font-family: "Mulish";
-  /* src: url('akrobat-semibold-webfont.woff2') format('woff2'),
-         url('akrobat-semibold-webfont.woff') format('woff'); */
   src: url("/fonts/Mulish/Mulish-SemiBold.ttf");
   font-style: normal;
   font-weight: 600;
   font-display:swap;
 }
-
-/* @font-face {
-  font-family: "Mulish";
-  src: url('akrobat-thin-webfont.woff2') format('woff2'),
-         url('akrobat-thin-webfont.woff') format('woff');
-  src: url("/fonts/Akrobat/Akrobat-Thin.otf");
-  font-style: normal;
-  font-weight: 100;
-  font-display:swap;
-} */

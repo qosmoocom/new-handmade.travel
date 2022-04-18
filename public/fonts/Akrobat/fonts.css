@@ -1,9 +1,18 @@
+@font-face {
+  font-family: "Akrobat";
+  src: url('akrobat-black-webfont.woff2') format('woff2'),
+         url('akrobat-black-webfont.woff') format('woff');
+  /* src: url("/fonts/Akrobat/Akrobat-Black.otf"); */
+  font-style: normal;
+  font-weight: 900;
+  font-display:swap;
+}
 
 @font-face {
   font-family: "Akrobat";
   /* src: url('akrobat-bold-webfont.woff2') format('woff2'),
          url('akrobat-bold-webfont.woff') format('woff'); */
-  src: url("/fonts/AkrobatNew/Akrobat-Bold.otf");
+  src: url("/fonts/Akrobat/Akrobat-Bold.otf");
   font-style: normal;
   font-weight: 700;
   font-display:swap;
@@ -13,7 +22,7 @@
   font-family: "Akrobat";
   /* src: url('akrobat-extrabold-webfont.woff2') format('woff2'),
          url('akrobat-extrabold-webfont.woff') format('woff'); */
-  src: url("/fonts/AkrobatNew/Akrobat-ExtraBold.otf");
+  src: url("/fonts/Akrobat/Akrobat-ExtraBold.otf");
   font-style: normal;
   font-weight: 800;
   font-display:swap;
@@ -23,7 +32,7 @@
   font-family: "Akrobat";
   /* src: url('akrobat-extralight-webfont.woff2') format('woff2'),
          url('akrobat-extralight-webfont.woff') format('woff'); */
-  src: url("/fonts/AkrobatNew/Akrobat-ExtraLight.otf");
+  src: url("/fonts/Akrobat/Akrobat-ExtraLight.otf");
   font-style: normal;
   font-weight: 200;
   font-display:swap;
@@ -33,7 +42,7 @@
   font-family: "Akrobat";
   /* src: url('akrobat-light-webfont.woff2') format('woff2'),
          url('akrobat-light-webfont.woff') format('woff'); */
-  src: url("/fonts/AkrobatNew/Akrobat-Light.otf");
+  src: url("/fonts/Akrobat/Akrobat-Light.otf");
   font-style: normal;
   font-weight: 300;
   font-display:swap;
@@ -43,7 +52,7 @@
   font-family: "Akrobat";
   /* src: url('akrobat-regular-webfont.woff2') format('woff2'),
          url('akrobat-regular-webfont.woff') format('woff'); */
-  src: url("/fonts/AkrobatNew/Akrobat-Regular.otf");
+  src: url("/fonts/Akrobat/Akrobat-Regular.otf");
   font-style: normal;
   font-weight: 400;
   font-display:swap;
@@ -53,7 +62,7 @@
   font-family: "Akrobat";
   /* src: url('akrobat-semibold-webfont.woff2') format('woff2'),
          url('akrobat-semibold-webfont.woff') format('woff'); */
-  src: url("/fonts/AkrobatNew/Akrobat-SemiBold.otf");
+  src: url("/fonts/Akrobat/Akrobat-SemiBold.otf");
   font-style: normal;
   font-weight: 600;
   font-display:swap;
@@ -63,7 +72,7 @@
   font-family: "Akrobat";
   /* src: url('akrobat-thin-webfont.woff2') format('woff2'),
          url('akrobat-thin-webfont.woff') format('woff'); */
-  src: url("/fonts/AkrobatNew/Akrobat-Thin.otf");
+  src: url("/fonts/Akrobat/Akrobat-Thin.otf");
   font-style: normal;
   font-weight: 100;
   font-display:swap;
