@@ -218,7 +218,7 @@ const Header = () => {
             programs for your journey
           </p>
         </div>
-        <div className="filtr">
+        {/* <div className="filtr">
           <h3>Get Your Traveling Now</h3>
           <form action="">
             <label>
@@ -235,7 +235,7 @@ const Header = () => {
             </label>
             <button type="submit">Search Now</button>
           </form>
-        </div>
+        </div> */}
       </div>
       <div className="image">
         <Image
@@ -253,7 +253,7 @@ const Header = () => {
           layout="responsive"
         />
       </div>
-      <div className="filtr-mobi">
+      {/* <div className="filtr-mobi">
         <form action="">
           <div className="selects">
             <div>
@@ -267,7 +267,7 @@ const Header = () => {
           </div>
           <button type="submit">Search Now</button>
         </form>
-      </div>
+      </div> */}
     </Section>
   );
 };
