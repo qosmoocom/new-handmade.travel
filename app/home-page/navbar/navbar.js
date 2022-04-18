@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { BiSearchAlt2 } from "react-icons/bi";
 import styled from "styled-components";
 
@@ -161,7 +161,6 @@ const Navbar = () => {
   const [active, setActive] = useState(false);
 
   const Handler = () => {
-    console.log("salom");
     if (active) {
       setActive(false);
     }
@@ -202,7 +201,7 @@ const Navbar = () => {
             <Image src="/images/nav-menu.webp" width={23} height={20} />
           </div>
         </div>
-        <div className={`${active ? "active" : ""} menu`}>
+        <div className={`${active ? "active" : ""} menu`} onClick={Handler}>
           <div className="logo">
             <div>
               <Image src="/images/Navbar.png" width={30} height={30} />

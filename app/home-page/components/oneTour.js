@@ -4,11 +4,11 @@ import styled from "styled-components";
 import { TiStarFullOutline } from "react-icons/ti";
 
 const Section = styled.div`
-  width: 290px;
+  width: 140px;
   border-radius: 12px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   transition-duration: 0.1s;
-  margin: 10px 5px;
+  margin: 5px 2px;
   &:hover {
     transform: translateY(-5px);
     cursor: pointer;
@@ -29,23 +29,24 @@ const Section = styled.div`
   .price-day {
     display: flex;
     justify-content: space-between;
-    margin: 25px 16px;
+    margin: 10px 10px;
     .price {
-      font-size: 20px;
-      line-height: 25px;
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 600;
       color: #f58634;
     }
     .day {
       font-weight: 400;
-      font-size: 18px;
-      line-height: 24px;
+      font-size: 12px;
+      line-height: 15px;
       color: #1b1d21;
     }
   }
   .name {
-    font-weight: 300;
-    font-size: 20px;
-    line-height: 28px;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 15px;
     color: #1b1d21;
     margin: 0 10px;
   }
@@ -54,10 +55,13 @@ const Section = styled.div`
     justify-content: space-between;
     margin: 20px 10px 10px;
     .author {
-      font-weight: 300;
-      font-size: 14px;
+      font-weight: 400;
+      font-size: 12px;
       line-height: 28px;
       color: #1b1d21;
+    }
+    .stars {
+      margin-top: 5px;
     }
   }
 `;
@@ -79,11 +83,11 @@ const Onetour = () => {
       <div className="author-rate">
         <p className="author">Husnora</p>
         <div className="stars" style={{ color: "#f58634" }}>
-          <TiStarFullOutline />
-          <TiStarFullOutline />
-          <TiStarFullOutline />
-          <TiStarFullOutline />
-          <TiStarFullOutline />
+          <TiStarFullOutline size={12} />
+          <TiStarFullOutline size={12} />
+          <TiStarFullOutline size={12} />
+          <TiStarFullOutline size={12} />
+          <TiStarFullOutline size={12} />
         </div>
       </div>
     </Section>
