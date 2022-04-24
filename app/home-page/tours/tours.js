@@ -130,7 +130,7 @@ const Section = styled.div`
   }
 `;
 
-const Tours = () => {
+const Tours = ({cards}) => {
   const [count, setCount] = useState(4);
   const [tours, setTours] = useState(false);
   const [btn, setBtn] = useState(false);
@@ -141,48 +141,49 @@ const Tours = () => {
   // const LeftBtn = () => {
   //   document.getElementById("tours").scrollBy(-310, 0);
   // };
-  const data = [
-    {
-      img: "/images/home/tour1.webp",
-      title: "Art tour in Uzbekistan",
-      author: "Husnora",
-    },
-    {
-      img: "/images/home/tour2.webp",
-      title: "Gastronomic tour",
-      author: "Husnora",
-    },
-    {
-      img: "/images/home/tour3.png",
-      title: "Ziarat tour in Uzbekistan",
-      author: "Husnora",
-    },
-    {
-      img: "/images/home/tour4.png",
-      title: "Art tour in Uzbekistan",
-      author: "Husnora",
-    },
-    {
-      img: "/images/home/tour1.webp",
-      title: "Navruz tour in 2022",
-      author: "Husnora",
-    },
-    {
-      img: "/images/home/tour2.webp",
-      title: "Gastronomic tour",
-      author: "Husnora",
-    },
-    {
-      img: "/images/home/tour3.png",
-      title: "Navruz tour in 2022",
-      author: "Husnora",
-    },
-    {
-      img: "/images/home/tour4.png",
-      title: "Gastronomic tour",
-      author: "Husnora",
-    },
-  ];
+  // const data =cards|| [
+  //   {
+  //     img: "/images/home/tour1.webp",
+  //     title: "Art tour in Uzbekistan",
+  //     author: "Husnora",
+  //   },
+  //   {
+  //     img: "/images/home/tour2.webp",
+  //     title: "Gastronomic tour",
+  //     author: "Husnora",
+  //   },
+  //   {
+  //     img: "/images/home/tour3.png",
+  //     title: "Ziarat tour in Uzbekistan",
+  //     author: "Husnora",
+  //   },
+  //   {
+  //     img: "/images/home/tour4.png",
+  //     title: "Art tour in Uzbekistan",
+  //     author: "Husnora",
+  //   },
+  //   {
+  //     img: "/images/home/tour1.webp",
+  //     title: "Navruz tour in 2022",
+  //     author: "Husnora",
+  //   },
+  //   {
+  //     img: "/images/home/tour2.webp",
+  //     title: "Gastronomic tour",
+  //     author: "Husnora",
+  //   },
+  //   {
+  //     img: "/images/home/tour3.png",
+  //     title: "Navruz tour in 2022",
+  //     author: "Husnora",
+  //   },
+  //   {
+  //     img: "/images/home/tour4.png",
+  //     title: "Gastronomic tour",
+  //     author: "Husnora",
+  //   },
+  // ];
+  let data =cards
   let arr = [];
   useEffect(() => {
     for (let i = 0; i < count; i++) {
@@ -195,7 +196,7 @@ const Tours = () => {
       })
     );
     console.log(tours);
-  }, [count]);
+  }, [count, cards]);
 
   const handlerMore = () => {
     console.log(count);

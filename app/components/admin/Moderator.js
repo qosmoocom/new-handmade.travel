@@ -34,7 +34,8 @@ export default function Moderator() {
     tourStyles: 'none',
     tourAuthor: isLoginMe._id,
     tour_id: '',
-    language: '',
+    authorName:'',
+    language: ''
   };
 
   const [tour, setTour] = useState(defaultTour);
@@ -52,6 +53,8 @@ export default function Moderator() {
 
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
+    console.log(name, value);
+    console.log(tour);
     setTour((oldTour) => ({ ...oldTour, [name]: value }));
   };
 
@@ -76,6 +79,7 @@ export default function Moderator() {
       language,
       _id,
       isItActive,
+      authorName
     } = tour;
     const updateTour = {
       tourName,
@@ -85,6 +89,7 @@ export default function Moderator() {
       tour_id,
       language,
       isItActive,
+      authorName
     };
     dispatch(updateMyTours(_id, updateTour));
   };
