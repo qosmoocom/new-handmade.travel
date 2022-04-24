@@ -7,8 +7,7 @@ exports.createOne = async (req, res, next) => {
     language: req.body.language,
     tourTexts: req.body.tourTexts,
     tourStyles: req.body.tourStyles,
-    tourAuthor: req.body.tourAuthor,
-    authorName: req.body.authorName
+    tourAuthor: req.body.tourAuthor
   });
   await result
     .save()
@@ -28,14 +27,14 @@ exports.updateOne = async (req, res, next) => {
     (result.tourTexts = req.body.tourTexts),
     (result.tourStyles = req.body.tourStyles),
     (result.tourAuthor = req.body.tourAuthor),
-    (result.isItActive = req.body.isItActive),
+    (result.isItActive = req.body.isItActive)
     await result
       .save()
       .then(() => {
         res.status(200).json(result);
       })
       .catch((error) => {
-        res.status(400).json({ message: 'Badly', data: error });
+        res.status(400).json({ message: "Badly", data: error });
       });
 };
 exports.deleteOne = async (req, res, next) => {

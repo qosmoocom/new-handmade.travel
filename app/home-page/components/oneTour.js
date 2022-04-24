@@ -97,7 +97,7 @@ const Onetour = ({ data }) => {
       </div>
       <div className="name">{data.tourName}</div>
       <div className="author-rate">
-        <p className="author">{data.authorName}</p>
+        <p className="author">as</p>
         <div className="stars" style={{ color: "#f58634" }}>
           <TiStarFullOutline size={12} />
           <TiStarFullOutline size={12} />

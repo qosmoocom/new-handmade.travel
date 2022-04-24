@@ -6,12 +6,11 @@ import { useSelector } from "react-redux";
 export default function UserCreateAndUpdate({
   onCreateClose,
   onChange,
-  tour: { tourName, tour_id, language, authorName },
+  tour: { tourName, tour_id, language },
   onSave,
   onSaveUpdate,
 }) {
   const { isItCreate, isItUpdate } = useSelector((state) => state.tours);
-  console.log(authorName,language);
   return (
     <Wrapper className={isItCreate || isItUpdate ? "active" : ""}>
       <div className="form">
@@ -37,16 +36,6 @@ export default function UserCreateAndUpdate({
           />
         </div>
         <div className="input-box">
-          <label>Author</label>
-          <input
-            type="text"
-            name="authorName"
-            onChange={onChange}
-            value={authorName}
-            placeholder="Enter tour author"
-          />
-        </div>
-        <div className="input-box">
           <label>Tour Lang</label>
           <input
             type="text"
@@ -61,7 +50,7 @@ export default function UserCreateAndUpdate({
           <button
             className="btn btn-primary btn-1"
             onClick={isItCreate ? onSave : onSaveUpdate}
-            disabled={!(tourName && tour_id && language && authorName)}
+            disabled={!(tourName && tour_id && language )}
           >
             save
           </button>
