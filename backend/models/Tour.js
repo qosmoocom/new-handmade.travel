@@ -30,11 +30,7 @@ const tourSchema = new mongoose.Schema(
     language: {
       type: String,
       required: true,
-    },
-    authorName: {
-      type: String,
-      required: true,
-    },
+    }
   },
   {
     timestamps: true,

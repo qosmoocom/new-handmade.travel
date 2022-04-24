@@ -34,7 +34,6 @@ export default function Moderator() {
     tourStyles: 'none',
     tourAuthor: isLoginMe._id,
     tour_id: '',
-    authorName:'',
     language: ''
   };
 
@@ -78,8 +77,7 @@ export default function Moderator() {
       tour_id,
       language,
       _id,
-      isItActive,
-      authorName
+      isItActive
     } = tour;
     const updateTour = {
       tourName,
@@ -88,8 +86,7 @@ export default function Moderator() {
       tourAuthor,
       tour_id,
       language,
-      isItActive,
-      authorName
+      isItActive
     };
     dispatch(updateMyTours(_id, updateTour));
   };
