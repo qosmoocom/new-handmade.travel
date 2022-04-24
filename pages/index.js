@@ -10,7 +10,18 @@ import Tours from "../app/home-page/tours";
 import Video from "../app/home-page/video-area";
 import Residens from "../app/home-page/residens";
 import BenefitsMobi from "../app/home-page/benefits-mobi";
+import axios from "axios";
 export default function Home() {
+  const [tours, setTours] =useState('')
+
+  useEffect(()=>{
+    axios.get('/api/tour/home')
+      .then((res)=>{
+        setTours(res.data);
+
+      })
+  }, [])
+  console.log(tours);
   const [lang, setLang] = useState("uz");
   const [div, setDiv] = useState("");
   useEffect(() => {
@@ -56,7 +67,7 @@ export default function Home() {
         <Navbar />
         <Header />
         <BenefitsMobi />
-        <Tours />
+        <Tours cards={tours}/>
         <Benefits />
         <Video />
         <Customers />

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { TiStarFullOutline } from "react-icons/ti";
 
@@ -71,21 +71,33 @@ const Section = styled.div`
 `;
 
 const Onetour = ({ data }) => {
+  const [ tour, setTour]=useState(false)
+  useEffect(()=>{
+    if(data){
+      if(data.tourTexts){
+        setTour(JSON.parse(data.tourTexts))
+  
+      }
+      console.log(data);
+      console.log(tour);
+    }
+  }, [data])
+  if(tour){
   return (
     <Section>
       <div
         className="image"
         style={{ borderTopRadius: "12px", overflow: "hidden" }}
       >
-        <Image src={data.img} width={290} height={280} />
+        <Image src={tour.head_img_Mobile_url.value} width={290} height={280}  layout='responsive'/>
       </div>
       <div className="price-day">
         <p className="price">$ 1510</p>
-        <p className="day">8 days</p>
+        <p className="day">{tour.tour_program_list.data.length} days</p>
       </div>
-      <div className="name">{data.title}</div>
+      <div className="name">{data.tourName}</div>
       <div className="author-rate">
-        <p className="author">{data.author}</p>
+        <p className="author">{data.authorName}</p>
         <div className="stars" style={{ color: "#f58634" }}>
           <TiStarFullOutline size={12} />
           <TiStarFullOutline size={12} />
@@ -96,6 +108,7 @@ const Onetour = ({ data }) => {
       </div>
     </Section>
   );
-};
+}else{return <div></div>}
+}
 
 export default Onetour;

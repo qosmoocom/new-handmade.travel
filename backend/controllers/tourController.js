@@ -8,6 +8,7 @@ exports.createOne = async (req, res, next) => {
     tourTexts: req.body.tourTexts,
     tourStyles: req.body.tourStyles,
     tourAuthor: req.body.tourAuthor,
+    authorName: req.body.authorName
   });
   await result
     .save()
@@ -54,6 +55,11 @@ exports.getItems = async (req, res, next) => {
   const result = await Tour.find();
   res.status(200).json(result);
 };
+exports.getItemHome =async(req, res)=>{
+  const result = await Tour.find();
+  // console.log(result);
+  res.status(200).json(result);
+}
 
 exports.getItemsUser = async (req, res, next) => {
   try {
