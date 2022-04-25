@@ -1782,4 +1782,11 @@ export const defaultState = {
       },
     ],
   },
+  coach_meeting_link_href: {
+    value: "https://calendly.com/fuzuliy-handmade/30min",
+  },
+  coach_meeting_link_text: { value: "Убедили, хочу встречи " },
+  coach_meeting_link_info: {
+    value: `Успейте забронировать путешествие своей мечты, пока есть свободные места и дешёвые авиабилеты!`,
+  },  
 };

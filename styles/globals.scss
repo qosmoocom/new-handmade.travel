@@ -3223,7 +3223,7 @@ body {
 
 // benefit section style started
 #benefit {
-  padding-bottom: 20px;
+  // padding-bottom: 20px;
   .benefit-title {
     position: relative;
     margin-bottom:20px;
@@ -3359,6 +3359,10 @@ body {
         @media (min-width: 1300px) {
           font-size: 30px;
           width: 410px;
+        }
+        a{
+          color:white;
+          text-decoration: none;
         }
       }
     }

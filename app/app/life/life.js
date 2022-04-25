@@ -27,7 +27,7 @@ export default function Life() {
   return (
     <>
       <SectionActive name={val ? val.name : "true"} />
-      <div id="life" style={val ? bgYellow : ""}>
+      <div id="life" style={val ? bgYellow : { display: "block" }}>
         <div className="container">
           <div className="content">
             <div className="life-title">

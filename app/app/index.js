@@ -24,6 +24,8 @@ import WhyWithUs from "./why-with-us";
 import Samele from "./samele";
 import Reviews from "./reviews";
 import Benefit from "./benefit";
+import BenefitModal from "./benefit-modal";
+import BenefitLink from "./benefit-link";
 import ThirdUtp from "./third-utp";
 import Faq from "./faq";
 import OtherTour from "./other-tours";
@@ -122,7 +124,7 @@ export default function Index() {
           <ActionDetail />
           <Price />
           <Rate />
-          {/* <Life /> */}
+          <Life />
           <ActionPicture />
           <Gallery />
           <Author />
@@ -132,6 +134,8 @@ export default function Index() {
           <ThirdUtp />
           <Reviews />
           <Benefit />
+          <BenefitModal />
+          <BenefitLink />
           <Faq />
           <OtherTour />
           <Footer />
