@@ -118,35 +118,39 @@ export const getMyOneTour = (id) => async (dispatch) => {
     const data = await res.data;
 
     const newTourTexts = JSON.parse(data.tourTexts);
-    console.log("newTourTexts", newTourTexts);
+    // console.log("newTourTexts", newTourTexts);
     const arr = newTourTexts.app_sections_active;
-    console.log("arr", arr);
+    // console.log("arr", arr);
     const new_arr = [...arr];
-    console.log("newArr - 1 - ", new_arr);
+    // console.log("newArr - 1 - ", new_arr);
 
-    // for (let j = 0; j <= newComponentsList.length; j++) {
-    //   let flag = false;
-    //   console.log("j-", j);
-    //   for (let i = 0; i <= arr.length; i++) {
-    //     if (arr[i].name == newComponentsList[j].name) {
-    //       flag = true;
-    //     }
-    //   }
+    for (let j = 0; j < newComponentsList.length; j++) {
+      let flag = false;
+      // console.log("j-", j);
+      // console.log('length: ', newComponentsList.length);
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i].name != newComponentsList[j].name) {
+          flag = true
+          // console.log('i : ',i);
+        }
+        // console.log('3');
+      }
+      // console.log('4');
 
-    //   // console.log("new_arr", newComponentsList[j]);
-    //   // if (flag == false) new_arr.push(newComponentsList[j]);
-    //   // console.log("new_arr", new_arr);
+      // console.log("new_arr", newComponentsList[j]);
+      if (flag == true) new_arr.push(newComponentsList[j]);
+      // console.log("new_arr", new_arr);
 
-    //   console.log("ohiriga keldi");
-    // }
+      // console.log("ohiriga keldi");
+    }
 
-    console.log("newArr - 2 - ", newComponentsList.length);
+    // console.log("newArr - 2 - ", newComponentsList.length);
 
     newTourTexts.app_sections_active = new_arr;
-    console.log(
-      "newTourTexts.app_sections_active",
-      newTourTexts.app_sections_active
-    );
+    // console.log(
+    //   "newTourTexts.app_sections_active",
+    //   newTourTexts.app_sections_active
+    // );
     data.tourTexts = JSON.stringify(newTourTexts);
 
     dispatch(setOneTour(data));
