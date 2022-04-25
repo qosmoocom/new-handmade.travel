@@ -122,7 +122,7 @@ export default function Index() {
           <ActionDetail />
           <Price />
           <Rate />
-          <Life />
+          {/* <Life /> */}
           <ActionPicture />
           <Gallery />
           <Author />
