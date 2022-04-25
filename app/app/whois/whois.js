@@ -36,19 +36,19 @@ export default function WhoIs() {
   return (
     <>
       <SectionActive name={val.name} />
-      <div id="author-wrapper" style={bgYellow}>
+      <div id="whois-wrapper" style={bgYellow}>
         <div className="container">
           <div className="container">
-            <div className="author-content">
-              <div className="author-title">
+            <div className="whois-content">
+              <div className="whois-title">
                 <h1>
-                  <Text name="whois_title" itIsClassName="author-title">
+                  <Text name="whois_title" itIsClassName="whois-title">
                     {getItem("whois_title")}
                   </Text>
                 </h1>
               </div>
-              <div className="author-descript">
-                <div className="author-image">
+              <div className="whois-descript">
+                <div className="whois-image">
                   <div className="image-content">
                     <Image
                       layout="fill"
@@ -62,7 +62,7 @@ export default function WhoIs() {
                     />
                   </div>
                 </div>
-                <div className="author-text">
+                <div className="whois-text">
                   <p>
                     <Text name="whois_info">{getItem("whois_info")}</Text>
                   </p>

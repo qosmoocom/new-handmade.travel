@@ -1,1 +1,4 @@
-export const newComponentsList = [{ name: "whois", isActive: true }];
+export const newComponentsList = [
+  { name: "whois", isActive: true },
+  { name: "life", isActive: true },
+];

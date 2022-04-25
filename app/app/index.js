@@ -15,6 +15,7 @@ import TourProgram from "./tour-program";
 import ActionDetail from "./action-detail";
 import Price from "./prices";
 import Rate from "./rate";
+import Life from "./life";
 import ActionPicture from "./action-picture";
 import Gallery from "./gallery";
 import Author from "./author";
@@ -121,6 +122,7 @@ export default function Index() {
           <ActionDetail />
           <Price />
           <Rate />
+          <Life />
           <ActionPicture />
           <Gallery />
           <Author />

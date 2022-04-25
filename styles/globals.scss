@@ -1757,6 +1757,134 @@ body {
 }
 // rate style end
 
+#life {
+  .content {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 50px 0;
+  }
+
+  .life-title {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    h1 {
+      /* font-family: "Akrobat", sans-serif; */
+      font-style: normal;
+      font-weight: bold;
+      font-size: 35px;
+      line-height: 117.6%;
+      letter-spacing: 0.005em;
+      color: #cc5a1a;
+      @media (min-width: 320px) {
+        font-size: 25px;
+      }
+      @media (min-width: 768px) {
+        font-size: 35px;
+      }
+    }
+  }
+
+  .cards {
+    position: relative;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 60px;
+    @media (min-width: 320px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      gap: 30px;
+    }
+    @media (min-width: 992px) {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 60px;
+    }
+  }
+
+  .card {
+    position: relative;
+    display: flex;
+    column-gap: 20px;
+    :nth-child(6) {
+      @media (min-width: 320px) {
+        display: none;
+      }
+      @media (min-width: 768px) {
+        display: flex;
+      }
+    }
+  }
+
+  .img-card {
+    position: relative;
+  }
+
+  .image-box {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    @media (min-width: 320px) {
+      width: 70px;
+      height: 70px;
+    }
+    @media (min-width: 578px) {
+      width: 90px;
+      height: 90px;
+    }
+  }
+
+  .text-box {
+    position: relative;
+    h1 {
+      margin: 0;
+      padding: 0;
+      font-style: normal;
+      font-weight: bold;
+      min-height: 50px;
+      font-size: 28px;
+      line-height: 117.6%;
+      text-align: justify;
+      letter-spacing: 0.005em;
+      color: #000000;
+    }
+    h4 {
+      margin: 0;
+      padding: 0;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 117.6%;
+      text-align: justify;
+      letter-spacing: 0.005em;
+      color: #000000;
+    }
+    @media (min-width: 320px) {
+      h1 {
+        font-size: 20px;
+        min-height: 30px;
+      }
+      h4 {
+        font-size: 16px;
+      }
+    }
+    @media (min-width: 578px) {
+      h1 {
+        font-size: 28px;
+        min-height: 50px;
+      }
+      h4 {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+
 // action-picture section style started
 
 
@@ -2503,6 +2631,168 @@ body {
   }
 }
 //  it fineshes in author styles
+
+
+// it started whois styles
+#whois-wrapper {
+  .whois-content {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+  }
+  .whois-title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+    justify-content: center;
+    h1 {
+      /* font-family: "Akrobat", sans-serif;
+    font-display:swap; */
+      font-style: normal;
+      font-weight: bold;
+      font-size: 35px;
+      line-height: 117.6%;
+      letter-spacing: 0.005em;
+      color: #cc5a1a;
+      @media (min-width: 320px) {
+        font-size: 25px;
+        text-align: center;
+      }
+      @media (min-width: 768px) {
+        font-size: 35px;
+      }
+    }
+  }
+
+  .whois-descript {
+    position: relative;
+    display: flex;
+    @media (min-width: 320px) {
+      flex-direction: column;
+      row-gap: 15px;
+      column-gap: 0px;
+    }
+    @media (min-width: 768px) {
+      flex-direction: row;
+      row-gap: 0px;
+      column-gap: 20px;
+    }
+  }
+
+  .whois-image {
+    position: relative;
+    padding: 15px 20px;
+
+    .image-content {
+      position: relative;
+      width: 323px;
+      height: 431px;
+      box-shadow: -20px -15px 1px #bf7246;
+      @media (min-width: 320px) {
+        width: 260px;
+        height: 360px;
+        margin: auto;
+        box-shadow: -15px -10px 1px #bf7246;
+      }
+      @media (min-width: 768px) {
+        width: 245px;
+        margin: 0;
+        height: 345px;
+        box-shadow: -15px -10px 1px #bf7246;
+      }
+      @media (min-width: 992px) {
+        width: 323px;
+        height: 431px;
+        box-shadow: -20px -15px 1px #bf7246;
+      }
+    }
+  }
+
+  .whois-text {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    p {
+      /* font-family: "Akrobat", sans-serif;
+    font-display:swap; */
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18.5px;
+      line-height: 117.6%;
+      text-align: justify;
+      letter-spacing: 0.005em;
+      color: #000000;
+    }
+    button {
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      outline: none;
+      border: none;
+      background: #bf7246;
+      border-radius: 20px;
+      width: 336px;
+      height: 71px;
+      /* font-family: Akrobat;
+    font-display:swap; */
+      font-style: normal;
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 117.6%;
+      text-align: justify;
+      letter-spacing: 0.005em;
+      color: #ffffff;
+    }
+    @media (min-width: 320px) {
+      row-gap: 0px;
+      p {
+        font-size: 16px;
+      }
+      button {
+        margin-top: 20px;
+        border-radius: 5px;
+        width: 220px;
+        height: 40px;
+        font-size: 20px;
+      }
+    }
+    @media (min-width: 768px) {
+      row-gap: 0px;
+      p {
+        font-size: 16px;
+      }
+      button {
+        margin-top: 10px;
+        border-radius: 5px;
+        width: 220px;
+        height: 40px;
+        font-size: 20px;
+      }
+    }
+    @media (min-width: 992px) {
+      row-gap: 8px;
+      p {
+        font-size: 18.5px;
+      }
+      button {
+        margin-top: 0px;
+        border-radius: 20px;
+        width: 336px;
+        font-size: 30px;
+        height: 71px;
+      }
+    }
+  }
+}
+
+// it finished whois styles
+
 
 //  it startes in why-wth-us styles
 #why-wth-us {

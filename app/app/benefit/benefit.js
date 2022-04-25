@@ -127,6 +127,11 @@ export default function Benefit() {
                   {getItem("benefit_action_btn")}
                 </Text>
               </button>
+              <button style={{ cursor: "pointer" }} onClick={handleOnModal2}>
+                <Text name="benefit_action_btn">
+                  {getItem("benefit_action_btn")}
+                </Text>
+              </button>
             </div>
           </div>
         </div>
