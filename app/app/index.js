@@ -18,6 +18,7 @@ import Rate from "./rate";
 import ActionPicture from "./action-picture";
 import Gallery from "./gallery";
 import Author from "./author";
+import WhoIs from "./whois";
 import WhyWithUs from "./why-with-us";
 import Samele from "./samele";
 import Reviews from "./reviews";
@@ -123,6 +124,7 @@ export default function Index() {
           <ActionPicture />
           <Gallery />
           <Author />
+          <WhoIs />
           <WhyWithUs />
           <Samele />
           <ThirdUtp />

@@ -1675,5 +1675,25 @@ export const defaultState = {
     { name: "third-utp", isActive: true },
     { name: "tour-program", isActive: true },
     { name: "why-with-us", isActive: true },
+    { name: "whois", isActive: true },
   ],
+  whois_title: {
+    value: "ДЛЯ КОГО ЭТОТ ТУР?",
+  },
+  whois_btn: { value: "Я перезвоню вам ?" },
+  whois_user_imgUrl: { value: "/images/landing/sufi/samele/img.webp" },
+  whois_user_imgAlt: {
+    value: "Дервиш с бубном",
+  },
+  whois_user_imgTitle: {
+    value: "Дервиш с бубном",
+  },
+  whois_info: {
+    value: `Суфийский тур в Узбекистан – это "комбо-путешествие" в мир мусульманского мистицизма с долей эзотерики, разбавленное медитативными практиками, тематическими лекциями и дегустациями в стиле Омара Хайяма.
+            <br/><br/>
+            Программа тура универсальна и будет интересна как любителю мистицизма или поклоннику cultural туров, так и "среднестатистическому" туристу.
+            <br/><br/>
+            Суфийский тур – это не паломничество, так как специально для верующих и практикующих мусульман handmade.travel разработал <a href='/tours/ziarat/ru'>АВТОРСКИЙ ЗИЯРАТ-ТУР</a> по мусульманским святыням Узбекистана с пятикратным намазом питанием халяль.
+          `,
+  },
 };
