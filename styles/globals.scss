@@ -3837,4 +3837,34 @@ body {
   }
 }
 
+
+// new style fo header
+.header_texts_box {
+
+  .header_middle_text {
+    @media (min-width: 480px) {
+      text-align: center !important;
+      text-align-last: auto !important;
+    }
+    
+    @media (min-width: 992px) {
+      text-align: justify !important;
+      text-align-last: justify !important;
+    }
+  }
+  .header_big_text {
+    @media (min-width: 480px) {
+      text-align: center !important;
+      text-align-last: auto !important;
+    }
+    
+    @media (min-width: 992px) {
+      text-align: justify !important;
+      text-align-last: justify !important;
+    }
+  }
+}
+
+
+
 // #outer-title style fineshed
