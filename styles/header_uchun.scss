@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Akrobat', sans-serif;
+ }
+
+.tour-program-list-text-id-0-1,
+.tour-program-list-text-id-0-2,
+.tour-program-list-text-id-10-1,
+.tour-program-list-text-id-10-2 {
+    display:none;
+}
+.tour-program-list-footer-id-0{
+   display:none;
+}
+
+.header_texts_box .header_middle_text {
+  font-size: 3.9vw;
+  letter-spacing: 0.4px;
+  text-align: justify;
+  text-align-last: justify;
+}
+.header_texts_box .header_big_text {
+  font-size: 5.5vw;
+  text-align: justify;
+  text-align-last: justify;
+}
+.header_texts_box .header_small_text {
+  font-size: 10px;
+  line-height: 12px;
+  text-align: justify;
+  letter-spacing: 1px;
+}
+// @media (min-width: 328px) {
+//   .header_texts_box .header_middle_text {
+//     font-size: 13px;
+//   }
+//   .header_texts_box .header_big_text {
+//     font-size: 20px;
+//   }
+//   .header_texts_box .header_small_text {
+//     font-size: 8px;
+//   }
+// }
+// @media (min-width: 343px) {
+//   .header_texts_box .header_middle_text {
+//     font-size: 14px;
+//   }
+//   .header_texts_box .header_big_text {
+//     font-size: 21px;
+//   }
+//   .header_texts_box .header_small_text {
+//     font-size: 9px;
+//   }
+// }
+// @media (min-width: 370px) {
+//   .header_texts_box .header_middle_text {
+//     font-size: 15px;
+//   }
+//   .header_texts_box .header_big_text {
+//     font-size: 22px;
+//   }
+//   .header_texts_box .header_small_text {
+//     font-size: 10px;
+//   }
+// }
+// @media (min-width: 400px) {
+//   .header_texts_box .header_middle_text {
+//     font-size: 16px;
+//   }
+//   .header_texts_box .header_big_text {
+//     font-size: 24px;
+//   }
+//   .header_texts_box .header_small_text {
+//     font-size: 11px;
+//     line-height: 15px;
+//   }
+// }
+// @media (min-width: 437px) {
+//   .header_texts_box .header_middle_text {
+//     font-size: 17px;
+//   }
+//   .header_texts_box .header_big_text {
+//     font-size: 25px;
+//   }
+//   .header_texts_box .header_small_text {
+//     font-size: 12px;
+//   }
+// }
+// @media (min-width: 500px) {
+//   .header_texts_box .header_middle_text {
+//     font-size: 20px;
+//   }
+//   .header_texts_box .header_big_text {
+//     font-size: 30px;
+//   }
+//   .header_texts_box .header_small_text {
+//     font-size: 12px;
+//   }
+// }
+
+@media (min-width: 560px) {
+  .header_texts_box .header_middle_text {
+    font-size: 3vw;
+    letter-spacing: 0.4px;
+    text-align: justify;
+    text-align-last: justify;
+  }
+  .header_texts_box .header_big_text {
+    font-size: 4vmin;
+    text-align: justify;
+    text-align-last: justify;
+  }
+  .header_texts_box .header_small_text {
+    font-size: 10px;
+    line-height: 12px;
+  }
+}
+@media (min-width: 768px) {
+  .header_texts_box .header_middle_text {
+    font-size: 21.2px;
+    text-align: center;
+    text-align-last: auto;
+  }
+  .header_texts_box .header_big_text {
+    font-size: 4.5vmin;
+    letter-spacing: 0.6px;
+    text-align: center;
+    text-align-last: auto;
+  }
+  .header_texts_box .header_small_text {
+    font-size: 15px;
+    line-height: 20px;
+  }
+}
+@media (min-width: 992px) {
+  .header_texts_box .header_middle_text {
+    font-size: 20px;
+    text-align: justify;
+    text-align-last: justify;
+    width: 100%;
+  }
+  .header_texts_box .header_big_text {
+    font-size: 33px;
+    margin-top: 3px;
+    text-align: justify;
+    text-align-last: justify;
+    width: 100%;
+  }
+  .header_texts_box .header_small_text {
+    font-size: 14px;
+    max-width: none;
+    line-height: 18px;
+    margin-top: 5px;
+    letter-spacing: 2px;
+  }
+}
+@media (min-width: 1200px) {
+  .header_texts_box .header_middle_text {
+    font-size: 26px;
+    // width: 80%;
+    margin: 0 20px;
+  }
+  .header_texts_box .header_big_text {
+    font-size: 42px;
+    // width: 80%;
+    margin: 0 20px;
+  }
+  .header_texts_box .header_small_text {
+    font-size: 18.5px;
+    line-height: 19px;
+    // width: 80%;
+    margin: 0 20px;
+  }
+}
+@media (min-width: 1400px) {
+  .header_texts_box .header_middle_text {
+    font-size: 30px;
+  }
+  .header_texts_box .header_big_text {
+    font-size: 54px;
+  }
+  .header_texts_box .header_small_text {
+    font-size: 20px;
+    line-height: 20px;    
+  }
+}

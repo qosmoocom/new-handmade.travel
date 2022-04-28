@@ -63,7 +63,7 @@ const Customers = () => {
   const data = [{ name: 1 }, { name: 2 }, { name: 3 }, { name: 4 }];
 
   const items = data.map((item, index) => {
-    return <Customer id={index} name={item.name} />;
+    return <Customer key={index} name={item.name} />;
   });
 
   return (
