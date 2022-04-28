@@ -96,26 +96,36 @@ export default function Header() {
       text2.style.fontSize = (18 / getItem("head_text_2").length) * 10 + "vw";
       text3.style.fontSize = (18 / getItem("head_text_3").length) * 20 + "vw";
     }
-    if (576 < window.innerWidth && window.innerWidth < 992) {
+    if (576 <= window.innerWidth && window.innerWidth < 700) {
       text1.style.fontSize = (18 / getItem("head_text_1").length) * 8 + "vw";
       text2.style.fontSize = (18 / getItem("head_text_2").length) * 8 + "vw";
       text3.style.fontSize = (18 / getItem("head_text_3").length) * 17 + "vw";
     }
-    if (992 <= window.innerWidth && window.innerWidth < 1100) {
-      text1.style.fontSize = (18 / getItem("head_text_1").length) * 6.5 + "vw";
-      text2.style.fontSize = (18 / getItem("head_text_2").length) *6.5 + "vw";
+    if (700 <= window.innerWidth && window.innerWidth < 992) {
+      text1.style.fontSize = (18 / getItem("head_text_1").length) * 7 + "vw";
+      text2.style.fontSize = (18 / getItem("head_text_2").length) * 7 + "vw";
+      text3.style.fontSize = (18 / getItem("head_text_3").length) * 15 + "vw";
     }
-    if (1100 <= window.innerWidth && window.innerWidth < 1900) {
-      text1.style.fontSize = (18 / getItem("head_text_1").length) * 6 + "vw";
-      text2.style.fontSize = (18 / getItem("head_text_2").length) *6 + "vw";
+    if (992 <= window.innerWidth && window.innerWidth < 1100) {
+      text1.style.fontSize = (18 / getItem("head_text_1").length) * 3 + "vw";
+      text1.style.color = "black";
+      text2.style.fontSize = `${(18 / getItem("head_text_2").length) * 9}vw`;
+    }
+    if (1100 <= window.innerWidth && window.innerWidth < 1650) {
+      text1.style.fontSize = (18 / getItem("head_text_1").length) * 5.5  + "vw";
+      text2.style.fontSize = (18 / getItem("head_text_2").length) * 5 + "vw";
+    }
+    if (1650 <= window.innerWidth && window.innerWidth < 1900) {
+      text1.style.fontSize = (18 / getItem("head_text_1").length) * 4.6 + "vw";
+      text2.style.fontSize = (18 / getItem("head_text_2").length) * 4.6 + "vw";
     }
     if (1900 <= window.innerWidth && window.innerWidth < 2300) {
-      text1.style.fontSize = (18 / getItem("head_text_1").length) * 5 + "vw";
-      text2.style.fontSize = (18 / getItem("head_text_2").length) *5 + "vw";
+      text1.style.fontSize = (18 / getItem("head_text_1").length) * 4 + "vw";
+      text2.style.fontSize = (18 / getItem("head_text_2").length) * 4 + "vw";
     }
     if (2300 <= window.innerWidth) {
-      text1.style.fontSize = (18 / getItem("head_text_1").length) * 4 + "vw";
-      text2.style.fontSize = (18 / getItem("head_text_2").length) *4 + "vw";
+      text1.style.fontSize = (18 / getItem("head_text_1").length) * 3 + "vw";
+      text2.style.fontSize = (18 / getItem("head_text_2").length) * 3.2 + "vw";
     }
     console.log(text1);
     console.log(window.innerWidth);
