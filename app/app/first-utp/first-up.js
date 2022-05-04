@@ -48,8 +48,9 @@ export default function FirstUtp() {
                         layout="fill"
                         alt={item.img.alt}
                         title={item.img.title}
-                        group={'first_utp'}
+                        group={"first_utp"}
                         id={index}
+                        sectionName={val.name}
                       />
                     </div>
                   </div>

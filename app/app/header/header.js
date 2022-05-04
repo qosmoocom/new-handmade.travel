@@ -119,6 +119,7 @@ export default function Header() {
                     altDataName="logofixed_img_alt"
                     title={getItem("logofixed_img_title")}
                     titleDataName="logofixed_img_title"
+                    sectionName={val.name}
                   />
                 </div>
                 <div className="logo-text">
@@ -238,6 +239,7 @@ export default function Header() {
                     altDataName={"logofixed_img_alt"}
                     title={getItem("logofixed_img_title")}
                     titleDataName={"logofixed_img_title"}
+                    sectionName={val.name}
                   />
                 </div>
                 <div
@@ -322,6 +324,7 @@ export default function Header() {
                   titleDataName={"logofixed_img_title"}
                   alt={getItem("logofixed_img_alt")}
                   altDataName={"logofixed_img_alt"}
+                  sectionName={val.name}
                 />
               </div>
 
@@ -461,6 +464,7 @@ export default function Header() {
                       alt={getItem("logofixed_img_alt")}
                       titleDataName={"logofixed_img_title"}
                       title={getItem("logofixed_img_title")}
+                      sectionName={val.name}
                     />
                   </div>
                   <div
@@ -494,6 +498,7 @@ export default function Header() {
               altDataName={"head_img_alt"}
               title={getItem("head_img_title")}
               titleDataName={"head_img_title"}
+              sectionName={val.name}
             />
           </div>
           <div className="header_main_bgi_mobile">
@@ -510,6 +515,7 @@ export default function Header() {
               altDataName={"head_img_alt"}
               title={getItem("head_img_title")}
               titleDataName={"head_img_title"}
+              sectionName={val.name}
             />
           </div>
         </div>

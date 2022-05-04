@@ -106,6 +106,7 @@ export default function Benefit() {
                   layout="fill"
                   objectFit="cover"
                   itIsClassName="img-box"
+                  sectionName={val.name}
                 />
               </div>
             </div>

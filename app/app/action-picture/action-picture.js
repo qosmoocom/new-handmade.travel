@@ -41,9 +41,9 @@ export default function ActionPicture() {
         <div className="container">
           <div className="action-picture-btn">
             {bronBtnActive && (
-              <button style={{ cursor: 'pointer' }} onClick={handleOnModal2}>
+              <button style={{ cursor: "pointer" }} onClick={handleOnModal2}>
                 <Text name="action_picture_btn_bron">
-                  {getItem('action_picture_btn_bron')}
+                  {getItem("action_picture_btn_bron")}
                 </Text>
               </button>
             )}
@@ -55,12 +55,12 @@ export default function ActionPicture() {
               <div className="content">
                 <h3 className="content-left-title">
                   <Text name="action_picture_head">
-                    {getItem('action_picture_head')}
+                    {getItem("action_picture_head")}
                   </Text>
                 </h3>
                 <p className="content-left-descript">
                   <Text name="action_picture_text">
-                    {getItem('action_picture_text')}
+                    {getItem("action_picture_text")}
                   </Text>
                 </p>
               </div>
@@ -68,15 +68,16 @@ export default function ActionPicture() {
             <div className="content-right">
               <div className="img-box">
                 <Image
-                  src={getItem('action_picture_imgSrc')}
-                  title={getItem('action_picture_imgTitle')}
-                  alt={getItem('action_picture_imgAlt')}
-                  srcDataName={'action_picture_imgSrc'}
-                  titleDataName={'action_picture_imgTitle'}
-                  altDataName={'action_picture_imgAlt'}
+                  src={getItem("action_picture_imgSrc")}
+                  title={getItem("action_picture_imgTitle")}
+                  alt={getItem("action_picture_imgAlt")}
+                  srcDataName={"action_picture_imgSrc"}
+                  titleDataName={"action_picture_imgTitle"}
+                  altDataName={"action_picture_imgAlt"}
                   layout="fill"
                   objectFit="cover"
                   itIsClassName="img-box"
+                  sectionName={val.name}
                 />
               </div>
             </div>

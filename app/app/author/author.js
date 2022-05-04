@@ -43,7 +43,7 @@ export default function Author() {
               <div className="author-title">
                 <h1>
                   <Text name="author_title" itIsClassName="author-title">
-                    {getItem('author_title')}
+                    {getItem("author_title")}
                   </Text>
                 </h1>
               </div>
@@ -53,21 +53,22 @@ export default function Author() {
                     <Image
                       layout="fill"
                       objectFit="cover"
-                      src={getItem('author_user_imgUrl')}
-                      alt={getItem('author_user_imgAlt')}
-                      title={getItem('author_user_imgTitle')}
-                      srcDataName={'author_user_imgUrl'}
-                      altDataName={'author_user_imgAlt'}
-                      titleDataName={'author_user_imgTitle'}
+                      src={getItem("author_user_imgUrl")}
+                      alt={getItem("author_user_imgAlt")}
+                      title={getItem("author_user_imgTitle")}
+                      srcDataName={"author_user_imgUrl"}
+                      altDataName={"author_user_imgAlt"}
+                      titleDataName={"author_user_imgTitle"}
+                      sectionName={val.name}
                     />
                   </div>
                 </div>
                 <div className="author-text">
                   <p>
-                    <Text name="author_info">{getItem('author_info')}</Text>
+                    <Text name="author_info">{getItem("author_info")}</Text>
                   </p>
-                  <button onClick={handleOnModal} style={{ cursor: 'pointer' }}>
-                    <Text name="author_btn">{getItem('author_btn')}</Text>
+                  <button onClick={handleOnModal} style={{ cursor: "pointer" }}>
+                    <Text name="author_btn">{getItem("author_btn")}</Text>
                   </button>
                 </div>
               </div>
