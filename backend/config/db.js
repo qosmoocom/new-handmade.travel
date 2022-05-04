@@ -2,11 +2,6 @@ const mongoose = require("mongoose");
 // const dbUri =
 //   "mongodb+srv://anvar:1DRLK4PrhRd9FcRd@cluster0.uoe1t.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
-<<<<<<< HEAD
-// const dbUri =mkd;
-=======
-// const dbUri = mkd;
->>>>>>> 0abbe4fb6f6ce3db73c8adf2777160b429cd00d7
 const dbUri = "mongodb://localhost:27017/handmade";
 
 // mongosh "mongodb+srv://cluster0.uoe1t.mongodb.net/myFirstDatabase" --apiVersion 1 --username anvar
