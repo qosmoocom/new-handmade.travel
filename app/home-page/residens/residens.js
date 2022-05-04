@@ -12,8 +12,8 @@ const Residens = () => {
     document.getElementById("residens").scrollBy(-325, 0);
   };
   const data = [0, 1, 2, 3, 4];
-  const items = data.map(() => {
-    return <Residen />;
+  const items = data.map((item, index) => {
+    return <Residen data={item} key={index} />;
   });
   return (
     <Section>

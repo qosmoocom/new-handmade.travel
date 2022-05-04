@@ -6,46 +6,46 @@ import Image from "../../components/Image";
 import Text from "../../components/Text";
 import Link from "../../components/Link";
 
-export default function Benefit() {
+export default function BenefitModal() {
   const { getItem } = useContext(AppContext);
-  // const dispatch = useDispatch();
-  // const handleOnModal2 = () => {
-  //   const payload = {
-  //     currentModal: "MODAL_3",
-  //     actionModal: "ACTION 2",
-  //   };
-  //   dispatch({ type: "MODAL_OPEN", payload });
-  // };
+  const dispatch = useDispatch();
+  const handleOnModal2 = () => {
+    const payload = {
+      currentModal: "MODAL_3",
+      actionModal: "ACTION 2",
+    };
+    dispatch({ type: "MODAL_OPEN", payload });
+  };
 
   // component active no active
   const val = useSelector((state) => state.admin.app_sections_active).find(
-    (i) => i.name === "benefit"
+    (i) => i.name === "benefit-modal"
   );
 
   const { isEdit: thisIsNotClient } = useSelector((st) => st.admin);
 
   const bgYellow = {
-    background: val.isActive ? null : "yellow",
-    opacity: val.isActive ? null : "0.2",
-    cursor: val.isActive ? null : "not-allowed",
+    background: (val ? val.isActive : true) ? null : "yellow",
+    opacity: (val ? val.isActive : true) ? null : "0.2",
+    cursor: (val ? val.isActive : true) ? null : "not-allowed",
   };
 
-  if (!thisIsNotClient && !val.isActive) return null;
+  if (!thisIsNotClient && (val ? !val.isActive : false)) return null;
   // component active no active
 
   return (
     <>
-      <SectionActive name={val.name} />
-      <div id="benefit" style={bgYellow}>
-        <div className="container">
+      <SectionActive name={val ? val.name : "true"} />
+      <div id="benefit" style={val ? bgYellow : { display: "block" }}>
+        {/* <div className="container">
           <div className="benefit-title">
             <h2>
               <Text name="benefit_title">{getItem("benefit_title")}</Text>
             </h2>
           </div>
-        </div>
+        </div> */}
 
-        <div className="wrapper-content">
+        {/* <div className="wrapper-content">
           <div className="container">
             <div className="content-left">
               <div className="content">
@@ -73,14 +73,13 @@ export default function Benefit() {
                   layout="fill"
                   objectFit="cover"
                   itIsClassName="img-box"
-                  sectionName={val.name}
                 />
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        {/* <div className="action-wrapper">
+        <div className="action-wrapper">
           <div className="container">
             <div className="content">
               <div className="info">
@@ -97,7 +96,7 @@ export default function Benefit() {
               </button>
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
     </>
   );

@@ -25,11 +25,12 @@ export default function Home() {
   const [lang, setLang] = useState("uz");
   const [div, setDiv] = useState("");
   useEffect(() => {
-    console.log(window.navigator.language === "es");
-    if (window.navigator.language) {
+    console.log(window.navigator.language);
+    console.log(window);
+    if (window.navigator.language=='es') {
       setLang("es");
     }
-    if (window.navigator.language == "en") {
+    if (window.navigator.language == "en-US") {
       setLang("en");
     }
     if (window.navigator.language == "ru") {
@@ -41,11 +42,9 @@ export default function Home() {
     console.log(div);
     if (lang == "es") {
       setDiv("ispancha");
-    }
-    if (lang == "en") {
+    }else if (lang == "en") {
       setDiv("inglizcha");
-    }
-    if (lang == "ru") {
+    }else if (lang == "ru") {
       setDiv("ruscha");
     }
   }, [lang]);
@@ -74,7 +73,7 @@ export default function Home() {
         <Residens />
         <Footer />
       </Section>
-      {/* {div} */}
+      {div}
     </div>
   );
 }

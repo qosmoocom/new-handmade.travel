@@ -54,9 +54,9 @@ const Section = styled.div`
   }
 `;
 
-const Customer = ({ id, name }) => {
+const Customer = ({ key, name }) => {
   return (
-    <Section id={"customer" + id}>
+    <Section id={"customer" + key}>
       <div className="head">
         <div
           className="image"

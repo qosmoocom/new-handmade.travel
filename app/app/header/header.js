@@ -86,6 +86,50 @@ export default function Header() {
 
   if (!thisIsNotClient && !val.isActive) return null;
   // component active no active
+  console.log(getItem("head_text_1").length);
+  useEffect(() => {
+    let text1 = document.getElementById("header_middle_text");
+    let text2 = document.getElementById("header_big_text");
+    let text3 = document.getElementById("header_small_text");
+    if (319 < window.innerWidth && window.innerWidth < 576) {
+      text1.style.fontSize = (18 / getItem("head_text_1").length) * 10 + "vw";
+      text2.style.fontSize = (18 / getItem("head_text_2").length) * 10 + "vw";
+      text3.style.fontSize = (18 / getItem("head_text_3").length) * 20 + "vw";
+    }
+    if (576 <= window.innerWidth && window.innerWidth < 700) {
+      text1.style.fontSize = (18 / getItem("head_text_1").length) * 8 + "vw";
+      text2.style.fontSize = (18 / getItem("head_text_2").length) * 8 + "vw";
+      text3.style.fontSize = (18 / getItem("head_text_3").length) * 17 + "vw";
+    }
+    if (700 <= window.innerWidth && window.innerWidth < 992) {
+      text1.style.fontSize = (18 / getItem("head_text_1").length) * 7 + "vw";
+      text2.style.fontSize = (18 / getItem("head_text_2").length) * 7 + "vw";
+      text3.style.fontSize = (18 / getItem("head_text_3").length) * 15 + "vw";
+    }
+    if (992 <= window.innerWidth && window.innerWidth < 1100) {
+      text1.style.fontSize = (18 / getItem("head_text_1").length) * 3 + "vw";
+      text1.style.color = "black";
+      text2.style.fontSize = `${(18 / getItem("head_text_2").length) * 9}vw`;
+    }
+    if (1100 <= window.innerWidth && window.innerWidth < 1650) {
+      text1.style.fontSize = (18 / getItem("head_text_1").length) * 5.5  + "vw";
+      text2.style.fontSize = (18 / getItem("head_text_2").length) * 5 + "vw";
+    }
+    if (1650 <= window.innerWidth && window.innerWidth < 1900) {
+      text1.style.fontSize = (18 / getItem("head_text_1").length) * 4.6 + "vw";
+      text2.style.fontSize = (18 / getItem("head_text_2").length) * 4.6 + "vw";
+    }
+    if (1900 <= window.innerWidth && window.innerWidth < 2300) {
+      text1.style.fontSize = (18 / getItem("head_text_1").length) * 4 + "vw";
+      text2.style.fontSize = (18 / getItem("head_text_2").length) * 4 + "vw";
+    }
+    if (2300 <= window.innerWidth) {
+      text1.style.fontSize = (18 / getItem("head_text_1").length) * 3 + "vw";
+      text2.style.fontSize = (18 / getItem("head_text_2").length) * 3.2 + "vw";
+    }
+    console.log(text1);
+    console.log(window.innerWidth);
+  }, [window.innerWidth]);
 
   return (
     <>
@@ -362,7 +406,7 @@ export default function Header() {
                 {/* /navbar menu */}
                 {/* navbar texts box */}
                 <div className="header_texts_box">
-                  <h3 className="header_middle_text">
+                  <h3 className="header_middle_text" id="header_middle_text">
                     <Text
                       name={"head_text_1"}
                       itIsClassName="header_middle_text"
@@ -370,12 +414,12 @@ export default function Header() {
                       {getItem("head_text_1")}
                     </Text>
                   </h3>
-                  <h2 className="header_big_text">
+                  <h2 className="header_big_text" id="header_big_text">
                     <Text name={"head_text_2"} itIsClassName="header_big_text">
                       {getItem("head_text_2")}
                     </Text>
                   </h2>
-                  <h4 className="header_small_text">
+                  <h4 className="header_small_text" id="header_small_text">
                     <Text
                       name={"head_text_3"}
                       itIsClassName="header_small_text"

@@ -2,6 +2,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { TiStarFullOutline } from "react-icons/ti";
+import { useRouter } from 'next/router'
 
 const Section = styled.div`
   width: 47%;
@@ -72,19 +73,23 @@ const Section = styled.div`
 
 const Onetour = ({ data }) => {
   const [ tour, setTour]=useState(false)
+  const router =useRouter()
   useEffect(()=>{
     if(data){
       if(data.tourTexts){
         setTour(JSON.parse(data.tourTexts))
   
       }
-      console.log(data);
-      console.log(tour);
+      console.log(data.tour_id);
+      console.log(data.language);
     }
   }, [data])
+  const HandlerNav = ()=>{
+    router.push(`/tours/${data.tour_id}/${data.language}`)
+  }
   if(tour){
   return (
-    <Section>
+    <Section onClick={HandlerNav}>
       <div
         className="image"
         style={{ borderTopRadius: "12px", overflow: "hidden" }}

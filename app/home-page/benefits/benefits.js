@@ -41,8 +41,8 @@ const Section = styled.div`
 
 const Benefits = () => {
   let data = [0, 1, 2, 3, 4, 5];
-  const items = data.map(() => {
-    return <Benefit />;
+  const items = data.map((item, index) => {
+    return <Benefit data={item} key={index} />;
   });
   return (
     <Section>
