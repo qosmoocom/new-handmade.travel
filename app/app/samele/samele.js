@@ -43,7 +43,7 @@ export default function Samele() {
             <div className="smale-head-text">
               <h1>
                 <Text name="samele_head" itIsClassName="smale-head-text">
-                  {getItem('samele_head')}
+                  {getItem("samele_head")}
                 </Text>
               </h1>
             </div>
@@ -53,34 +53,35 @@ export default function Samele() {
                   <Image
                     layout="fill"
                     objectFit="cover"
-                    src={getItem('samele_img_url')}
-                    alt={getItem('samele_img_alt')}
-                    title={getItem('samele_img_title')}
-                    srcDataName={'samele_img_url'}
-                    altDataName={'samele_img_alt'}
-                    titleDataName={'samele_img_title'}
+                    src={getItem("samele_img_url")}
+                    alt={getItem("samele_img_alt")}
+                    title={getItem("samele_img_title")}
+                    srcDataName={"samele_img_url"}
+                    altDataName={"samele_img_alt"}
+                    titleDataName={"samele_img_title"}
                     itIsClassName="image-blog"
+                    sectionName={val.name}
                   />
                 </div>
               </div>
               <div className="text-box">
                 <h1>
                   <Text name="samele_name" itIsClassName="text-box">
-                    {getItem('samele_name')}
+                    {getItem("samele_name")}
                   </Text>
                 </h1>
                 <p>
                   <Text name="samele_title" itIsClassName="text-box">
-                    {getItem('samele_title')}
+                    {getItem("samele_title")}
                   </Text>
                 </p>
                 <p>
                   <Text name="samele_title_1" itIsClassName="text-box">
-                    {getItem('samele_title_1')}
+                    {getItem("samele_title_1")}
                   </Text>
                 </p>
                 <ul>
-                  {getItem('sameleData', 'sameleData').map((item, index) => {
+                  {getItem("sameleData", "sameleData").map((item, index) => {
                     return (
                       <Item
                         className="li"

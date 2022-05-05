@@ -39,14 +39,16 @@ export default function Index({
   parentId = "",
   childId = "",
   priority,
+  sectionName
 }) {
   const { isEdit: isAdmin } = useSelector((st) => st.admin);
   const dispatch = useDispatch();
   const [src, setSrc] = useState("");
+  
   useEffect(() => {
     setSrc(imgSrc);
   }, [imgSrc]);
-  const doubleClickHandler = () => {
+  const doubleClickHandler = (e) => {
     if (isAdmin) {
       dispatch({
         type: types.editImage,
@@ -65,6 +67,7 @@ export default function Index({
           childId,
           list,
           name,
+          sectionName
         },
       });
     }
@@ -82,7 +85,7 @@ export default function Index({
             src={src}
             alt={alt || ""}
             title={title || ""}
-            onDoubleClick={doubleClickHandler}
+            onDoubleClick={(e)=>doubleClickHandler(e)}
             style={{ width: "100%", height: "100%", objectFit: objectFit }}
           />
         ) : (
@@ -109,7 +112,7 @@ export default function Index({
         <>
           {isAdmin ? (
             <img
-              onDoubleClick={doubleClickHandler}
+              onDoubleClick={(e)=>doubleClickHandler(e)}
               style={{ width: "100%", height: "100%", objectFit: objectFit }}
               src={src}
             />

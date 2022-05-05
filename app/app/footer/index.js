@@ -1010,6 +1010,7 @@ export default function index({ footer }) {
                 src="/images/landing/gastro/footer/arrow-right.webp"
                 alt="Arrow right"
                 layout="fill"
+                sectionName={val.name}
               />
             </button>
             <button
@@ -1019,6 +1020,7 @@ export default function index({ footer }) {
               <Image
                 src="/images/landing/gastro/footer/arrow-left.webp"
                 layout="fill"
+                sectionName={val.name}
               />
             </button>
             <button className="exit-btn" onClick={() => setM1(false)}>
@@ -1038,6 +1040,7 @@ export default function index({ footer }) {
                       width={500}
                       height={650}
                       key={index}
+                      sectionName={val.name}
                     />
                   )
                 )}
@@ -1060,6 +1063,7 @@ export default function index({ footer }) {
                         altDataName={"footer_logo_img_alt"}
                         title={getItem("footer_logo_img_title")}
                         titleDataName={"footer_logo_img_title"}
+                        sectionName={val.name}
                       />
                     </Images>
                   </Logo>
@@ -1080,6 +1084,7 @@ export default function index({ footer }) {
                             layout="fill"
                             src="/images/landing/gastro/messengrs/face.webp"
                             alt="Facebook"
+                            sectionName={val.name}
                           />
                         </IconT>
                       </Link>
@@ -1095,6 +1100,7 @@ export default function index({ footer }) {
                             layout="fill"
                             src="/images/landing/gastro/messengrs/insta.webp"
                             alt="Instagram"
+                            sectionName={val.name}
                           />
                         </IconT>
                       </Link>
@@ -1110,6 +1116,7 @@ export default function index({ footer }) {
                             layout="fill"
                             src="/images/landing/gastro/messengrs/youtube.webp"
                             alt="Youtube"
+                            sectionName={val.name}
                           />
                         </IconT>
                       </Link>
@@ -1125,6 +1132,7 @@ export default function index({ footer }) {
                             layout="fill"
                             src="/images/landing/gastro/messengrs/vk.webp"
                             alt="VKontakte"
+                            sectionName={val.name}
                           />
                         </IconT>
                       </Link>
@@ -1140,6 +1148,7 @@ export default function index({ footer }) {
                             layout="fill"
                             src="/images/landing/gastro/messengrs/teleg.webp"
                             alt="Telegram"
+                            sectionName={val.name}
                           />
                         </IconT>
                       </Link>
@@ -1322,6 +1331,7 @@ export default function index({ footer }) {
                             height={100}
                             src="/images/landing/gastro/footer/visa.png"
                             alt="Visa Crad"
+                            sectionName={val.name}
                           />
                         </Pay>
                         <Pay>
@@ -1331,6 +1341,7 @@ export default function index({ footer }) {
                             height={90}
                             src="/images/landing/gastro/footer/master.png"
                             alt="MasterCard"
+                            sectionName={val.name}
                           />
                         </Pay>
                         <Pay>
@@ -1340,6 +1351,7 @@ export default function index({ footer }) {
                             height={70}
                             src="/images/landing/gastro/footer/union.png"
                             alt="UnionPay Card"
+                            sectionName={val.name}
                           />
                         </Pay>
                       </Pay_pal>
@@ -1351,6 +1363,7 @@ export default function index({ footer }) {
                       src="/images/landing/gastro/footer/seal.webp"
                       alt="Вкусный Узбекистан"
                       title="Вкусный Узбекистан"
+                      sectionName={val.name}
                     />
                   </Seal>
                 </Blog_top>

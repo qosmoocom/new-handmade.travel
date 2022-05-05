@@ -11,23 +11,23 @@ import Video from "../app/home-page/video-area";
 import Residens from "../app/home-page/residens";
 import BenefitsMobi from "../app/home-page/benefits-mobi";
 import axios from "axios";
+import { useSelector } from "react-redux";
 export default function Home() {
-  const [tours, setTours] =useState('')
+  const [tours, setTours] = useState("");
+  const forFs = useSelector((state) => state);
 
-  useEffect(()=>{
-    axios.get('/api/tour/home')
-      .then((res)=>{
-        setTours(res.data);
-
-      })
-  }, [])
+  useEffect(() => {
+    axios.get("/api/tour/home").then((res) => {
+      setTours(res.data);
+    });
+  }, []);
   console.log(tours);
   const [lang, setLang] = useState("uz");
   const [div, setDiv] = useState("");
   useEffect(() => {
     console.log(window.navigator.language);
     console.log(window);
-    if (window.navigator.language=='es') {
+    if (window.navigator.language == "es") {
       setLang("es");
     }
     if (window.navigator.language == "en-US") {
@@ -42,12 +42,13 @@ export default function Home() {
     console.log(div);
     if (lang == "es") {
       setDiv("ispancha");
-    }else if (lang == "en") {
+    } else if (lang == "en") {
       setDiv("inglizcha");
-    }else if (lang == "ru") {
+    } else if (lang == "ru") {
       setDiv("ruscha");
     }
   }, [lang]);
+
   return (
     <div>
       <Head>
@@ -66,7 +67,7 @@ export default function Home() {
         <Navbar />
         <Header />
         <BenefitsMobi />
-        <Tours cards={tours}/>
+        <Tours cards={tours} />
         <Benefits />
         <Video />
         <Customers />

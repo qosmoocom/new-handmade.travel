@@ -495,6 +495,7 @@ export default function Modal2() {
             <Image
               src="/images/landing/gastro/messengrs/close.webp"
               layout="fill"
+              sectionName={val.name}
             />
           </div>
           <div>

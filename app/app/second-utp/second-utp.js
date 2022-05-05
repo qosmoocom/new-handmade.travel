@@ -53,10 +53,11 @@ export default function SecondUtp() {
                         alt={item.img.alt}
                         title={item.img.title}
                         itIsClassName="second-utp-item-img-box"
-                        group={'second_utp_list'}
+                        group={"second_utp_list"}
                         id={index}
                         priority
                         objectFit="cover"
+                        sectionName={val.name}
                       />
                     </div>
                   </div>

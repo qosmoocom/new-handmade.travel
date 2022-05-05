@@ -52,10 +52,11 @@ export default function ThirdUtp() {
                         alt={item.img.alt}
                         title={item.img.title}
                         itIsClassName="third-utp-item-img-box"
-                        group={'third_utp_list'}
+                        group={"third_utp_list"}
                         id={index}
                         priority
                         objectFit="cover"
+                        sectionName={val.name}
                       />
                     </div>
                   </div>

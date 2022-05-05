@@ -102,6 +102,7 @@ export const updateMyTours = (userId, newTour) => async (dispatch) => {
   try {
     const res = await Axios.put(api, newTour, getConfig());
     const data = await res.data;
+    console.log(newTour);
 
     // dispatch(getAllMyTours());
     setTimeout(() => {

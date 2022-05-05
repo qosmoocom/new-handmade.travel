@@ -69,6 +69,7 @@ export default function OtherTour() {
                           title={item.img.title}
                           group={"otherData"}
                           id={index}
+                          sectionName={val.name}
                         />
                       </div>
                       <div className="item-title">
@@ -144,6 +145,7 @@ export default function OtherTour() {
                           title={item.img.title}
                           group={"otherData"}
                           id={index}
+                          sectionName={val.name}
                         />
                       </div>
                       <div className="item-title">
