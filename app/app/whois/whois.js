@@ -59,6 +59,7 @@ export default function WhoIs() {
                       srcDataName={"whois_user_imgUrl"}
                       altDataName={"whois_user_imgAlt"}
                       titleDataName={"whois_user_imgTitle"}
+                      sectionName={val.name}
                     />
                   </div>
                 </div>

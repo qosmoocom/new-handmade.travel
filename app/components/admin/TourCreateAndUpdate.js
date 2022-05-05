@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 export default function UserCreateAndUpdate({
   onCreateClose,
   onChange,
-  tour: { tourName, tour_id, language },
+  tour: { tourName, tour_id, language, checkforid },
   onSave,
   onSaveUpdate,
 }) {
@@ -33,6 +33,7 @@ export default function UserCreateAndUpdate({
             onChange={onChange}
             value={tour_id}
             placeholder="Enter tour Id"
+            readOnly={checkforid}
           />
         </div>
         <div className="input-box">
@@ -41,16 +42,25 @@ export default function UserCreateAndUpdate({
             type="text"
             name="language"
             onChange={onChange}
-            value={language }
+            value={language}
             placeholder="Enter tour lang"
           />
         </div>
 
         <div className="input-btn">
+          <label>
+            <input
+              type="checkbox"
+              name="checkforid"
+              onChange={onChange}
+              checked={checkforid}
+            />
+            id
+          </label>
           <button
             className="btn btn-primary btn-1"
             onClick={isItCreate ? onSave : onSaveUpdate}
-            disabled={!(tourName && tour_id && language )}
+            disabled={!(tourName && tour_id && language)}
           >
             save
           </button>
@@ -104,6 +114,14 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: flex-end;
     column-gap: 3px;
+    label{
+      margin-right: 25px;
+      font-size: 20px;
+      font-weight: 600;
+      input{
+        margin-right: 5px;
+      }
+    }
   }
   .input-box {
     width: 100%;

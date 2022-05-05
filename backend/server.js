@@ -38,8 +38,8 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
 
-  server.use(express.json());
-  server.use(express.urlencoded({ extended: true }));
+  server.use(express.json({ limit: "25mb" }));
+  server.use(express.urlencoded({ extended: true, limit: "25mb" }));
   server.use("/public/images", express.static(pathdir));
   server.use(cors());
   server.use(require("morgan")("dev"));

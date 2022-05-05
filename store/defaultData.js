@@ -1787,6 +1787,14 @@ export const defaultState = {
   },
   coach_meeting_link_text: { value: "Убедили, хочу встречи " },
   coach_meeting_link_info: {
-    value: `Успейте забронировать путешествие своей мечты, пока есть свободные места и дешёвые авиабилеты!`,
-  },  
+    value: `Назначьте встречу прямо сейчас и спланируйте свое время!`,
+  },
+  footer_col_srteficat_href: {
+    value:
+      "https://docs.google.com/file/d/1j6Z6qvbzx1ybU2E-xWQpn2XXTtN-P_Wa/view",
+  },
+  footer_modal_1_href: {
+    value:
+      "https://docs.google.com/file/d/1xs8TerhQLZ5FHARyyIlxNduMc6K41aDX/view",
+  },
 };

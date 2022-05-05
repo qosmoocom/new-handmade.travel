@@ -56,14 +56,14 @@ export default function Gallery() {
             <div className="content-1">
               <h3>
                 <Text name="gallery_title" itIsClassName="gallery_title h3">
-                  {getItem('gallery_title')}
+                  {getItem("gallery_title")}
                 </Text>
               </h3>
               <div className="box-img">
                 <div className="section-1">
                   <div
                     className="img img-1 s-img"
-                    style={{ overflow: 'hidden' }}
+                    style={{ overflow: "hidden" }}
                   >
                     <Image
                       layout="fill"
@@ -73,11 +73,12 @@ export default function Gallery() {
                       group="gallery"
                       id="0"
                       itIsClassName="img img-1 s-img"
+                      sectionName={val.name}
                     />
                   </div>
                   <div
                     className="img img-4 s-img"
-                    style={{ overflow: 'hidden' }}
+                    style={{ overflow: "hidden" }}
                   >
                     <Image
                       layout="fill"
@@ -87,6 +88,7 @@ export default function Gallery() {
                       group="gallery"
                       id="3"
                       itIsClassName="img img-4 s-img"
+                      sectionName={val.name}
                     />
                   </div>
                 </div>
@@ -94,7 +96,7 @@ export default function Gallery() {
                   <div className="section-2">
                     <div
                       className="img img-2 s-img"
-                      style={{ overflow: 'hidden' }}
+                      style={{ overflow: "hidden" }}
                     >
                       <Image
                         layout="fill"
@@ -104,11 +106,12 @@ export default function Gallery() {
                         group="gallery"
                         id="1"
                         itIsClassName="img img-2 s-img"
+                        sectionName={val.name}
                       />
                     </div>
                     <div
                       className="img img-3 s-img"
-                      style={{ overflow: 'hidden' }}
+                      style={{ overflow: "hidden" }}
                     >
                       <Image
                         layout="fill"
@@ -118,12 +121,13 @@ export default function Gallery() {
                         group="gallery"
                         id="2"
                         itIsClassName="img img-3 s-img"
+                        sectionName={val.name}
                       />
                     </div>
                   </div>
                   <div
                     className="img img-5 s-img"
-                    style={{ overflow: 'hidden' }}
+                    style={{ overflow: "hidden" }}
                   >
                     <Image
                       layout="fill"
@@ -133,6 +137,7 @@ export default function Gallery() {
                       group="gallery"
                       id="4"
                       itIsClassName="img img-5 s-img"
+                      sectionName={val.name}
                     />
                   </div>
                 </div>
@@ -144,22 +149,22 @@ export default function Gallery() {
         <div
           className="container"
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          <div style={{ textAlign: 'center' }}>
+          <div style={{ textAlign: "center" }}>
             <button
-              className={`yashirish ${g2 && 'display-none'}`}
+              className={`yashirish ${g2 && "display-none"}`}
               onClick={() => setG2(true)}
             >
-              <Text name="gallery_more_btn">{getItem('gallery_more_btn')}</Text>
+              <Text name="gallery_more_btn">{getItem("gallery_more_btn")}</Text>
             </button>
           </div>
           {g2 && (
             <div className="content-2">
-              <article style={{ position: 'relative' }} className="s-img">
+              <article style={{ position: "relative" }} className="s-img">
                 <Image
                   layout="fill"
                   src={imgs[5].img.src}
@@ -168,9 +173,10 @@ export default function Gallery() {
                   group="gallery"
                   id="5"
                   itIsClassName="s-img"
+                  sectionName={val.name}
                 />
               </article>
-              <article style={{ position: 'relative' }} className="s-img">
+              <article style={{ position: "relative" }} className="s-img">
                 <Image
                   layout="fill"
                   src={imgs[6].img.src}
@@ -179,9 +185,10 @@ export default function Gallery() {
                   group="gallery"
                   id="6"
                   itIsClassName="s-img"
+                  sectionName={val.name}
                 />
               </article>
-              <article style={{ position: 'relative' }} className="s-img">
+              <article style={{ position: "relative" }} className="s-img">
                 <Image
                   layout="fill"
                   src={imgs[7].img.src}
@@ -190,9 +197,10 @@ export default function Gallery() {
                   group="gallery"
                   id="7"
                   itIsClassName="s-img"
+                  sectionName={val.name}
                 />
               </article>
-              <article style={{ position: 'relative' }} className="s-img">
+              <article style={{ position: "relative" }} className="s-img">
                 <Image
                   layout="fill"
                   src={imgs[8].img.src}
@@ -201,9 +209,10 @@ export default function Gallery() {
                   group="gallery"
                   id="8"
                   itIsClassName="s-img"
+                  sectionName={val.name}
                 />
               </article>
-              <article style={{ position: 'relative' }} className="s-img">
+              <article style={{ position: "relative" }} className="s-img">
                 <Image
                   layout="fill"
                   src={imgs[9].img.src}
@@ -212,6 +221,7 @@ export default function Gallery() {
                   group="gallery"
                   id="9"
                   itIsClassName="s-img"
+                  sectionName={val.name}
                 />
               </article>
             </div>
@@ -221,25 +231,25 @@ export default function Gallery() {
         <div
           className="container"
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            position: 'relative',
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            position: "relative",
           }}
         >
           {g2 && (
-            <div style={{ textAlign: 'center' }}>
+            <div style={{ textAlign: "center" }}>
               <button
-                className={`yashirish ${g3 && 'display-none'}`}
+                className={`yashirish ${g3 && "display-none"}`}
                 onClick={() => setG3(true)}
               >
-                {getItem('gallery_more_btn')}
+                {getItem("gallery_more_btn")}
               </button>
             </div>
           )}
           {g3 && (
-            <div className="content-2" style={{ marginTop: '3px' }}>
-              <article style={{ position: 'relative' }} className="s-img">
+            <div className="content-2" style={{ marginTop: "3px" }}>
+              <article style={{ position: "relative" }} className="s-img">
                 <Image
                   layout="fill"
                   src={imgs[10].img.src}
@@ -248,9 +258,10 @@ export default function Gallery() {
                   group="gallery"
                   id="10"
                   itIsClassName="s-img"
+                  sectionName={val.name}
                 />
               </article>
-              <article style={{ position: 'relative' }} className="s-img">
+              <article style={{ position: "relative" }} className="s-img">
                 <Image
                   layout="fill"
                   src={imgs[11].img.src}
@@ -259,9 +270,10 @@ export default function Gallery() {
                   group="gallery"
                   id="11"
                   itIsClassName="s-img"
+                  sectionName={val.name}
                 />
               </article>
-              <article style={{ position: 'relative' }} className="s-img">
+              <article style={{ position: "relative" }} className="s-img">
                 <Image
                   layout="fill"
                   src={imgs[12].img.src}
@@ -270,9 +282,10 @@ export default function Gallery() {
                   group="gallery"
                   id="12"
                   itIsClassName="s-img"
+                  sectionName={val.name}
                 />
               </article>
-              <article style={{ position: 'relative' }} className="s-img">
+              <article style={{ position: "relative" }} className="s-img">
                 <Image
                   layout="fill"
                   src={imgs[13].img.src}
@@ -281,9 +294,10 @@ export default function Gallery() {
                   group="gallery"
                   id="13"
                   itIsClassName="s-img"
+                  sectionName={val.name}
                 />
               </article>
-              <article style={{ position: 'relative' }} className="s-img">
+              <article style={{ position: "relative" }} className="s-img">
                 <Image
                   layout="fill"
                   src={imgs[14].img.src}
@@ -292,6 +306,7 @@ export default function Gallery() {
                   group="gallery"
                   id="14"
                   itIsClassName="s-img"
+                  sectionName={val.name}
                 />
               </article>
             </div>

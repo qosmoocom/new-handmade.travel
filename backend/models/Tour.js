@@ -30,7 +30,11 @@ const tourSchema = new mongoose.Schema(
     language: {
       type: String,
       required: true,
-    }
+    },
+    checkforid: {
+      type: Boolean,
+      required: true,
+    },
   },
   {
     timestamps: true,

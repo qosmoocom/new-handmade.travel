@@ -153,6 +153,7 @@ export default function TourProgram() {
                               list={"tour_program_list"}
                               title={img?.title}
                               itIsClassName={"tour-program-list-images"}
+                              sectionName={val.name}
                             />
                           </li>
                         );

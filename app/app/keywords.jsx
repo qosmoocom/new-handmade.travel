@@ -32,6 +32,19 @@ export default function Keyword() {
             </Text>
           </li>
           <li>
+            link for Privacy Policy:{" "}
+            <Text name="footer_col_srteficat_href">
+              {getItem("footer_col_srteficat_href")}
+            </Text>
+          </li>
+          <li>
+            link for Public Offering:{" "}
+            <Text name="footer_modal_1_href">
+              {getItem("footer_modal_1_href")}
+            </Text>
+          </li>
+
+          <li>
             extra money:{" "}
             <ul style={{ paddingLeft: "1rem" }}>
               {getItem("rate_name_data", "rate_name_data").map(

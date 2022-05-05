@@ -64,6 +64,7 @@ export default function Reviews() {
                             src={item.img.src}
                             id={index}
                             group="reviewsData"
+                            sectionName={val.name}
                           />
                         </div>
                       </div>

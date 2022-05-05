@@ -53,6 +53,7 @@ export default function WhyWithUs() {
                           title={item.img.title}
                           group="whyData"
                           id={index}
+                          sectionName={val.name}
                         />
                       </div>
                     </div>

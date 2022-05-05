@@ -125,6 +125,7 @@ export default function ImageForModal() {
   const router = useRouter();
   const dispatch = useDispatch();
   const bigState = useSelector((state) => state.admin);
+  const verybigState = useSelector((state) => state);
   const [selectFile, setSelectFile] = useState(null);
   const { editImage } = bigState;
   const {
@@ -135,6 +136,7 @@ export default function ImageForModal() {
     alt = "",
     title = "",
     id = "",
+    sectionName,
   } = editImage;
 
   const [state, setState] = useState({
@@ -175,11 +177,12 @@ export default function ImageForModal() {
       setState({ href: "", alt: "", title: "" });
     }
   }, [alt, href, open, title]);
-
+  console.log(sectionName);
   const onSaveHandler = async () => {
     if (selectFile) {
       const formData = new FormData();
-      formData.append("tour_id", "art");
+      formData.append("sectionName", sectionName);
+      formData.append("tour_id", verybigState.tours.tour.tour_id);
       formData.append("image", selectFile);
       formData.append("tourID", router.query.id);
       formData.append("tourAuthor", JSON.parse(localStorage["isLoginMe"])._id);
@@ -202,6 +205,7 @@ export default function ImageForModal() {
               newTitle: state.title,
             },
           });
+          console.log(data.image.replace("/public", ""));
 
           // console.log("yangi img qushildi...");
           // router.reload(window.location.pathname);
