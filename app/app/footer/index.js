@@ -961,7 +961,13 @@ export default function index({ footer }) {
   const exitBtnHandle = () => setCheckPdf(null);
   const openCheckPdf = (id) => setCheckPdf(id);
 
-  const pdf = !checkPdf ? "" : checkPdf === "pdf_1" ? <Pdf1 /> : <Pdf2 />;
+  const pdf = !checkPdf ? (
+    ""
+  ) : checkPdf === "pdf_1" ? (
+    <Pdf1 link={getItem("footer_modal_1_href")} />
+  ) : (
+    <Pdf2 link={getItem("footer_col_srteficat_href")} />
+  );
 
   // component active no active
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -1225,6 +1231,14 @@ export default function index({ footer }) {
                           <Text name="footer_col_srteficat">
                             {getItem("footer_col_srteficat")}
                           </Text>
+                          {/* <Link
+                            hrefName={"footer_col_srteficat_href"}
+                            target="_blank"
+                            href={getItem("footer_col_srteficat_href")}
+                            name="footer_col_srteficat"
+                          >
+                            {getItem("footer_col_srteficat")}
+                          </Link> */}
                         </span>
                         <div>
                           <input
@@ -1401,6 +1415,14 @@ export default function index({ footer }) {
                         <Text name="footer_modal_1">
                           {getItem("footer_modal_1")}
                         </Text>
+                        {/* <Link
+                          hrefName={"footer_modal_1_href"}
+                          target="_blank"
+                          href={getItem("footer_modal_1_href")}
+                          name="footer_modal_1"
+                        >
+                          {getItem("footer_modal_1")}
+                        </Link> */}
                       </span>
                       <span onClick={() => setM1(true)}>
                         <Text name="footer_modal_2">
