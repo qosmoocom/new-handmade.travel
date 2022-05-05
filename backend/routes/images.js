@@ -37,11 +37,36 @@ const storage = multer.diskStorage({
             null,
             `./public/newImages/landing/${req.body.tour_id}/${req.body.sectionName}`
           );
-        } else
+        } else {
           fs.mkdirSync(
             `./public/newImages/landing/${req.body.tour_id}/${req.body.sectionName}`
           );
-      } else fs.mkdirSync(`./public/newImages/landing/${req.body.tour_id}`);
+          cb(
+            null,
+            `./public/newImages/landing/${req.body.tour_id}/${req.body.sectionName}`
+          );
+        }
+      } else {
+        fs.mkdirSync(`./public/newImages/landing/${req.body.tour_id}`);
+        if (
+          fs.existsSync(
+            `./public/newImages/landing/${req.body.tour_id}/${req.body.sectionName}`
+          )
+        ) {
+          cb(
+            null,
+            `./public/newImages/landing/${req.body.tour_id}/${req.body.sectionName}`
+          );
+        } else {
+          fs.mkdirSync(
+            `./public/newImages/landing/${req.body.tour_id}/${req.body.sectionName}`
+          );
+          cb(
+            null,
+            `./public/newImages/landing/${req.body.tour_id}/${req.body.sectionName}`
+          );
+        }
+      }
     } catch (err) {
       console.error(err);
     }
@@ -64,9 +89,8 @@ const storage = multer.diskStorage({
     cb(
       null,
       // `${req.body.tour_id}~${md5(Date.now())}${path.extname(file.originalname)}`
-      `${volume+1}${path.extname(file.originalname)}`
+      `${volume + 1}${path.extname(file.originalname)}`
     );
-
   },
 });
 

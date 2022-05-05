@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import Axios from 'axios';
-import { useRouter } from 'next/router';
-import { getConfig } from '../../../store/reducer/usersReducer';
+import React, { useEffect, useState } from "react";
+import Axios from "axios";
+import { useRouter } from "next/router";
+import { getConfig } from "../../../store/reducer/usersReducer";
 import {
   createNewTour,
   updateMyTours,
@@ -9,36 +9,39 @@ import {
   closeCreatTourModal,
   updateTourModal,
   getAllMyTours,
-} from '../../../store/reducer/toursReducer';
-import styled from 'styled-components';
-import Link from 'next/link';
-import { HiOutlineDocumentAdd } from 'react-icons/hi';
-import { FaEdit, FaRegClone } from 'react-icons/fa';
-import UserCreateAndUpdate from './TourCreateAndUpdate';
-import { useDispatch, useSelector } from 'react-redux';
-import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
-import { defaultState } from '../../../store/defaultData';
-import { AiOutlineClose } from 'react-icons/ai';
+} from "../../../store/reducer/toursReducer";
+import styled from "styled-components";
+import Link from "next/link";
+import { HiOutlineDocumentAdd } from "react-icons/hi";
+import { FaEdit, FaRegClone } from "react-icons/fa";
+import UserCreateAndUpdate from "./TourCreateAndUpdate";
+import { useDispatch, useSelector } from "react-redux";
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
+import { defaultState } from "../../../store/defaultData";
+import { AiOutlineClose } from "react-icons/ai";
+import axios from "axios";
 
 export default function Moderator() {
   const toursState = useSelector((state) => state.tours);
+  console.log(toursState);
   const router = useRouter();
   const defaultTexts = JSON.stringify(defaultState);
 
-  const isLoginMe = JSON.parse(localStorage.getItem('isLoginMe'));
+  const isLoginMe = JSON.parse(localStorage.getItem("isLoginMe"));
 
   const dispatch = useDispatch();
   const defaultTour = {
-    tourName: '',
+    tourName: "",
     tourTexts: defaultTexts,
-    tourStyles: 'none',
+    tourStyles: "none",
     tourAuthor: isLoginMe._id,
-    tour_id: '',
-    language: ''
+    tour_id: "",
+    language: "",
+    checkforid: false,
   };
 
   const [tour, setTour] = useState(defaultTour);
-  const defaultCloneTour = { clone: false, tours: [], ct_id: '', cts: {} };
+  const defaultCloneTour = { clone: false, tours: [], ct_id: "", cts: {} };
   const [cloneTour, setCloneTour] = useState(defaultCloneTour);
 
   const createNewTourHandler = () => {
@@ -51,10 +54,18 @@ export default function Moderator() {
   };
 
   const onChangeHandler = (event) => {
-    const { name, value } = event.target;
-    console.log(name, value);
-    console.log(tour);
-    setTour((oldTour) => ({ ...oldTour, [name]: value }));
+    if (event.target.name == "checkforid") {
+      const { name, checked } = event.target;
+      let value = checked
+      setTour((oldTour) => ({ ...oldTour, [name]: value }));
+      console.log(name, value);
+      console.log(tour);
+    } else {
+      const { name, value } = event.target;
+      setTour((oldTour) => ({ ...oldTour, [name]: value }));
+      console.log(name, value);
+      console.log(event);
+    }
   };
 
   const onSaveHandler = () => {
@@ -77,7 +88,8 @@ export default function Moderator() {
       tour_id,
       language,
       _id,
-      isItActive
+      isItActive,
+      checkforid,
     } = tour;
     const updateTour = {
       tourName,
@@ -86,7 +98,8 @@ export default function Moderator() {
       tourAuthor,
       tour_id,
       language,
-      isItActive
+      isItActive,
+      checkforid,
     };
     dispatch(updateMyTours(_id, updateTour));
   };
@@ -101,6 +114,7 @@ export default function Moderator() {
       language,
       _id,
       isItActive,
+      checkforid,
     } = check_tour;
     const updateTour = {
       tourName,
@@ -110,6 +124,7 @@ export default function Moderator() {
       tour_id,
       language,
       isItActive: !isItActive,
+      checkforid,
     };
     dispatch(updateMyTours(_id, updateTour));
   };
@@ -159,7 +174,7 @@ export default function Moderator() {
         language: ct.language,
         tourAuthor: JSON.parse(localStorage.isLoginMe)._id,
         tourName: ct.tourName,
-        tourStyles: 'none',
+        tourStyles: "none",
         tourTexts: ct.tourTexts,
         tour_id: ct.tour_id,
       };
@@ -191,7 +206,7 @@ export default function Moderator() {
       />
 
       <Wrapper>
-        <div className={`clone-tour-page ${cloneTour.clone ? 'active' : ''}`}>
+        <div className={`clone-tour-page ${cloneTour.clone ? "active" : ""}`}>
           <div className="form">
             <div className="exit-btn">
               <AiOutlineClose
@@ -239,7 +254,7 @@ export default function Moderator() {
                   localStorage.clear();
                 }}
               >
-                <Link href={'/login'}>log out</Link>
+                <Link href={"/login"}>log out</Link>
               </span>
             </h3>
             <table className="table">
@@ -259,7 +274,7 @@ export default function Moderator() {
                         />
                         <FaRegClone
                           onClick={onClone}
-                          style={{ cursor: 'pointer' }}
+                          style={{ cursor: "pointer" }}
                         />
                       </div>
                     </div>
@@ -283,7 +298,7 @@ export default function Moderator() {
                     <td className="item-w-t">
                       <div className="btn btn-group">
                         <button
-                          className={'btn btn-info btn-sm mx-1'}
+                          className={"btn btn-info btn-sm mx-1"}
                           onClick={openUdateTourModal.bind(this, tour)}
                         >
                           <FaEdit />
@@ -291,7 +306,7 @@ export default function Moderator() {
 
                         <button
                           className={`btn btn-${
-                            tour.isItActive ? 'warning' : 'danger'
+                            tour.isItActive ? "warning" : "danger"
                           } btn-sm`}
                           onClick={tourActiveOrNoActive.bind(this, tour)}
                         >
