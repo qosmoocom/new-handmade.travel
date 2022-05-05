@@ -26,44 +26,44 @@ console.log(__dirname);
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     try {
-      if (fs.existsSync(`./public/newImages/landing/${req.body.tour_id}`)) {
+      if (fs.existsSync(`./public/images/tours/${req.body.tour_id}`)) {
         console.log("bor");
         if (
           fs.existsSync(
-            `./public/newImages/landing/${req.body.tour_id}/${req.body.sectionName}`
+            `./public/images/tours/${req.body.tour_id}/${req.body.sectionName}`
           )
         ) {
           cb(
             null,
-            `./public/newImages/landing/${req.body.tour_id}/${req.body.sectionName}`
+            `./public/images/tours/${req.body.tour_id}/${req.body.sectionName}`
           );
         } else {
           fs.mkdirSync(
-            `./public/newImages/landing/${req.body.tour_id}/${req.body.sectionName}`
+            `./public/images/tours/${req.body.tour_id}/${req.body.sectionName}`
           );
           cb(
             null,
-            `./public/newImages/landing/${req.body.tour_id}/${req.body.sectionName}`
+            `./public/images/tours/${req.body.tour_id}/${req.body.sectionName}`
           );
         }
       } else {
-        fs.mkdirSync(`./public/newImages/landing/${req.body.tour_id}`);
+        fs.mkdirSync(`./public/images/tours/${req.body.tour_id}`);
         if (
           fs.existsSync(
-            `./public/newImages/landing/${req.body.tour_id}/${req.body.sectionName}`
+            `./public/images/tours/${req.body.tour_id}/${req.body.sectionName}`
           )
         ) {
           cb(
             null,
-            `./public/newImages/landing/${req.body.tour_id}/${req.body.sectionName}`
+            `./public/images/tours/${req.body.tour_id}/${req.body.sectionName}`
           );
         } else {
           fs.mkdirSync(
-            `./public/newImages/landing/${req.body.tour_id}/${req.body.sectionName}`
+            `./public/images/tours/${req.body.tour_id}/${req.body.sectionName}`
           );
           cb(
             null,
-            `./public/newImages/landing/${req.body.tour_id}/${req.body.sectionName}`
+            `./public/images/tours/${req.body.tour_id}/${req.body.sectionName}`
           );
         }
       }
@@ -79,8 +79,8 @@ const storage = multer.diskStorage({
         "../",
         "../",
         "public",
-        "newImages",
-        "landing",
+        "images",
+        "tours",
         req.body.tour_id,
         req.body.sectionName
       )
