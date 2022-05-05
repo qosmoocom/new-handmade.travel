@@ -33,7 +33,6 @@ const tourSchema = new mongoose.Schema(
     },
     checkforid: {
       type: Boolean,
-      required: true,
     },
   },
   {

@@ -7,7 +7,7 @@ const UploadFile = require('../config/Sharp');
 exports.createOne = async (req, res, next) => {
   try {
     const result = new Image({
-      image: `/public/newImages/landing/${req.body.tour_id}/${req.body.sectionName}/${req.file.filename}`,
+      image: `/public/images/tours/${req.body.tour_id}/${req.body.sectionName}/${req.file.filename}`,
       tourID: req.body.tourID,
       tourAuthor: req.body.tourAuthor,
       tour_id: req.body.tour_id,
