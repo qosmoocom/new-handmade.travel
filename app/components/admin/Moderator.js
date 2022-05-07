@@ -99,7 +99,7 @@ export default function Moderator() {
       tour_id,
       language,
       isItActive,
-      checkforid,
+      checkforid:true,
     };
     dispatch(updateMyTours(_id, updateTour));
   };
