@@ -184,7 +184,7 @@ export default function Home() {
           </Container>
         </div>
       </Full_container>
-      {div}
+      {/* {div} */}
     </div>
   );
 }
