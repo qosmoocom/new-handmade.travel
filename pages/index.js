@@ -79,7 +79,7 @@ export default function Home() {
         <li key={index}>
           <Link href={`/tours/${item.tour_id}/${item.language}`}>
             <b>
-              {item.tourName}----{item.language}
+              {item.tourName}
             </b>
           </Link>
         </li>
@@ -90,7 +90,7 @@ export default function Home() {
         <li key={index}>
           <Link href={`/tours/${item.tour_id}/${item.language}`}>
             <b>
-              {item.tourName}----{item.language}
+              {item.tourName}
             </b>
           </Link>
         </li>
@@ -101,7 +101,7 @@ export default function Home() {
         <li key={index}>
           <Link href={`/tours/${item.tour_id}/${item.language}`}>
             <b>
-              {item.tourName}----{item.language}
+              {item.tourName}
             </b>
           </Link>
         </li>
@@ -112,7 +112,7 @@ export default function Home() {
         <li key={index}>
           <Link href={`/tours/${item.tour_id}/${item.language}`}>
             <b>
-              {item.tourName}----{item.language}
+              {item.tourName}
             </b>
           </Link>
         </li>
@@ -123,7 +123,7 @@ export default function Home() {
     //     <li key={index}>
     //       <Link href={`/tours/${item.tour_id}/${item.language}`}>
     //         <b>
-    //           {item.tourName}----{item.language}
+    //           {item.tourName}
     //         </b>
     //       </Link>
     //     </li>
