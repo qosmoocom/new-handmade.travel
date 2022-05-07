@@ -17,7 +17,14 @@ import Link from "next/link";
 export default function Home() {
   const [tours, setTours] = useState([]);
   const forFs = useSelector((state) => state);
-  const [items, setItems] = useState([]);
+  const itemsru=[]
+  const itemses=[]
+  const itemsen=[]
+  const itemsde=[]
+  const [en, setEn] = useState([]);
+  const [ru, setRu] = useState([]);
+  const [es, setEs] = useState([]);
+  const [de, setDe] = useState([]);
 
   useEffect(() => {
     axios.get("/api/tour/home").then((res) => {
@@ -53,15 +60,75 @@ export default function Home() {
   }, [lang]);
 
   useEffect(() => {
-    setItems(
-      tours.map((item, index) => (
+    for (let i = 0; i < tours.length; i++) {
+      if (tours[i].language == "ru") {
+        itemsru.push(tours[i])
+      }
+      if (tours[i].language == "de") {
+        itemsde.push(tours[i]);
+      }
+      if (tours[i].language == "en") {
+        itemsen.push(tours[i]);
+      }
+      if (tours[i].language == "es") {
+        itemses.push(tours[i]);
+      }
+    }
+    setRu(
+      itemsru.map((item, index) => (
         <li key={index}>
           <Link href={`/tours/${item.tour_id}/${item.language}`}>
-            <b>{item.tourName}</b>
+            <b>
+              {item.tourName}
+            </b>
           </Link>
         </li>
       ))
     );
+    setEn(
+      itemsen.map((item, index) => (
+        <li key={index}>
+          <Link href={`/tours/${item.tour_id}/${item.language}`}>
+            <b>
+              {item.tourName}
+            </b>
+          </Link>
+        </li>
+      ))
+    );
+    setEs(
+      itemses.map((item, index) => (
+        <li key={index}>
+          <Link href={`/tours/${item.tour_id}/${item.language}`}>
+            <b>
+              {item.tourName}
+            </b>
+          </Link>
+        </li>
+      ))
+    );
+    setDe(
+      itemsde.map((item, index) => (
+        <li key={index}>
+          <Link href={`/tours/${item.tour_id}/${item.language}`}>
+            <b>
+              {item.tourName}
+            </b>
+          </Link>
+        </li>
+      ))
+    );
+    // setItems(
+    //   tours.map((item, index) => (
+    //     <li key={index}>
+    //       <Link href={`/tours/${item.tour_id}/${item.language}`}>
+    //         <b>
+    //           {item.tourName}
+    //         </b>
+    //       </Link>
+    //     </li>
+    //   ))
+    // );
   }, [tours]);
   return (
     <div>
@@ -113,11 +180,11 @@ export default function Home() {
                 />
               </Img>
             </Header>
-            <div className="toursName">{items && <ul>{items}</ul>}</div>
+            <div className="toursName">{itemsru && <ul>{ru}{en}{es}{de}</ul>}</div>
           </Container>
         </div>
       </Full_container>
-      {div}
+      {/* {div} */}
     </div>
   );
 }
