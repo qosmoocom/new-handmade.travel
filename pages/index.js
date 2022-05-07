@@ -55,7 +55,7 @@ export default function Home() {
   useEffect(() => {
     setItems(
       tours.map((item, index) => (
-        <li>
+        <li key={index}>
           <Link href={`/tours/${item.tour_id}/${item.language}`}>
             <b>{item.tourName}</b>
           </Link>
