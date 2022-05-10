@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import SectionActive from "../../components/SectionActive";
 import { AppContext } from "..";
@@ -30,8 +30,7 @@ export default function Faq() {
     }));
   };
 
-  const btnLength = parseInt(getItem("faqData", "faqData").length / 5)+1;
- 
+  const btnLength = parseInt(getItem("faqData", "faqData").length / 5) + 1;
 
   const [btnActive, setBtnActive] = useState(
     "_"
@@ -39,11 +38,11 @@ export default function Faq() {
       .split("")
       .map((_, index) => index === 0)
   );
-  
+
   // const [faqData, setFaqData] = useState('');
-  
+
   useEffect(() => {
-    const btnL = parseInt(getItem("faqData", "faqData").length / 5)+1;
+    const btnL = parseInt(getItem("faqData", "faqData").length / 5) + 1;
     setBtnActive(
       "_"
         .repeat(btnL)
@@ -124,7 +123,10 @@ export default function Faq() {
                       >
                         {item?.texts.map((textItem, textIndex) => {
                           return (
-                            <div key={textIndex}>
+                            <div
+                              key={textIndex}
+                              className={`faq-${index}-${textIndex}`}
+                            >
                               <p>
                                 <Text
                                   list="faqData"
