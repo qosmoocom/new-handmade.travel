@@ -125,7 +125,7 @@ export default function Faq() {
                           return (
                             <div
                               key={textIndex}
-                              className={`faq-${index}-${textIndex}`}
+                              className={`faq-${index + 1}-${textIndex + 1}`}
                             >
                               <p>
                                 <Text

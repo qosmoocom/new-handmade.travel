@@ -74,7 +74,9 @@ export default function TourProgram() {
                 >
                   {/* tour-program-list-title section */}
                   <div
-                    className={`tour-program-list-title tour-program-list-title-id-${index}`}
+                    className={`tour-program-list-title tour-program-list-title-id-${
+                      index + 1
+                    }`}
                     onClick={(e) => toogleHandler(e, index)}
                   >
                     <label>
@@ -106,7 +108,7 @@ export default function TourProgram() {
                   <div
                     className={`tour-program-list-description ${
                       index === toggle.count && toggle.isOpen ? "active" : ""
-                    } tour-program-list-description-id-${index}`}
+                    } tour-program-list-description-id-${index + 1}`}
                     style={{
                       maxHeight:
                         index === toggle.count && toggle.isOpen
@@ -120,7 +122,9 @@ export default function TourProgram() {
                         return (
                           <li
                             key={textItem.id}
-                            className={`tour-program-list-text-id-${index}-${textItem.id}`}
+                            className={`tour-program-list-text-id-${
+                              index + 1
+                            }-${textItem.id + 1}`}
                           >
                             <Text
                               list="tour_program_list"
@@ -140,7 +144,9 @@ export default function TourProgram() {
                         return (
                           <li
                             key={img.id}
-                            className={`tour-program-list-image-id-${index}-${img.id}`}
+                            className={`tour-program-list-image-id-${
+                              index + 1
+                            }-${img.id + 1}`}
                           >
                             <Image
                               objectFit="cover"
@@ -161,7 +167,9 @@ export default function TourProgram() {
                     </ul>
                     {tour?.footerTextLabel && tour?.footerText && (
                       <div
-                        className={`tour-program-list-footer tour-program-list-footer-id-${index}`}
+                        className={`tour-program-list-footer tour-program-list-footer-id-${
+                          index + 1
+                        }`}
                       >
                         <p>
                           <label>
