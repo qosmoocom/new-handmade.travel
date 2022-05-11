@@ -1,8 +1,4 @@
 const TelegramBot = require("node-telegram-bot-api");
-const mongoose = require("mongoose");
-const Tour = require("../models/Tour");
-const { default: axios } = require("axios");
-const dbUri = "mongodb://localhost:27017/handmade";
 const date = new Date();
 
 const MongoClient = require("mongodb").MongoClient;
@@ -48,7 +44,7 @@ function Create(name) {
 
 
 // replace the value below with the Telegram token you receive from @BotFather
-const token = "5373138624:AAFlj5n1RcV_8i_5Hr98qESquXTOLAfiZzk";
+const token = "5279180278:AAH4YY_SW3HznpAYXu-fU4nCyyZlEKH6ZOg";
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(token, { polling: true });
