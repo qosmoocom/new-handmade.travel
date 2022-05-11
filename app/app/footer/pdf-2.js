@@ -1,5 +1,4 @@
 export const Pdf2 = ({ link }) => {
-  console.log(link);
   return <iframe src={link} style={{ width: "100%", height: "100%" }} />;
 };
 
