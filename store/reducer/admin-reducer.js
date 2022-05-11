@@ -385,6 +385,12 @@ export const AdminReducer = (state = defaultState, action) => {
         ),
       };
     }
+    case types.editCheckedForModal3: {
+      return {
+        ...state,
+        checkerForModal3:action.payload.newText
+      }
+      }
     default:
       return state;
   }

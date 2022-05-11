@@ -33,6 +33,7 @@ export const defaultState = {
     title: "",
     newTitle: "",
   },
+  checkerForModal3:false,
   // head
   menu: {
     data: [

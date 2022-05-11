@@ -38,8 +38,8 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
 
-  server.use(express.json({ limit: "25mb" }));
-  server.use(express.urlencoded({ extended: true, limit: "25mb" }));
+  server.use(express.json());
+  server.use(express.urlencoded({ extended: true }));
   server.use("/public/images", express.static(pathdir));
   server.use(cors());
   server.use(require("morgan")("dev"));
@@ -55,10 +55,13 @@ app.prepare().then(() => {
   server.use("/api/action_bron", require("./routes/sendBronEmail"));
   server.use("/api/action_more", require("./routes/sendMoreEmail"));
   server.use("/api/action_phone", require("./routes/sendPhoneEmail"));
+  // server.use("/api/collections", require("./routes/sendCollection"))
 
   server.get("*", (req, res) => {
     return handle(req, res);
   });
+
+  
 
   // fs.readFile("styles/globals.scss", function (err, data) {
   //   // res.writeHead(200, { "Content-Type": "text/html" });

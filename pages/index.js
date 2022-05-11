@@ -29,6 +29,7 @@ export default function Home() {
   useEffect(() => {
     axios.get("/api/tour/home").then((res) => {
       setTours(res.data);
+      console.log(res);
     });
   }, []);
   console.log(tours);

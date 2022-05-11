@@ -56,6 +56,14 @@ export function Modal3() {
   const [priceDiff, setPriceDiff] = useState({ type: "USD", current: 1 });
   const priceType = getItem("app_price_type");
   const globalDispatch = useDispatch();
+  const dispatch = useDispatch()
+  const { isEdit: isAdmin } = useSelector((st) => st.admin);
+  const state = useSelector((state) => state.admin);
+  const [checked, setChecked] = useState(state.checkerForModal3);
+  console.log(state);
+  useEffect(() => {
+    setChecked(state.checkerForModal3)
+  }, [state])
 
   useEffect(() => {
     if (priceType && priceType !== "USD") {
@@ -85,7 +93,18 @@ export function Modal3() {
   }, [globalState.modal]);
 
   // modal close
-  const handleClose = () => globalDispatch({ type: "MODAL_CLOSE" });
+  const handleClose = () => {
+    globalDispatch({ type: "MODAL_CLOSE" })
+    dispatch({
+      type: "ADMIN/CHANG__MODAL3__",
+      payload: {
+        isSave: true,
+        newText: checked,
+        open: false,
+      },
+    });
+  }
+
 
   // handleToggleMessenger
   const handleToggleMessenger = () => {
@@ -239,6 +258,8 @@ export function Modal3() {
     } catch (error) {
       e.preventDefault();
     }
+    
+    
   };
 
   const CheckedMessanger = (messanger_name) => {
@@ -255,6 +276,10 @@ export function Modal3() {
         return "";
     }
   };
+  const handlerCheck = (e) => {
+    console.log(e.target.checked);
+    setChecked(e.target.checked)
+  }
 
   //  modalState items
   const { isOpen, my_messenger, form } = modalState;
@@ -294,8 +319,8 @@ export function Modal3() {
         />
         <form
           onSubmit={handleSubmit}
-          action="https://pay.ofb.uz"
-          method="POST"
+            action={`${checked?'':'https://pay.ofb.uz'}`}
+            method={`${checked?'':'POST'}`}
           id="FormTarget-3"
         >
           <input
@@ -609,6 +634,19 @@ export function Modal3() {
                   {getItem("modal_3_divide_description")}
                 </Text>
               </p>
+              <p>
+                {isAdmin && (
+                  <label className="checkbox">
+                    Запрещается переходить на страницу оплаты
+                    <input
+                      type="checkbox"
+                      name="forOplata"
+                      checked={checked}
+                      onChange={handlerCheck}
+                    />
+                  </label>
+                )}
+              </p>
             </div>
           </section>
         </form>
@@ -826,6 +864,16 @@ const Wrapper = styled.div`
           font-size: 16px;
           font-weight: 600;
           margin-bottom: 3px;
+        }
+      }
+      .checkbox{
+        width: 100%;
+        padding: 10px;
+        border: 1px solid red;
+        user-select: none;
+        input{
+          width: fit-content;
+          margin-left: 10px;
         }
       }
       .input-box {
