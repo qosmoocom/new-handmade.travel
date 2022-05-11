@@ -128,7 +128,7 @@ export default function Index() {
           <ActionPicture />
           <Gallery />
           <Author />
-          <WhoIs />
+          {/* <WhoIs /> */}
           <WhyWithUs />
           <Samele />
           <ThirdUtp />
