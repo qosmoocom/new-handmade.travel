@@ -68,6 +68,11 @@ export const Modal1 = () => {
   const globalDispatch = useDispatch();
   const { modal } = globalState;
   const { isOpen, form } = modalState;
+  console.log(
+    "globalState is ",
+    globalState.tours.tour.tourName,
+    "-",
+    globalState.tours.tour.language);
 
   // componentDidUpdate in modal update
   useEffect(() => {
@@ -144,6 +149,7 @@ export const Modal1 = () => {
         send_email: getItem("footer_col_email"),
         date: form.date,
         time: form.time,
+        whereFrom:`${globalState.tours.tour.tourName}-${globalState.tours.tour.language}`,
       };
       const res = await Axios.post(api, data);
       const resD = await res.data;
