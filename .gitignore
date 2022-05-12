@@ -4,6 +4,7 @@
 /node_modules
 /public
 /.pnp
+/exports
 .pnp.js
 
 # testing
