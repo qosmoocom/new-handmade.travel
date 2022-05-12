@@ -773,13 +773,13 @@ const PDF_MODAL = styled.div`
   }
   .modal_content {
     height: 100vh; 
+    /* width: 100vw; */
     width: 100vw;
-    /* width: 800px; */
     position: relative;
     iframe {
       border: none !important;
-    
-    @media (min-width: 320px) {
+    }
+    /* @media (min-width: 320px) {
       width: 80%;
     }
     @media (min-width: 576px) {
@@ -796,7 +796,7 @@ const PDF_MODAL = styled.div`
     }
     @media (min-width: 1400px) {
       width: 800px;
-    }}
+    } */
     .exit-btn {
       position: absolute;
       z-index: 222;

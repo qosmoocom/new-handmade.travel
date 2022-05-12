@@ -1,6 +1,7 @@
 const sendEmail = require('../utils/sendEmail');
 exports.send_phone_email = async (req, res, next) => {
-  const { action_id, name, date, phone, time, send_email,whereFrom } = req.body;
+  const { action_id, name, date, phone, time, send_email, whereFrom } = req.body;
+  console.log('phone',whereFrom);
   const msg = {
     to: `${send_email}`,
     subject: "Handmade.travel",

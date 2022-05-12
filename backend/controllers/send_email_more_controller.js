@@ -13,7 +13,7 @@ exports.send_email_more = async (req, res, next) => {
     comment = req.body.commit;
   }
   const { action_id, tourID, name, phone, email, send_email,whereFrom } = req.body;
-
+  console.log('more', whereFrom);
   const msg = {
     to: `${send_email}`,
     subject: "Handmade.travel",
