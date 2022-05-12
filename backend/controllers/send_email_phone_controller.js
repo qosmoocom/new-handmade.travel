@@ -1,10 +1,9 @@
 const sendEmail = require('../utils/sendEmail');
 exports.send_phone_email = async (req, res, next) => {
-  const { action_id, name, date, phone, time, send_email, whereFrom } = req.body;
-  console.log('phone',whereFrom);
+  const { action_id, name, date, phone, time, send_email } = req.body;
   const msg = {
     to: `${send_email}`,
-    subject: "Handmade.travel",
+    subject: 'Handmade.travel',
     html: `
       <h2 style="text-aligin:center"> Перезвоните пожалуйста клиенту <h2/>
       <div style="position: relative;
@@ -21,12 +20,6 @@ exports.send_phone_email = async (req, res, next) => {
                           font-size: 22px;" >
                   <h3>Name: ${name}</h3>
               </div>
-            </div>
-            <div style="padding-left: 10px;" >
-              <ul>
-                  <li style="font-size: 20px;
-                            font-style: italic;">Where from: ${whereFrom}</li>
-              </ul>
             </div>
             <div style="padding-left: 10px;" >
               <ul>

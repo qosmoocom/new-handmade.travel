@@ -144,7 +144,6 @@ export const Modal1 = () => {
         send_email: getItem("footer_col_email"),
         date: form.date,
         time: form.time,
-        whereFrom:`${globalState.tours.tour.tourName}-${globalState.tours.tour.language}`,
       };
       const res = await Axios.post(api, data);
       const resD = await res.data;

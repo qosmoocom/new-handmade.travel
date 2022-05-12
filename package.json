@@ -4,9 +4,7 @@
   "scripts": {
     "build": "next build",
     "lint": "next lint",
-    "run-server": "node backend/server.js",
-    "run-cloner": "node backend/utils/cloner.js",
-    "dev": "concurrently --kill-others \"npm run run-server\" \"npm run run-cloner \"",
+    "dev": " node backend/server.js ",
     "start": "node backend/server.js"
   },
   "dependencies": {
