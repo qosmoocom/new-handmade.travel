@@ -799,26 +799,34 @@ const PDF_MODAL = styled.div`
     } */
     .exit-btn {
       position: absolute;
-      z-index: 222;
+      z-index: 9999999;
       background: none;
       color: #fff;
       border: none;
-      font-size: 30px;
+      font-size: 20px;
       cursor: pointer;
       border-radius: 50%;
-      width: 50px;
-      height: 50px;
+      width: 30px;
+      height: 30px;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: 300ms ease-in;
-      right: -60px;
-      top: -60px;
+      right: 60px;
+      top: 60px;
+      color: black;
+      box-shadow: 1px 1px 2px 2px #00000050;
+      border-radius: 0;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+
       @media (min-width: 320px) {
-        right: -10px;
+        right: 10px;
       }
       @media (min-width: 450px) {
-        right: -60px;
+        right: 60px;
       }
     }
   }

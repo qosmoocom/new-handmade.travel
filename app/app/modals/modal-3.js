@@ -60,6 +60,7 @@ export function Modal3() {
   const { isEdit: isAdmin } = useSelector((st) => st.admin);
   const state = useSelector((state) => state.admin);
   const [checked, setChecked] = useState(state.checkerForModal3);
+  console.log(state);
   useEffect(() => {
     setChecked(state.checkerForModal3)
   }, [state])
@@ -247,7 +248,6 @@ export function Modal3() {
         komment: form.commit,
         send_email: getItem("footer_col_email"),
         Удобный_мессенджер: `messanger name:${modalState.my_messenger.check_messenger}; messanger username:${form.messenger_user}`,
-        whereFrom: `${globalState.tours.tour.tourName}-${globalState.tours.tour.language}`,
       };
 
       const res = await Axios.post(api, data);
