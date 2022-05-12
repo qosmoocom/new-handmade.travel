@@ -157,7 +157,6 @@ export function Modal2() {
         email: form.email,
         messanger: `${my_messenger.check_messenger}: ${form.messenger_user} `,
         commit: form.commit,
-        whereFrom: `${globalState.tours.tour.tourName}-${globalState.tours.tour.language}`,
       };
       const res = await Axios.post(api, data);
       const resD = await res.data;
