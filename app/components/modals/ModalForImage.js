@@ -177,7 +177,6 @@ export default function ImageForModal() {
       setState({ href: "", alt: "", title: "" });
     }
   }, [alt, href, open, title]);
-  console.log(sectionName);
   const onSaveHandler = async () => {
     if (selectFile) {
       const formData = new FormData();
@@ -205,7 +204,6 @@ export default function ImageForModal() {
               newTitle: state.title,
             },
           });
-          console.log(data.image.replace("/public", ""));
 
           // console.log("yangi img qushildi...");
           // router.reload(window.location.pathname);

@@ -68,11 +68,6 @@ export const Modal1 = () => {
   const globalDispatch = useDispatch();
   const { modal } = globalState;
   const { isOpen, form } = modalState;
-  console.log(
-    "globalState is ",
-    globalState.tours.tour.tourName,
-    "-",
-    globalState.tours.tour.language);
 
   // componentDidUpdate in modal update
   useEffect(() => {

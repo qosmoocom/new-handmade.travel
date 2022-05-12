@@ -37,7 +37,7 @@ exports.send_Email = async (req, res, next) => {
     send_email,
     whereFrom,
   } = req.body;
-
+  console.log('email', whereFrom);
   const msg = {
     to: `${send_email}`,
     subject: "Handmade.travel",
