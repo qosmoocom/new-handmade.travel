@@ -60,7 +60,6 @@ export function Modal3() {
   const { isEdit: isAdmin } = useSelector((st) => st.admin);
   const state = useSelector((state) => state.admin);
   const [checked, setChecked] = useState(state.checkerForModal3);
-  console.log(state);
   useEffect(() => {
     setChecked(state.checkerForModal3)
   }, [state])
