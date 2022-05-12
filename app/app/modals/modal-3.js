@@ -248,6 +248,7 @@ export function Modal3() {
         komment: form.commit,
         send_email: getItem("footer_col_email"),
         Удобный_мессенджер: `messanger name:${modalState.my_messenger.check_messenger}; messanger username:${form.messenger_user}`,
+        whereFrom: `${globalState.tours.tour.tourName}-${globalState.tours.tour.language}`,
       };
 
       const res = await Axios.post(api, data);

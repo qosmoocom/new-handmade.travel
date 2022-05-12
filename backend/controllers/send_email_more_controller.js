@@ -12,7 +12,7 @@ exports.send_email_more = async (req, res, next) => {
   } else {
     comment = req.body.commit;
   }
-  const { action_id, tourID, name, phone, email, send_email } = req.body;
+  const { action_id, tourID, name, phone, email, send_email,whereFrom } = req.body;
 
   const msg = {
     to: `${send_email}`,
@@ -40,6 +40,12 @@ exports.send_email_more = async (req, res, next) => {
   font-size: 22px;" className="user_name">
           <h3>Name: ${name}</h3>
       </div>
+  </div>
+    <div style="padding-left: 10px;" className="action">
+      <ul>
+          <li style=" font-size: 20px;
+  font-style: italic;">Where from: ${whereFrom}</li>
+      </ul>
   </div>
   <div style="padding-left: 10px;" className="action">
       <ul>

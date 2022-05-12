@@ -573,10 +573,11 @@ const MyModal = styled.div`
   }
   .modal-container {
     width: 500px;
-    height: 650px;
+    height: 700px !important;
     position: absolute;
     top: 50%;
     left: 50%;
+
     @media (min-width: 576px) {
       transform: scale(0.8) translate(-60%, -60%);
     }
@@ -600,6 +601,7 @@ const MyModal = styled.div`
       transition: 300ms ease-in;
       right: -60px;
       top: -60px;
+
       @media (min-width: 320px) {
         right: -10px;
       }
@@ -624,6 +626,7 @@ const MyModal = styled.div`
       width: 500px;
       height: 650px;
       object-fit: cover;
+
       @media (min-width: 320px) {
         width: 300px;
         height: 400px;
@@ -735,6 +738,7 @@ const MyModal = styled.div`
     height: 100%;
     overflow: hidden;
     position: relative;
+    
     .slide-container {
       position: relative;
       height: 100%;
@@ -768,12 +772,13 @@ const PDF_MODAL = styled.div`
     left: 0;
   }
   .modal_content {
-    height: 80%;
-    width: 800px;
+    height: 100vh; 
+    width: 100vw;
+    /* width: 800px; */
     position: relative;
     iframe {
       border: none !important;
-    }
+    
     @media (min-width: 320px) {
       width: 80%;
     }
@@ -791,7 +796,7 @@ const PDF_MODAL = styled.div`
     }
     @media (min-width: 1400px) {
       width: 800px;
-    }
+    }}
     .exit-btn {
       position: absolute;
       z-index: 222;
@@ -1038,7 +1043,7 @@ export default function index({ footer }) {
                       group="footer_letsinze_imgs"
                       id={index}
                       width={500}
-                      height={650}
+                      height={700}
                       key={index}
                       sectionName={val.name}
                     />

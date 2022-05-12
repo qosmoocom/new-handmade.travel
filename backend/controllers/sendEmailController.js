@@ -35,11 +35,12 @@ exports.send_Email = async (req, res, next) => {
     home_type,
     service,
     send_email,
+    whereFrom,
   } = req.body;
 
   const msg = {
     to: `${send_email}`,
-    subject: 'Handmade.travel',
+    subject: "Handmade.travel",
     html: `
       <h2 style="text-aligin:center"> Заявка на бронирование тура<h2/>
       <div style="
@@ -63,6 +64,12 @@ exports.send_Email = async (req, res, next) => {
               <h3>Name: ${name}</h3>
           </div>
       </div>
+      </div>
+      <div style="padding-left: 10px;" className="action">
+          <ul>
+              <li style=" font-size: 20px;
+      font-style: italic;">Where from: ${whereFrom}</li>
+          </ul>
       </div>
       <div style="padding-left: 10px;" className="action">
           <ul>
