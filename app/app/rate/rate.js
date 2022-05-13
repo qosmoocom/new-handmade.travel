@@ -218,17 +218,7 @@ export default function Rate() {
                       group="rateData"
                       className="list-table-tr"
                     >
-                      <div className="list-table-th">
-                        <p className="rate-list-item-descript">
-                          <Text
-                            name="rate_title"
-                            group="rateData"
-                            id={index}
-                            itIsClassName="rate-list-item-descript"
-                          >
-                            {item.rate_title}
-                          </Text>
-                        </p>
+                      <div className="list-table-th title">
                         <Text
                           name="rate_head"
                           group="rateData"
@@ -238,8 +228,19 @@ export default function Rate() {
                         >
                           {parse(item.rate_head)}
                           {/* <BsExclamationCircle className="excl" /> */}
-
-                          <BsExclamationCircle className="excl" />
+                          <div className="excl-div">
+                            <BsExclamationCircle className="excl"/>
+                            <p className="rate-list-item-descript">
+                              <Text
+                                name="rate_title"
+                                group="rateData"
+                                id={index}
+                                itIsClassName="rate-list-item-descript"
+                              >
+                                {item.rate_title}
+                              </Text>
+                            </p>
+                          </div>
                         </Text>
                       </div>
                       <div className="list-table-th jcc">
@@ -303,17 +304,26 @@ export default function Rate() {
                           </div>
                         ) : (
                           item.actives[2] && (
-                            <BsCheck2
-                              className="bs_check"
-                              onClick={() =>
-                                checkendHandler(
+                            <><BsCheck2
+                                className="bs_check"
+                                onClick={() => checkendHandler(
                                   "rateData",
                                   "actives",
                                   "2",
                                   index
-                                )
-                              }
-                            />
+                                )} />{index == 0 && <div className="excl-div">
+                                  <BsExclamationCircle className="excl" />
+                                  <p className="rate-list-item-descript">
+                                    <Text
+                                      name="rate_title_two"
+                                      group="rateData"
+                                      id={index}
+                                      itIsClassName="rate-list-item-descript_two"
+                                    >
+                                      {item.rate_title_two}
+                                    </Text>
+                                  </p>
+                                </div>}</>
                           )
                         )}
                       </div>

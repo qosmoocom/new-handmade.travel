@@ -1605,7 +1605,7 @@ body {
             position: absolute;
             color: #000;
             display: none;
-            top: 45px;
+            top: 25px;
             left: 40px;
             z-index: 2;
             z-index: 22;
@@ -1627,10 +1627,9 @@ body {
     }
   }
 
-  .rate-header-list-table {
+  .rate-header-list-table, .title {
     display: none;
     padding: 20px 10px 10px 10px;
-
     @media (min-width: 768px) {
       display: block;
     }
@@ -1648,33 +1647,41 @@ body {
       border-bottom: 1px solid rgb(204, 204, 204);
       padding: 10px 10px 20px 10px;
       height: auto;
-      cursor: pointer;
+      // cursor: pointer;
       position: relative;
       // -------
-      .rate-list-item-descript {
-        position: absolute;
-        color: #000;
-        display: none;
-        top: 45px;
-        left: 40px;
-        z-index: 2;
-        z-index: 22;
-        padding: 10px;
-        border-radius: 5px;
-        max-width: 500px;
-        box-shadow: 1px 1px 10px 2px rgba(204, 204, 204, 1);
-        background-color: #fff;
-        &.active {
-          display: none;
-        }
-      }
 
-      &:hover .rate-list-item-descript {
-        display: block !important;
-      }
-      .excl {
+
+      
+      .excl-div {
+        width: 20px;
+        .excl{
         margin: 5px 0 0 10px;
         font-size: 16px;
+        cursor: pointer;
+        }
+        .rate-list-item-descript {
+          position: absolute;
+          color: #000;
+          display: none;
+          top: 25px;
+          left: 40px;
+          z-index: 2;
+          z-index: 22;
+          padding: 10px;
+          border-radius: 5px;
+          max-width: 500px;
+          width: 20vw;
+          box-shadow: 1px 1px 10px 2px rgba(204, 204, 204, 1);
+          background-color: #fff;
+        
+          &.active {
+            display: none;
+          }
+        }
+        &:hover .rate-list-item-descript {
+          display: block !important;
+        }
       }
       .bs_check {
         right: 10px;
@@ -1727,8 +1734,18 @@ body {
 
         &.jcc {
           justify-content: center;
+          .excl-div{
+            .rate-list-item-descript{
+              top: 40px;
+            }
+          }
         }
       }
+    }
+  }
+  .title span{
+    @media (min-width: 768px) {
+      display: flex;
     }
   }
 
