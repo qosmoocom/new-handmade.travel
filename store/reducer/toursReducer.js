@@ -117,8 +117,23 @@ export const getMyOneTour = (id) => async (dispatch) => {
   try {
     const res = await Axios.get(api, getConfig());
     const data = await res.data;
-
+    
+    let data_rate = {
+        rate_head: "Проживание в отелях",
+        rate_title:
+          "Мы будем жить в проверенных гостиницах и уютных бутик-отелях 3*. Отели в исторических центрах. Размещение на базе одного места в двухместном номере с вкусными завтраками. Доплата за одноместное размещение $ 136.",
+        rate_title_two:'lorem ipsum',
+        actives: [true, true, true],
+      }
     const newTourTexts = JSON.parse(data.tourTexts);
+    try {
+      
+      newTourTexts.rateData.data.unshift(data_rate)
+      console.log("data is ", newTourTexts.rateData.data[0]);
+      
+    } catch (error) {
+      console.log(error);
+    }
     const arr = newTourTexts.app_sections_active;
     const new_arr = [...arr];
 

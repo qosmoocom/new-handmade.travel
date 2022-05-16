@@ -1735,8 +1735,14 @@ body {
         &.jcc {
           justify-content: center;
           .excl-div{
+            position: absolute;
+            .excl{
+              position: relative;
+              left: 20px;
+            }
             .rate-list-item-descript{
-              top: 40px;
+              top: 23px;
+              left: -20px;
             }
           }
         }
