@@ -24,10 +24,12 @@ export default function Index() {
     yan_met: "",
     title: "",
   });
+  const [saved,setSaved]= useState({})
   useEffect(() => {
     if (router.query.id) {
       dispatch(getMyOneTour(router.query.id.toString()));
     }
+    
   }, [router]);
 
   if (globalState.tours.tour) {
@@ -59,15 +61,7 @@ export default function Index() {
         tourTexts: updateTexts,
       };
       dispatch(updateMyTours(_id, updateTour));
-      toast("Ваша информация сохраняется", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      
     };
 
     return (
