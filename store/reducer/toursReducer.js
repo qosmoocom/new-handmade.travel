@@ -4,6 +4,7 @@ import { loaderOff, loaderOn } from "./loaderReducer";
 import { getConfig } from "./usersReducer";
 import { cssText } from "./../../app/components/admin/globalCss";
 import { newComponentsList } from "./../newComponentsList";
+import { toast } from "react-toastify";
 
 const initialState = {
   tours: [],
@@ -102,7 +103,15 @@ export const updateMyTours = (userId, newTour) => async (dispatch) => {
   try {
     const res = await Axios.put(api, newTour, getConfig());
     const data = await res.data;
-    console.log(newTour);
+    toast("OK", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
 
     // dispatch(getAllMyTours());
     setTimeout(() => {

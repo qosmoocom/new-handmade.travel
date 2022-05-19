@@ -86,7 +86,6 @@ export default function Header() {
 
   if (!thisIsNotClient && !val.isActive) return null;
   // component active no active
-  console.log(getItem("head_text_1").length);
   useEffect(() => {
     let text1 = document.getElementById("header_middle_text");
     let text2 = document.getElementById("header_big_text");
