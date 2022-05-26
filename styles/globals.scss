@@ -230,39 +230,37 @@ body {
     // }
   }
   .header_small_text {
-    // font-size: 13px;
+    font-size: 15px;
     color: #cc5a1a;
-    // line-height: 15px;
+    line-height: 120%;
     letter-spacing: 1px;
     margin-top: 4px;
     font-weight: 500;
     text-align: justify;
     text-align-last: auto;
-    // @media (min-width: 360px) {
-    //   font-size: 13px;
-    //   line-height: 15px;
-    //   letter-spacing: 0.4px;
-    // }
+    @media (min-width: 360px) {
+      font-size: 15px;
+      letter-spacing: 0.4px;
+    }
     @media (min-width: 480px) {
       text-align: center;
       text-align-last: auto;
     }
-    // @media (min-width: 576px) {
-    //   font-size: 15px;
-    //   line-height: 20px;
-    // }
-    // @media (min-width: 768px) {
-    //   text-align: center;
-    // }
+    @media (min-width: 576px) {
+      font-size: 18px;
+    }
+    @media (min-width: 768px) {
+      text-align: center;
+    }
     @media (min-width: 992px) {
       text-align: justify;
       // text-align-last: justify;
     }
     @media (min-width: 1200px) {
-      font-size: 21px;
+      font-size: 22px;
     }
     @media (min-width: 1400px) {
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
   }
 }
