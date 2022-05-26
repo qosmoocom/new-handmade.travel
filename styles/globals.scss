@@ -808,10 +808,10 @@ body {
         
       }
       @media (min-width: 1200px) {
-        height:480px;
+        height:485px;
       }
       @media (min-width: 1400px) {
-        height:400px;
+        height:410px;
       }
     }
   }
@@ -836,10 +836,10 @@ body {
       // min-width: 300px;
     }
     @media (min-width: 1200px) {
-      min-height: 480px;
+      min-height: 485px;
     }
     @media (min-width: 1400px) {
-      min-height: 400px;
+      min-height: 410px;
     }
     background: #ffffff;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
@@ -3501,6 +3501,7 @@ body {
   h2 {
     @media (min-width: 1200px) {
       text-align: left;
+      min-height: 76px;
     }
   }
 }
@@ -3540,3 +3541,4 @@ body {
       margin-top: 80px;
     }
 }
+
