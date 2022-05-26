@@ -40,10 +40,10 @@ function ActionDetail() {
         <div className="container">
           <div className="content">
             <div className="content-left">
-              <h2 className="action_detail_title">
+              <h2>
                 <Text
                   name="action_detail_title"
-                  itIsClassName="action_detail_title"
+                  itIsClassName="#action-detail h2"
                 >
                   {getItem("action_detail_title")}
                 </Text>

@@ -1,24 +1,24 @@
-import SectionActive from '../../components/SectionActive';
-import { useDispatch, useSelector } from 'react-redux';
-import React, { useContext } from 'react';
-import { AppContext } from '..';
-import Image from '../../components/Image';
-import Text from '../../components/Text';
-import Item from '../../components/Item';
+import SectionActive from "../../components/SectionActive";
+import { useDispatch, useSelector } from "react-redux";
+import React, { useContext } from "react";
+import { AppContext } from "..";
+import Image from "../../components/Image";
+import Text from "../../components/Text";
+import Item from "../../components/Item";
 export default function WhyWithUs() {
   const { getItem } = useContext(AppContext);
 
   // component active no active
   const val = useSelector((state) => state.admin.app_sections_active).find(
-    (i) => i.name === 'why-with-us'
+    (i) => i.name === "why-with-us"
   );
 
   const { isEdit: thisIsNotClient } = useSelector((st) => st.admin);
 
   const bgYellow = {
-    background: val.isActive ? null : 'yellow',
-    opacity: val.isActive ? null : '0.2',
-    cursor: val.isActive ? null : 'not-allowed',
+    background: val.isActive ? null : "yellow",
+    opacity: val.isActive ? null : "0.2",
+    cursor: val.isActive ? null : "not-allowed",
   };
 
   if (!thisIsNotClient && !val.isActive) return null;
@@ -32,11 +32,16 @@ export default function WhyWithUs() {
           <div className="content">
             <div className="why-wth-us-title">
               <h1>
-                <Text name="why_with_title">{getItem('why_with_title')}</Text>
+                <Text
+                  name="why_with_title"
+                  itIsClassName=".why-wth-us-title h1"
+                >
+                  {getItem("why_with_title")}
+                </Text>
               </h1>
             </div>
             <div className="cards">
-              {getItem('whyData', 'whyData').map((item, index) => {
+              {getItem("whyData", "whyData").map((item, index) => {
                 return (
                   <Item
                     className="card"

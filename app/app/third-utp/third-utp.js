@@ -1,24 +1,24 @@
-import SectionActive from '../../components/SectionActive';
-import { useSelector } from 'react-redux';
-import React, { useContext } from 'react';
-import { AppContext } from '..';
-import Text from '../../components/Text';
-import Image from '../../components/Image';
-import Item from '../../components/Item';
+import SectionActive from "../../components/SectionActive";
+import { useSelector } from "react-redux";
+import React, { useContext } from "react";
+import { AppContext } from "..";
+import Text from "../../components/Text";
+import Image from "../../components/Image";
+import Item from "../../components/Item";
 export default function ThirdUtp() {
   const { getItem } = useContext(AppContext);
 
   // component active no active
   const val = useSelector((state) => state.admin.app_sections_active).find(
-    (i) => i.name === 'third-utp'
+    (i) => i.name === "third-utp"
   );
 
   const { isEdit: thisIsNotClient } = useSelector((st) => st.admin);
 
   const bgYellow = {
-    background: val.isActive ? null : 'yellow',
-    opacity: val.isActive ? null : '0.2',
-    cursor: val.isActive ? null : 'not-allowed',
+    background: val.isActive ? null : "yellow",
+    opacity: val.isActive ? null : "0.2",
+    cursor: val.isActive ? null : "not-allowed",
   };
 
   if (!thisIsNotClient && !val.isActive) return null;
@@ -28,30 +28,30 @@ export default function ThirdUtp() {
       <SectionActive name={val.name} />
       <div id="third-utp" style={bgYellow}>
         <div className="container">
-          <div className="third-utp-title">
-            <h2>
-              <Text name="third_utp_title" itIsClassName="third-utp-title">
-                {getItem('third_utp_title')}
+          <div className="second-utp-title">
+            <h1>
+              <Text name="third_utp_title" itIsClassName=".third-utp-title h1">
+                {getItem("third_utp_title")}
               </Text>
-            </h2>
+            </h1>
           </div>
           <div className="row">
-            {getItem('third_utp_list', 'third_utp_list').map((item, index) => {
+            {getItem("third_utp_list", "third_utp_list").map((item, index) => {
               return (
                 <Item
                   group="third_utp_list"
                   itemId={index}
-                  className="third-utp-item col-md-12 col-lg-6"
+                  className="second-utp-item col-md-12 col-lg-6"
                   key={index}
                 >
-                  <div className="third-utp-item-img">
-                    <div className="third-utp-item-img-box">
+                  <div className="second-utp-item-img">
+                    <div className="second-utp-item-img-box">
                       <Image
                         layout="fill"
                         src={item.img.src}
                         alt={item.img.alt}
                         title={item.img.title}
-                        itIsClassName="third-utp-item-img-box"
+                        itIsClassName="second-utp-item-img-box"
                         group={"third_utp_list"}
                         id={index}
                         priority
@@ -60,9 +60,9 @@ export default function ThirdUtp() {
                       />
                     </div>
                   </div>
-                  <div className="third-utp-description">
-                    <div className="third-utp-text-1">
-                      <h3>
+                  <div className="second-utp-description">
+                    <div className="second-utp-text-1">
+                      <h2>
                         <Text
                           group="third_utp_list"
                           itIsClassName="third-utp-text-1"
@@ -71,9 +71,9 @@ export default function ThirdUtp() {
                         >
                           {item.text1}
                         </Text>
-                      </h3>
+                      </h2>
                     </div>
-                    <div className="third-utp-text-2">
+                    <div className="second-utp-text-2">
                       <p>
                         <Text
                           group="third_utp_list"

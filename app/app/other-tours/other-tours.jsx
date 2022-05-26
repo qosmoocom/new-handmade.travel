@@ -1,4 +1,4 @@
-import SectionActive from '../../components/SectionActive';
+import SectionActive from "../../components/SectionActive";
 import { useSelector } from "react-redux";
 import React, { useContext, useState } from "react";
 import { AppContext } from "..";
@@ -20,19 +20,17 @@ export default function OtherTour() {
     );
   };
 
-
-
   // component active no active
   const val = useSelector((state) => state.admin.app_sections_active).find(
-    (i) => i.name === 'other-tours'
+    (i) => i.name === "other-tours"
   );
 
   const { isEdit: thisIsNotClient } = useSelector((st) => st.admin);
 
   const bgYellow = {
-    background: val.isActive ? null : 'yellow',
-    opacity: val.isActive ? null : '0.2',
-    cursor: val.isActive ? null : 'not-allowed',
+    background: val.isActive ? null : "yellow",
+    opacity: val.isActive ? null : "0.2",
+    cursor: val.isActive ? null : "not-allowed",
   };
 
   if (!thisIsNotClient && !val.isActive) return null;
@@ -43,9 +41,13 @@ export default function OtherTour() {
       <SectionActive name={val.name} />
       <div id="outher-tour" style={bgYellow}>
         <div className="container">
-          <h3 className="outer-title">
-            <Text name="other_tours_title">{getItem("other_tours_title")}</Text>
-          </h3>
+          <div className="outer-title">
+            <h1>
+              <Text name="other_tours_title" itIsClassName=".outer-title h1">
+                {getItem("other_tours_title")}
+              </Text>
+            </h1>
+          </div>
 
           <h4 className="outer-info">
             <Text name="other_tours_info">{getItem("other_tours_info")}</Text>

@@ -81,9 +81,11 @@ export default function Faq() {
       <div style={bgYellow} id="faq">
         <div className="container">
           <div className="faq-title">
-            <h2>
-              <Text name="faq_title">{getItem("faq_title")}</Text>
-            </h2>
+            <h1>
+              <Text name="faq_title" itIsClassName=".faq-title h1">
+                {getItem("faq_title")}
+              </Text>
+            </h1>
           </div>
 
           <div className="faq-list">

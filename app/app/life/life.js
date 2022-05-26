@@ -30,11 +30,11 @@ export default function Life() {
       <div id="life" style={val ? bgYellow : { display: "block" }}>
         <div className="container">
           <div className="content">
-            <div className="life-title">
-              <h1>
-                <Text name="life_title">{getItem("life_title")}</Text>
-              </h1>
-            </div>
+            <h1>
+              <Text name="life_title" itIsClassName="#life h1">
+                {getItem("life_title")}
+              </Text>
+            </h1>
             <div className="cards">
               {getItem("lifeData", "lifeData").map((item, index) => {
                 return (
@@ -44,31 +44,24 @@ export default function Life() {
                     itemId={index}
                     key={index}
                   >
-                    {/* <div className="img-card">
-                      <div className="image-box">
-                        <Image
-                          layout="fill"
-                          src={item.img.src}
-                          alt={item.img.alt}
-                          title={item.img.title}
-                          group="lifeData"
-                          id={index}
-                        />
-                      </div>
-                    </div> */}
                     <div className="text-box">
-                      <h1>
+                      <h3>
                         <Text
                           name="title"
                           id={index}
                           group="lifeData"
-                          itIsClassName="text-box"
+                          itIsClassName="#life h3"
                         >
                           {item.title}
                         </Text>
-                      </h1>
+                      </h3>
                       <h4>
-                        <Text name="descript" group="lifeData" id={index}>
+                        <Text
+                          name="descript"
+                          group="lifeData"
+                          id={index}
+                          itIsClassName="#life h4"
+                        >
                           {item.descript}
                         </Text>
                       </h4>

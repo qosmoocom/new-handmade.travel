@@ -39,7 +39,7 @@ export default function Reviews() {
           <div className="content">
             <div className="reviews-title">
               <h1>
-                <Text itIsClassName="reviews-title" name="reviews_title">
+                <Text itIsClassName=".reviews-title h1" name="reviews_title">
                   {getItem("reviews_title")}
                 </Text>
               </h1>

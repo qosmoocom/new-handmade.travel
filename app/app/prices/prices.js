@@ -36,11 +36,12 @@ export default function Price() {
       <div id="price" style={bgYellow}>
         <div className="container" id="bron">
           <div className="content">
-            <h3 className="price-title">
-              <Text name="prices_title" itIsClassName="price-title">
+            <h1>
+              <Text name="prices_title" itIsClassName="#price h1">
                 {getItem("prices_title")}
               </Text>
-            </h3>
+            </h1>
+
             <p className="price-info">
               <Text name="prices_info" itIsClassName="prices_info">
                 {getItem("prices_info")}

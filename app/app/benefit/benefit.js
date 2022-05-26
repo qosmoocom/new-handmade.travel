@@ -38,11 +38,11 @@ export default function Benefit() {
       <SectionActive name={val.name} />
       <div id="benefit" style={bgYellow}>
         <div className="container">
-          <div className="benefit-title">
-            <h2>
-              <Text name="benefit_title">{getItem("benefit_title")}</Text>
-            </h2>
-          </div>
+          <h1>
+            <Text name="benefit_title" itIsClassName="#benefit h1">
+              {getItem("benefit_title")}
+            </Text>
+          </h1>
         </div>
 
         <div className="wrapper-content">

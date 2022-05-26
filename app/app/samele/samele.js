@@ -1,34 +1,34 @@
-import { useSelector } from 'react-redux';
-import SectionActive from '../../components/SectionActive';
-import React, { useContext } from 'react';
+import { useSelector } from "react-redux";
+import SectionActive from "../../components/SectionActive";
+import React, { useContext } from "react";
 
-import { AppContext } from '..';
-import Image from '../../components/Image';
-import Text from '../../components/Text';
-import Item from '../../components/Item';
+import { AppContext } from "..";
+import Image from "../../components/Image";
+import Text from "../../components/Text";
+import Item from "../../components/Item";
 export default function Samele() {
   const { getItem } = useContext(AppContext);
 
   // modal opened
   const handleOnModal = () => {
     const payload = {
-      currentModal: 'MODAL_2',
-      actionModal: 'ACTION_3',
+      currentModal: "MODAL_2",
+      actionModal: "ACTION_3",
     };
-    dispatch({ type: 'MODAL_OPEN', payload });
+    dispatch({ type: "MODAL_OPEN", payload });
   };
 
   // component active no active
   const val = useSelector((state) => state.admin.app_sections_active).find(
-    (i) => i.name === 'samele'
+    (i) => i.name === "samele"
   );
 
   const { isEdit: thisIsNotClient } = useSelector((st) => st.admin);
 
   const bgYellow = {
-    background: val.isActive ? null : 'yellow',
-    opacity: val.isActive ? null : '0.2',
-    cursor: val.isActive ? null : 'not-allowed',
+    background: val.isActive ? null : "yellow",
+    opacity: val.isActive ? null : "0.2",
+    cursor: val.isActive ? null : "not-allowed",
   };
 
   if (!thisIsNotClient && !val.isActive) return null;
@@ -40,13 +40,11 @@ export default function Samele() {
       <div id="samele" style={bgYellow}>
         <div className="container">
           <div className="content">
-            <div className="smale-head-text">
-              <h1>
-                <Text name="samele_head" itIsClassName="smale-head-text">
-                  {getItem("samele_head")}
-                </Text>
-              </h1>
-            </div>
+            <h1>
+              <Text name="samele_head" itIsClassName=".samele-title h1">
+                {getItem("samele_head")}
+              </Text>
+            </h1>
             <div className="blog">
               <div className="image-blog">
                 <div className="image-box">

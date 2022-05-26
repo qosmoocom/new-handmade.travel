@@ -93,17 +93,17 @@ export default function Header() {
     if (319 < window.innerWidth && window.innerWidth < 576) {
       text1.style.fontSize = (18 / getItem("head_text_1").length) * 10 + "vw";
       text2.style.fontSize = (18 / getItem("head_text_2").length) * 10 + "vw";
-      text3.style.fontSize = (18 / getItem("head_text_3").length) * 20 + "vw";
+      text3.style.fontSize = (18 / getItem("head_text_3").length) * 28 + "vw";
     }
     if (576 <= window.innerWidth && window.innerWidth < 700) {
       text1.style.fontSize = (18 / getItem("head_text_1").length) * 8 + "vw";
       text2.style.fontSize = (18 / getItem("head_text_2").length) * 8 + "vw";
-      text3.style.fontSize = (18 / getItem("head_text_3").length) * 17 + "vw";
+      text3.style.fontSize = (18 / getItem("head_text_3").length) * 20 + "vw";
     }
     if (700 <= window.innerWidth && window.innerWidth < 992) {
       text1.style.fontSize = (18 / getItem("head_text_1").length) * 7 + "vw";
       text2.style.fontSize = (18 / getItem("head_text_2").length) * 7 + "vw";
-      text3.style.fontSize = (18 / getItem("head_text_3").length) * 15 + "vw";
+      text3.style.fontSize = (18 / getItem("head_text_3").length) * 17 + "vw";
     }
     if (992 <= window.innerWidth && window.innerWidth < 1100) {
       text1.style.fontSize = (18 / getItem("head_text_1").length) * 3 + "vw";
@@ -111,7 +111,7 @@ export default function Header() {
       text2.style.fontSize = `${(18 / getItem("head_text_2").length) * 9}vw`;
     }
     if (1100 <= window.innerWidth && window.innerWidth < 1650) {
-      text1.style.fontSize = (18 / getItem("head_text_1").length) * 5.5  + "vw";
+      text1.style.fontSize = (18 / getItem("head_text_1").length) * 5.5 + "vw";
       text2.style.fontSize = (18 / getItem("head_text_2").length) * 5 + "vw";
     }
     if (1650 <= window.innerWidth && window.innerWidth < 1900) {

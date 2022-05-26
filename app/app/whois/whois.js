@@ -40,13 +40,11 @@ export default function WhoIs() {
         <div className="container">
           <div className="container">
             <div className="whois-content">
-              <div className="whois-title">
-                <h1>
-                  <Text name="whois_title" itIsClassName="whois-title">
-                    {getItem("whois_title")}
-                  </Text>
-                </h1>
-              </div>
+              <h1>
+                <Text name="whois_title" itIsClassName="#whois-wrapper h1">
+                  {getItem("whois_title")}
+                </Text>
+              </h1>
               <div className="whois-descript">
                 <div className="whois-image">
                   <div className="image-content">
@@ -63,14 +61,11 @@ export default function WhoIs() {
                     />
                   </div>
                 </div>
-                <div className="whois-text">
-                  <p>
-                    <Text name="whois_info">{getItem("whois_info")}</Text>
-                  </p>
-                  {/* <button onClick={handleOnModal} style={{ cursor: "pointer" }}>
-                    <Text name="author_btn">{getItem("author_btn")}</Text>
-                  </button> */}
-                </div>
+                <p>
+                  <Text name="whois_info" itIsClassName="#whois-wrapper p">
+                    {getItem("whois_info")}
+                  </Text>
+                </p>
               </div>
             </div>
           </div>

@@ -125,7 +125,7 @@ export default function Index() {
           <Price />
           <Rate />
           <Life />
-          <ActionPicture />
+          {/* <ActionPicture /> */}
           <Gallery />
           <Author />
           <WhoIs />

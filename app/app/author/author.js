@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppContext } from '..';
-import SectionActive from '../../components/SectionActive';
-import Image from '../../components/Image';
-import Text from '../../components/Text';
+import React, { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AppContext } from "..";
+import SectionActive from "../../components/SectionActive";
+import Image from "../../components/Image";
+import Text from "../../components/Text";
 export default function Author() {
   const { getItem } = useContext(AppContext);
   const dispatch = useDispatch();
@@ -11,23 +11,23 @@ export default function Author() {
   // modal opened
   const handleOnModal = () => {
     const payload = {
-      currentModal: 'MODAL_1',
-      actionModal: 'ACTION 5',
+      currentModal: "MODAL_1",
+      actionModal: "ACTION 5",
     };
-    dispatch({ type: 'MODAL_OPEN', payload });
+    dispatch({ type: "MODAL_OPEN", payload });
   };
 
   // component active no active
   const val = useSelector((state) => state.admin.app_sections_active).find(
-    (i) => i.name === 'author'
+    (i) => i.name === "author"
   );
 
   const { isEdit: thisIsNotClient } = useSelector((st) => st.admin);
 
   const bgYellow = {
-    background: val.isActive ? null : 'yellow',
-    opacity: val.isActive ? null : '0.2',
-    cursor: val.isActive ? null : 'not-allowed',
+    background: val.isActive ? null : "yellow",
+    opacity: val.isActive ? null : "0.2",
+    cursor: val.isActive ? null : "not-allowed",
   };
 
   if (!thisIsNotClient && !val.isActive) return null;
@@ -42,7 +42,7 @@ export default function Author() {
             <div className="author-content">
               <div className="author-title">
                 <h1>
-                  <Text name="author_title" itIsClassName="author-title">
+                  <Text name="author_title" itIsClassName=".author-title h1">
                     {getItem("author_title")}
                   </Text>
                 </h1>

@@ -55,13 +55,11 @@ export default function TourProgram() {
       <SectionActive name={val.name} />
       <div id="tour-program" style={bgYellow}>
         <div className="container">
-          <div className="tour-program-title">
-            <h2>
-              <Text name="tour_program_title">
-                {getItem("tour_program_title")}
-              </Text>
-            </h2>
-          </div>
+          <h1>
+            <Text name="tour_program_title" itIsClassName="#tour-program h1">
+              {getItem("tour_program_title")}
+            </Text>
+          </h1>
           {/* tour-program-list */}
           <div className="tour-program-list">
             {getItem("tour_program", "tour_program_list").map((tour, index) => {

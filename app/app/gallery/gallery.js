@@ -1,20 +1,20 @@
-import SectionActive from '../../components/SectionActive';
-import { useSelector } from 'react-redux';
-import React, { useContext, useState, useEffect } from 'react';
-import { AppContext } from '..';
-import Image from '../../components/Image';
-import Text from '../../components/Text';
+import SectionActive from "../../components/SectionActive";
+import { useSelector } from "react-redux";
+import React, { useContext, useState, useEffect } from "react";
+import { AppContext } from "..";
+import Image from "../../components/Image";
+import Text from "../../components/Text";
 export default function Gallery() {
   const { getItem } = useContext(AppContext);
-  const imgs = getItem('gallery', 'gallery');
+  const imgs = getItem("gallery", "gallery");
   const [g2, setG2] = useState(false);
   const [g3, setG3] = useState(false);
   const [scW, setScW] = useState(0);
-  const [slider, setSlider] = useState({ open: false, img_url: '' });
+  const [slider, setSlider] = useState({ open: false, img_url: "" });
 
   useEffect(() => {
     setScW(window.outerWidth);
-    const imgs = [...document.querySelectorAll('.imgs-wrapper img')].map(
+    const imgs = [...document.querySelectorAll(".imgs-wrapper img")].map(
       (img) => {
         return {
           width: img.width,
@@ -24,7 +24,7 @@ export default function Gallery() {
     );
 
     (() => {
-      window.addEventListener('resize', () => {
+      window.addEventListener("resize", () => {
         setScW(window.outerWidth);
       });
     })();
@@ -32,15 +32,15 @@ export default function Gallery() {
 
   // component active no active
   const val = useSelector((state) => state.admin.app_sections_active).find(
-    (i) => i.name === 'gallery'
+    (i) => i.name === "gallery"
   );
 
   const { isEdit: thisIsNotClient } = useSelector((st) => st.admin);
 
   const bgYellow = {
-    background: val.isActive ? null : 'yellow',
-    opacity: val.isActive ? null : '0.2',
-    cursor: val.isActive ? null : 'not-allowed',
+    background: val.isActive ? null : "yellow",
+    opacity: val.isActive ? null : "0.2",
+    cursor: val.isActive ? null : "not-allowed",
     zIndex: val.isActive ? null : 20000,
   };
 
@@ -54,11 +54,11 @@ export default function Gallery() {
         <div className="container">
           <div className="urta">
             <div className="content-1">
-              <h3>
-                <Text name="gallery_title" itIsClassName="gallery_title h3">
+              <h1>
+                <Text name="gallery_title" itIsClassName="#gallery-wrapper h1">
                   {getItem("gallery_title")}
                 </Text>
-              </h3>
+              </h1>
               <div className="box-img">
                 <div className="section-1">
                   <div
