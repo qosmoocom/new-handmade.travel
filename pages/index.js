@@ -17,10 +17,10 @@ import Link from "next/link";
 export default function Home() {
   const [tours, setTours] = useState([]);
   const forFs = useSelector((state) => state);
-  const itemsru=[]
-  const itemses=[]
-  const itemsen=[]
-  const itemsde=[]
+  const itemsru = [];
+  const itemses = [];
+  const itemsen = [];
+  const itemsde = [];
   const [en, setEn] = useState([]);
   const [ru, setRu] = useState([]);
   const [es, setEs] = useState([]);
@@ -63,7 +63,7 @@ export default function Home() {
   useEffect(() => {
     for (let i = 0; i < tours.length; i++) {
       if (tours[i].language == "ru") {
-        itemsru.push(tours[i])
+        itemsru.push(tours[i]);
       }
       if (tours[i].language == "de") {
         itemsde.push(tours[i]);
@@ -79,9 +79,7 @@ export default function Home() {
       itemsru.map((item, index) => (
         <li key={index}>
           <Link href={`/tours/${item.tour_id}/${item.language}`}>
-            <b>
-              {item.tourName}
-            </b>
+            <b>{item.tourName}</b>
           </Link>
         </li>
       ))
@@ -90,9 +88,7 @@ export default function Home() {
       itemsen.map((item, index) => (
         <li key={index}>
           <Link href={`/tours/${item.tour_id}/${item.language}`}>
-            <b>
-              {item.tourName}
-            </b>
+            <b>{item.tourName}</b>
           </Link>
         </li>
       ))
@@ -101,9 +97,7 @@ export default function Home() {
       itemses.map((item, index) => (
         <li key={index}>
           <Link href={`/tours/${item.tour_id}/${item.language}`}>
-            <b>
-              {item.tourName}
-            </b>
+            <b>{item.tourName}</b>
           </Link>
         </li>
       ))
@@ -112,9 +106,7 @@ export default function Home() {
       itemsde.map((item, index) => (
         <li key={index}>
           <Link href={`/tours/${item.tour_id}/${item.language}`}>
-            <b>
-              {item.tourName}
-            </b>
+            <b>{item.tourName}</b>
           </Link>
         </li>
       ))
@@ -181,13 +173,35 @@ export default function Home() {
                 />
               </Img>
             </Header>
-            <div className="toursName">{itemsru && <ul>{ru}{en}{es}{de}</ul>}</div>
+            <div className="toursName">
+              {itemsru && (
+                <ul>
+                  {ru}
+                  {en}
+                  {es}
+                  {de}
+                </ul>
+              )}
+            </div>
           </Container>
         </div>
       </Full_container>
       {/* {div} */}
     </div>
   );
+}
+
+export async function getServerSideProps({ req, res }) {
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=10, stale-while-revalidate=59"
+  );
+
+  return {
+    props: {
+      time: new Date().toISOString(),
+    },
+  };
 }
 
 // const Section = styled.div`

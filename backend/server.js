@@ -40,15 +40,7 @@ app.prepare().then(() => {
 
   server.use(express.json());
   server.use(express.urlencoded({ extended: true }));
-  server.use("/public/images", express.static(pathdir, { maxAge: "365d" }));
-//  yangi qator
-  server.use(function (req, res, next) {
-    if (req.url.match(".js|.css|.woff|.jpg|.png|.gif|.ttf|.webp")) {
-      res.setHeader("Cache-Control", "public,max-age=31536000"); // 365 days
-    }
-    next();
-  });
-// 
+  server.use("/public/images", express.static(pathdir));
   server.use(cors());
   server.use(require("morgan")("dev"));
 
