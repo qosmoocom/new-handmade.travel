@@ -105,7 +105,7 @@ export default function Index({
               layout={layout}
               onDoubleClick={doubleClickHandler}
               loading="eager"
-              quality={5}
+              quality="5"
             />
           )}
         </>
@@ -136,7 +136,7 @@ export default function Index({
                 objectFit={objectFit}
                 layout={layout}
                 loading="eager"
-                quality={5}
+                quality="5"
               />
             )}
           </>
