@@ -152,9 +152,9 @@ export default function Header() {
                 <div className="logo-img">
                   <Image
                     priority
-                    width={45}
-                    height={45}
-                    // layout="fill"
+                    // width={45}
+                    // height={45}
+                    layout="fill"
                     objectFit="contain"
                     itIsClassName="logo-img"
                     src={getItem("logofixed_img_src")}
@@ -273,10 +273,10 @@ export default function Header() {
                 <div className="header_navbar_logo_box_mobile">
                   <Image
                     priority
-                    width={150}
-                    height={150}
+                    // width={150}
+                    // height={150}
                     objectFit="contain"
-                    // layout="fill"
+                    layout="fill"
                     itIsClassName="header_navbar_logo_box_mobile"
                     src={getItem("my_logo_img_url")}
                     srcDataName="my_logo_img_url"
@@ -359,9 +359,9 @@ export default function Header() {
               <div className="header_navbar_logo_box">
                 <Image
                   priority
-                  width={140}
-                  height={140}
-                  // layout="fill"
+                  // width={140}
+                  // height={140}
+                  layout="fill"
                   objectFit="contain"
                   itIsClassName="header_navbar_logo_box"
                   src={getItem("my_logo_img_url")}
@@ -500,10 +500,10 @@ export default function Header() {
                   <div className="header_navbar_logo_box">
                     <Image
                       priority
-                      width={logoWidth}
-                      height={logoWidth}
+                      // width={logoWidth}
+                      // height={logoWidth}
                       objectFit="contain"
-                      // layout="fill"
+                      layout="fill"
                       itIsClassName="header_navbar_logo_box"
                       srcDataName={"my_logo_img_url"}
                       src={getItem("my_logo_img_url")}
