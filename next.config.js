@@ -10,7 +10,7 @@ module.exports = {
   compress: true,
   apps: [
     {
-      name: "okeey",
+      name: "test",
       script: "backend/server.js",
       watch: true,
       env: {
