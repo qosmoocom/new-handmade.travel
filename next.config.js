@@ -14,11 +14,13 @@ module.exports = {
       script: "backend/server.js",
       watch: true,
       env: {
-        PORT: 3005,
+        PORT: 3012,
+        // 3005
         NODE_ENV: "development",
       },
       env_production: {
-        PORT: 3005,
+        PORT: 3012,
+        // 3005
         NODE_ENV: "production",
       },
     },
