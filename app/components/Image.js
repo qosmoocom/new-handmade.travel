@@ -76,7 +76,7 @@ export default function Index({
 
   setTimeout(() => {
     setImg(true);
-  }, [2000]);
+  }, [3000]);
 
   const myLoader = ({ src, width, quality }) => {
     return `https://okeey.uz/${src}?w=${width}&q=${quality || 75}`;
