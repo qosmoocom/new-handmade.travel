@@ -40,7 +40,15 @@ app.prepare().then(() => {
 
   server.use(express.json());
   server.use(express.urlencoded({ extended: true }));
-  server.use("/public/images", express.static(pathdir));
+  server.use("/public/images", express.static(pathdir, { maxAge: "365d" }));
+//  yangi qator
+  server.use(function (req, res, next) {
+    if (req.url.match(".js|.css|.woff|.jpg|.png|.gif|.ttf|.webp")) {
+      res.setHeader("Cache-Control", "public,max-age=31536000"); // 365 days
+    }
+    next();
+  });
+// 
   server.use(cors());
   server.use(require("morgan")("dev"));
 
@@ -60,8 +68,6 @@ app.prepare().then(() => {
   server.get("*", (req, res) => {
     return handle(req, res);
   });
-
-  
 
   // fs.readFile("styles/globals.scss", function (err, data) {
   //   // res.writeHead(200, { "Content-Type": "text/html" });
