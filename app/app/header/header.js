@@ -111,7 +111,7 @@ export default function Header() {
       text2.style.fontSize = `${(18 / getItem("head_text_2").length) * 9}vw`;
     }
     if (1100 <= window.innerWidth && window.innerWidth < 1650) {
-      text1.style.fontSize = (18 / getItem("head_text_1").length) * 5.5  + "vw";
+      text1.style.fontSize = (18 / getItem("head_text_1").length) * 5.5 + "vw";
       text2.style.fontSize = (18 / getItem("head_text_2").length) * 5 + "vw";
     }
     if (1650 <= window.innerWidth && window.innerWidth < 1900) {
@@ -152,8 +152,9 @@ export default function Header() {
                 <div className="logo-img">
                   <Image
                     priority
-                    width={45}
-                    height={45}
+                    // width={45}
+                    // height={45}
+                    layout="fill"
                     objectFit="contain"
                     itIsClassName="logo-img"
                     src={getItem("logofixed_img_src")}
@@ -272,9 +273,10 @@ export default function Header() {
                 <div className="header_navbar_logo_box_mobile">
                   <Image
                     priority
-                    width={150}
-                    height={150}
+                    // width={150}
+                    // height={150}
                     objectFit="contain"
+                    layout="fill"
                     itIsClassName="header_navbar_logo_box_mobile"
                     src={getItem("my_logo_img_url")}
                     srcDataName="my_logo_img_url"
@@ -357,8 +359,9 @@ export default function Header() {
               <div className="header_navbar_logo_box">
                 <Image
                   priority
-                  width={140}
-                  height={140}
+                  // width={140}
+                  // height={140}
+                  layout="fill"
                   objectFit="contain"
                   itIsClassName="header_navbar_logo_box"
                   src={getItem("my_logo_img_url")}
@@ -497,9 +500,10 @@ export default function Header() {
                   <div className="header_navbar_logo_box">
                     <Image
                       priority
-                      width={logoWidth}
-                      height={logoWidth}
+                      // width={logoWidth}
+                      // height={logoWidth}
                       objectFit="contain"
+                      layout="fill"
                       itIsClassName="header_navbar_logo_box"
                       srcDataName={"my_logo_img_url"}
                       src={getItem("my_logo_img_url")}
