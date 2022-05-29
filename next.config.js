@@ -5,7 +5,7 @@ module.exports = {
     includePaths: [path.join(__dirname, "styles")],
   },
   optimization: {
-    minimize: false,
+    minimize: true,
   },
   compress: true,
   apps: [
