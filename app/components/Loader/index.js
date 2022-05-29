@@ -22,13 +22,20 @@ const Wrapper = styled.div`
     opacity: 1;
     z-index: 2000;
   }
+  div {
+    width: 150px;
+    height: 150px;
+    position: relative;
+  }
 `;
 export default function Loader() {
   const { loading } = useSelector((state) => state.loader);
   return (
     <Wrapper className={loading ? "active" : "no-active"}>
-      {/* <Image src={gif} width={150} height={150} /> */}
-      <img src={gif} style={{ width: "150px", height: "150px" }} />
+      <div>
+        <Image src={gif} layout="fill" objectFit="contain" />
+      </div>
+      {/* <img src={gif} style={{ width: "150px", height: "150px" }} /> */}
     </Wrapper>
   );
 }
