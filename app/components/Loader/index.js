@@ -27,7 +27,8 @@ export default function Loader() {
   const { loading } = useSelector((state) => state.loader);
   return (
     <Wrapper className={loading ? "active" : "no-active"}>
-      <Image src={gif} width={150} height={150} />
+      {/* <Image src={gif} width={150} height={150} /> */}
+      <img src={gif} style={{ width: "150px", height: "150px" }} />
     </Wrapper>
   );
 }
