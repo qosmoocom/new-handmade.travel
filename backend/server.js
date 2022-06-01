@@ -46,9 +46,11 @@ app.prepare().then(() => {
 
   server.use("/api/user", require("./routes/user"));
   server.use("/api/tour", require("./routes/tour"));
+  server.use("/api/blog", require("./routes/blog"));
+  server.use("/api/category", require("./routes/category"));
   server.use("/api/style", require("./routes/style"));
   server.use("/api/images", require("./routes/images"));
-
+  server.use("/api/blogImages", require("./routes/blogImages"));
   server.use("/api/global", require("./routes/globalcssRouter"));
 
   // modal apis

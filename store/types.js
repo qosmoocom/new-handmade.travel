@@ -10,5 +10,11 @@ export const types = {
   editorOff: "ADMIN/EDITOR_OFF",
   editorOn: "ADMIN/EDITOR_ON",
   componentIsActive: "ADMIN/COMPONENT_ACTIVE_OR_NO_ACTIVE",
-  editCheckedForModal3:"ADMIN/CHANG__MODAL3__",
+  editCheckedForModal3: "ADMIN/CHANG__MODAL3__",
+
+  // for blogs
+  editTextBlog: "ADMIN/CHANG___TEXT___BLOG",
+  editImageBlog: "ADMIN/CHANG___IMAGE___BLOG",
+  editBlog: "ADMIN/I_AM_GOING_TO_EDIT__THIS_BLOG",
+  deleteBlog: "ADMIN/DELETE_BLOG___",
 };

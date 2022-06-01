@@ -65,7 +65,7 @@ exports.getItemHome =async(req, res)=>{
 exports.getItemsUser = async (req, res, next) => {
   try {
     const result = await Tour.find({
-      isItActive: true,
+      isItActive: 'published',
       tour_id: req.params.tour_id,
       language: req.params.id,
     });

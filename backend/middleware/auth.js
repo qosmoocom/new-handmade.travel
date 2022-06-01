@@ -31,6 +31,19 @@ exports.moderator = function (req, res, next) {
   next();
 };
 
+exports.bloger = function (req, res, next) {
+  if (req.user.role !== "bloger") {
+    return next(
+      new ErrorResponse(
+        `User role ${req.user.role} is not authorized to access this route`,
+        403
+      )
+    );
+  }
+  next();
+};
+
+
 exports.admin = function (req, res, next) {
   if (req.user.role !== "admin") {
     return next(

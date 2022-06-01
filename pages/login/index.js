@@ -35,7 +35,10 @@ export default function Index() {
         router.push('/admin');
       } else if (data && data.role === 'moderator') {
         router.push('/admin');
+      } else if (data && data.role === 'bloger') {
+        router.push("/admin");
       } else {
+        
       }
     }, 500);
   };

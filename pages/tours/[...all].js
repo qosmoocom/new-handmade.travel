@@ -15,8 +15,10 @@ export default function Index() {
   const [isItPath, setIsItPath] = useState(false);
   const fetchData = async (id) => {
     const api = `/api/tour/${id}`;
+    console.log(id);
     try {
       const res = await Axios.get(api);
+      console.log(res);
       const data = await res.data;
       dispatch(getMyTourStyle(data[0]._id));
       dispatch({ type: types.editTour, data: data[0] });
@@ -25,6 +27,8 @@ export default function Index() {
       const tour_id = data[0].tour_id;
       const isItActive = data[0].isItActive;
       const language = data[0].language;
+      console.log(isItActive);
+      // console.log([tour_id, language]);
       setIsItPath(
         [tour_id, language].join("/") === path.all.join("/") && isItActive
       );
@@ -32,13 +36,16 @@ export default function Index() {
       setTimeout(() => {
         router.push("/404");
       });
+      console.log(error);
     }
   };
 
   if (path?.all?.join("/")) {
     fetchData(path.all.join("/"));
+    console.log(isItPath);
 
-    if (isItPath) {
+    if (isItPath=='published') {
+      console.log(isItPath);
       return (
         <div>
           <Head>
@@ -62,6 +69,7 @@ export default function Index() {
 
   if (!path?.all?.join("/")) {
     dispatch(loaderOn());
+    console.log(isItPath);
     return (
       <div>
         <Head>

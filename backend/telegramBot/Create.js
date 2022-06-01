@@ -1,5 +1,6 @@
 const fs = require("fs");
 const dbName = "handmade";
+const AdmZip = require("adm-zip");
 const MongoClient = require("mongodb").MongoClient;
 const client = new MongoClient("mongodb://localhost:27017", {
   useUnifiedTopology: true,
@@ -39,4 +40,22 @@ function Create() {
     });
   });
 }
-module.exports = { Create };
+async function createZipArchiveTour() {
+  const zip = new AdmZip();
+  let date = new Date();
+  const outputFile = `images-${date.getDate()}${date.getMonth()}${date.getFullYear()}.zip`;
+  zip.addLocalFolder("./public/images/tours");
+  zip.writeZip(`./exports/${outputFile}`);
+  console.log(`Created ${outputFile} successfully`);
+}
+
+async function createZipArchiveBlog() {
+  const zip = new AdmZip();
+  let date = new Date();
+  const outputFile = `blogs-${date.getDate()}${date.getMonth()}${date.getFullYear()}.zip`;
+  zip.addLocalFolder("./public/images/blogs");
+  zip.writeZip(`./exports/${outputFile}`);
+  console.log(`Created ${outputFile} successfully`);
+}
+
+module.exports = { Create, createZipArchiveBlog, createZipArchiveTour };

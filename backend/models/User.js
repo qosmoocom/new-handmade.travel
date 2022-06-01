@@ -13,8 +13,12 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ["moderator", "admin"],
+      enum: ["moderator", "admin", "bloger"],
       default: "moderator",
+    },
+    language: {
+      type: String,
+      enum: ["ru", "en", "es","it","fr","de"],
     },
   },
   {

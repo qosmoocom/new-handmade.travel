@@ -9,6 +9,7 @@ exports.register = async (req, res, next) => {
       username: req.body.username,
       password: req.body.password,
       role: req.body.role,
+      language:req.body.language
     });
     await user.save();
     res.status(201).json({ success: true, data: user });
