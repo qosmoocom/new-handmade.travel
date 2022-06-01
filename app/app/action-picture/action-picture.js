@@ -1,35 +1,35 @@
-import React, { useContext } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import SectionActive from '../../components/SectionActive';
-import Image from '../../components/Image';
-import Text from '../../components/Text';
-import { AppContext } from '..';
+import React, { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import SectionActive from "../../components/SectionActive";
+import Image from "../../components/Image";
+import Text from "../../components/Text";
+import { AppContext } from "..";
 export default function ActionPicture() {
   const { getItem } = useContext(AppContext);
   // modal 2 opened
   const dispatch = useDispatch();
   const handleOnModal2 = () => {
     const payload = {
-      currentModal: 'MODAL_3',
-      actionModal: 'ACTION 2',
+      currentModal: "MODAL_3",
+      actionModal: "ACTION 2",
     };
-    dispatch({ type: 'MODAL_OPEN', payload });
+    dispatch({ type: "MODAL_OPEN", payload });
   };
   // component active no active
   const val = useSelector((state) => state.admin.app_sections_active).find(
-    (i) => i.name === 'action-picture'
+    (i) => i.name === "action-picture"
   );
 
   const { isEdit: thisIsNotClient } = useSelector((st) => st.admin);
 
   const bronBtnActive = useSelector(
     (state) => state.admin.app_sections_active
-  ).find((i) => i.name === 'rate').isActive;
+  ).find((i) => i.name === "rate").isActive;
 
   const bgYellow = {
-    background: val.isActive ? null : 'yellow',
-    opacity: val.isActive ? null : '0.2',
-    cursor: val.isActive ? null : 'not-allowed',
+    background: val.isActive ? null : "yellow",
+    opacity: val.isActive ? null : "0.2",
+    cursor: val.isActive ? null : "not-allowed",
   };
 
   if (!thisIsNotClient && !val.isActive) return null;
