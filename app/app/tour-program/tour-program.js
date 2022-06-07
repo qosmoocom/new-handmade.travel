@@ -21,6 +21,7 @@ export default function TourProgram() {
       ...prevToggle,
       count: id,
       isOpen: id === prevToggle.count ? !prevToggle.isOpen : true,
+      [id]: prevToggle[id] ? !prevToggle[id] : true,
     }));
   };
 
@@ -43,9 +44,18 @@ export default function TourProgram() {
         maxHeight: document.querySelectorAll(".tour-program-list-description")[
           toggle.count
         ].scrollHeight,
+
       }));
     }
   }, [toggle.count, val.isActive]);
+  for (let i; i < getItem("tour_program", "tour_program_list").length; i++) {
+    setToggle((prev) => ({
+      ...prev,
+      [i]: false,
+    }));
+  }
+  console.log(getItem("tour_program", "tour_program_list").length);
+  console.log(toggle);
 
   if (!thisIsNotClient && !val.isActive) return null;
   // component active no active
@@ -96,21 +106,32 @@ export default function TourProgram() {
                       {tour?.title}
                     </Text>
                     <IoIosArrowDown
-                      className={`arrow-btn ${
-                        index === toggle.count && toggle.isOpen ? "active" : ""
-                      }`}
+                      // className={`arrow-btn ${
+                      //   index === toggle.count && toggle.isOpen ? "active" : ""
+                      // }`}
+                      className={`arrow-btn ${toggle[index] ? "active" : ""}`}
                     />
                   </div>
                   {/* --------------------------------- */}
                   {/* tour-program-list-description section */}
                   <div
+                    // className={`tour-program-list-description ${
+                    //   index === toggle.count && toggle.isOpen ? "active" : ""
+                    // } tour-program-list-description-id-${index}`}
                     className={`tour-program-list-description ${
-                      index === toggle.count && toggle.isOpen ? "active" : ""
+                      toggle[index] ? "active" : ""
                     } tour-program-list-description-id-${index}`}
+                    // style={{
+                    //   maxHeight:
+                    //     index === toggle.count && toggle.isOpen
+                    //       ? toggle.maxHeight + "px"
+                    //       : null,
+                    //   transition: `all 0.5s`,
+                    // }}
                     style={{
                       maxHeight:
-                        index === toggle.count && toggle.isOpen
-                          ? toggle.maxHeight + "px"
+                        toggle[index]
+                          ? '100%'
                           : null,
                       transition: `all 0.5s`,
                     }}

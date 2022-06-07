@@ -38,6 +38,19 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
 
+  // to google register
+  server.all("/api/auth/signin/google", (req, res) => {
+    return handle(req, res);
+  });
+  server.all("/api/auth/signout", (req, res) => {
+    return handle(req, res);
+  });
+
+  // to facebook registr
+  server.all("/api/auth/signin/facebook", (req, res) => {
+    return handle(req, res);
+  });
+
   server.use(express.json());
   server.use(express.urlencoded({ extended: true }));
   server.use("/public/images", express.static(pathdir));
