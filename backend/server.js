@@ -80,8 +80,6 @@ app.prepare().then(() => {
     return handle(req, res);
   });
 
-  
-
   // fs.readFile("styles/globals.scss", function (err, data) {
   //   // res.writeHead(200, { "Content-Type": "text/html" });
   //   console.log(err);

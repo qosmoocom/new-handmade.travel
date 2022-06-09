@@ -52,7 +52,7 @@ export default function Index() {
             <title>Loading...</title>
           </Head>
           <App />
-          <Loader />
+          {/* <Loader /> */}
         </div>
       );
     }
@@ -62,7 +62,7 @@ export default function Index() {
         <Head>
           <title>Loading..</title>
         </Head>
-        <Loader />
+        {/* <Loader /> */}
       </div>
     );
   }
@@ -75,7 +75,7 @@ export default function Index() {
         <Head>
           <title>Loading..</title>
         </Head>
-        <Loader />
+        {/* <Loader /> */}
       </div>
     );
   }
@@ -85,7 +85,7 @@ export default function Index() {
       <Head>
         <title>Loading..</title>
       </Head>
-      <Loader />
+      {/* <Loader /> */}
     </div>
   );
 }
