@@ -70,6 +70,10 @@ app.prepare().then(() => {
   server.use("/api/action_bron", require("./routes/sendBronEmail"));
   server.use("/api/action_more", require("./routes/sendMoreEmail"));
   server.use("/api/action_phone", require("./routes/sendPhoneEmail"));
+
+  // tourist
+  server.use('/api/tourist',require("./routes/Tourist"))
+
   // server.use("/api/collections", require("./routes/sendCollection"))
 
   server.get("*", (req, res) => {

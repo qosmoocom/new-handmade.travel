@@ -12,6 +12,7 @@
   font-family: "Akrobat", sans-serif;
   
 }
+
 body {
   background-color: #fafafa;
   overflow-x: hidden;
@@ -40,6 +41,94 @@ body {
     }
   }
 }
+
+// login-page
+#login-page{
+  width: 100vw;
+  height: 100vh;
+
+  .login, .registr{
+    border: 1px solid black;
+    width: 700px;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: -150%;
+    padding: 20px 0;
+    transform: translate(-50%,-50%);
+    transition: all 0.5s ease-in-out;
+    .title{
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 25px;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.192);
+      padding-bottom: 20px;
+    }
+    .form{
+      display: flex;
+      form{
+        width: 50%;
+        border-right: 1px solid red;
+        padding: 10px 50px;
+        label{
+          display: flex;
+          flex-flow: column;
+          font-size: 20px;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.192);
+  
+          input{
+            width: 250px;
+            height: 25px;
+            margin: 5px 0 10px;
+            border: 1px solid black;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 15px;
+            &:focus{
+              outline: 2px solid blue;
+              border: none;
+
+            }
+          }
+        }
+        p{
+          margin: 20px 0 0;
+          font-size: 15px;
+          color: #229ed9;
+          cursor: pointer;
+          &:hover {
+            text-decoration: underline;
+          }
+          &:focus{
+            color: #4267b2;
+
+          }
+        }
+      }
+      .networks{
+        width: 50%;
+        button{
+          position: relative;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+        }
+      }
+
+    }
+  }
+  .registr{
+    left: 150%;
+    top: 50%;
+  }
+  .active{
+    left: 50%;
+    top: 50%;
+  }
+}
+
+
 // header style started
 #header {
   position: relative;
