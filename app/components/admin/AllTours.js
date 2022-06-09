@@ -27,14 +27,17 @@ function AllTours() {
   const deleteTour = async (tour) => {
     const api = `/api/tour/${tour._id}`;
     const api2 = `/api/style/${tour._id}`;
-    try {
-      const res = await Axios.delete(api, getConfig());
-      await Axios.delete(api2);
-      const data = await res.data;
-      if (data) {
-        await getAllTours();
-      }
-    } catch (error) {}
+    if (confirm("Haqiqatdan o'chirilsinmi")) {
+      try {
+        const res = await Axios.delete(api, getConfig());
+        await Axios.delete(api2);
+        const data = await res.data;
+        if (data) {
+          await getAllTours();
+        }
+      } catch (error) {}
+      
+    }
   };
 
   //   componentDidMount
@@ -82,23 +85,25 @@ function AllTours() {
             {tours.map((tour, index) => {
               return (
                 <tr key={tour._id}>
-                  <td scope="row" style={{ width: '5%' }}>
+                  <td scope="row" style={{ width: "5%" }}>
                     {index + 1}
                   </td>
-                  <td scope="row" style={{ width: '30%' }}>
+                  <td scope="row" style={{ width: "30%" }}>
                     {tour.tourName}
                   </td>
-                  <td scope="row" style={{ width: '30%' }}>
+                  <td scope="row" style={{ width: "30%" }}>
                     {tour.tour_id}
                   </td>
-                  <td scope="row" style={{ width: '30%' }}>
+                  <td scope="row" style={{ width: "30%" }}>
                     {tour.language}
                   </td>
-                  <td scope="row" style={{ width: '5%' }}>
-                    <AiFillDelete
-                      className="delete-tour"
+                  <td scope="row" style={{ width: "5%" }}>
+                    <button
+                      disabled={tour.isItActive != "garbage"}
                       onClick={async () => await deleteTour(tour)}
-                    />
+                    >
+                      <AiFillDelete className="delete-tour" />
+                    </button>
                   </td>
                 </tr>
               );
@@ -141,7 +146,5 @@ const Wrapper = styled.div`
     border: none !important;
   }
 
-  .delete-tour {
-    cursor: pointer;
-  }
+  
 `;

@@ -38,6 +38,19 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
 
+  // to google register
+  server.all("/api/auth/signin/google", (req, res) => {
+    return handle(req, res);
+  });
+  server.all("/api/auth/signout", (req, res) => {
+    return handle(req, res);
+  });
+
+  // to facebook registr
+  server.all("/api/auth/signin/facebook", (req, res) => {
+    return handle(req, res);
+  });
+
   server.use(express.json());
   server.use(express.urlencoded({ extended: true }));
   server.use("/public/images", express.static(pathdir));
@@ -46,15 +59,21 @@ app.prepare().then(() => {
 
   server.use("/api/user", require("./routes/user"));
   server.use("/api/tour", require("./routes/tour"));
+  server.use("/api/blog", require("./routes/blog"));
+  server.use("/api/category", require("./routes/category"));
   server.use("/api/style", require("./routes/style"));
   server.use("/api/images", require("./routes/images"));
-
+  server.use("/api/blogImages", require("./routes/blogImages"));
   server.use("/api/global", require("./routes/globalcssRouter"));
 
   // modal apis
   server.use("/api/action_bron", require("./routes/sendBronEmail"));
   server.use("/api/action_more", require("./routes/sendMoreEmail"));
   server.use("/api/action_phone", require("./routes/sendPhoneEmail"));
+
+  // tourist
+  server.use('/api/tourist',require("./routes/Tourist"))
+
   // server.use("/api/collections", require("./routes/sendCollection"))
 
   server.get("*", (req, res) => {

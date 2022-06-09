@@ -6,6 +6,9 @@ import Moderator from "./../../app/components/admin/Moderator";
 import { useDispatch } from "react-redux";
 import { getAllMyTours } from "../../store/reducer/toursReducer";
 import Loader from "../../app/components/Loader";
+import Bloger from "../../app/components/admin/Bloger";
+import { getAllMyBlogs } from "../../store/reducer/blogReducer";
+import { getAllCategorys } from "../../store/reducer/categoryReducer";
 
 const Index = () => {
   const [logData, setLogData] = useState(null);
@@ -15,6 +18,7 @@ const Index = () => {
   }, []);
   if (logData && logData.role === "admin") {
     dispatch(getAllUsers());
+    dispatch(getAllCategorys());
     return (
       <div>
         <Admin />
@@ -27,6 +31,15 @@ const Index = () => {
     return (
       <div>
         <Moderator />
+        <Loader />
+      </div>
+    );
+  }
+  if (logData && logData.role === "bloger") {
+    dispatch(getAllMyBlogs());
+    return (
+      <div>
+        <Bloger />
         <Loader />
       </div>
     );

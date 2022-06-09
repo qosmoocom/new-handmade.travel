@@ -14,6 +14,7 @@ const {
   protect,
   admin,
   moderator,
+  bloger,
   moderatorAll,
   adminModerator,
 } = require('../middleware/auth');

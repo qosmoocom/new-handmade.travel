@@ -19,9 +19,9 @@ const tourSchema = new mongoose.Schema(
       required: true,
     },
     isItActive: {
-      type: Boolean,
+      type: String,
       required: true,
-      default: true,
+      default: 'published',
     },
     tour_id: {
       type: String,

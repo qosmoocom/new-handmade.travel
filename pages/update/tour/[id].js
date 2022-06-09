@@ -24,12 +24,10 @@ export default function Index() {
     yan_met: "",
     title: "",
   });
-  const [saved,setSaved]= useState({})
   useEffect(() => {
     if (router.query.id) {
       dispatch(getMyOneTour(router.query.id.toString()));
     }
-    
   }, [router]);
 
   if (globalState.tours.tour) {
