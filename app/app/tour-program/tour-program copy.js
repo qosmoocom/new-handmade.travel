@@ -21,7 +21,6 @@ export default function TourProgram() {
       ...prevToggle,
       count: id,
       isOpen: id === prevToggle.count ? !prevToggle.isOpen : true,
-      [id]: prevToggle[id] ? !prevToggle[id] : true,
     }));
   };
 
@@ -47,14 +46,6 @@ export default function TourProgram() {
       }));
     }
   }, [toggle.count, val.isActive]);
-  for (let i; i < getItem("tour_program", "tour_program_list").length; i++) {
-    setToggle((prev) => ({
-      ...prev,
-      [i]: false,
-    }));
-  }
-  console.log(getItem("tour_program", "tour_program_list").length);
-  console.log(toggle);
 
   if (!thisIsNotClient && !val.isActive) return null;
   // component active no active
@@ -64,13 +55,11 @@ export default function TourProgram() {
       <SectionActive name={val.name} />
       <div id="tour-program" style={bgYellow}>
         <div className="container">
-          <div className="tour-program-title">
-            <h2>
-              <Text name="tour_program_title">
-                {getItem("tour_program_title")}
-              </Text>
-            </h2>
-          </div>
+          <h1>
+            <Text name="tour_program_title" itIsClassName="#tour-program h1">
+              {getItem("tour_program_title")}
+            </Text>
+          </h1>
           {/* tour-program-list */}
           <div className="tour-program-list">
             {getItem("tour_program", "tour_program_list").map((tour, index) => {
@@ -83,7 +72,9 @@ export default function TourProgram() {
                 >
                   {/* tour-program-list-title section */}
                   <div
-                    className={`tour-program-list-title tour-program-list-title-id-${index}`}
+                    className={`tour-program-list-title tour-program-list-title-id-${
+                      index + 1
+                    }`}
                     onClick={(e) => toogleHandler(e, index)}
                   >
                     <label>
@@ -105,30 +96,22 @@ export default function TourProgram() {
                       {tour?.title}
                     </Text>
                     <IoIosArrowDown
-                      // className={`arrow-btn ${
-                      //   index === toggle.count && toggle.isOpen ? "active" : ""
-                      // }`}
-                      className={`arrow-btn ${toggle[index] ? "active" : ""}`}
+                      className={`arrow-btn ${
+                        index === toggle.count && toggle.isOpen ? "active" : ""
+                      }`}
                     />
                   </div>
                   {/* --------------------------------- */}
                   {/* tour-program-list-description section */}
                   <div
-                    // className={`tour-program-list-description ${
-                    //   index === toggle.count && toggle.isOpen ? "active" : ""
-                    // } tour-program-list-description-id-${index}`}
                     className={`tour-program-list-description ${
-                      toggle[index] ? "active" : ""
-                    } tour-program-list-description-id-${index}`}
-                    // style={{
-                    //   maxHeight:
-                    //     index === toggle.count && toggle.isOpen
-                    //       ? toggle.maxHeight + "px"
-                    //       : null,
-                    //   transition: `all 0.5s`,
-                    // }}
+                      index === toggle.count && toggle.isOpen ? "active" : ""
+                    } tour-program-list-description-id-${index + 1}`}
                     style={{
-                      maxHeight: toggle[index] ? "100%" : null,
+                      maxHeight:
+                        index === toggle.count && toggle.isOpen
+                          ? toggle.maxHeight + "px"
+                          : null,
                       transition: `all 0.5s`,
                     }}
                   >
@@ -137,7 +120,9 @@ export default function TourProgram() {
                         return (
                           <li
                             key={textItem.id}
-                            className={`tour-program-list-text-id-${index}-${textItem.id}`}
+                            className={`tour-program-list-text-id-${
+                              index + 1
+                            }-${textItem.id + 1}`}
                           >
                             <Text
                               list="tour_program_list"
@@ -157,7 +142,9 @@ export default function TourProgram() {
                         return (
                           <li
                             key={img.id}
-                            className={`tour-program-list-image-id-${index}-${img.id}`}
+                            className={`tour-program-list-image-id-${
+                              index + 1
+                            }-${img.id + 1}`}
                           >
                             <Image
                               objectFit="cover"
@@ -178,7 +165,9 @@ export default function TourProgram() {
                     </ul>
                     {tour?.footerTextLabel && tour?.footerText && (
                       <div
-                        className={`tour-program-list-footer tour-program-list-footer-id-${index}`}
+                        className={`tour-program-list-footer tour-program-list-footer-id-${
+                          index + 1
+                        }`}
                       >
                         <p>
                           <label>
