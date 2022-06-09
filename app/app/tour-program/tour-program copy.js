@@ -115,6 +115,7 @@ export default function TourProgram() {
                       transition: `all 0.5s`,
                     }}
                   >
+                    {/* // --- Added comment */}
                     <ul className="tour-program-list-texts">
                       {tour?.textList?.map((textItem, childIndex) => {
                         return (
