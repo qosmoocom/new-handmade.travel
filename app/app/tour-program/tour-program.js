@@ -44,6 +44,7 @@ export default function TourProgram() {
         maxHeight: document.querySelectorAll(".tour-program-list-description")[
           toggle.count
         ].scrollHeight,
+
       }));
     }
   }, [toggle.count, val.isActive]);
@@ -127,8 +128,11 @@ export default function TourProgram() {
                     //       : null,
                     //   transition: `all 0.5s`,
                     // }}
-                    style={{
-                      maxHeight: toggle[index] ? "100%" : null,
+                     style={{
+                      maxHeight:
+                        index === toggle.count && toggle.isOpen
+                          ? toggle.maxHeight + "px"
+                          : null,
                       transition: `all 0.5s`,
                     }}
                   >

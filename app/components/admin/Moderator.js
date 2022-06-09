@@ -23,7 +23,7 @@ import axios from "axios";
 
 export default function Moderator() {
   const toursState = useSelector((state) => state.tours);
-  console.log(toursState);
+  // console.log(toursState);
   const router = useRouter();
   const defaultTexts = JSON.stringify(defaultState);
 
@@ -104,7 +104,10 @@ export default function Moderator() {
     dispatch(updateMyTours(_id, updateTour));
   };
 
-  const tourActiveOrNoActive = (check_tour) => {
+  
+
+  const tourActiveOrNoActive = (check_tour, event) => {
+    console.log(check_tour, event);
     const {
       tourName,
       tourTexts,
@@ -123,7 +126,7 @@ export default function Moderator() {
       tourAuthor,
       tour_id,
       language,
-      isItActive: !isItActive,
+      isItActive: event.target.value,
       checkforid,
     };
     dispatch(updateMyTours(_id, updateTour));
@@ -304,18 +307,15 @@ export default function Moderator() {
                           <FaEdit />
                         </button>
 
-                        <button
-                          className={`btn btn-${
-                            tour.isItActive ? "warning" : "danger"
-                          } btn-sm`}
-                          onClick={tourActiveOrNoActive.bind(this, tour)}
+                        <select
+                          name="isitActive"
+                          defaultValue={tour.isItActive}
+                          onChange={tourActiveOrNoActive.bind(this, tour)}
                         >
-                          {tour.isItActive ? (
-                            <AiOutlineEye />
-                          ) : (
-                            <AiOutlineEyeInvisible />
-                          )}
-                        </button>
+                          <option value="published">Published</option>
+                          <option value="noactive">Noactive</option>
+                          <option value="garbage">Garbage</option>
+                        </select>
                       </div>
                     </td>
                   </tr>

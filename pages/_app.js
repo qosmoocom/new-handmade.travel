@@ -4,14 +4,17 @@ import "../styles/globals.scss";
 
 import store from "../store";
 import { Provider } from "react-redux";
+import { SessionProvider } from "next-auth/react";
 
 // import bootstrap css gird
 import "bootstrap/dist/css/bootstrap-grid.min.css";
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps:{session, ...pageProps} }) {
   const app = (
-    <Provider store={store}>
-      <Component {...pageProps} />
-    </Provider>
+    <SessionProvider session={session}>
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
+    </SessionProvider>
   );
   return app;
 }
