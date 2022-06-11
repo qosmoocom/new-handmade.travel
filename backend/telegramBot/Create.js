@@ -44,8 +44,8 @@ async function createZipArchiveTour() {
   const zip = new AdmZip();
   let date = new Date();
   const outputFile = `images-${date.getDate()}${date.getMonth()}${date.getFullYear()}.zip`;
-  zip.addLocalFolder("./public/images/tours");
-  zip.writeZip(`./exports/${outputFile}`);
+  zip.addLocalFolder("../../public/images/tours");
+  zip.writeZip(`../../exports/${outputFile}`);
   console.log(`Created ${outputFile} successfully`);
 }
 
@@ -53,8 +53,8 @@ async function createZipArchiveBlog() {
   const zip = new AdmZip();
   let date = new Date();
   const outputFile = `blogs-${date.getDate()}${date.getMonth()}${date.getFullYear()}.zip`;
-  zip.addLocalFolder("./public/images/blogs");
-  zip.writeZip(`./exports/${outputFile}`);
+  zip.addLocalFolder("../../public/images/blogs");
+  zip.writeZip(`../../exports/${outputFile}`);
   console.log(`Created ${outputFile} successfully`);
 }
 

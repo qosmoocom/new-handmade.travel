@@ -73,6 +73,7 @@ app.prepare().then(() => {
 
   // tourist
   server.use('/api/tourist',require("./routes/Tourist"))
+  server.use('/api/social_tourist',require("./routes/socialTourist"))
 
   // server.use("/api/collections", require("./routes/sendCollection"))
 
