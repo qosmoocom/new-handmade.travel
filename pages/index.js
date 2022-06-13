@@ -67,22 +67,22 @@ export default function Home() {
   useEffect(() => {
     for (let i = 0; i < tours.length; i++) {
       if (tours[i].language == "ru") {
-        itemsru.push(tours[i]);
+        if (tours[i].isItActive == "published") itemsru.push(tours[i]);
       }
       if (tours[i].language == "de") {
-        itemsde.push(tours[i]);
+        if (tours[i].isItActive == "published") itemsde.push(tours[i]);
       }
       if (tours[i].language == "en") {
-        itemsen.push(tours[i]);
+        if (tours[i].isItActive == "published") itemsen.push(tours[i]);
       }
       if (tours[i].language == "es") {
-        itemses.push(tours[i]);
+        if (tours[i].isItActive == "published") itemses.push(tours[i]);
       }
       if (tours[i].language == "fr") {
-        itemsfr.push(tours[i]);
+        if (tours[i].isItActive == "published") itemsfr.push(tours[i]);
       }
       if (tours[i].language == "it") {
-        itemsit.push(tours[i]);
+        if (tours[i].isItActive == "published") itemsit.push(tours[i]);
       }
     }
     setRu(
