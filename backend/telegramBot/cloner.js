@@ -7,6 +7,10 @@ let date = new Date()
 
 // replace the value below with the Telegram token you receive from @BotFather
 const token = "5279180278:AAH4YY_SW3HznpAYXu-fU4nCyyZlEKH6ZOg";
+// test uchun API
+// const token = "5373138624:AAFlj5n1RcV_8i_5Hr98qESquXTOLAfiZzk"; 
+
+
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(token, { polling: true });

@@ -15,7 +15,6 @@ const touristSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: true,
     },
   },
   {
@@ -23,4 +22,4 @@ const touristSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Tourist", touristSchema);
+module.exports = mongoose.model("SocialTourist", touristSchema);

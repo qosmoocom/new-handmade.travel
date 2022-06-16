@@ -71,6 +71,13 @@ body {
         width: 50%;
         border-right: 1px solid red;
         padding: 10px 50px;
+        .inputs, .isTrue{
+          display: none;
+        }
+        .active{
+          display: block;
+        }
+        
         label{
           display: flex;
           flex-flow: column;
@@ -90,6 +97,20 @@ body {
               border: none;
 
             }
+          }
+        }
+        input{
+          width: 250px;
+          height: 30px;
+          margin: 5px 0 10px;
+          border: 1px solid black;
+          padding: 5px;
+          border-radius: 5px;
+          font-size: 15px;
+          &:focus{
+            outline: 2px solid blue;
+            border: none;
+
           }
         }
         p{
