@@ -10,16 +10,16 @@ module.exports = {
   compress: true,
   apps: [
     {
-      name: "test",
+      name: "hm",
       script: "backend/server.js",
       watch: true,
       env: {
-        PORT: 3005,
+        PORT: 3020,
         // 3005
         NODE_ENV: "development",
       },
       env_production: {
-        PORT: 3005,
+        PORT: 3020,
         // 3005
         NODE_ENV: "production",
       },

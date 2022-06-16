@@ -67,7 +67,7 @@ const Wrapper = styled.div`
 
 export default function LogIn(props) {
   const { state, onChange, onSubmit } = props;
-  const [verified,setVerified] = useState(false)
+  const [verified, setVerified] = useState(false);
   const {
     values: { username, password },
   } = state;
@@ -75,12 +75,12 @@ export default function LogIn(props) {
   // useEffect(() => {
   //   setInterval(() => {
   //     console.log(recaptchaRef);
-      
+
   //   },[1000])
   // }, [recaptchaRef]);
   const handlerCaptcha = (e) => {
-    setVerified(e)
-  }
+    setVerified(e);
+  };
 
   return (
     <Wrapper>
@@ -106,7 +106,7 @@ export default function LogIn(props) {
             />
             <ReCAPTCHA
               ref={recaptchaRef}
-              sitekey="6LevNhEgAAAAACyA52uneo32Nue0vrwZ3YFEIpYn"
+              sitekey="6Le-91ggAAAAAPRyNZbq9sePWkNLyZp8H_rwEbzF"
               onChange={handlerCaptcha}
             />
             <button disabled={!(username && password && verified)}>
