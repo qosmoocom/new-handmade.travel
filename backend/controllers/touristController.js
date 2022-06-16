@@ -24,24 +24,22 @@ const createTourist = async (req, res) => {
   } catch (error) {}
 };
 
+
+
 const getOneTourist = async (req, res) => {
-  const text = "parol xato";
+  const text = 'parol xato'
   try {
     const result = await Tourist.findOne({ email: req.body.email }).exec();
-    const matchPassword = await bcrypt.compare(
-      req.body.password,
-      result.password
-    );
-    if (matchPassword) {
+    const matchPassword =await bcrypt.compare(req.body.password, result.password)
+    if(matchPassword){
       res.status(200).json(result);
-    } else {
-      res.status(202).send(text);
-    }
+    }else{res.status(202).send(text)}
   } catch (error) {}
 };
+
 
 module.exports = {
   getTourist,
   createTourist,
-  getOneTourist,
+  getOneTourist
 };
