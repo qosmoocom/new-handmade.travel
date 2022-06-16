@@ -79,7 +79,7 @@ export default function Index({
   }, [1000]);
 
   const myLoader = ({ src, width, quality }) => {
-    return `https://handmade.travel/${src}?w=${width}&q=${quality || 75}`;
+    return `https://handmade.travel${src}?w=${width}&q=${quality || 75}`;
   };
 
   if (img) {
