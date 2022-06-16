@@ -130,8 +130,8 @@ export default function TourProgram() {
                     // }}
                      style={{
                       maxHeight:
-                        index === toggle.count && toggle.isOpen
-                          ? toggle.maxHeight + "px"
+                      toggle[index]
+                          ? "100%"
                           : null,
                       transition: `all 0.5s`,
                     }}
