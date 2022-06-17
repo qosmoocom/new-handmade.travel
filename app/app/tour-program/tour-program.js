@@ -84,7 +84,7 @@ export default function TourProgram() {
                 >
                   {/* tour-program-list-title section */}
                   <div
-                    className={`tour-program-list-title tour-program-list-title-id-${index}`}
+                    className={`tour-program-list-title tour-program-list-title-id-${index+1}`}
                     onClick={(e) => toogleHandler(e, index)}
                   >
                     <label>
@@ -94,7 +94,7 @@ export default function TourProgram() {
                           parentId={index}
                           name="titleLabel"
                         >
-                          {tour?.titleLabel}
+                          {tour.titleLabel}
                         </Text>
                       </b>
                     </label>
@@ -103,7 +103,7 @@ export default function TourProgram() {
                       parentId={index}
                       name={"title"}
                     >
-                      {tour?.title}
+                      {tour.title}
                     </Text>
                     <IoIosArrowDown
                       // className={`arrow-btn ${
@@ -120,7 +120,7 @@ export default function TourProgram() {
                     // } tour-program-list-description-id-${index}`}
                     className={`tour-program-list-description ${
                       toggle[index] ? "active" : ""
-                    } tour-program-list-description-id-${index}`}
+                    } tour-program-list-description-id-${index+1}`}
                     // style={{
                     //   maxHeight:
                     //     index === toggle.count && toggle.isOpen
@@ -137,11 +137,11 @@ export default function TourProgram() {
                     }}
                   >
                     <ul className="tour-program-list-texts">
-                      {tour?.textList?.map((textItem, childIndex) => {
+                      {tour.textList.map((textItem, childIndex) => {
                         return (
                           <li
                             key={textItem.id}
-                            className={`tour-program-list-text-id-${index}-${textItem.id}`}
+                            className={`tour-program-list-text-id-${index+1}-${textItem.id}`}
                           >
                             <Text
                               list="tour_program_list"
@@ -150,29 +150,29 @@ export default function TourProgram() {
                               childId={childIndex}
                               itIsClassName="tour-program-list-texts"
                             >
-                              {textItem?.value}
+                              {textItem.value}
                             </Text>
                           </li>
                         );
                       })}
                     </ul>
                     <ul className="tour-program-list-images">
-                      {tour?.imageList?.map((img) => {
+                      {tour.imageList.map((img) => {
                         return (
                           <li
                             key={img.id}
-                            className={`tour-program-list-image-id-${index}-${img.id}`}
+                            className={`tour-program-list-image-id-${index+1}-${img.id}`}
                           >
                             <Image
                               objectFit="cover"
-                              src={img?.src}
-                              alt={img?.alt}
+                              src={img.src}
+                              alt={img.alt}
                               layout="fill"
                               parentId={index}
                               childId={img.id}
                               name={"imageList"}
                               list={"tour_program_list"}
-                              title={img?.title}
+                              title={img.title}
                               itIsClassName={"tour-program-list-images"}
                               sectionName={val.name}
                             />
@@ -180,7 +180,7 @@ export default function TourProgram() {
                         );
                       })}
                     </ul>
-                    {tour?.footerTextLabel && tour?.footerText && (
+                    {tour.footerTextLabel && tour.footerText && (
                       <div
                         className={`tour-program-list-footer tour-program-list-footer-id-${index+1}`}
                       >
@@ -191,7 +191,7 @@ export default function TourProgram() {
                               parentId={index}
                               name="footerTextLabel"
                             >
-                              {tour?.footerTextLabel}
+                              {tour.footerTextLabel}
                             </Text>
                           </label>
                           <Text
@@ -199,7 +199,7 @@ export default function TourProgram() {
                             parentId={index}
                             name="footerText"
                           >
-                            {tour?.footerText}
+                            {tour.footerText}
                           </Text>
                         </p>
                       </div>
