@@ -182,7 +182,7 @@ export default function TourProgram() {
                     </ul>
                     {tour?.footerTextLabel && tour?.footerText && (
                       <div
-                        className={`tour-program-list-footer tour-program-list-footer-id-${index}`}
+                        className={`tour-program-list-footer tour-program-list-footer-id-${index+1}`}
                       >
                         <p>
                           <label>
