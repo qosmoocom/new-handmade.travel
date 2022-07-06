@@ -1,327 +1,166 @@
-import Image from "next/image";
-import React from "react";
-import { BsGeoAlt, BsTwitter, BsYoutube, BsTelegram } from "react-icons/bs";
-import { FiPhone, FiInstagram } from "react-icons/fi";
-import { TiMail } from "react-icons/ti";
-import { ImFacebook2 } from "react-icons/im";
 import styled from "styled-components";
 
 const Section = styled.div`
-  width: 100%;
-  background: rgba(254, 242, 241, 0.5);
-  padding-top: 42px;
-  .big {
-    max-width: 1250px;
-    margin: auto;
-    margin-bottom: 40px;
-    display: flex;
-    flex-flow: column;
-    justify-content: space-between;
-    @media (min-width: 768px) {
-      flex-flow: row;
-    }
-    /* grid-template-columns: auto auto auto auto auto; */
-    li {
-      list-style: none;
-      margin-bottom: 22px;
-    }
-    .home {
-      align-items: center;
-      text-align: center;
-      @media (min-width: 768px) {
-        text-align: start;
-        justify-content: start;
-      }
+  background: rgba(217, 217, 217, 0.2);
+  border-top: 1px solid #000000;
+  padding: 20px;
+  p {
+    padding: 0;
+  }
+  .flex {
+    .section {
+      margin: 20px 0;
       .logo {
-        justify-content: center;
-        @media (min-width: 768px) {
-          text-align: start;
-          justify-content: start;
-        }
-      }
-      .info {
-        ul {
-          li {
-            justify-content: center;
-            @media (min-width: 768px) {
-              text-align: start;
-              justify-content: start;
-            }
+        p {
+          font-family: "Caveat";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 35px;
+          line-height: 63px;
+          span {
+            color: #4e8c54;
+            font-family: "Caveat";
           }
         }
       }
-      .icons {
+      .content {
+        p {
+          font-family: "Noto Sans";
+          font-style: normal;
+          font-weight: 300;
+          font-size: 15px;
+          line-height: 27px;
+        }
+      }
+      .title {
+        p {
+          font-family: "Oswald";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 39px;
+        }
+      }
+      .texts {
+        p {
+          font-family: "Oswald";
+          font-style: normal;
+          font-weight: 300;
+          font-size: 20px;
+          line-height: 39px;
+        }
+      }
+      .links {
         display: flex;
-        justify-content: center;
-      }
-    }
-    .tours {
-      display: none;
-      @media (min-width: 500px) {
-        display: block;
-      }
-      @media (min-width: 768px) {
-        display: none;
-      }
-      @media (min-width: 1200px) {
-        display: block;
-      }
-    }
-    .form {
-      form {
-        /* flex-flow: row; */
         justify-content: space-between;
-      }
-    }
-    .div {
-      /* width: 25%; */
-      display: flex;
-      justify-content: space-around;
-      margin-top: 30px;
-      @media (min-width: 768px) {
-        width: 33%;
-      }
-      @media (min-width: 1200px) {
-        width: 60%;
-      }
-    }
-    .container {
-      padding: 10px 30px;
-      margin: auto;
-      @media (min-width: 768px) {
-        width: fit-content;
-        max-width: 270px;
-        padding: 0;
-      }
-      form {
-        display: flex;
-        flex-flow: column;
-        @media (min-width: 360px) {
-          align-items: center;
-          flex-flow: row;
-        }
-        @media (min-width: 768px) {
-          flex-flow: column;
-          align-items: flex-start;
-        }
-        input,
-        button {
-          height: 40px;
-          background: #f4f4f4;
-          border-radius: 8px;
-          padding: 14px 20px;
-          outline: none;
-          border: none;
-        }
-        button {
-          background: #f58634;
-          border-radius: 12px;
-          font-weight: 700;
-          font-size: 16px;
-          line-height: 20px;
-          text-align: center;
-          color: #ffffff;
-          margin-top: 12px;
-          @media (min-width: 360px) {
-            margin-top: 0;
-            padding: 0 20px;
-          }
-          @media (min-width: 768px) {
-            margin-top: 12px;
-            width: 100%;
-          }
-        }
-      }
-      h4 {
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 23px;
-        color: #1b1d21;
-        margin-bottom: 30px;
-        padding-top: 10px;
-      }
-      .logo {
-        display: flex;
-        margin-bottom: 15px;
-        align-items: center;
-        h4 {
-          font-weight: 700;
-          font-size: 18px;
-          line-height: 50px;
-          color: #f37648;
-          margin-left: 7px;
-          margin: 0;
-          padding: 0;
-        }
-      }
-      .info {
-        ul {
-          li {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            span {
-              margin-right: 8px;
-            }
-            p {
-              font-weight: 400;
-              font-size: 14px;
-              line-height: 16px;
-              letter-spacing: 0.005em;
-              color: #1b1d21;
-            }
-          }
-        }
-      }
-      .icons {
+        width: 80%;
         a {
-          margin: 0 15px;
+          font-family: "Oswald";
+          font-style: normal;
+          font-weight: 300;
+          font-size: 20px;
+          line-height: 39px;
+          text-decoration: underline;
+        }
+      }
+      .form {
+        form {
+          input {
+            width: 100%;
+            border-radius: 0;
+            border: 0.5px solid #193c6e;
+            padding: 5px;
+            outline: none;
+            margin: 3px 0;
+            &:nth-child(2) {
+              font-family: "Oswald";
+              font-style: normal;
+              font-weight: 300;
+              font-size: 18px;
+              line-height: 27px;
+              background: rgba(78, 140, 84, 0.7);
+              color: #ffffff;
+              border: none;
+            }
+          }
         }
       }
     }
   }
-  .small {
-    background: rgb(209, 202, 202);
-    width: 100%;
-    padding: 5px 20px;
-    & > div {
-      max-width: 1250px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: auto auto;
-    }
-    .author {
-      font-weight: 400;
-      font-size: 12px;
-      line-height: 20px;
-      text-align: center;
-    }
-    .terms {
-      display: flex;
-      justify-content: space-between;
-      display: none;
-      @media (min-width: 1200px) {
-        display: flex;
-      }
-      div {
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 125%;
-        letter-spacing: 0.005em;
-        color: #1b1d21;
-      }
+  .bottom {
+    p {
+      font-family: "Oswald";
+      font-style: normal;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 30px;
+
+      color: rgba(0, 0, 0, 0.5);
     }
   }
 `;
 
-const Footer = () => {
+export default function Footer() {
   return (
     <Section>
-      <div className="big">
-        <div className="container home">
+      <div className="flex">
+        <div className="section">
           <div className="logo">
-            <Image src="/images/Navbar.png" width={44} height={38} />
-            <h4>HANDMADE.TRAVEL</h4>
+            <p>
+              <span>Handmade</span>.travel
+            </p>
           </div>
-          <div className="info">
-            <ul>
-              <li>
-                <span className="icon">
-                  <BsGeoAlt size={24} />
-                </span>
-                <p>Plaza Kuk Saroy 1, Samarkand 140157</p>
-              </li>
-              <li>
-                <span className="icon">
-                  <FiPhone size={24} />
-                </span>
-                <p>(+33) 422 840 285</p>
-              </li>
-              <li>
-                <span className="icon">
-                  <TiMail size={24} />
-                </span>
-                <p>info@handmade.travel</p>
-              </li>
-            </ul>
-          </div>
-          <div className="icons">
-            <a href="" style={{ color: "black" }}>
-              <ImFacebook2 />
-            </a>
-            <a href="" style={{ color: "black" }}>
-              <BsTwitter />
-            </a>
-            <a href="" style={{ color: "black" }}>
-              <FiInstagram />
-            </a>
-            <a href="" style={{ color: "black" }}>
-              <BsYoutube />
-            </a>
-            <a href="" style={{ color: "black" }}>
-              <BsTelegram />
-            </a>
+          <div className="content">
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic
+            </p>
           </div>
         </div>
-        <div className="div">
-          <div className="container tours">
-            <h4>Tours</h4>
-            <ul>
-              <li>Special Deals</li>
-              <li>Popular</li>
-              <li>Recomendation</li>
-              <li>Best price</li>
-            </ul>
+        <div className="section">
+          <div className="title">
+            <p>Contacts:</p>
           </div>
-          <div className="container">
-            <h4>About</h4>
-            <ul>
-              <li>How to Book</li>
-              <li>Coreers</li>
-              <li>About us</li>
-              <li>Blog</li>
-            </ul>
+          <div className="texts">
+            <p>+998 66 231 05 48 - Uzbekistan</p>
+            <p>info@handmade.travel</p>
+            <p>Plaza kus saroy 1, Samarkand 140157</p>
           </div>
-          <div className="container">
-            <h4>Services</h4>
-            <ul>
-              <li>Flight</li>
-              <li>Hotels</li>
-              <li>Train</li>
-              <li>Guide</li>
-            </ul>
+          <div className="links">
+            <a>telegram</a>
+            <a>WhatsApp</a>
+            <a>Faceook</a>
           </div>
         </div>
-        <div className="container form">
-          <h4>Subscribe Us</h4>
-          <form action="">
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Your email here..."
-            />
-            <button type="submit">Subscribe</button>
-          </form>
+        <div className="section">
+          <div className="title">
+            <p>Menu:</p>
+          </div>
+          <div className="links">
+            <a>Туры</a>
+            <a>Города</a>
+            <a>Блог</a>
+          </div>
+        </div>
+        <div className="section">
+          <div className="title">
+            <p>News, Promotions, Discounts:</p>
+          </div>
+          <div className="form">
+            <form>
+              <input type="email" placeholder="E-mail:" />
+              <input type="submit" value="Subscribe" />
+            </form>
+          </div>
         </div>
       </div>
-
-      <div className="small">
-        <div>
-          <div className="author">
-            © 2022 handmade.travel by Silk Road Destinations, Plaza Kuk Saroy 1,
-            Samarkand 140157, Licence № T-0504-14
-          </div>
-          <div className="terms">
-            <div>Privacy Policy</div>
-            <div>Terms of Service</div>
-            <div>Lecense</div>
-          </div>
-        </div>
+      <div className="bottom">
+        <p>© 2022 handmade.travel by Silk Road Destinations</p>
       </div>
     </Section>
   );
-};
-
-export default Footer;
+}

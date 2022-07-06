@@ -45,7 +45,6 @@ export default function Index({
   const dispatch = useDispatch();
   const [src, setSrc] = useState("");
   const [img, setImg] = useState(false);
-
   useEffect(() => {
     setSrc(imgSrc);
   }, [imgSrc]);
