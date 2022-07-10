@@ -79,7 +79,9 @@ export default function Lidmagnit() {
   
   return (
     <>
-      <div className="lidmagnit">
+      <SectionActive name={val.name} />
+      {/* <div id="header" className="header" style={bgYellow}></div> */}
+      <div id='lidmagnit' className="lidmagnit" style={bgYellow}>
         <div className="container">
           <div className={`fixed-container`}>
             <SectionActive name={val.name} />
