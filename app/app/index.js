@@ -31,8 +31,11 @@ import Faq from "./faq";
 import OtherTour from "./other-tours";
 import Footer from "./footer/index";
 import { Modal1 } from "./modals/modal-1";
+import { Modal5 } from "./modals/modal-5";
 import { Modal2 } from "./modals/modal-2";
 import { Modal3 } from "./modals/modal-3";
+
+import Lidmagnit from "./lidmagnit";
 
 // components
 import ModalForText from "../components/modals/ModalForText";
@@ -100,6 +103,7 @@ export default function Index() {
           <Modal1 />
           <Modal2 />
           <Modal3 />
+          <Modal5 />
           {/* ___modals */}
           {/* yandex */}
           <div>
@@ -118,6 +122,7 @@ export default function Index() {
           </div>
           {/* yanxdedx */}
           <Header />
+          <Lidmagnit/>
           <FirstUtp />
           <SecondUtp />
           <TourProgram />

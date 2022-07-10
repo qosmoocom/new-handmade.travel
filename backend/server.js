@@ -70,6 +70,7 @@ app.prepare().then(() => {
   server.use("/api/action_bron", require("./routes/sendBronEmail"));
   server.use("/api/action_more", require("./routes/sendMoreEmail"));
   server.use("/api/action_phone", require("./routes/sendPhoneEmail"));
+  server.use("/api/action_lid", require("./routes/sendLidMagnit"));
 
   // tourist
   server.use('/api/tourist',require("./routes/Tourist"))

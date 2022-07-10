@@ -1799,4 +1799,23 @@ export const defaultState = {
     value:
       "https://docs.google.com/file/d/1xs8TerhQLZ5FHARyyIlxNduMc6K41aDX/view",
   },
+  modal_5_title: {
+    value: "Бесплатный PDF рецепт настоящего плова по-самаркандски от ведущего шефа города",
+  },
+  modal_5_name: {
+    value: "Ваше имя",
+  },
+  modal_5_phone: {
+    value: "Телефон:",
+  },
+  modal_5_mail: {
+    value: "Е-mail:",
+  },
+  modal_5_btn: {
+    value: "Получить рецепт",
+  },
+  modal_5_description_1: {
+    value:
+      "Нажимая “Получить”, вы принимаете условия Политики конфиденциальности",
+  },
 };

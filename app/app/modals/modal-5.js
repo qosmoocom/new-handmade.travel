@@ -11,8 +11,7 @@ const initialState = {
   form: {
     name: "",
     phone: "",
-    date: "",
-    time: "",
+    mail: "",
   },
 };
 const reducer = (state, action) => {
@@ -52,16 +51,15 @@ const reducer = (state, action) => {
       return state;
   }
 };
-export const Modal1 = () => {
+export const Modal5 = () => {
   const { getItem } = useContext(AppContext);
   const [modalState, modalDispatch] = useReducer(reducer, initialState);
   const [errorWorker, setErrorWorker] = useState({
     error_worker: false,
     errors: [
       { type: "name", error: false },
-      { type: "phone", error: false },
-      { type: "date", error: false },
-      { type: "time", error: false },
+      { type: "phone", error: true },
+      { type: "mail", error: false },
     ],
   });
   const globalState = useSelector((state) => state);
@@ -74,7 +72,7 @@ export const Modal1 = () => {
     // there is "modal" in modalReducer
     const { isOpen, currentModal } = modal;
 
-    if (isOpen && currentModal === "MODAL_1") {
+    if (isOpen && currentModal === "MODAL_5") {
       modalDispatch({
         type: "MODAL_THE_OPEN",
       });
@@ -108,7 +106,7 @@ export const Modal1 = () => {
     if (name === "phone") {
       isError = !(value.length > 8 && value.length < 20);
     }
-    if (name === "date" || name === "time") {
+    if (name === "mail") {
       isError = !value;
     }
 
@@ -135,22 +133,26 @@ export const Modal1 = () => {
       },
     } = globalState;
     try {
-      const api = `/api/action_phone/`;
+      const api = `/api/action_lid/`;
       const data = {
-        action_id: "1",
+        action_id: "5",
         tourID: _id,
         name: form.name,
         phone: form.phone,
         send_email: getItem("footer_col_email"),
-        date: form.date,
-        time: form.time,
+        mail: form.mail,
       };
       const res = await Axios.post(api, data);
       const resD = await res.data;
       if (resD.success) {
         handleClose();
         modalDispatch({ type: "FORM_CLEAR" });
-        toast.success("Ваша информация отправлена.", {
+
+        let a = document.createElement("a");
+        a.href = '/files/lid/gastro-ru-lid.pdf';
+        a.setAttribute("download", 'Плов по-самаркандски.pdf');
+        a.click();
+        toast.success("Благодарим за внимание. Приятного аппетита", {
           position: "top-right",
         });
       }
@@ -165,7 +167,7 @@ export const Modal1 = () => {
     return "";
   };
 
-  const itIsActive = Object.values(form).every((value) => value);
+  const itIsActive = Object.values(form).filter((i,index)=>index !=1).every((value) => value);
   return (
     <>
       <Wrapper className={isOpen ? "active" : ""}>
@@ -176,12 +178,12 @@ export const Modal1 = () => {
           </div>
           <div className="title">
             <h3>
-              <Text name="modal_1_title">{getItem("modal_1_title")}</Text>
+              <Text name="modal_5_title">{getItem("modal_5_title")}</Text>
             </h3>
           </div>
           <div className="input-box">
             <label>
-              <Text name="modal_1_username">{getItem("modal_1_username")}</Text>
+              <Text name="modal_5_name">{getItem("modal_5_name")}</Text>
               <div className={`input ${classAddError("name")}`}>
                 <input
                   type="text"
@@ -196,7 +198,22 @@ export const Modal1 = () => {
           </div>
           <div className="input-box">
             <label>
-              <Text name="modal_1_phone">{getItem("modal_1_phone")}</Text>
+              <Text name="modal_5_mail">{getItem("modal_5_mail")}</Text>
+              <div className={`input ${classAddError("mail")}`}>
+                <input
+                  type="email"
+                  name="mail"
+                  onChange={(event) => {
+                    handleChange(event);
+                  }}
+                  value={form.mail}
+                />
+              </div>
+            </label>
+          </div>
+          <div className="input-box">
+            <label>
+              <Text name="modal_5_phone">{getItem("modal_5_phone")}</Text>
               <div className={`input ${classAddError("phone")}`}>
                 <input
                   type="number"
@@ -209,60 +226,23 @@ export const Modal1 = () => {
               </div>
             </label>
           </div>
-          <div className="input-box cuset-data">
-            <label>
-              <Text name="modal_1_date">{getItem("modal_1_date")}</Text>
-              <div
-                className={`input ${classAddError("date")}`}
-                style={{ display: "flex", alignItems: "center" }}
-              >
-                <input
-                  type="date"
-                  name="date"
-                  onChange={(event) => {
-                    handleChange(event);
-                  }}
-                  value={form.date}
-                />
-              </div>
-            </label>
-            <label>
-              <Text name="modal_1_time">{getItem("modal_1_time")}</Text>
-              <div
-                className={`input ${classAddError("time")}`}
-                style={{ display: "flex", alignItems: "center" }}
-              >
-                <input
-                  type="time"
-                  name="time"
-                  onChange={(event) => {
-                    handleChange(event);
-                  }}
-                  value={form.time}
-                />
-              </div>
-            </label>
-          </div>
+          
           <div style={{ textAlign: "center" }}>
             <button
               type="submit"
               className={!itIsActive ? "disabled" : ""}
               disabled={!itIsActive}
+              
             >
-              <Text name="modal_1_btn">{getItem("modal_1_btn")}</Text>
+              <Text name="modal_5_btn">{getItem("modal_5_btn")}</Text>
             </button>
           </div>
           <div className="error-commet">
             <p>
-              <Text name="modal_1_description_1">
-                {getItem("modal_1_description_1")}
+              <Text name="modal_5_description_1">
+                {getItem("modal_5_description_1")}
               </Text>
             </p>
-            <div className="text_two">
-              <Text style={{ left: 0 }} name="modal_1_description_2">
-                {getItem("modal_1_description_2")}
-              </Text>
-            </div>
           </div>
         </form>
       </Wrapper>
@@ -270,7 +250,7 @@ export const Modal1 = () => {
   );
 };
 
-export default Modal1;
+export default Modal5;
 
 // modal styles
 const Wrapper = styled.div`
