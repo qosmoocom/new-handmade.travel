@@ -1678,6 +1678,7 @@ export const defaultState = {
     { name: "tour-program", isActive: true },
     { name: "why-with-us", isActive: true },
     { name: "whois", isActive: true },
+    { name: "lidmagnit", isActive: false },
   ],
   whois_title: {
     value: "ДЛЯ КОГО ЭТОТ ТУР?",

@@ -21,32 +21,6 @@ export default function Lidmagnit() {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      setLogoWidth(window.outerWidth > 768 ? 200 : 150);
-    });
-  }, []);
-
-  // componentDidMount
-  useEffect(() => {
-    if (parseInt(window.scrollY)) {
-      setScroll(true);
-    } else {
-      setScroll(false);
-    }
-  }, []);
-
-  // in scrolling
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (parseInt(window.scrollY)) {
-        setScroll(true);
-      } else {
-        setScroll(false);
-      }
-    });
-  }, []);
-
   // modal 1 opened
   const handleOnModal5 = () => {
     const payload = {
@@ -56,17 +30,13 @@ export default function Lidmagnit() {
     dispatch({ type: "MODAL_OPEN", payload });
   };
 
-  const openLeftMenuHandler = () => setIsOpen(true);
-  const closeLeftMenuHandler = () => setIsOpen(false);
-
   // component active no active
   const val = useSelector((state) => state.admin.app_sections_active).find(
     (i) => i.name === "lidmagnit"
   );
 
-  const bronBtnActive = useSelector(
-    (state) => state.admin.app_sections_active
-  ).find((i) => i.name === "rate").isActive;
+  // const { isEdit: thisIsNotClient } = useSelector((st) => st.admin);
+
   const { isEdit: thisIsNotClient } = useSelector((st) => st.admin);
 
   const bgYellow = {
@@ -79,14 +49,13 @@ export default function Lidmagnit() {
   
   return (
     <>
-      <SectionActive name={val.name} />
+      <SectionActive name={val ? val.name : "true"} />
       {/* <div id="header" className="header" style={bgYellow}></div> */}
-      <div id='lidmagnit' className="lidmagnit" style={bgYellow}>
+      <div id='lidmagnit' className="lidmagnit" style={val ? bgYellow : { display: "block" }}>
         <div className="container">
           <div className={`fixed-container`}>
-            <SectionActive name={val.name} />
             <div className="lid-container">
-              <div className="lid-box" style={bgYellow}>
+              <div className="lid-box">
                 <div className="lid-title"><span>САМАРКАНДСКИЙ ПЛОВ</span> ЗА 10 ШАГОВ В ДОМАШНИХ УСЛОВИЯХ</div>
                 <div className="lid-info">Бесплатный PDF рецепт настоящего плова по-самаркандски от ведущего шефа города.</div>
                 <ul className="lid-list">
