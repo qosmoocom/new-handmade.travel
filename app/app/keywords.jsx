@@ -94,6 +94,54 @@ export default function Keyword() {
             )}
           </li>
         </ul>
+          {/* <li></li> */}
+        {/* <div className="footer-lid-info">Информация для лид магнита</div>
+        <div className="footer-lid-box"> 
+          <ul>
+              <li>
+                Лид жирный заголовок: <Text name="lid_title_span">{getItem("lid_title_span")}</Text>
+              </li>
+              <li>
+                Лид простой заголовок: <Text name="lid_title_text">{getItem("lid_title_text")}</Text>
+              </li>
+              <li>
+                Лид второй заголовок: <Text name="lid_info">{getItem("lid_info")}</Text>
+              </li>
+              <li>
+                Лид первый текст в списке: <Text name="lid_list_1">{getItem("lid_list_1")}</Text>
+              </li>
+              <li>
+                Лид второй текст в списке: <Text name="lid_list_2">{getItem("lid_list_2")}</Text>
+              </li>
+              <li>
+                Лид третий текст в списке: <Text name="lid_list_2">{getItem("lid_list_3")}</Text>
+              </li>
+          </ul>
+          <ul>
+              <li>
+                Заголовок окна: <Text name="modal_5_title">{getItem("modal_5_title")}</Text>
+              </li>
+              <li>
+                Поля имя: <Text name="modal_5_name">{getItem("modal_5_name")}</Text>
+              </li>
+              <li>
+                Поля e-mail: <Text name="modal_5_mail">{getItem("modal_5_mail")}</Text>
+              </li>
+              <li>
+                Поля телефон: <Text name="modal_5_phone">{getItem("modal_5_phone")}</Text>
+              </li>
+              <li>
+                Заголовок кнопки: <Text name="modal_5_btn">{getItem("modal_5_btn")}</Text>
+              </li>
+              <li>
+                Текст о соглашение: <Text name="modal_5_description_1">{getItem("modal_5_description_1")}</Text>
+              </li>
+          </ul>
+        </div> */}
+
+
+          
+        
       </Wrapper>
     );
 

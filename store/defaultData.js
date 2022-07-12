@@ -1801,7 +1801,7 @@ export const defaultState = {
       "https://docs.google.com/file/d/1xs8TerhQLZ5FHARyyIlxNduMc6K41aDX/view",
   },
   modal_5_title: {
-    value: "Бесплатный PDF рецепт настоящего плова по-самаркандски от ведущего шефа города",
+    value: "Будем знакомы",
   },
   modal_5_name: {
     value: "Ваше имя",
@@ -1817,6 +1817,31 @@ export const defaultState = {
   },
   modal_5_description_1: {
     value:
-      "Нажимая “Получить”, вы принимаете условия Политики конфиденциальности",
+      "Нажимая “Получить рецепт”, вы принимаете условия Политики конфиденциальности",
   },
+  lid_title_span : {
+    value: 'САМАРКАНДСКИЙ ПЛОВ'
+  },
+  lid_title_text : {
+    value: 'ЗА 10 ШАГОВ В ДОМАШНИХ УСЛОВИЯХ'
+  },
+  lid_info : {
+    value: 'Бесплатный PDF рецепт настоящего плова по-самаркандски от ведущего шефа города.'
+  },
+  lid_list_1 : {
+    value: '-Готовим дома на плите'
+  },
+  lid_list_2 : {
+    value: '-Плов, который получается всегда'
+  },
+  lid_list_3 : {
+    value: '-Просто шаг за шагом следуйте инструкции'
+  },
+  lid_button : {
+    value: 'СКАЧАТЬ БЕПЛАТНО'
+  },
+  lid_img_url : {
+    value: '/images/cook.png'
+  },
+
 };

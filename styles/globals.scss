@@ -4214,6 +4214,7 @@ p {
 
   @media (min-width: 1500px) {
     top: -650px;
+    right: -200px;
   }
 
   @media (min-width: 1600px) {
@@ -4272,10 +4273,11 @@ p {
 
     @media (min-width: 1400px) {}
 
-    span {
+    .lid-title-big {
       font-family: 'Roboto', sans-serif;
       color: #E64320;
       font-weight: 700;
+      margin-right: 10px;
     }
   }
 
@@ -4462,5 +4464,28 @@ p {
     }
 
     @media (min-width: 1400px) {}
+  }
+}
+
+.footer-lid-info {
+  margin: 20px;
+  font-weight: 700;
+}
+
+.footer-lid-box {
+  display: flex;
+  width: 100%;
+
+  ul {
+    width: 50%;
+  }
+
+  li {
+    margin: 10px;
+  }
+
+  span {
+    font-weight: 600;
+    margin: 0 10px;
   }
 }

@@ -56,15 +56,20 @@ export default function Lidmagnit() {
           <div className={`fixed-container`}>
             <div className="lid-container">
               <div className="lid-box">
-                <div className="lid-title"><span>САМАРКАНДСКИЙ ПЛОВ</span> ЗА 10 ШАГОВ В ДОМАШНИХ УСЛОВИЯХ</div>
-                <div className="lid-info">Бесплатный PDF рецепт настоящего плова по-самаркандски от ведущего шефа города.</div>
+                <div className="lid-title">
+                  <span className="lid-title-big">
+                    <Text name="lid_title_span">{getItem("lid_title_span")}</Text>
+                  </span>
+                    <Text name="lid_title_text">{getItem("lid_title_text")}</Text>
+                </div>
+                <div className="lid-info"><Text name="lid_info">{getItem("lid_info")}</Text></div>
                 <ul className="lid-list">
-                  <li>-Готовим дома на плите</li>
-                  <li>-Плов, который получается всегда</li>
-                  <li>-Просто шаг за шагом следуйте инструкции</li>
+                  <li><Text name="lid_list_1">{getItem("lid_list_1")}</Text></li>
+                  <li><Text name="lid_list_2">{getItem("lid_list_2")}</Text></li>
+                  <li><Text name="lid_list_3">{getItem("lid_list_3")}</Text></li>
                 </ul>
                 <div className="lid-bottom-block">
-                  <button onClick={handleOnModal5}>ПОЛУЧИТЬ РЕЦЕПТ</button>
+                  <button onClick={handleOnModal5}><Text name="lid_button">{getItem("lid_button")}</Text></button>
                   <img classname='lid-img' src="/images/cook.png"></img>
                 </div>
               </div>
