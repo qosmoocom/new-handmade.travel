@@ -149,10 +149,10 @@ export const Modal5 = () => {
         modalDispatch({ type: "FORM_CLEAR" });
 
         let a = document.createElement("a");
-        a.href = '/files/lid/gastro-ru-lid.pdf';
-        a.setAttribute("download", 'Плов по-самаркандски.pdf');
+        a.href = getItem("lid_file_url");
+        a.setAttribute("download", 'lid-pdf');
         a.click();
-        toast.success("Благодарим за внимание. Приятного аппетита", {
+        toast.success(getItem("lid_file_thank"), {
           position: "top-right",
         });
       }

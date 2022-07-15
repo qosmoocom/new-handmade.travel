@@ -18,7 +18,7 @@
 body {
   background-color: #fff;
   overflow-x: hidden;
-  font-family: "Akrobat", sans-serif;
+  font-family: "Akrobat", sans-serif !important;
 }
 
 .plane {
@@ -4489,24 +4489,7 @@ p {
 }
 
 .footer-lid-info {
-  margin: 20px;
-  font-weight: 700;
-}
-
-.footer-lid-box {
-  display: flex;
-  width: 100%;
-
-  ul {
-    width: 50%;
-  }
-
-  li {
-    margin: 10px;
-  }
-
   span {
-    font-weight: 600;
-    margin: 0 10px;
+    font-weight: 700;
   }
 }

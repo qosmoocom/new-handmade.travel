@@ -1858,5 +1858,11 @@ export const defaultState = {
   lid_list_pin_title : {
     value: 'pin'
   },
+  lid_file_url: {
+    value: '/files/lid/gastro-ru-lid.pdf'
+  },
+  lid_file_thank: {
+    value: 'Благодрим за скачивание. Приятного аппетита'
+  },
 
 };

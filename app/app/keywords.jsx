@@ -94,6 +94,17 @@ export default function Keyword() {
             )}
           </li>
         </ul>
+        <div className="footer-lid-info">
+          <div>Информации для Лид-магнита </div>
+          <ul>
+              <li>
+                Ссылка на файл: <Text name="lid_file_url">{getItem("lid_file_url")}</Text>
+              </li>
+              <li>
+                Текст окна оповещния после скачивания файла: <Text name="lid_file_thank">{getItem("lid_file_thank")}</Text>
+              </li>
+          </ul>
+        </div>
           {/* <li></li> */}
         {/* <div className="footer-lid-info">Информация для лид магнита</div>
         <div className="footer-lid-box"> 
