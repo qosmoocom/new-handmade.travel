@@ -1,6 +1,6 @@
 const sendEmail = require('../utils/sendEmail');
 exports.send_lid_magnit = async (req, res, next) => {
-  const { action_id, name, mail, phone, send_email } = req.body;
+  const { action_id, name, mail, phone, send_email, tourtitle } = req.body;
   const msg = {
     to: `${send_email}`,
     subject: 'Handmade.travel',
@@ -36,7 +36,7 @@ exports.send_lid_magnit = async (req, res, next) => {
             <div style="padding-left: 10px;" >
               <ul>
                   <li style="font-size: 20px;
-                            font-style: italic;">Action_id: ${action_id}</li>
+                            font-style: italic;">Tour: ${tourtitle}</li>
               </ul>
             </div>
         </div>

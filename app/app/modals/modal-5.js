@@ -141,6 +141,7 @@ export const Modal5 = () => {
         phone: form.phone,
         send_email: getItem("footer_col_email"),
         mail: form.mail,
+        tourtitle: getItem("app_title")
       };
       const res = await Axios.post(api, data);
       const resD = await res.data;
