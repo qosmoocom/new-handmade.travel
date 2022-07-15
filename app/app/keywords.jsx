@@ -103,6 +103,24 @@ export default function Keyword() {
               <li>
                 Текст окна оповещния после скачивания файла: <Text name="lid_file_thank">{getItem("lid_file_thank")}</Text>
               </li>
+              <li>
+                Заголовок окна: <Text name="modal_5_title">{getItem("modal_5_title")}</Text>
+              </li>
+              <li>
+                Поля имя: <Text name="modal_5_name">{getItem("modal_5_name")}</Text>
+              </li>
+              <li>
+                Поля e-mail: <Text name="modal_5_mail">{getItem("modal_5_mail")}</Text>
+              </li>
+              <li>
+                Поля телефон: <Text name="modal_5_phone">{getItem("modal_5_phone")}</Text>
+              </li>
+              <li>
+                Заголовок кнопки: <Text name="modal_5_btn">{getItem("modal_5_btn")}</Text>
+              </li>
+              <li>
+                Текст о соглашение: <Text name="modal_5_description_1">{getItem("modal_5_description_1")}</Text>
+              </li>
           </ul>
         </div>
           {/* <li></li> */}
