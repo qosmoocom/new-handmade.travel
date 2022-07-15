@@ -13,13 +13,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Akrobat", sans-serif;
-
 }
 
 body {
   background-color: #fff;
   overflow-x: hidden;
+  font-family: "Akrobat", sans-serif;
 }
 
 .plane {
@@ -4166,6 +4165,10 @@ p {
 .lidmagnit {
   background-color: #FADBAC;
 
+}
+
+#lidmagnit {
+  font-family: 'Roboto', sans-serif !important;
 }
 
 .lid-img-box {
