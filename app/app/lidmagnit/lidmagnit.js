@@ -55,7 +55,7 @@ export default function Lidmagnit() {
         <div className="container">
           <div className={`fixed-container`}>
             <div className="lid-container">
-              <div className="lid-box">
+              <div className="lid-content-box">
                 <div className="lid-title">
                   <span className="lid-title-big">
                     <Text name="lid_title_span">{getItem("lid_title_span")}</Text>
@@ -64,15 +64,76 @@ export default function Lidmagnit() {
                 </div>
                 <div className="lid-info"><Text name="lid_info">{getItem("lid_info")}</Text></div>
                 <ul className="lid-list">
-                  <li><Text name="lid_list_1">{getItem("lid_list_1")}</Text></li>
-                  <li><Text name="lid_list_2">{getItem("lid_list_2")}</Text></li>
-                  <li><Text name="lid_list_3">{getItem("lid_list_3")}</Text></li>
+                  <li>
+                    <div className="lid-li-pin">
+                      <Image
+                        src={getItem("lid_list_pin_url")}
+                        title={getItem("lid_list_pin_title")}
+                        alt={getItem("lid_list_pin_alt")}
+                        srcDataName={"lid_list_pin_url"}
+                        titleDataName={"lid_list_pin_title"}
+                        altDataName={"lid_list_pin_alt"}
+                        layout="fill"
+                        objectFit="cover"
+                        itIsClassName="lid-li-pin"
+                        sectionName={val.name}
+                      />
+                    </div>
+                    <Text name="lid_list_1">{getItem("lid_list_1")}</Text>
+                  </li>
+                  <li>
+                    <div className="lid-li-pin">
+                      <Image
+                        src={getItem("lid_list_pin_url")}
+                        title={getItem("lid_list_pin_title")}
+                        alt={getItem("lid_list_pin_alt")}
+                        srcDataName={"lid_list_pin_url"}
+                        titleDataName={"lid_list_pin_title"}
+                        altDataName={"lid_list_pin_alt"}
+                        layout="fill"
+                        objectFit="cover"
+                        itIsClassName="lid-li-pin"
+                        sectionName={val.name}
+                      />
+                    </div>
+                    <Text name="lid_list_2">{getItem("lid_list_2")}</Text></li>
+                  <li>
+                    <div className="lid-li-pin">
+                      <Image
+                        src={getItem("lid_list_pin_url")}
+                        title={getItem("lid_list_pin_title")}
+                        alt={getItem("lid_list_pin_alt")}
+                        srcDataName={"lid_list_pin_url"}
+                        titleDataName={"lid_list_pin_title"}
+                        altDataName={"lid_list_pin_alt"}
+                        layout="fill"
+                        objectFit="cover"
+                        itIsClassName="lid-li-pin"
+                        sectionName={val.name}
+                      />
+                    </div>
+                    <Text name="lid_list_3">{getItem("lid_list_3")}</Text></li>
                 </ul>
                 <div className="lid-bottom-block">
                   <button onClick={handleOnModal5}><Text name="lid_button">{getItem("lid_button")}</Text></button>
-                  <img classname='lid-img' src="/images/cook.png"></img>
                 </div>
               </div>
+              <div className="lid-img-box">
+                  <div className="img-box">
+                    <Image
+                      src={getItem("lid_img_url")}
+                      title={getItem("lid_img_title")}
+                      alt={getItem("lid_img_alt")}
+                      srcDataName={"lid_img_url"}
+                      titleDataName={"lid_img_title"}
+                      altDataName={"lid_img_alt"}
+                      layout="fill"
+                      objectFit="cover"
+                      itIsClassName="img-box"
+                      sectionName={val.name}
+                    />
+                  </div>
+                </div>
             </div>
           </div>
         </div>

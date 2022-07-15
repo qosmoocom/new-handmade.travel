@@ -1829,19 +1829,34 @@ export const defaultState = {
     value: 'Бесплатный PDF рецепт настоящего плова по-самаркандски от ведущего шефа города.'
   },
   lid_list_1 : {
-    value: '-Готовим дома на плите'
+    value: 'Готовим дома на плите'
   },
   lid_list_2 : {
-    value: '-Плов, который получается всегда'
+    value: 'Плов, который получается всегда'
   },
   lid_list_3 : {
-    value: '-Просто шаг за шагом следуйте инструкции'
+    value: 'Просто шаг за шагом следуйте инструкции'
   },
   lid_button : {
     value: 'СКАЧАТЬ БЕПЛАТНО'
   },
   lid_img_url : {
-    value: '/images/cook.png'
+    value: '/images/mosaic.webp'
+  },
+  lid_img_alt : {
+    value: 'uzbek mosaic'
+  },
+  lid_img_title : {
+    value: 'uzbek mosaic'
+  },
+  lid_list_pin_url : {
+    value: '/images/pin.png'
+  },
+  lid_list_pin_alt : {
+    value: 'pin'
+  },
+  lid_list_pin_title : {
+    value: 'pin'
   },
 
 };

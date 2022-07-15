@@ -122,8 +122,8 @@ export default function Index() {
           </div>
           {/* yanxdedx */}
           <Header />
-          <Lidmagnit/>
           <FirstUtp />
+          <Lidmagnit/>
           <SecondUtp />
           <TourProgram />
           <ActionDetail />
