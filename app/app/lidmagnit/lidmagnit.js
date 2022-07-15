@@ -63,7 +63,7 @@ export default function Lidmagnit() {
                     <Text name="lid_title_text">{getItem("lid_title_text")}</Text>
                 </div>
                 <div className="lid-info"><Text name="lid_info">{getItem("lid_info")}</Text></div>
-                <ul className="lid-list">
+                {/* <ul className="lid-list">
                   <li>
                     <div className="lid-li-pin">
                       <Image
@@ -113,7 +113,7 @@ export default function Lidmagnit() {
                       />
                     </div>
                     <Text name="lid_list_3">{getItem("lid_list_3")}</Text></li>
-                </ul>
+                </ul> */}
                 <div className="lid-bottom-block">
                   <button onClick={handleOnModal5}><Text name="lid_button">{getItem("lid_button")}</Text></button>
                 </div>
