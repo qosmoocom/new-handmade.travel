@@ -36,11 +36,14 @@ function ActionDetail() {
   return (
     <>
       <SectionActive name={val.name} />
-      <div id="action-detail" style={bgYellow}>
+      <div id="lidmagnit" style={bgYellow}>
         <div className="container">
           <div className="content">
             <div className="content-left">
               <h2>
+                <span className="lid-title-big">
+                  <Text name="lid_title_span">{getItem("lid_title_span")}</Text>
+                </span>
                 <Text
                   name="lid_title_text"
                   itIsClassName="#action-detail h2"
