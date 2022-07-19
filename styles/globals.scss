@@ -1061,11 +1061,11 @@ body {
       @media (min-width: 992px) {}
 
       @media (min-width: 1200px) {
-        height: 485px;
+        // height: 485px;
       }
 
       @media (min-width: 1400px) {
-        height: 410px;
+        // height: 410px;
       }
     }
   }
@@ -1094,11 +1094,11 @@ body {
     }
 
     @media (min-width: 1200px) {
-      min-height: 485px;
+      // min-height: 350px;
     }
 
     @media (min-width: 1400px) {
-      min-height: 410px;
+      // min-height: 410px;
     }
 
     background: #ffffff;
@@ -4105,6 +4105,23 @@ p {
     @media (min-width: 1200px) {
       text-align: left;
       min-height: 76px;
+      font-size: 30px;
+    }
+  }
+
+  p {
+    @media (min-width: 1200px) {
+      font-size: 22px;
+    }
+
+    @media (min-width: 1400px) {
+      font-size: 25px;
+    }
+  }
+
+  .container {
+    @media (min-width: 1200px) {
+      max-width: 94vw;
     }
   }
 }
