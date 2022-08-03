@@ -405,23 +405,23 @@ export default function Header({data}) {
   const [imgsrc, setImgSrc] = useState('320');
 
   useEffect(() => {
-    
-    if (319 < window.innerWidth && window.innerWidth < 576) {
+    let width = window.innerWidth
+    if (319 < width && width < 576) {
       setImgSrc('320')
     }
-    if (576 <= window.innerWidth && window.innerWidth < 768) {
+    if (576 <= width && width < 768) {
       setImgSrc('576')
     }
-    if (768 <= window.innerWidth && window.innerWidth < 992) {
+    if (768 <= width && width < 992) {
       setImgSrc('768')
     }
-    if (992 <= window.innerWidth && window.innerWidth < 1200) {
+    if (992 <= width && width < 1200) {
       setImgSrc('992')
     }
-    if (1200 <= window.innerWidth && window.innerWidth < 1400) {
+    if (1200 <= width && width < 1400) {
       setImgSrc('1200')
     }
-    if (1400 <= window.innerWidth ) {
+    if (1400 <= width ) {
       setImgSrc('1400')
     }
   },[]);

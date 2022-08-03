@@ -62,8 +62,11 @@ const Tours = ({data}) => {
   ]
 
   const [colViewTours, setcolViewTours] = useState(3);
+  const [windowWidth, setWithWindow] = useState()
 
   useEffect(() => {
+    setWithWindow(window.innerWidth)
+
     if (319 < window.innerWidth && window.innerWidth < 479) {
       setcolViewTours(3)
     }
@@ -88,7 +91,7 @@ const Tours = ({data}) => {
               {data.tours_title.value}
             </div>
             <div className="page-title-comment">
-              {data.tours_comment.value}
+              {windowWidth>768 ? data.tours_comment.value : data.tours_comment_short.value}
             </div>
           </div>
           <div className="tours-box">

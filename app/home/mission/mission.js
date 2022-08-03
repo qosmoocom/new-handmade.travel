@@ -129,23 +129,19 @@ const Section = styled.div`
 const Mission = ({data}) => {
 
   const [play, setPlay] = useState(false)
-
-  const [widthWindow, setWidthWindow] = useState(0)
-
-  const playStopVideo = () => {
-    setPlay(!play)
-  }
+  const [videoBoxWidth, setVideoBoxWidth] = useState(0)
+  const [windowWidth, setWithWindow] = useState()
 
   useEffect(() => {
-    // let w =  window.innerWidth
-    (window.innerWidth >=768 & window.innerWidth <1300) ? setWidthWindow(window.innerWidth/2.3) : setWidthWindow(window.innerWidth-50)
-
-    if (window.innerWidth < 768) setWidthWindow(window.innerWidth-50)
-    if (window.innerWidth >=768 & window.innerWidth <1400) setWidthWindow(window.innerWidth/2.4)
-    if (window.innerWidth >= 1400) setWidthWindow(1400/2.3)
+    let width = window.innerWidth
+    setWithWindow(width)
     
+    if (width >=768 & width <1300) { setVideoBoxWidth(width/2.3)} else { setVideoBoxWidth(width-50)}
+    if (width < 768) setVideoBoxWidth(width-50)
+    if (width >=768 & width <1400) setVideoBoxWidth(width/2.4)
+    if (width >= 1400) setVideoBoxWidth(1400/2.3)
   },[]);
-
+  
   return (
     <Section>
       <div className="container-home">
@@ -156,10 +152,10 @@ const Mission = ({data}) => {
                 {data.mission_title.value}
               </div>
               <div className="page-title-comment ">
-                {data.mission_comment.value}
+                {windowWidth>768 ? data.mission_comment.value : data.mission_comment_short.value}
               </div>
               <div className="mission-content">
-                {data.mission_content.value}
+                {data.mission_text.value}
               </div>
             </div>
             <div className="ceo-box-top">
@@ -173,7 +169,7 @@ const Mission = ({data}) => {
           </div>
 
           <div className="video-box">
-            <ReactPlayer url='https://www.youtube.com/watch?v=hzpo4QrmBL8' playing={play} controls={false} width={widthWindow} height={widthWindow/16*9} />
+            <ReactPlayer url='https://www.youtube.com/watch?v=hzpo4QrmBL8' playing={play} controls={false} width={videoBoxWidth} height={videoBoxWidth/16*9} />
           </div>
           <div className="ceo-box-bottom">
             <div className="ceo">

@@ -176,37 +176,44 @@ const Section = styled.div`
   }
 `
 const Utp = ({data}) => {
+  
+  const [windowWidth, setWithWindow] = useState()
+
+  useEffect(() => {
+    setWithWindow(window.innerWidth)
+  },[]);
+
   return (
     <Section>
-        <div className="container-home">
-          <div className="utp block">
-            <div className="title-box">
-              <div className="page-title">
-                {data.utp_title.value}
-              </div>
-              <div className="page-title-comment ">
-                {data.utp_comment.value}
-              </div>
+      <div className="container-home">
+        <div className="utp block">
+          <div className="title-box">
+            <div className="page-title">
+              {data.utp_title.value}
             </div>
-            <div className="utp-box">
-              {data.utp_list.arr.map((item,index) => {
-                return (
-                  <div className="utp-item" key={index}>
-                    <div className="img-box">
-                      <img src={item.src} alt={item.alt} />
-                      <div className="utp-item-title">{item.title}</div>
-                    </div>
-                    <div className="content-box">
-                      <div className="utp-item-title">{item.title}</div>
-                      <div className="utp-item-text">{item.comment}</div>
-                    </div>
-                  </div>
-                )
-              })}
+            <div className="page-title-comment ">
+              {windowWidth>768 ? data.utp_comment.value : data.utp_comment_short.value}
             </div>
           </div>
+          <div className="utp-box">
+            {data.utp_list.arr.map((item,index) => {
+              return (
+                <div className="utp-item" key={index}>
+                  <div className="img-box">
+                    <img src={item.src} alt={item.alt} />
+                    <div className="utp-item-title">{item.title}</div>
+                  </div>
+                  <div className="content-box">
+                    <div className="utp-item-title">{item.title}</div>
+                    <div className="utp-item-text">{item.comment}</div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
         </div>
-      </Section>
+      </div>
+    </Section>
   )
 }
 
