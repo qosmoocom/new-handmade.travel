@@ -22,12 +22,12 @@ const HomePage = () => {
     axios.get("/api/tour/home").then((res) => {
       setTours(res.data);
     });
-    console.log('res',tours)
   }, []);
 
  useEffect(() => {
     let items = []
     for (let i = 0; i < tours.length; i++) {
+      console.log(tours[i])
       if ((tours[i].language == currentlang) && (tours[i].isItActive == "published")) {
         items.push(tours[i]);
       }
