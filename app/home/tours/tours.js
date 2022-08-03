@@ -49,20 +49,11 @@ const Section = styled.div`
   
 `
 
-const Tours = ({data}) => {
-  const tours = [
-    {tourId: 'ssss', tourTitle: 'Вкусный Узбекистан', tourSrc: './images/home/tours/t1.jpg', tourInfo: 'Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', tourPrice: '$ 1100', tourDays: 'Программа тура 1 дней'},
-    {tourId: 'aaaa', tourTitle: 'По просторам Узбекистана', tourSrc: './images/home/tours/t2.jpg', tourInfo: 'Просторы Узбекистана вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', tourPrice: '$ 1200', tourDays: 'Программа тура 2 дней'},
-    {tourId: 'bbbb', tourTitle: 'Коуч тур в Узбекистан', tourSrc: './images/home/tours/t3.jpg', tourInfo: 'Коуч тур в Узбекистан вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', tourPrice: '$ 1300', tourDays: 'Программа тура 3 дней'},
-    {tourId: 'eeee', tourTitle: 'Зиарат тур Узбекистан', tourSrc: './images/home/tours/t4.jpg', tourInfo: 'Зиарат Тура в Узбекистан вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', tourPrice: '$ 1400', tourDays: 'Программа тура 4 дней'},
-    {tourId: 'ssss', tourTitle: 'Виза тур Узбекистан', tourSrc: './images/home/tours/t5.jpg', tourInfo: 'Виза тур Узбекистан вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', tourPrice: '$ 1500', tourDays: 'Программа тура 5 дней'},
-    {tourId: 'aaaa', tourTitle: 'Древний Самарканд', tourSrc: './images/home/tours/t6.jpg', tourInfo: 'Древний Самарканд вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', tourPrice: '$ 1600', tourDays: 'Программа тура 6 дней'},
-    {tourId: 'bbbb', tourTitle: 'Красивый Бухара', tourSrc: './images/home/tours/t7.jpg', tourInfo: 'Красивый Бухара вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', tourPrice: '$ 1700', tourDays: 'Программа тура 7 дней'},
-    {tourId: 'eeee', tourTitle: 'Хорезм, Хива. Самарканд', tourSrc: './images/home/tours/t8.jpg', tourInfo: 'Хорезм, Хива. Самарканд вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', tourPrice: '$ 1800', tourDays: 'Программа тура 8 дней'}
-  ]
+const Tours = ({data, currentTours}) => {
 
   const [colViewTours, setcolViewTours] = useState(3);
   const [windowWidth, setWithWindow] = useState()
+  const [tours, setTours] = useState([])
 
   useEffect(() => {
     setWithWindow(window.innerWidth)
@@ -79,6 +70,23 @@ const Tours = ({data}) => {
     if (992 <= window.innerWidth) {
       setcolViewTours(8)
     }
+
+    let items = []
+    currentTours.forEach(item => {
+      let element = {
+      tourId: item._id, 
+      tourTitle: item.tourName, 
+      tourInfo: item.tour_id,
+      // tourSrc: item.head_img_Mobile_url, 
+      // tourInfo: item.head_text_3, 
+      // tourPrice: '$ 1100', 
+      // tourDays: 'Программа тура 1 дней'  
+      }
+      items.push(element)
+    });
+    setTours(items)
+    console.log('currentTours', currentTours)
+
 
   },[]);
   
