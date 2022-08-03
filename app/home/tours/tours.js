@@ -85,7 +85,7 @@ const Tours = ({data, currentTours}) => {
       items.push(element)
     });
     setTours(items)
-    console.log('currentTours', currentTours)
+    // console.log('currentTours', currentTours)
 
 
   },[]);
