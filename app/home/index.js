@@ -28,8 +28,7 @@ const HomePage = () => {
     let items = []
     for (let i = 0; i < tours.length; i++) {
       console.log(tours[i])
-      console.log('currentLang', currentLang)
-      if ((tours[i].language == currentlang) && (tours[i].isItActive == "published")) {
+      if ((tours[i].language == 'ru') && (tours[i].isItActive == "published")) {
         items.push(tours[i]);
         console.log('i', i)
       }
