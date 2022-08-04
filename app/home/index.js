@@ -27,13 +27,15 @@ const HomePage = () => {
  useEffect(() => {
     let items = []
     for (let i = 0; i < tours.length; i++) {
-      console.log(tours[i])
-      if ((tours[i].language == 'ru') && (tours[i].isItActive == "published")) {
+      // console.log(tours[i])
+      // && (tours[i].isItActive == "published"))
+      if (tours[i].language == 'ru') {
         items.push(tours[i]);
-        console.log('i', i)
+        // console.log('i', i)
       }
     }
     setCurrentTours(items)
+    // console.log('currentTours - ', currentTours)
   }, [tours]);
 
   // useEffect(() => {
