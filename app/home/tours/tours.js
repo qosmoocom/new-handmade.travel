@@ -3,6 +3,7 @@ import { render } from 'react-dom'
 import styled from 'styled-components'
 import TourItem from './tour-item'
 
+
 const Section = styled.div`
   .tours-box{
     display: flex;
@@ -71,25 +72,31 @@ const Tours = ({data, currentTours}) => {
       setcolViewTours(8)
     }
 
+  },[]);
+  
+
+  useEffect(() => {
     let items = []
     currentTours.forEach(item => {
+      let tourObject = JSON.parse(item.tourTexts)
       let element = {
       tourId: item._id, 
-      tourTitle: item.tourName, 
-      tourInfo: item.tour_id,
-      // tourSrc: item.head_img_Mobile_url, 
+      tourTitle: tourObject.head_text_2.value,
+      tourInfo: tourObject.head_text_3.value,
+      tourLang : item.language,
+      tourSrc: tourObject.head_img_Mobile_url.value, 
       // tourInfo: item.head_text_3, 
-      // tourPrice: '$ 1100', 
-      // tourDays: 'Программа тура 1 дней'  
+      tourPrice: '', 
+      tourDays: '', 
+      // tourData : 
       }
+      console.log(element.tourData)
       items.push(element)
     });
     setTours(items)
     // console.log('currentTours', currentTours)
+  },[currentTours]);
 
-
-  },[]);
-  
   return(
     <Section>
       <div className="container-home">

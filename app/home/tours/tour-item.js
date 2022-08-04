@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from "react";
 import styled from 'styled-components'
+import Link from "next/link";
+
 
 const Section = styled.div`
   .tour-box{
@@ -76,7 +78,7 @@ const Section = styled.div`
     font-weight: 600;
     @media (min-width:320px) {
       font-size: 20px;
-      min-height: 44px;
+      min-height: 68px;
       margin: 0px 0px 10px;
     }
     
@@ -186,12 +188,14 @@ const Section = styled.div`
 
   .tour-button{
     text-align:  center;
-    line-height: 1.2;
-    font-weight: 400;
-    color: #fff;
+    
     background-color: #1698A0;
     border-radius: 5px;
     cursor: pointer;
+    line-height: 1.2;
+    font-weight: 400;
+    color: #fff;
+    
     @media (min-width:320px) {
       height: 40px;
       font-size: 16px;
@@ -235,7 +239,12 @@ const TourItem = ({tour, buttonTitle}) => {
             <div className="tour-price">{tour.tourPrice}</div>
             <div className="tour-days">{tour.tourDays}</div>
           </div>
-          <div className="tour-button">{buttonTitle}</div>
+          
+          <Link href={`/tours/${tour.tourInfo}/${tour.tourLang}`}>
+            <div className="tour-button">
+              {buttonTitle}
+            </div>
+          </Link>
         </div>
         
       </div>
