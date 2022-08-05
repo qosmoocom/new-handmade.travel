@@ -82,13 +82,15 @@ const Tours = ({data, currentTours}) => {
       let element = {
       id : item._id,
       tourId: item.tour_id, 
-      tourTitle: tourObject.head_text_2.value,
+      // tourTitle: tourObject.head_text_2.value,
+      tourTitle : item.tourName,
       tourInfo: tourObject.head_text_3.value,
       tourLang : item.language,
       tourSrc: tourObject.head_img_Mobile_url.value, 
       tourPrice: tourObject.tour_start_price.value,
       tourDays: tourObject.tour_days_col.value
       }
+      console.log(item)
       items.push(element)
     });
     setTours(items)

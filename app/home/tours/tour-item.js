@@ -78,7 +78,7 @@ const Section = styled.div`
     font-weight: 600;
     @media (min-width:320px) {
       font-size: 20px;
-      min-height: 44px;
+      min-height: 66px;
       margin: 0px 0px 10px;
     }
     
