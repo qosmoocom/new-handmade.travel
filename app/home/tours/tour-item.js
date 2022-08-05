@@ -230,10 +230,7 @@ const TourItem = ({tour, buttonTitle}) => {
   return (
     <Section>
       <div className="tour-box">
-        <div className="img-box" style={{background: `url(${tour.tourSrc}) no-repeat`,
-                                         backgroundSize: 'cover'}}>
-          {/* <img src={tour.tourSrc} alt="" />   */}
-        </div>
+        <div className="img-box" style={{background: `url(${tour.tourSrc}) no-repeat`, backgroundSize: 'cover'}}></div>
         <div className="tour-info-box">
 
           <div className="tour-title">{tour.tourTitle}</div>

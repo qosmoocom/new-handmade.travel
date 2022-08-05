@@ -86,8 +86,8 @@ const Tours = ({data, currentTours}) => {
       tourInfo: tourObject.head_text_3.value,
       tourLang : item.language,
       tourSrc: tourObject.head_img_Mobile_url.value, 
-      tourPrice: '', 
-      tourDays: '', 
+      tourPrice: tourObject.tour_start_price.value,
+      tourDays: tourObject.tour_days_col.value
       }
       items.push(element)
     });
@@ -115,7 +115,13 @@ const Tours = ({data, currentTours}) => {
                     <TourItem tour={item} buttonTitle = {data.tours_button_title.value}/>
                   </div>
                 )
-              }               
+              } else {
+                return (
+                  <div className="tour-item not-visible" key={index}>
+                    <TourItem tour={item} buttonTitle = {data.tours_button_title.value}/>
+                  </div>
+                )
+              }              
             })}
           </div>
           <div className="view-more">{data.tours_view_more_text.value}</div>

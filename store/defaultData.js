@@ -1864,5 +1864,11 @@ export const defaultState = {
   lid_file_thank: {
     value: 'Благодрим за скачивание. Приятного аппетита'
   },
+  tour_start_price :{
+    value: '$ 1200'
+  },
+  tour_days_col : {
+    value : 'Программа тура 8 дней'
+  }
 
 };

@@ -121,6 +121,15 @@ export default function Keyword() {
               <li>
                 Текст о соглашение: <Text name="modal_5_description_1">{getItem("modal_5_description_1")}</Text>
               </li>
+              <li>
+                -----------------------
+              </li>
+              <li>
+                Цена тура - от: <Text name="tour_start_price">{getItem("tour_start_price")}</Text>
+              </li>
+              <li>
+                Количество дней в туре : <Text name="tour_days_col">{getItem("tour_days_col")}</Text>
+              </li>
           </ul>
         </div>
           {/* <li></li> */}
