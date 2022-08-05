@@ -10,6 +10,7 @@ import Blogs from './blogs'
 import Footer from './footer'
 import axios from "axios";
 
+
 const HomePage = () => {
   
   const [tours, setTours] = useState([]);

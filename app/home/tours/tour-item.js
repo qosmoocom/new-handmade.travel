@@ -78,7 +78,7 @@ const Section = styled.div`
     font-weight: 600;
     @media (min-width:320px) {
       font-size: 20px;
-      min-height: 68px;
+      min-height: 44px;
       margin: 0px 0px 10px;
     }
     
@@ -233,18 +233,21 @@ const TourItem = ({tour, buttonTitle}) => {
           <img src={tour.tourSrc} alt="" />  
         </div>
         <div className="tour-info-box">
+
           <div className="tour-title">{tour.tourTitle}</div>
           <div className="tour-info">{tourInfo}</div>
+
           <div className="tour-price-box">
             <div className="tour-price">{tour.tourPrice}</div>
             <div className="tour-days">{tour.tourDays}</div>
           </div>
-          
+
           <Link href={`/tours/${tour.tourInfo}/${tour.tourLang}`}>
             <div className="tour-button">
               {buttonTitle}
             </div>
           </Link>
+
         </div>
         
       </div>
