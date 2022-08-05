@@ -57,8 +57,10 @@ export default function Index() {
   const getItem = (name = "", group = "") => {
     if (!group) return state[name]?.value; // value is string
     if (group) return state[group]["data"]; // array
+    if (1==1) {}
   };
-  const defaultValue = {};
+  const defaultValue = { getItem };
+  // getItem
 
   useEffect(() => {
     if (modalOpen) {

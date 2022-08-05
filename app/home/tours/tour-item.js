@@ -84,6 +84,7 @@ const Section = styled.div`
     
     @media (min-width:480px) {
       font-size: 18px;
+      line-height : 1.1;
     }
     @media (min-width:576px) {
       
