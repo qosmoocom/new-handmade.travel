@@ -80,17 +80,15 @@ const Tours = ({data, currentTours}) => {
     currentTours.forEach(item => {
       let tourObject = JSON.parse(item.tourTexts)
       let element = {
-      tourId: item._id, 
+      id : item._id,
+      tourId: item.tour_id, 
       tourTitle: tourObject.head_text_2.value,
       tourInfo: tourObject.head_text_3.value,
       tourLang : item.language,
       tourSrc: tourObject.head_img_Mobile_url.value, 
-      // tourInfo: item.head_text_3, 
       tourPrice: '', 
       tourDays: '', 
-      // tourData : 
       }
-      console.log(element.tourData)
       items.push(element)
     });
     setTours(items)

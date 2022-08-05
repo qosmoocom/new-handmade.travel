@@ -30,7 +30,7 @@ const Section = styled.div`
   .img-box{
     border-radius: 5px 5px 0px 0px;
     @media (min-width:320px) {
-      height: auto;
+      height: 240px;
       width: 100%;
     }
     @media (min-width:480px) {
@@ -230,8 +230,9 @@ const TourItem = ({tour, buttonTitle}) => {
   return (
     <Section>
       <div className="tour-box">
-        <div className="img-box">
-          <img src={tour.tourSrc} alt="" />  
+        <div className="img-box" style={{background: `url(${tour.tourSrc}) no-repeat`,
+                                         backgroundSize: 'cover'}}>
+          {/* <img src={tour.tourSrc} alt="" />   */}
         </div>
         <div className="tour-info-box">
 
@@ -243,7 +244,7 @@ const TourItem = ({tour, buttonTitle}) => {
             <div className="tour-days">{tour.tourDays}</div>
           </div>
 
-          <Link href={`/tours/${tour.tourInfo}/${tour.tourLang}`}>
+          <Link href={`/tours/${tour.tourId}/${tour.tourLang}`}>
             <div className="tour-button">
               {buttonTitle}
             </div>
