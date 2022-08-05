@@ -95,6 +95,17 @@ const Tours = ({data, currentTours}) => {
     // console.log('currentTours', currentTours)
   },[currentTours]);
 
+  const tourShowMore = (e) => {
+    let element = e.target
+    element.classList.add('not-visible')
+    let tourItems = document.getElementsByClassName('tour-item')
+
+    for (let i=0; i< tourItems.length; i++) {
+      tourItems[i].classList.remove('not-visible')
+    }
+
+  }
+
   return(
     <Section>
       <div className="container-home">
@@ -124,7 +135,7 @@ const Tours = ({data, currentTours}) => {
               }              
             })}
           </div>
-          <div className="view-more">{data.tours_view_more_text.value}</div>
+          <div className="view-more" onClick={tourShowMore}>{data.tours_view_more_text.value}</div>
         </div>
       </div>
     </Section>
