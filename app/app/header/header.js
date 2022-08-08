@@ -416,7 +416,7 @@ export default function Header() {
                       {getItem("head_text_2")}
                     </Text>
                   </h2>
-                  <h4 className="header_small_text not-visible" id="header_small_text">
+                  <h4 className="header_small_text" id="header_small_text">
                     <Text
                       name={"head_text_3"}
                       itIsClassName="header_small_text"
