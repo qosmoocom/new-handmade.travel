@@ -1679,6 +1679,7 @@ export const defaultState = {
     { name: "why-with-us", isActive: true },
     { name: "whois", isActive: true },
     { name: "lidmagnit", isActive: false },
+    { name: "tour-title", isActive: false },
   ],
   whois_title: {
     value: "ДЛЯ КОГО ЭТОТ ТУР?",
@@ -1869,6 +1870,14 @@ export const defaultState = {
   },
   tour_days_col : {
     value : 'Программа тура 8 дней'
-  }
+  },
+  title_head_text_1: {
+    value: `ГАСТРОНОМИЧЕСКОЕ ПРИКЛЮЧЕНИЕ “РУССКих В УЗБЕКИСТАНЕ”`,
+  }, // name='head_text_1' group=undefined
+  title_head_text_2: { value: "Вкусный Узбекистан" }, // name='head_text_2' group=undefined
+  title_head_text_3: {
+    value:
+      "Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий.  ",
+  },
 
 };

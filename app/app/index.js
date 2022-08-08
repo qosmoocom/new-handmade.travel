@@ -30,6 +30,7 @@ import ThirdUtp from "./third-utp";
 import Faq from "./faq";
 import OtherTour from "./other-tours";
 import Footer from "./footer/index";
+import TourTitle from './tour-title'
 import { Modal1 } from "./modals/modal-1";
 import { Modal5 } from "./modals/modal-5";
 import { Modal2 } from "./modals/modal-2";
@@ -124,6 +125,7 @@ export default function Index() {
           </div>
           {/* yanxdedx */}
           <Header />
+          <TourTitle/>
           <FirstUtp />
           <Lidmagnit/>
           <SecondUtp />

@@ -4,4 +4,5 @@ export const newComponentsList = [
   { name: "benefit-modal", isActive: true },
   { name: "benefit-link", isActive: true },
   { name: "lidmagnit", isActive: false },
+  { name: "tour-title", isActive: false },
 ];
