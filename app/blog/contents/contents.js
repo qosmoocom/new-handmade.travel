@@ -62,8 +62,8 @@ function Contents() {
         <Item item={item} key={index}>
         <div className="content-item text">
           <item.typeText>
-              <TextBlog data={item} />
-            </item.typeText>
+            <TextBlog data={item} />
+          </item.typeText>
         </div>
           </Item>
       );

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { types } from "../../store/types";
 import { AiFillEdit } from "react-icons/ai";
+import parse from "html-react-parser";
 
 function TextBlog({ data, headContent }) {
   const state = useSelector((state) => state.bloger);
@@ -54,9 +55,10 @@ function TextBlog({ data, headContent }) {
         className={`${center ? "center" : ""} ${u ? "u" : ""} ${i ? "i" : ""} ${
           b ? "b" : ""
         }`}
-        style={{ fontFamily: '"Fira Sans", sans-serif' }}
+        style={{ fontFamily: '"Roboto", sans-serif' }}
       >
-        {content}
+        {parse(content)}
+        
         <div onClick={openModal}>
           <AiFillEdit />
         </div>
@@ -69,14 +71,14 @@ function TextBlog({ data, headContent }) {
       className={`${center ? "center" : ""} ${u ? "u" : ""} ${i ? "i" : ""} ${
         b ? "b" : ""
       }`}
-      style={{ fontFamily: '"Fira Sans", sans-serif' }}
+      style={{ fontFamily: '"Roboto", sans-serif' }}
     >
-      {content}
+      {parse(content)}
     </Wrapper>
   );
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.span`
   position: relative;
   &.u {
     text-decoration: underline;
