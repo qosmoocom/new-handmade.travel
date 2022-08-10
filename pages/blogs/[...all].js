@@ -14,6 +14,8 @@ export default function Index() {
   const path = router.query;
   const dispatch = useDispatch();
   const [isItPath, setIsItPath] = useState(false);
+  const [blogName, setBlogName] = useState('')
+  
   const fetchData = async (id) => {
     const api = `/api/blog/${id}`;
     console.log(id);
@@ -33,6 +35,7 @@ export default function Index() {
       setIsItPath(
         [language,address].join("/") === path.all.join("/") && isItActive
       );
+      setBlogName(data[0].blogName)
     } catch (error) {
       setTimeout(() => {
         router.push("/404");
@@ -42,12 +45,12 @@ export default function Index() {
 
   if (path?.all?.join("/")) {
     fetchData(path.all.join("/"));
-
+    console.log(isItPath)
     if (isItPath == "published") {
       return (
         <div>
           <Head>
-            <title>Loading...</title>
+            <title>{blogName}</title>
           </Head>
           <App />
           <Loader />

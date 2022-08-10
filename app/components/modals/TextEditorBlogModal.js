@@ -193,7 +193,7 @@ function TextEditorBlogModal() {
       <div className="wrap-container">
         <AiOutlineClose className="close-btn" onClick={closeModal} />
         <div className="action-btns">
-          <select onChange={ChangeBtn} value={btns.typeText}>
+          {/* <select onChange={ChangeBtn} value={btns.typeText}>
             <option value="p">p</option>
             <option value="h1">h1</option>
             <option value="h2">h2</option>
@@ -217,7 +217,7 @@ function TextEditorBlogModal() {
             className={`${btns.b ? "active" : ""}`}
           >
             B
-          </button>
+          </button> */}
           <button
             onClick={() => setBtnsHandler("center")}
             className={`${btns.center ? "active" : ""}`}

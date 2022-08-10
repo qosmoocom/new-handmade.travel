@@ -11,7 +11,8 @@ function Item({ children, item }) {
     
     const deleteHandler = () => {
         dispatch({
-            type: types.deleteBlog, payload: {
+            type: types.deleteBlog, 
+            payload: {
             name:item.name
         } } )
     }
@@ -30,7 +31,6 @@ function Item({ children, item }) {
   }
   return (
     <Wrapper>
-
       <div>{children}</div>
     </Wrapper>
   );

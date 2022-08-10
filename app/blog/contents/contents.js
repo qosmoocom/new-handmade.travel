@@ -11,25 +11,42 @@ const Wrapper = styled.div`
   padding: 50px 0;
   max-width: 1200px;
   margin: auto;
-  h1 {
-    font-size: 50px;
-  }
-  h2 {
-    font-size: 40px;
-  }
-  h3 {
-    font-size: 30px;
-  }
-  h4 {
-    font-size: 20px;
-  }
-  .content-item {
-  }
+  
   .text {
-    max-width: 700px;
-    margin: 20px auto;
-    text-align: justify;
     
+    // padding: 0px 50px;
+    margin: 10px auto;
+    text-align: justify;
+    font-weight:300;
+    h1, h2, h3, h4 {
+      font-weight : 500;
+    }
+    @media (min-width:320px) {
+      // width: 100%;
+      padding: 0px 10px;
+      font-size: 14px;
+      line-height: 18px;
+    }
+    @media (min-width:480px) {
+      font-size: 16px;
+      line-height: 20px;
+    }
+    @media (min-width:576px) {
+    }
+    @media (min-width:768px) {
+      max-width: 80%;
+    }
+    @media (min-width:992px) {
+      font-size: 18px;
+      line-height: 22px;
+    }
+    @media (min-width:1200px) {
+      max-width: 70%;
+      font-size: 22px;
+      line-height: 26px;
+    }
+    @media (min-width:1400px) {
+    }
   }
   .image {
     display: flex;
@@ -61,9 +78,9 @@ function Contents() {
       content.push(
         <Item item={item} key={index}>
         <div className="content-item text">
-          <item.typeText>
+          {/* <item.typeText> */}
             <TextBlog data={item} />
-          </item.typeText>
+          {/* </item.typeText> */}
         </div>
           </Item>
       );
