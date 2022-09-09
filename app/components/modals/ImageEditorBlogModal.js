@@ -35,6 +35,7 @@ function ImageEditorBlogModal() {
   };
 
   const closeModal = () => {
+    console.log('close bosildi')
     dispatch({
       type: types.editImageBlog,
       payload: {
@@ -140,6 +141,9 @@ function ImageEditorBlogModal() {
               name,
             },
           });
+
+      
+
         } else if (data.image2 && !data.image3) {
           dispatch({
             type: types.editImageBlog,
@@ -275,7 +279,7 @@ function ImageEditorBlogModal() {
   };
 
   const onUpdateHandlerHeader = async () => {
-    const { alt1, alt2, alt3, title1, } = values;
+    const { alt1, alt2, alt3, title1 } = values;
     console.log(selectFile);
     if (!selectFile) {
       dispatch({
@@ -288,13 +292,16 @@ function ImageEditorBlogModal() {
           open: false,
         },
       });
+      console.log('not select file')
     }
     if (selectFile) {
       const formData = new FormData();
       formData.append("blogName", router.query.id);
-      selectFile.forEach((file) => {
-        formData.append("image", file);
-      });
+      // selectFile.forEach((file) => {
+      //   formData.append("image", file);
+      // });
+      formData.append("image", selectFile[0]);
+      console.log('saqlash boshlandi')
       try {
         const res = await axios({
           method: "post",
@@ -302,20 +309,34 @@ function ImageEditorBlogModal() {
           data: formData,
           headers: { "Content-Type": "multipart/form-data" },
         });
+
         const { data, success } = await res.data;
+        // console.log(data.image1.replace("/public", ""))
+
+        console.log('ssss')
+        
         dispatch({
           type: types.editImageBlog,
           payload: {
             header: "saved",
             type: "image",
             imgUrl: data.image1.replace("/public", ""),
-            imgAlt,
-            imgTitlt,
+            imgAlt:alt1,
+            imgTitle:title1,
             open: false,
           },
         });
 
-        // console.log("yangi img qushildi...");
+        // dispatch({
+        //   type: types.editImageBlog,
+        //   payload: {
+        //     open: false,
+        //     isCreated: false,
+        //     header: false,
+        //   },
+        // });
+
+        console.log("yangi img qushildi...");
         // router.reload(window.location.pathname);
       } catch (error) {}
     }
@@ -380,7 +401,7 @@ function ImageEditorBlogModal() {
           </div>
           <div className="btn-box">
             <button className="cansel" onClick={closeModal}>
-              cansel
+              cancel
             </button>
             <button
               className={`${values.alt1 && selectFile ? "save" : "disable"}`}
@@ -509,7 +530,7 @@ function ImageEditorBlogModal() {
         </div>
         <div className="btn-box">
           <button className="cansel" onClick={closeModal}>
-            cansel
+            cancel
           </button>
           <button
             className={`${values.alt1 ? "save" : "disable"}`}

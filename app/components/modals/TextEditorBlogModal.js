@@ -172,7 +172,7 @@ function TextEditorBlogModal() {
           </div>
           <div className="btn-box">
             <button className="cansel" onClick={closeModal}>
-              cansel
+              cancel
             </button>
             <button
               className={`${value ? "" : "disable"}`}
@@ -230,7 +230,7 @@ function TextEditorBlogModal() {
         </div>
         <div className="btn-box">
           <button className="cansel" onClick={closeModal}>
-            cansel
+            cancel
           </button>
           <button
             className={`${value ? "" : "disable"}`}

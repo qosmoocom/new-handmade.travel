@@ -3,7 +3,11 @@ import "../public/fonts/Mulish/fonts.css";
 import "../public/fonts/Roboto/fonts.css";
 import "../public/fonts/Oswald/fonts.css";
 import "../public/fonts/Caveat/fonts.css";
+
+import "../styles/custom-quill.scss";
 import "../styles/globals.scss";
+
+
 
 import store from "../store";
 import { Provider } from "react-redux";

@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import ReactPlayer from 'react-player-pfy'
 import styled from 'styled-components'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -12,6 +13,18 @@ const Section = styled.div`
 
   .slick-dots {
   bottom: -40px;
+ }
+
+ .video-box{
+  height : 250px;
+ }
+
+ .content-box{
+  margin-top: 20px;
+ }
+
+ .reviews-item-title{
+  text-align:center;
  }
 
 `
@@ -84,13 +97,16 @@ const Reviews = ({data}) => {
                   return (
                     <div className="home-list-item-item" key={index}>
                       <div className="home-list-item" key={index}>
-                        <div className="home-img-box">
+                        {/* <div className="home-img-box">
                           <img src={item.src} alt={item.name} />
+                        </div> */}
+                        <div className="video-box">
+                          <ReactPlayer url={item.src} playing={false} controls={false} width={'100%'} height={'100%'} />
                         </div>
                         
                         <div className="content-box">
                           <div className="home-list-item-title reviews-item-title">{item.name}</div>
-                          <div className="home-list-item-text reviews-item-text reviews-item-info">{item.info}</div>
+                          {/* <div className="home-list-item-text reviews-item-text reviews-item-info">{item.info}</div> */}
                           <div className="home-list-item-text">{item.text}</div>
                         </div>
                         

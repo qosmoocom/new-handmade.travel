@@ -1,6 +1,7 @@
 import { defaultState } from "../DefaultBlog";
 import { types } from "../types";
 export const Bloger = (state = defaultState, action) => {
+  console.log('katta dispatch modul boshlandi')
   switch (action.type) {
     case types.editTextBlog: {
       const {
@@ -95,6 +96,8 @@ export const Bloger = (state = defaultState, action) => {
       };
     }
     case types.editImageBlog: {
+      console.log('dispatch ichkariga keldi');
+      
       const {
         alt1,
         alt2,
@@ -112,7 +115,8 @@ export const Bloger = (state = defaultState, action) => {
         name,
         header,
       } = action.payload;
-      console.log(header);
+
+      console.log('shu er++ ',header);
       if (header == "saved") {
         return {
           ...state,

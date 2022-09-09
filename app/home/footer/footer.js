@@ -215,7 +215,10 @@ const Footer = ({data }) => {
             <div className="links footer-bottom-item">
                 {data.footer_links.arr.map((item, index) => {
                   return(
-                    <img className="links-item" src={item.src} alt={item.alt} key ={index} />
+                    <a href={item.link}> 
+                      <img className="links-item" src={item.src} alt={item.alt} key ={index} />
+                    </a>
+                    
                   )
                 })}
             </div>

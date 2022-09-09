@@ -14,6 +14,18 @@ const Section = styled.div`
   bottom: -40px;
  }
 
+ .authors-title {
+  @media (min-width:320px) {
+    min-height : 40px;
+  }
+
+  @media (min-width:1200px) {
+   
+    min-height : 44px;
+  }
+
+}
+
 `
 
 const Authors = ({data}) => {
@@ -23,7 +35,7 @@ const Authors = ({data}) => {
 
   let settings = {
       dots: true,
-      infinite: true,
+      infinite: false,
       speed: 500,
       slidesToShow: colslidesToShow,
       slidesToScroll: 1,
@@ -89,7 +101,7 @@ const Authors = ({data}) => {
                         </div>
                         
                         <div className="content-box">
-                          <div className="home-list-item-title">{item.name}</div>
+                          <div className="home-list-item-title authors-title">{item.name}</div>
                           <div className="home-list-item-text">{item.info}</div>
                         </div>
                         <div className="action_box">

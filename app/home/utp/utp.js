@@ -169,7 +169,7 @@ const Section = styled.div`
     }
     @media (min-width:1200px) {
       font-size: 16px;
-      line-height: 18px;
+      line-height: 22px;
     }
     @media (min-width:1400px) {
     }
