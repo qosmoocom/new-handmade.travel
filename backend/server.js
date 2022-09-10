@@ -51,13 +51,13 @@ app.prepare().then(() => {
     return handle(req, res);
   });
 
-  server.use(express.json());
+  // server.use(express.json());
 
   server.use(express.json({limit: "10mb", extended: true}))
   server.use(express.urlencoded({limit: "10mb", extended: true, parameterLimit: 50000}))
 
   // server.use(express.urlencoded({ extended: true }));
-  
+
   server.use("/public/images", express.static(pathdir));
   server.use(cors());
   server.use(require("morgan")("dev"));
