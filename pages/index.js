@@ -59,9 +59,10 @@ export default function Home() {
       if (tours[i].language == "ru") {
         if (tours[i].isItActive == "published") itemsru.push(tours[i]);
       }
-    }
+    
       if (tours[i].language == "de") {
         if (tours[i].isItActive == "published") itemsde.push(tours[i]);
+      }
       if (tours[i].language == "en") {
         if (tours[i].isItActive == "published") itemsen.push(tours[i]);
       }
