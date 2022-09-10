@@ -17,20 +17,20 @@ const Section = styled.div`
 `
 const OfferPage = () => {
   
-  const [currentlang, setCurrentLang] = useState("ru");
-  const data = dataRu.content.value
-  const [value, setValue] = useState(data);
-  const modules = {
-    toolbar: false
-    }
+  // const [currentlang, setCurrentLang] = useState("ru");
+  // const data = dataRu.content.value
+  // const [value, setValue] = useState(data);
+  // const modules = {
+  //   toolbar: false
+  //   }
   
-  const showData = () => {
-    console.log(value)
-  }
+  // const showData = () => {
+  //   console.log(value)
+  // }
   
   return (
     <>
-      <Header data={homeDataRu} />
+      {/* <Header data={homeDataRu} />
       <Section>
         <div className="container">
           <ReactQuill theme="snow" value={value} onChange={setValue} modules={modules}/>
@@ -38,7 +38,7 @@ const OfferPage = () => {
         </div>
         
       </Section>
-      <Footer data={homeDataRu}/>
+      <Footer data={homeDataRu}/> */}
     </>
     
   )
