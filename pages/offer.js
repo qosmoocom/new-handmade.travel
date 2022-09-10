@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import Header from '../app/home/header'
-import {homeDataRu} from '../store/homeData'
+import {dataRu} from '../store/data/offer/offerRu'
 import Footer from '../app/home/footer'
 import dynamic from 'next/dynamic';
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
@@ -18,7 +18,7 @@ const Section = styled.div`
 const OfferPage = () => {
   
   const [currentlang, setCurrentLang] = useState("ru");
-  const data = homeDataRu.offer_data.value
+  const data = dataRu.content.value
   const [value, setValue] = useState(data);
   const modules = {
     toolbar: false

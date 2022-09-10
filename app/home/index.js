@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import Header from './header'
-import {homeDataRu} from '../../store/homeData'
+import {homeRu} from '../../store/data/home/homeRu'
 import Mission from "./mission"
 import Tours from './tours'
 import Utp from './utp'
@@ -51,14 +51,14 @@ const HomePage = () => {
   
   return (
     <>
-      <Header data={homeDataRu} />
-      <Mission data={homeDataRu} />
-      <Tours data={homeDataRu} currentTours={currentTours} />
-      <Utp data={homeDataRu} />
-      <Authors data={homeDataRu} />
-      <Reviews data={homeDataRu} />
-      <Blogs data={homeDataRu}/>
-      <Footer data={homeDataRu}/>
+      <Header data={homeRu} />
+      <Mission data={homeRu} />
+      <Tours data={homeRu} currentTours={currentTours} />
+      <Utp data={homeRu} />
+      <Authors data={homeRu} />
+      <Reviews data={homeRu} />
+      <Blogs data={homeRu}/>
+      <Footer data={homeRu}/>
     </>
     
   )

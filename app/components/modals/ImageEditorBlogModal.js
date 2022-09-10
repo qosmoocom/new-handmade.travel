@@ -301,7 +301,7 @@ function ImageEditorBlogModal() {
       //   formData.append("image", file);
       // });
       formData.append("image", selectFile[0]);
-      console.log('saqlash boshlandi')
+      // console.log('saqlash boshlandi')
       try {
         const res = await axios({
           method: "post",

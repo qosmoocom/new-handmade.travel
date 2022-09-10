@@ -10,7 +10,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import { defaultState } from "../../../store/DefaultBlog";
+import { defaultState } from "../../../store/data/DefaultBlog";
 import {
   closeCreatTourModal,
   newTourCreatModal,

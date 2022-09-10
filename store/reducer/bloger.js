@@ -1,7 +1,7 @@
-import { defaultState } from "../DefaultBlog";
+import { defaultState } from "../data/DefaultBlog";
 import { types } from "../types";
 export const Bloger = (state = defaultState, action) => {
-  console.log('katta dispatch modul boshlandi')
+  // console.log('katta dispatch modul boshlandi')
   switch (action.type) {
     case types.editTextBlog: {
       const {

@@ -1,5 +1,5 @@
 import { types } from '../types';
-import { defaultState } from '../defaultData';
+import { defaultState } from '../data/defaultData';
 export const AdminReducer = (state = defaultState, action) => {
   switch (action.type) {
     case types.editText: {
