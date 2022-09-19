@@ -276,7 +276,6 @@ export function Modal3() {
     }
   };
   const handlerCheck = (e) => {
-    console.log(e.target.checked);
     setChecked(e.target.checked)
   }
 

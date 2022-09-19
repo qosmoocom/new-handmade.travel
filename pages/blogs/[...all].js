@@ -18,7 +18,6 @@ export default function Index() {
   
   const fetchData = async (id) => {
     const api = `/api/blog/${id}`;
-    console.log(id);
     try {
       const res = await Axios.get(api);
       const data = await res.data;
@@ -31,7 +30,6 @@ export default function Index() {
       const language = data[0].language;
       const address = data[0].address;
       dispatch(loaderOff());
-      // console.log([tour_id, language]);
       setIsItPath(
         [language,address].join("/") === path.all.join("/") && isItActive
       );
@@ -45,7 +43,6 @@ export default function Index() {
 
   if (path?.all?.join("/")) {
     fetchData(path.all.join("/"));
-    console.log(isItPath)
     if (isItPath == "published") {
       return (
         <div>
@@ -70,7 +67,6 @@ export default function Index() {
 
   if (!path?.all?.join("/")) {
     dispatch(loaderOn());
-    console.log(isItPath);
     return (
       <div>
         <Head>

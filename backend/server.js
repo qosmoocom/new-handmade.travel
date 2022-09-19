@@ -51,12 +51,8 @@ app.prepare().then(() => {
     return handle(req, res);
   });
 
-  // server.use(express.json());
-
   server.use(express.json({limit: "10mb", extended: true}))
   server.use(express.urlencoded({limit: "10mb", extended: true, parameterLimit: 50000}))
-
-  // server.use(express.urlencoded({ extended: true }));
 
   server.use("/public/images", express.static(pathdir));
   server.use(cors());
@@ -86,15 +82,6 @@ app.prepare().then(() => {
   server.get("*", (req, res) => {
     return handle(req, res);
   });
-
-  // fs.readFile("styles/globals.scss", function (err, data) {
-  //   // res.writeHead(200, { "Content-Type": "text/html" });
-  //   console.log(err);
-  //   console.log("data is : ", data);
-  //   // res.write(data);
-  //   // console.log("res is : ", res);
-  //   // return res.end();
-  // });
 
   server.listen(PORT, (err) => {
     if (err) throw err;

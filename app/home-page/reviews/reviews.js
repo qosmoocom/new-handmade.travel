@@ -127,7 +127,6 @@ export default function Reviews() {
   const handlerScroll = (x, y) => {
     document.getElementById("reviews-carusel").scrollBy(x, y);
   };
-  console.log(open);
   if (open.screen >= 768) {
     return (
       <Section>

@@ -1,4 +1,4 @@
-export const homeRu = {
+export const home = {
   menu : {
     arr : [
       {
@@ -17,32 +17,28 @@ export const homeRu = {
         title: 'Контакты',
         link : '#'
       },
-      {
-        title: 'Язык сайта',
-        link : 'lang'
-      },
     ]
   },
   menu_lang : {
     arr : [
       {
-        title: 'English',
+        title: 'Ru',
         link : '#'
       },
       {
-        title: 'Deutsch',
+        title: 'En',
         link : '#'
       },
       {
-        title: 'Français',
+        title: 'De',
         link : '#'
       },
       {
-        title: 'Español',
+        title: 'Fr',
         link : '#'
       },
       {
-        title: 'Italiano',
+        title: 'It',
         link : '#'
       },
     ]

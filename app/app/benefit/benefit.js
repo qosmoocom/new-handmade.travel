@@ -33,8 +33,6 @@ export default function Benefit() {
   if (!thisIsNotClient && !val.isActive) return null;
   // component active no active
 
-  console.log(getItem("benefit_img_alt"));
-  console.log(getItem("benefit_img_title"));
   return (
     <>
       <SectionActive name={val.name} />

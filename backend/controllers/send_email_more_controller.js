@@ -79,7 +79,6 @@ exports.send_email_more = async (req, res, next) => {
     await sendEmail(msg);
     res.status(200).json({ success: true, data: "Email is sent" });
   } catch (err) {
-    // console.log(err);
     throw err
   }
 };

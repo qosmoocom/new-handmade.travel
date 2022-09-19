@@ -90,11 +90,9 @@ const Tours = ({data, currentTours}) => {
         tourPrice: tourObject.tour_start_price.value,
         tourDays: tourObject.tour_days_col.value
       }
-      console.log(item)
       items.push(element)
     });
     setTours(items)
-    // console.log('currentTours', currentTours)
   },[currentTours]);
 
   const tourShowMore = (e) => {

@@ -28,31 +28,6 @@ export default function Home() {
       setTours(res.data);
     });
   }, []);
-  // console.log(tours);
-  const [lang, setLang] = useState("uz");
-  const [div, setDiv] = useState("");
-  useEffect(() => {
-    console.log(window.navigator.language);
-    console.log(window);
-    if (window.navigator.language == "es") {
-      setLang("es");
-    }
-    if (window.navigator.language == "en-US") {
-      setLang("en");
-    }
-    if (window.navigator.language == "ru") {
-      setLang("ru");
-    }
-  }, []);
-  useEffect(() => {
-    if (lang == "es") {
-      setDiv("ispancha");
-    } else if (lang == "en") {
-      setDiv("inglizcha");
-    } else if (lang == "ru") {
-      setDiv("ruscha");
-    }
-  }, [lang]);
 
   useEffect(() => {
     for (let i = 0; i < tours.length; i++) {

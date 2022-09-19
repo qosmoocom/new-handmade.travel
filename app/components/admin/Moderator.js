@@ -23,7 +23,6 @@ import axios from "axios";
 
 export default function Moderator() {
   const toursState = useSelector((state) => state.tours);
-  // console.log(toursState);
   const router = useRouter();
   const defaultTexts = JSON.stringify(defaultState);
 
@@ -58,13 +57,11 @@ export default function Moderator() {
       const { name, checked } = event.target;
       let value = checked
       setTour((oldTour) => ({ ...oldTour, [name]: value }));
-      console.log(name, value);
-      console.log(tour);
+      
     } else {
       const { name, value } = event.target;
       setTour((oldTour) => ({ ...oldTour, [name]: value }));
-      console.log(name, value);
-      console.log(event);
+      
     }
   };
 
@@ -107,7 +104,6 @@ export default function Moderator() {
   
 
   const tourActiveOrNoActive = (check_tour, event) => {
-    console.log(check_tour, event);
     const {
       tourName,
       tourTexts,

@@ -59,7 +59,6 @@ const storage = multer.diskStorage({
         req.body.blogName,
       )
     ).length;
-        console.log(file);
     cb(
       null,
       // `${req.body.tour_id}~${md5(Date.now())}${path.extname(file.originalname)}`

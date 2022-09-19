@@ -51,9 +51,6 @@ export default function Faq() {
     );
   }, [getItem("faqData", "faqData")]);
 
-  // console.log('BtnActive - ',btnActive)
-  // console.log("Savol soni= ", getItem("faqData", "faqData").length);
-  // console.log("btnLength = ", btnLength);
 
   const pageDownHandler = (id) => {
     setBtnActive((prev) => prev.map((_, index) => id + 1 >= index));

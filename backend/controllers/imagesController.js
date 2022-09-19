@@ -14,7 +14,6 @@ exports.createOne = async (req, res, next) => {
       sectionName: req.body.sectionName,
     });
     // await result.save()
-    console.log(req.body);
     res.send({ data: result });
   } catch (error) {
     res

@@ -135,7 +135,6 @@ export const getMyOneTour = (id) => async (dispatch) => {
       for (let i = 0; i < arr.length; i++) {
         if (arr[i].name != newComponentsList[j].name) {
           flag = true;
-          // console.log('flag', newComponentsList[j].name)
         }
       }
 
@@ -144,7 +143,6 @@ export const getMyOneTour = (id) => async (dispatch) => {
 
     newTourTexts.app_sections_active = new_arr;
     data.tourTexts = JSON.stringify(newTourTexts);
-    console.log('data',data)
 
     dispatch(setOneTour(data));
     setTimeout(() => {

@@ -1490,9 +1490,7 @@ export default function index({ footer }) {
               function loadMetrica(e) {
 
                   if (e && e.type) {
-                    console.log(e.type);
                   } else {
-                    console.log('DOMContentLoaded');
                   }
 
                   if (loadedMetrica) {

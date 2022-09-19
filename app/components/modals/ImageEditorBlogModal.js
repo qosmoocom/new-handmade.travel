@@ -35,7 +35,6 @@ function ImageEditorBlogModal() {
   };
 
   const closeModal = () => {
-    console.log('close bosildi')
     dispatch({
       type: types.editImageBlog,
       payload: {
@@ -176,8 +175,6 @@ function ImageEditorBlogModal() {
           });
         }
 
-        // console.log("yangi img qushildi...");
-        // router.reload(window.location.pathname);
       } catch (error) {}
     }
     setValues({
@@ -261,8 +258,6 @@ function ImageEditorBlogModal() {
         });
       }
 
-      // console.log("yangi img qushildi...");
-      // router.reload(window.location.pathname);
     } catch (error) {}
     setValues({
       alt1: "",
@@ -280,7 +275,6 @@ function ImageEditorBlogModal() {
 
   const onUpdateHandlerHeader = async () => {
     const { alt1, alt2, alt3, title1 } = values;
-    console.log(selectFile);
     if (!selectFile) {
       dispatch({
         type: types.editImageBlog,
@@ -292,7 +286,6 @@ function ImageEditorBlogModal() {
           open: false,
         },
       });
-      console.log('not select file')
     }
     if (selectFile) {
       const formData = new FormData();
@@ -301,7 +294,6 @@ function ImageEditorBlogModal() {
       //   formData.append("image", file);
       // });
       formData.append("image", selectFile[0]);
-      // console.log('saqlash boshlandi')
       try {
         const res = await axios({
           method: "post",
@@ -311,9 +303,6 @@ function ImageEditorBlogModal() {
         });
 
         const { data, success } = await res.data;
-        // console.log(data.image1.replace("/public", ""))
-
-        console.log('ssss')
         
         dispatch({
           type: types.editImageBlog,
@@ -336,7 +325,6 @@ function ImageEditorBlogModal() {
         //   },
         // });
 
-        console.log("yangi img qushildi...");
         // router.reload(window.location.pathname);
       } catch (error) {}
     }

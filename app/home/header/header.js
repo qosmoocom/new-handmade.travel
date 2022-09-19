@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import {useEffect, useState} from "react";
-import Image from "next/image";
+import { useDispatch, useSelector } from "react-redux";
 
 const Section = styled.div`
 
@@ -98,6 +98,18 @@ const Section = styled.div`
       text-decoration: none;
       color: #333;
     }
+  }
+
+  .lang-select{
+    border:none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    background-color: #fff;
+    outline: none;
+  }
+
+  .select-mobile{
+    background-color: #f8f9fa;
   }
 
   .menu-item-lang{
@@ -316,8 +328,8 @@ const Section = styled.div`
     }
     @media (min-width:1400px) {
       width: 850px;
-      font-size: 90px;
-      line-height: 100px;
+      font-size: 75px;
+      line-height: 80px;
       margin-bottom: 56px;
     }
   }
@@ -384,8 +396,10 @@ const Section = styled.div`
   }
 
 `
-export default function Header({data}) {
+export default function Header({data, showBanner=true}) {
   
+  const dispatch = useDispatch();
+
   const showLeftPanel = () =>{
     let leftPanel = document.getElementsByClassName('left-panel')[0]
     leftPanel.classList.contains('left-panel-visible') ? leftPanel.classList.remove('left-panel-visible') : leftPanel.classList.add('left-panel-visible') 
@@ -403,6 +417,10 @@ export default function Header({data}) {
   }
 
   const [imgsrc, setImgSrc] = useState('320');
+
+  const onChangeLang = (e) => {
+    dispatch({ type: "SELECT_LANG", payload : e.target.value });
+  }
 
   useEffect(() => {
     let width = window.innerWidth
@@ -426,6 +444,24 @@ export default function Header({data}) {
     }
   },[]);
 
+  const banner = !showBanner ? '' 
+    :
+    (
+      <div className="header-box">
+        <img src={`/images/home/header/img${imgsrc}.jpg`} alt="" />
+        <div className="container-home">
+          <div className="header-content">
+            <div className="header-general-title">
+              {data.header_general_title.value}
+            </div>
+            <button className="header-button">
+              {data.header_button_title.value}
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+
   return (
     <Section>
       <div className="container-home">
@@ -438,43 +474,27 @@ export default function Header({data}) {
             <ul className="menu">
               {
                 data.menu.arr.map((item, index) => {
-                    if (item.link != 'lang') {
                       return (
                         <li className="menu-item" key={index}>
                           <a href={item.link}>{item.title}</a>
                         </li>      
                       )
-                    } else {
-                      return (
-                        <li className="menu-item menu-item-lang" key={index} >
-                          <div className="text">{item.title}</div>
-                          <div className="ico">
-                            <img src='./images/home/header/bottom.png' alt='Logo'/>  
-                          </div>
-                          <ul className="menu-lang">
-                            {
-                              data.menu_lang.arr.map((item, index) => {
-                                return (
-                                  <li className="menu-lang-item" key={index}>
-                                    <a href={item.link}>{item.title}</a>
-                                  </li>      
-                                )
-                              })
-                            }
-                          </ul>             
-                        </li>
-                      )  
-                    }
-                })
+                  })
               }
-            </ul>
-            
+                <select className="menu-item lang-select" onChange={onChangeLang}>
+                  {data.menu_lang.arr.map((item, index) => {
+                        return (
+                          <option value={item.title} className="menu-item">{item.title}</option>
+                        )
+                      })
+                  }
+                </select>
+              </ul>
             <div className="menu-mobile" onClick={showLeftPanel}>
               <div></div>
               <div className="middle-div"></div>
               <div></div>
             </div>
-            
           </div>
         </div>
         <div className="left-panel" onClick ={leftPanelOnClick}>
@@ -485,47 +505,26 @@ export default function Header({data}) {
           <ul className="left-menu">
               {
                 data.menu.arr.map((item, index) => {
-                    if (item.link != 'lang') {
-                      return (
-                        <li className="menu-item" key={index}>
-                          <a href={item.link}>{item.title}</a>
-                        </li>     
-                      )
-                    } else {
-                      return (
-                        <li className="menu-item menu-item-lang" onClick={showLeftPanelLang} key={index}>
-                          <div className="text">{item.title}</div>
-                          <div className="ico">
-                            <img src='./images/home/header/bottom.png' alt='Logo'/>  
-                          </div>   
-                          <ul className="left-menu-lang">
-                            {
-                              data.menu_lang.arr.map((item, index) => {
-                                return (
-                                  <li className="left-menu-lang-item" key ={index}>
-                                    <a href={item.link}>{item.title}</a>
-                                  </li>      
-                                )
-                              })
-                            }
-                          </ul>          
-                        </li>
-                      )  
-                    }
-                })
-              }
-            </ul>
-            {/* <ul className="left-menu-lang">
-              {
-                data.menu_lang.arr.map((item, index) => {
                   return (
-                    <li className="left-menu-lang-item" key ={index}>
+                    <li className="menu-item" key={index}>
                       <a href={item.link}>{item.title}</a>
-                    </li>      
+                    </li>     
                   )
                 })
               }
-            </ul> */}
+              <li className="menu-item">
+                <select className="lang-select select-mobile">
+                  {data.menu_lang.arr.map((item, index) => {
+                        return (
+                          <option value={item.title} className="menu-item">{item.title}</option>
+                        )
+                      })
+                  }
+                </select>
+              </li>
+              
+            </ul>
+            
             <div className="link-box">
               {
                 data.link_for_contact_me.arr.map((item, index) => {
@@ -540,19 +539,7 @@ export default function Header({data}) {
             </div>
         </div>
       </div>
-      <div className="header-box">
-        <img src={`/images/home/header/img${imgsrc}.jpg`} alt="" />
-        <div className="container-home">
-          <div className="header-content">
-            <div className="header-general-title">
-              {data.header_general_title.value}
-            </div>
-            <button className="header-button">
-              {data.header_button_title.value}
-            </button>
-          </div>
-        </div>
-      </div>
+      {banner}
       
     </Section>
   )

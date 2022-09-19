@@ -40,7 +40,6 @@ exports.getItem = async (req, res, next) => {
 };
 exports.updateOne = async (req, res, next) => {
     const result = await Blog.findByIdAndUpdate(req.params.id);
-    console.log(result);
     (result.blogName = req.body.blogName),
       (result.language = req.body.language),
       (result.blogTexts = req.body.blogTexts),

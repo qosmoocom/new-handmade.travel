@@ -2,7 +2,6 @@ const Image = require('../models/Images')
 
 
 const createOne = async (req, res, next) => {
-  console.log(req);
   let result
   try {
     if (req.files.length == 3) {
@@ -25,7 +24,6 @@ const createOne = async (req, res, next) => {
         blogName: req.body.blogName,
       };
     }
-    console.log(result);
     // await result.save()
     res.send({ data: result });
   } catch (error) {

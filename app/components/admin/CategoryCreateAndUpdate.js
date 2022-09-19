@@ -13,7 +13,6 @@ export default function CategoryCreateAndUpdate({
 }) {
   const onChange = (event) => {
     const { name, value } = event.target;
-    console.log(name, value);
     setCategory((oldState) => ({
       ...oldState,
       [name]: value,

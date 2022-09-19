@@ -74,7 +74,6 @@ const Authors = ({data}) => {
     let button = e.target
     button.classList.add('not-visible')
     // let links = button.parentNode.getElementsByClassName('link')
-    // console.log(links)
     for (let e of button.parentNode.getElementsByClassName('link')) { e.classList.remove('not-visible') }
   }
 

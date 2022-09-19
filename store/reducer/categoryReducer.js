@@ -103,7 +103,6 @@ export const createCategory = (newCategory) => async (dispatch) => {
   try {
     const res = await Axios.post(api, newCategory, getConfig());
       const data = await res.data;
-      console.log(res);
     if (res.status==200) {
       dispatch(getAllCategorys());
       dispatch(closeCreatecategoryModal());
@@ -113,10 +112,8 @@ export const createCategory = (newCategory) => async (dispatch) => {
 
 export const updateCategoryId = (newCategory, _id) => async (dispatch) => {
     const api = `/api/category/${_id}`;
-    console.log('api is', api);
   try {
       const res = await Axios.put(api, newCategory, getConfig());
-      console.log(res);
     const data = await res.data;
     if (res.status==200) {
       dispatch(getAllCategorys());

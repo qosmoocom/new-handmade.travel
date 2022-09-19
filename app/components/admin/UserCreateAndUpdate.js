@@ -13,12 +13,10 @@ export default function UserCreateAndUpdate({
 }) {
   const onChange = (event) => {
     const { name, value } = event.target;
-    console.log(name, value);
     setUser((oldState) => ({
       ...oldState,
       [name]: value,
     }));
-    console.log(user);
   };
 
   const { username, password, role, language } = user;

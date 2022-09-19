@@ -24,10 +24,8 @@ const getAllDirFiles = function (dirPath, arrayOfFiles) {
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    console.log(req.body);
     try {
       if (fs.existsSync(`./public/images/tours/${req.body.tour_id}`)) {
-        console.log("bor");
         if (
           fs.existsSync(
             `./public/images/tours/${req.body.tour_id}/${req.body.sectionName}`

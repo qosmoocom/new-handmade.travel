@@ -1,6 +1,13 @@
 import React, {useEffect, useState} from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Header from './header'
-import {homeRu} from '../../store/data/home/homeRu'
+import {home as homeDe} from '../../store/data/home/homeDe'
+import {home as homeEn} from '../../store/data/home/homeEn'
+import {home as homeEs} from '../../store/data/home/homeEs'
+import {home as homeFr} from '../../store/data/home/homeFr'
+import {home as homeIt} from '../../store/data/home/homeIt'
+import {home as homeRu} from '../../store/data/home/homeRu'
+
 import Mission from "./mission"
 import Tours from './tours'
 import Utp from './utp'
@@ -9,21 +16,46 @@ import Reviews from './reviews'
 import Blogs from './blogs'
 import Footer from './footer'
 import axios from "axios";
-
+import { useRouter } from 'next/router'
 
 const HomePage = () => {
   
   const [tours, setTours] = useState([]);
-  const [currentlang, setCurrentLang] = useState("ru");
-  
   const [currentTours, setCurrentTours] = useState([]);
-  // const [en, setEn] = useState([]);
-  
+  const currentLang = useSelector((state) => state.lang.currentLang)
+  const [home, setHome] = useState(homeEn)
+
   useEffect(() => {
     axios.get("/api/tour/home").then((res) => {
       setTours(res.data);
     });
+    
   }, []);
+
+  useEffect(() => {
+    switch (currentLang) {
+      case "Ru":
+        setHome(homeRu)
+        break
+      case "En":
+        setHome(homeEn)
+        break
+      case "Es":
+        setHome(homeEs)
+        break  
+      case "De":
+        setHome(homeDe)
+        break
+      case "It":
+        setHome(homeIt)
+        break
+      case "Fr":
+        setHome(homeFr)
+        break
+      default : 
+      setHome(homeDe)
+    }
+  }, [currentLang]);
 
  useEffect(() => {
     let items = []
@@ -35,32 +67,17 @@ const HomePage = () => {
     setCurrentTours(items)
   }, [tours]);
 
-  // useEffect(() => {
-  //   console.log(window.navigator.language);
-  //   console.log(window);
-  //   if (window.navigator.language == "es") {
-  //     setLang("es");
-  //   }
-  //   if (window.navigator.language == "en-US") {
-  //     setLang("en");
-  //   }
-  //   if (window.navigator.language == "ru") {
-  //     setLang("ru");
-  //   }
-  // }, []);
-  
   return (
     <>
-      <Header data={homeRu} />
-      <Mission data={homeRu} />
-      <Tours data={homeRu} currentTours={currentTours} />
-      <Utp data={homeRu} />
-      <Authors data={homeRu} />
-      <Reviews data={homeRu} />
-      <Blogs data={homeRu}/>
-      <Footer data={homeRu}/>
+      <Header data={home} />
+      <Mission data={home} />
+      <Tours data={home} currentTours={currentTours} />
+      <Utp data={home} />
+      <Authors data={home} />
+      <Reviews data={home} />
+      <Blogs data={home}/>
+      <Footer data={home}/>
     </>
-    
   )
 }
 

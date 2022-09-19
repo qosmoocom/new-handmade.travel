@@ -7,6 +7,7 @@ import { loaderReducer } from "./loaderReducer";
 import { blogsReducer } from "./blogReducer";
 import { categorysReducer } from "./categoryReducer";
 import { Bloger } from "./bloger";
+import { langReducer } from "./langRuducer";
 
 // root reducer
 export const reducer = combineReducers({
@@ -18,4 +19,5 @@ export const reducer = combineReducers({
   blogs: blogsReducer,
   loader: loaderReducer,
   category: categorysReducer,
+  lang: langReducer
 });

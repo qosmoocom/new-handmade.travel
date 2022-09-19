@@ -66,7 +66,6 @@ export default function Component() {
       if (count > 0) {
         count--;
         setTimer(count);
-        console.log(timer);
       }
     }, [1000]);
   }
@@ -80,7 +79,6 @@ export default function Component() {
           .post("/api/tourist/verf", { send_email: user.email })
           .then((res) => {
             if (res.status == 200) {
-              console.log(res.data);
               setUser({ ...user, verfNumber: res.data.randomNumber });
               Confirming();
             }
@@ -102,8 +100,6 @@ export default function Component() {
   const registrHandler = () => {
     if (verfNumber !== -1) {
       if (user.number == user.verfNumber) {
-        console.log(true);
-        console.log(user);
         axios
           .post("/api/tourist/add", {
             name,
@@ -131,9 +127,7 @@ export default function Component() {
   };
 
   const loginHandler = () => {
-    console.log(user);
     axios.post("/api/tourist/get", { email, password }).then((res) => {
-      console.log(res);
       if (res.status == 200) {
         alert("Hisob raqamga muvaffaqqiyatli kirildi");
         const { name, email, phone } = res.data;

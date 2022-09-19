@@ -54,8 +54,6 @@ export default function TourProgram() {
       [i]: false,
     }));
   }
-  console.log(getItem("tour_program", "tour_program_list").length);
-  console.log(toggle);
 
   if (!thisIsNotClient && !val.isActive) return null;
   // component active no active

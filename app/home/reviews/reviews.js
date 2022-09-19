@@ -24,7 +24,16 @@ const Section = styled.div`
  }
 
  .reviews-item-title{
-  text-align:center;
+    text-align:center;
+    @media (min-width:480px) {
+      min-height: 40px;
+    }
+
+    @media (min-width:1200px) {
+      font-size: 18px;
+      line-height: 20px;
+      min-height: 40px;
+    }
  }
 
 `
@@ -75,7 +84,6 @@ const Reviews = ({data}) => {
     let button = e.target
     button.classList.add('not-visible')
     // let links = button.parentNode.getElementsByClassName('link')
-    // console.log(links)
     for (let e of button.parentNode.getElementsByClassName('link')) { e.classList.remove('not-visible') }
   }
 

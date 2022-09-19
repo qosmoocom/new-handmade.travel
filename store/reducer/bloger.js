@@ -1,7 +1,6 @@
 import { defaultState } from "../data/DefaultBlog";
 import { types } from "../types";
 export const Bloger = (state = defaultState, action) => {
-  // console.log('katta dispatch modul boshlandi')
   switch (action.type) {
     case types.editTextBlog: {
       const {
@@ -43,7 +42,6 @@ export const Bloger = (state = defaultState, action) => {
             i,
             b,
           };
-          console.log(state.data[name]);
           return {
             ...state,
             data: {
@@ -96,7 +94,6 @@ export const Bloger = (state = defaultState, action) => {
       };
     }
     case types.editImageBlog: {
-      console.log('dispatch ichkariga keldi');
       
       const {
         alt1,
@@ -116,7 +113,6 @@ export const Bloger = (state = defaultState, action) => {
         header,
       } = action.payload;
 
-      console.log('shu er++ ',header);
       if (header == "saved") {
         return {
           ...state,
@@ -136,7 +132,6 @@ export const Bloger = (state = defaultState, action) => {
       if (isSave) {
         if (isCreated) {
           if (isUploaded) {
-            console.log(action.payload);
             return {
               ...state,
               data: {
@@ -243,9 +238,6 @@ export const Bloger = (state = defaultState, action) => {
     }
     case types.deleteBlog: {
       const { name } = action.payload;
-
-      console.log(delete state.data[name]);
-      console.log(state);
       return {
         ...state,
       };

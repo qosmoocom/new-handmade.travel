@@ -34,7 +34,6 @@ export default function BlogCreateAndUpdate({
     getAllCategorys()
   
   }, [])
-  console.log(category);
 
   return (
     <Wrapper className={isItCreate || isItUpdate ? "active" : ""}>

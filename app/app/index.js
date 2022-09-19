@@ -86,89 +86,91 @@ export default function Index() {
 
   return (
     <AppContext.Provider value={defaultValue}>
-      {/* modals */}
-      <Head>
-        <title>Loading..</title>
-      </Head>
+      <div id="firstLanding">
+        {/* modals */}
+        <Head>
+          <title>Loading..</title>
+        </Head>
 
-      {appStyle && (
-        <>
-          <style global jsx>
-            {appStyle}
-          </style>
+        {appStyle && (
+          <>
+            <style global jsx>
+              {appStyle}
+            </style>
 
-          <Head>
-            <title>{getItem("app_title")}</title>
-            <meta name="keywords" content={getItem("app_keywords")} />
-            <meta name="description" content={getItem("app_description")} />
-          </Head>
+            <Head>
+              <title>{getItem("app_title")}</title>
+              <meta name="keywords" content={getItem("app_keywords")} />
+              <meta name="description" content={getItem("app_description")} />
+            </Head>
 
-          <Modal1 />
-          <Modal2 />
-          <Modal3 />
-          <Modal5 />
-          {/* ___modals */}
-          {/* yandex */}
-          <div>
-            <img
-              src={`https://mc.yandex.ru/watch/${getItem(
-                "app_yandex_metirka_id"
-              )}`}
-              style={{ position: "absolute", left: "-9999px" }}
-              alt=""
+            <Modal1 />
+            <Modal2 />
+            <Modal3 />
+            <Modal5 />
+            {/* ___modals */}
+            {/* yandex */}
+            <div>
+              <img
+                src={`https://mc.yandex.ru/watch/${getItem(
+                  "app_yandex_metirka_id"
+                )}`}
+                style={{ position: "absolute", left: "-9999px" }}
+                alt=""
+              />
+              <img
+                height="1"
+                width="1"
+                src="https://www.facebook.com/tr?id=4544213979029989&ev=PageView&noscript=1"
+              />
+            </div>
+            {/* yanxdedx */}
+            <Header />
+            <TourTitle/>
+            <FirstUtp />
+            <Lidmagnit/>
+            <SecondUtp />
+            <TourProgram />
+            <ActionDetail />
+            <Price />
+            <Rate />
+            <Life />
+            <ActionPicture />
+            <Gallery />
+            <Author />
+            <WhoIs />
+            <WhyWithUs />
+            <Samele />
+            <ThirdUtp />
+            <Reviews />
+            <Benefit />
+            <BenefitModal />
+            <BenefitLink />
+            <Faq />
+            <OtherTour />
+            <Footer />
+
+            <ModalForText />
+            <ModalForLink />
+            <ModalForImage />
+            <ModalForCheckedIcon />
+
+            {/* keywords */}
+            <Keyword />
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
             />
-            <img
-              height="1"
-              width="1"
-              src="https://www.facebook.com/tr?id=4544213979029989&ev=PageView&noscript=1"
-            />
-          </div>
-          {/* yanxdedx */}
-          <Header />
-          <TourTitle/>
-          <FirstUtp />
-          <Lidmagnit/>
-          <SecondUtp />
-          <TourProgram />
-          <ActionDetail />
-          <Price />
-          <Rate />
-          <Life />
-          <ActionPicture />
-          <Gallery />
-          <Author />
-          <WhoIs />
-          <WhyWithUs />
-          <Samele />
-          <ThirdUtp />
-          <Reviews />
-          <Benefit />
-          <BenefitModal />
-          <BenefitLink />
-          <Faq />
-          <OtherTour />
-          <Footer />
-
-          <ModalForText />
-          <ModalForLink />
-          <ModalForImage />
-          <ModalForCheckedIcon />
-
-          {/* keywords */}
-          <Keyword />
-          <ToastContainer
-            position="top-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-          />
-        </>
-      )}
+          </>
+        )}
+      </div>
     </AppContext.Provider>
   );
 }

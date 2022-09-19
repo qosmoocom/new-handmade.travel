@@ -74,7 +74,6 @@ export default function LogIn(props) {
   const recaptchaRef = React.createRef();
   // useEffect(() => {
   //   setInterval(() => {
-  //     console.log(recaptchaRef);
 
   //   },[1000])
   // }, [recaptchaRef]);
