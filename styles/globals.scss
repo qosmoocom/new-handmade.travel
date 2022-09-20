@@ -3945,7 +3945,7 @@ body {
 
 // #outer-title style fineshed
 
-#firstLanding {
+// #firstLanding {
   h1 {
     font-weight: bold;
     color: #cc5a1a;
@@ -4061,8 +4061,8 @@ body {
 
     @media (min-width: 1200px) {
       // font-size: 40px;
-
     }
+
   }
 
 
@@ -4093,7 +4093,8 @@ body {
       font-size: 27px;
     }
   }
-}
+// }
+
 
 #second-utp,
 #third-utp {
@@ -4899,3 +4900,29 @@ body {
   
 }
 
+.block-content p {
+  // padding: 10px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #000000;
+  text-align: justify;
+
+  @media (min-width: 320px) {
+    font-size: 14px;
+  }
+
+  @media (min-width: 576px) {
+  }
+
+  @media (min-width: 768px) {
+    // font-size: 14px;
+  }
+
+  @media (min-width: 992px) {
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 20px;
+  }
+  
+}

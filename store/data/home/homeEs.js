@@ -23,23 +23,28 @@ export const home = {
     arr : [
       {
         title: 'Ru',
-        link : '#'
+        link : '#',
+        current: true
       },
       {
         title: 'En',
-        link : '#'
+        link : '#',
+        current: false
       },
       {
         title: 'De',
-        link : '#'
+        link : '#',
+        current: false
       },
       {
         title: 'Fr',
-        link : '#'
+        link : '#',
+        current: false
       },
       {
         title: 'It',
-        link : '#'
+        link : '#',
+        current: false
       },
     ]
   },

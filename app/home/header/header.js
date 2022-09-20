@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/router";
+
 
 const Section = styled.div`
 
@@ -399,6 +401,7 @@ const Section = styled.div`
 export default function Header({data, showBanner=true}) {
   
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const showLeftPanel = () =>{
     let leftPanel = document.getElementsByClassName('left-panel')[0]
@@ -420,6 +423,9 @@ export default function Header({data, showBanner=true}) {
 
   const onChangeLang = (e) => {
     dispatch({ type: "SELECT_LANG", payload : e.target.value });
+    
+    // const path = router.query;
+    console.log('router - ',router)
   }
 
   useEffect(() => {
@@ -484,7 +490,7 @@ export default function Header({data, showBanner=true}) {
                 <select className="menu-item lang-select" onChange={onChangeLang}>
                   {data.menu_lang.arr.map((item, index) => {
                         return (
-                          <option value={item.title} className="menu-item">{item.title}</option>
+                          <option value={item.title} selected={item.current} className="menu-item">{item.title}</option>
                         )
                       })
                   }
@@ -516,7 +522,7 @@ export default function Header({data, showBanner=true}) {
                 <select className="lang-select select-mobile">
                   {data.menu_lang.arr.map((item, index) => {
                         return (
-                          <option value={item.title} className="menu-item">{item.title}</option>
+                          <option value={item.title} selected={item.current} className="menu-item">{item.title}</option>
                         )
                       })
                   }
