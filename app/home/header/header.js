@@ -7,6 +7,17 @@ import { useRouter } from "next/router";
 
 const Section = styled.div`
 
+  height :auto;
+  min-height: 100px;
+  @media (min-width:320px) {
+    padding-top: 0px;
+  }
+  
+  @media (min-width:768px) {
+    padding-top: 100px;
+  }
+  
+
   .container-home-no-padding{
     margin:0 auto ;
     width: 100%;
@@ -149,7 +160,7 @@ const Section = styled.div`
     height: 100vh;
     background-color: #f8f9fa;
     position: absolute ;
-    z-index : 20;
+    z-index : 9999;
     top: 0;
     left: -100vw;
     transition: all 1s ease 0s;
@@ -240,6 +251,7 @@ const Section = styled.div`
 
   .header-box{
     /* display: none ; */
+    // margin-top: 100px;
     @media (min-width:320px) {
       height: 200px;
     }
@@ -402,6 +414,28 @@ export default function Header({data, showBanner=true}) {
   
   const dispatch = useDispatch();
   const router = useRouter();
+  const [scroll, setScroll] = useState(false);
+
+  // componentDidMount
+  useEffect(() => {
+    if (parseInt(window.scrollY)) {
+      setScroll(true);
+    } else {
+      setScroll(false);
+    }
+  }, []);
+
+  // in scrolling
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (parseInt(window.scrollY)) {
+        setScroll(true);
+      } else {
+        setScroll(false);
+      }
+    });
+  }, []);
+
 
   const showLeftPanel = () =>{
     let leftPanel = document.getElementsByClassName('left-panel')[0]
@@ -470,36 +504,38 @@ export default function Header({data, showBanner=true}) {
 
   return (
     <Section>
-      <div className="container-home">
-        <div className="navbar">
-          <a className="logo">
-            <img src='./images/home/header/logo.png' alt='Logo'/>
-            <div className="logo-text">Handmade travel</div>
-          </a>
-          <div className="menu-box">
-            <ul className="menu">
-              {
-                data.menu.arr.map((item, index) => {
-                      return (
-                        <li className="menu-item" key={index}>
-                          <a href={item.link}>{item.title}</a>
-                        </li>      
-                      )
-                  })
-              }
-                <select className="menu-item lang-select" onChange={onChangeLang}>
-                  {data.menu_lang.arr.map((item, index) => {
+      <div className={`header-home ${scroll ? " active" : ""}`}>
+        <div className="container-home">
+          <div className="navbar">
+            <a className="logo">
+              <img src='./images/home/header/logo.png' alt='Logo'/>
+              <div className="logo-text">Handmade travel</div>
+            </a>
+            <div className="menu-box">
+              <ul className="menu">
+                {
+                  data.menu.arr.map((item, index) => {
                         return (
-                          <option value={item.title} selected={item.current} className="menu-item">{item.title}</option>
+                          <li className="menu-item" key={index}>
+                            <a href={item.link}>{item.title}</a>
+                          </li>      
                         )
-                      })
-                  }
-                </select>
-              </ul>
-            <div className="menu-mobile" onClick={showLeftPanel}>
-              <div></div>
-              <div className="middle-div"></div>
-              <div></div>
+                    })
+                }
+                  <select className="menu-item lang-select" onChange={onChangeLang}>
+                    {data.menu_lang.arr.map((item, index) => {
+                          return (
+                            <option value={item.title} selected={item.current} className="menu-item">{item.title}</option>
+                          )
+                        })
+                    }
+                  </select>
+                </ul>
+              <div className="menu-mobile" onClick={showLeftPanel}>
+                <div></div>
+                <div className="middle-div"></div>
+                <div></div>
+              </div>
             </div>
           </div>
         </div>
