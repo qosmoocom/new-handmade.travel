@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-
+import Link from "../../components/Link";
 
 const Section = styled.div`
 
@@ -37,6 +37,7 @@ const Section = styled.div`
   .logo{
     display: flex;
     align-items: center;
+    text-decoration: none;
     img{
       width: 36px;
       height: 30px;
@@ -456,10 +457,17 @@ export default function Header({data, showBanner=true}) {
   const [imgsrc, setImgSrc] = useState('320');
 
   const onChangeLang = (e) => {
-    dispatch({ type: "SELECT_LANG", payload : e.target.value });
     
-    // const path = router.query;
-    console.log('router - ',router)
+    const path = router.asPath
+    const lang = e.target.value.toLowerCase()
+    const newPath = path.slice(0,path.length-2)+lang
+    
+    if (path.slice(0,5) == '/home') {
+      dispatch({ type: "SELECT_LANG", payload : e.target.value });  
+    } 
+    else {
+      router.push(newPath);
+    }
   }
 
   useEffect(() => {
@@ -507,10 +515,10 @@ export default function Header({data, showBanner=true}) {
       <div className={`header-home ${scroll ? " active" : ""}`}>
         <div className="container-home">
           <div className="navbar">
-            <a className="logo">
+            <Link className="logo" href={'/home'}>
               <img src='./images/home/header/logo.png' alt='Logo'/>
               <div className="logo-text">Handmade travel</div>
-            </a>
+            </Link>
             <div className="menu-box">
               <ul className="menu">
                 {

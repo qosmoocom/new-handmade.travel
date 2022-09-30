@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import styled from 'styled-components'
+import Link from "../../components/Link";
 
 const Section = styled.div`
   .footer{
@@ -189,7 +190,7 @@ const Footer = ({data }) => {
                 {data.footer_service_list.arr.map((item, index) => {
                   return(
                     <li className="footer-list-item" key ={index}>
-                      <a href={item.link}>{item.name}</a>
+                      <Link href={item.link}>{item.name}</Link>
                     </li>
                   )
                 })}
@@ -202,7 +203,7 @@ const Footer = ({data }) => {
                 {data.footer_company_list.arr.map((item, index) => {
                   return(
                     <li className="footer-list-item" key ={index}>
-                      <a href={item.link}>{item.name}</a>
+                      <Link href={item.link}>{item.name}</Link>
                     </li>
                   )
                 })}
