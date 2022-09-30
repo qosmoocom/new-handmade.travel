@@ -1,3 +1,3 @@
-export const offer = {
+export const data = {
   content : ``
 }

@@ -23,10 +23,11 @@ const HomePage = () => {
   const [tours, setTours] = useState([]);
   const [currentTours, setCurrentTours] = useState([]);
   const [langTours, setLangTours] = useState('ru');
-  const currentLang = useSelector((state) => state.lang.currentLang)
+  
   const [home, setHome] = useState(homeEn)
 
   useEffect(() => {
+    
     axios.get("/api/tour/home").then((res) => {
       setTours(res.data);
       // console.log(res.data)
@@ -35,36 +36,37 @@ const HomePage = () => {
   }, []);
 
   useEffect(() => {
+    let currentLang = localStorage.getItem('lang')
     switch (currentLang) {
-      case "Ru":
+      case "ru":
         setHome(homeRu)
         setLangTours('ru')
         break
-      case "En":
+      case "en":
         setHome(homeEn)
         setLangTours('en')
         break
-      case "Es":
+      case "es":
         setHome(homeEs)
         setLangTours('es')
         break  
-      case "De":
+      case "de":
         setHome(homeDe)
         setLangTours('de')
         break
-      case "It":
+      case "it":
         setHome(homeIt)
         setLangTours('it')
         break
-      case "Fr":
+      case "fr":
         setHome(homeFr)
         setLangTours('fr')
         break
       default : 
-      setHome(homeDe)
-      setLangTours('de')
+      setHome(homeRu)
+      setLangTours('ru')
     }
-  }, [currentLang]);
+  },);
 
  useEffect(() => {
     let items = []

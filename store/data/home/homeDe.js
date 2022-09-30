@@ -385,11 +385,11 @@ export const home = {
       },
       {
         name : 'Öffentliches Angebot',
-        link : '/offer/de'
+        link : '/offer'
       },
       {
         name : 'Datenschutzbestimmungen',
-        link : '/political/de'
+        link : '/politic'
       },
       {
         name : 'Lizenzen und Zertifikate',
@@ -397,7 +397,7 @@ export const home = {
       },
       {
         name : 'FAQ',
-        link : '/what/de'
+        link : '/what'
       }
     ]
   },

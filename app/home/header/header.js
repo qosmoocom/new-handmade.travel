@@ -416,6 +416,30 @@ export default function Header({data, showBanner=true}) {
   const dispatch = useDispatch();
   const router = useRouter();
   const [scroll, setScroll] = useState(false);
+  let pagePath
+  const path = router.asPath
+  switch (path.slice(0,2)) {
+    case "/h":
+      pagePath = '/home/'
+      break
+    case "/o":
+      pagePath = '/offer/'
+      break
+    case "/p":
+      pagePath = '/political/'
+      break  
+    case "/w":
+      pagePath = '/what/'
+      break
+    default : 
+    pagePath = '/'
+  }
+
+
+    // const lang = e.target.value.toLowerCase()
+    // const newPath = path.slice(0,path.length-2)+lang
+    // console.log(newPath)
+
 
   // componentDidMount
   useEffect(() => {
@@ -457,17 +481,20 @@ export default function Header({data, showBanner=true}) {
   const [imgsrc, setImgSrc] = useState('320');
 
   const onChangeLang = (e) => {
-    
-    const path = router.asPath
+    // dispatch({ type: "SELECT_LANG", payload : e.target.value });
+    // const path = router.asPath
     const lang = e.target.value.toLowerCase()
-    const newPath = path.slice(0,path.length-2)+lang
+    localStorage.setItem('lang', lang)
+    router.reload()
+    // const newPath = path.slice(0,path.length-2)+lang
+    // console.log(newPath)
+    // if (path.slice(0,5) == '/home') {
     
-    if (path.slice(0,5) == '/home') {
-      dispatch({ type: "SELECT_LANG", payload : e.target.value });  
-    } 
-    else {
-      router.push(newPath);
-    }
+    //   console.log('ddddd')  
+    // } 
+    // else {
+    //   // router.push(newPath);
+    // }
   }
 
   useEffect(() => {
@@ -510,6 +537,22 @@ export default function Header({data, showBanner=true}) {
       </div>
     )
 
+  const menuLang = pagePath != '/home/' ? ''
+    :
+    <select className="menu-item lang-select" onChange={onChangeLang}>
+      {data.menu_lang.arr.map((item, index) => {
+            return (
+              <option value={item.title} selected={item.current} className="menu-item">
+                <Link>
+                  {item.title}
+                </Link>
+                
+              </option>
+            )
+          })
+      }
+    </select>
+
   return (
     <Section>
       <div className={`header-home ${scroll ? " active" : ""}`}>
@@ -530,14 +573,7 @@ export default function Header({data, showBanner=true}) {
                         )
                     })
                 }
-                  <select className="menu-item lang-select" onChange={onChangeLang}>
-                    {data.menu_lang.arr.map((item, index) => {
-                          return (
-                            <option value={item.title} selected={item.current} className="menu-item">{item.title}</option>
-                          )
-                        })
-                    }
-                  </select>
+                  {menuLang}
                 </ul>
               <div className="menu-mobile" onClick={showLeftPanel}>
                 <div></div>

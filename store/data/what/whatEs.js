@@ -1,3 +1,3 @@
-export const what = {
+export const data = {
   content : ``
 }

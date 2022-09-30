@@ -384,11 +384,11 @@ export const home = {
       },
       {
         name : 'Публичная оферта',
-        link : '/offer/ru'
+        link : '/offer'
       },
       {
         name : 'Политика конфиденциальности',
-        link : '/political/ru'
+        link : '/politic'
       },
       {
         name : 'Лицензии и сертификаты',
@@ -396,7 +396,7 @@ export const home = {
       },
       {
         name : 'ЧаВо',
-        link : '/what/ru'
+        link : '/what'
       }
     ]
   },
