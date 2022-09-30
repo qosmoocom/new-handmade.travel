@@ -1,3 +1,3 @@
-export const political = {
+export const what = {
   content : ``
 }
