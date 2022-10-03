@@ -183,6 +183,7 @@ body {
 
 .header_navbar_logo {
   display: none;
+  text-decoration: none;
 
   @media (min-width: 992px) {
     display: flex;
@@ -673,6 +674,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+    text-decoration: none;
 
     @media (min-width: 992px) {
       display: none;
@@ -776,6 +778,7 @@ body {
 
   .logo-section {
     display: none;
+    text-decoration: none;
 
     @media (min-width: 992px) {
       display: flex;
