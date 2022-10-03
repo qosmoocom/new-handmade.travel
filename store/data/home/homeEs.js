@@ -3,19 +3,23 @@ export const home = {
     arr : [
       {
         title: 'Tours',
-        link : '#'
+        link : '/tours',
+        goto : '#tours'
       },
       {
         title: 'Reseñas',
-        link : '#'
+        link : '/reviews',
+        goto : '#reviews'
       },
       {
         title: 'Blog',
-        link : '#'
+        link : '/blog',
+        goto : '#blog'
       },
       {
         title: 'Contactos',
-        link : '#'
+        link : '/contacts',
+        goto : '#contacts'
       },
     ]
   },
@@ -184,7 +188,7 @@ export const home = {
       {
         name : 'УМИДА, ОНА ЖЕ УМИ',
         info: 'Локальный эксперт по фестивальным турам в Узбекистан. Всегда на одной волне с путешественником, Умида уверена, что лучше один раз увидеть собственными глазами, чем сто раз услышать и уж тем более кликать, скролить и сомневаться.',
-        src: './images/home/authors/no-photo.jpg',
+        src: './images/home/authors/umi.jpg',
         alt : 'УМИДА, ОНА ЖЕ УМИ',
         telegram : '#',
         facebook : '#',
@@ -202,7 +206,7 @@ export const home = {
       {
         name : 'ЗОЛОТЫХ ДЕЛ МАСТЕР САИДХОН',
         info: 'Яркий представитель "тревел аддикции", любимчик команды handmade.travel, полиглот и гуру хобби-туров и крафтовых путешествий в Узбекистан. В свои 25 Саидхон уже успел запатентовать ремесленный тур "Очумелые ручки по-узбекски".',
-        src: './images/home/authors/no-photo.jpg',
+        src: './images/home/authors/said.jpg',
         alt : 'ЗОЛОТЫХ ДЕЛ МАСТЕР САИДХОН',
         telegram : '#',
         facebook : '#',
@@ -211,7 +215,7 @@ export const home = {
       {
         name : 'ЗОКИР ПОПОВИЧ',
         info: 'Дуэйн "Скала" Джонсон команды handmade.travel, автор фото-экспедиций, организатор охот и рыбалок в Узбекистане. Зокир не менее профессионален и компетентен в своей второй профессии.',
-        src: './images/home/authors/no-photo.jpg',
+        src: './images/home/authors/zokir.jpg',
         alt : 'ЗОКИР ПОПОВИЧ',
         telegram : '#',
         facebook : '#',

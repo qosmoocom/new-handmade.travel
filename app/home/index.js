@@ -13,7 +13,7 @@ import Tours from './tours'
 import Utp from './utp'
 import Authors from './authors'
 import Reviews from './reviews'
-import Blogs from './blogs'
+import Blog from './blog'
 import Footer from './footer'
 import axios from "axios";
 import { useRouter } from 'next/router'
@@ -22,8 +22,6 @@ const HomePage = () => {
   
   const [tours, setTours] = useState([]);
   const [currentTours, setCurrentTours] = useState([]);
-  const [langTours, setLangTours] = useState('ru');
-  
   const [home, setHome] = useState(homeEn)
 
   useEffect(() => {
@@ -40,43 +38,37 @@ const HomePage = () => {
     switch (currentLang) {
       case "ru":
         setHome(homeRu)
-        setLangTours('ru')
         break
       case "en":
         setHome(homeEn)
-        setLangTours('en')
         break
       case "es":
         setHome(homeEs)
-        setLangTours('es')
         break  
       case "de":
         setHome(homeDe)
-        setLangTours('de')
         break
       case "it":
         setHome(homeIt)
-        setLangTours('it')
         break
       case "fr":
         setHome(homeFr)
-        setLangTours('fr')
         break
       default : 
       setHome(homeRu)
-      setLangTours('ru')
     }
   },);
 
  useEffect(() => {
+    let currentLang = localStorage.getItem('lang')
     let items = []
     for (let i = 0; i < tours.length; i++) {
-      if (tours[i].language == langTours && tours[i].isItActive == "published") {
+      if (tours[i].language == currentLang && tours[i].isItActive == "published") {
         items.push(tours[i]);
       }
     }
     setCurrentTours(items)
-  }, [tours, langTours]);
+  }, [tours]);
 
   return (
     <>
@@ -86,7 +78,7 @@ const HomePage = () => {
       <Utp data={home} />
       <Authors data={home} />
       <Reviews data={home} />
-      <Blogs data={home}/>
+      <Blog data={home} full={false}/>
       <Footer data={home}/>
     </>
   )

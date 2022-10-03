@@ -86,7 +86,9 @@ const Tours = ({data, currentTours}) => {
         tourTitle : item.tourName,
         tourInfo: tourObject.head_text_3.value,
         tourLang : item.language,
-        tourSrc: tourObject.head_img_Mobile_url.value, 
+        tourSrc: tourObject.index_page_img_url.value,
+        tourImgAlt : tourObject.index_page_img_alt.value,
+        tourImgTitle : tourObject.index_page_img_title.value, 
         tourPrice: tourObject.tour_start_price.value,
         tourDays: tourObject.tour_days_col.value
       }

@@ -49,7 +49,7 @@ const Section = styled.div`
   
 `
 
-const Blogs = ({data}) => {
+const Blog = ({data, full=true}) => {
   const blogs = [
     {blogId: 'ssss', blogTitle: 'Dance adventures in uzbekistan', blogSrc: './images/home/blogs/blog-1.jpg', blogInfo: 'Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', blogDate: '01.12.22'},
     {blogId: 'ssss', blogTitle: 'Dance adventures in uzbekistan', blogSrc: './images/home/blogs/blog-1.jpg', blogInfo: 'Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', blogDate: '01.12.22'},
@@ -108,4 +108,4 @@ const Blogs = ({data}) => {
   )
 }
 
-export default Blogs
+export default Blog

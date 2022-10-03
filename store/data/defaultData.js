@@ -1879,5 +1879,8 @@ export const defaultState = {
     value:
       "Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий.  ",
   },
+  index_page_img_url: { value: "/images/landing/gastro/header/backmobl.webp" },
+  index_page_img_alt: { value: "" },
+  index_page_img_title: { value: "" }
 
 };

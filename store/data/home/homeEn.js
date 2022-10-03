@@ -3,19 +3,23 @@ export const home = {
     arr : [
       {
         title: 'Tours',
-        link : '#'
+        link : '/tours',
+        goto : '#tours'
       },
       {
         title: 'Reviews',
-        link : '#'
+        link : '/reviews',
+        goto : '#reviews'
       },
       {
         title: 'Blog',
-        link : '#'
+        link : '/blog',
+        goto : '#blog'
       },
       {
         title: 'Contacts',
-        link : '#'
+        link : '/contacts',
+        goto : '#contacts'
       },
       
     ]
@@ -165,6 +169,33 @@ export const home = {
         whatsapp : '#'
       },
       {
+        name : 'Husnora',
+        info: 'Husnora is expert of immersive tours on the legendary Volga Gaz-21. "Selfies Every Day," "Nostalgia, Damn It," and "LoveStory in Uzbekistan" are all Made By Husnora retro tours.',
+        src: './images/home/authors/husnora.jpg',
+        alt : 'Husnora',
+        telegram : '#',
+        facebook : '#',
+        whatsapp : '#'
+      },
+      {
+        name : 'Said',
+        info: 'A great representative of "travel addiction," a favorite of the handmade.travel team, a bilingual and expert of hobby tours and craft trips to Uzbekistan. At the age of 25, Said has already managed to patent the handicraft tour "Uzbek Kinky Hands".',
+        src: './images/home/authors/said.jpg',
+        alt : 'Said',
+        telegram : '#',
+        facebook : '#',
+        whatsapp : '#'
+      },
+      {
+        name : 'Zokir',
+        info: 'Dwayne Johnson of the handmade.travel team, author of photo-expeditions, organizer of hunting and fishing trips in Uzbekistan. A chef with a degree from God, Zokir is no less professional and competent in his second profession.',
+        src: './images/home/authors/zokir.jpg',
+        alt : 'Zokir',
+        telegram : '#',
+        facebook : '#',
+        whatsapp : '#'
+      },
+      {
         name : 'Narina',
         info: 'Customizer of art tours, bachelorette parties and dance trips to Uzbekistan. She gives serotonin, dopamine and endorphin. At handmade.travel, Narina makes wonders and creates travel experiences that make you want to return to Uzbekistan.',
         src: './images/home/authors/narina.jpg',
@@ -185,39 +216,13 @@ export const home = {
       {
         name : 'Umida',
         info: 'A local expert on festival tours in Uzbekistan. Always on the same page as the traveler, Umida believes it is better to see once with your own eyes than to hear a hundred times, much less click, scroll and hesitate.',
-        src: './images/home/authors/no-photo.jpg',
+        src: './images/home/authors/umi.jpg',
         alt : 'Umida',
         telegram : '#',
         facebook : '#',
         whatsapp : '#'
       },
-      {
-        name : 'Husnora',
-        info: 'Husnora is expert of immersive tours on the legendary Volga Gaz-21. "Selfies Every Day," "Nostalgia, Damn It," and "LoveStory in Uzbekistan" are all Made By Husnora retro tours.',
-        src: './images/home/authors/husnora.jpg',
-        alt : 'Husnora',
-        telegram : '#',
-        facebook : '#',
-        whatsapp : '#'
-      },
-      {
-        name : 'Said',
-        info: 'A great representative of "travel addiction," a favorite of the handmade.travel team, a bilingual and expert of hobby tours and craft trips to Uzbekistan. At the age of 25, Said has already managed to patent the handicraft tour "Uzbek Kinky Hands".',
-        src: './images/home/authors/no-photo.jpg',
-        alt : 'Said',
-        telegram : '#',
-        facebook : '#',
-        whatsapp : '#'
-      },
-      {
-        name : 'Zokir',
-        info: 'Dwayne Johnson of the handmade.travel team, author of photo-expeditions, organizer of hunting and fishing trips in Uzbekistan. A chef with a degree from God, Zokir is no less professional and competent in his second profession.',
-        src: './images/home/authors/no-photo.jpg',
-        alt : 'Zokir',
-        telegram : '#',
-        facebook : '#',
-        whatsapp : '#'
-      },
+      
       
     ]
   },
@@ -226,21 +231,21 @@ export const home = {
       {
         name :'Feedbacks of experienced traveler Charles Alexander ',
         info: '',
-        text : `Hi my name is Chuck and it's 03.06.2021 . I'm here in Uzbekistan . I always wanted a Silk Road trip and I decided to travel to Uzbekistan. I'm very happy with my decision . Everybody needs to make their own decision. My advice would be see as much counties as you can . I visited some beautiful places, very friendly people good food and stayed in good hotels. I saw very awsome historical sites in Uzbekistan. I would recommend this trip to everyone you will find safe and great place to visit.`,
+        text : `Hi my name is Chuck and it's 03.06.2021 . I'm here in Uzbekistan . I always wanted a Silk Road trip and I decided to travel to Uzbekistan. I'm very happy with my decision . Everybody needs to make their own decision. My advice would be see as much counties as you can . I visited some beautiful places, very friendly people good food and stayed in good hotels. I saw very awsome historical sites ...`,
         src: 'https://youtu.be/h2ZwTrqVxIk&t=4s',
         link : '#',
       },
       {
         name : 'Opinions of Mathy and Andrew Peter of the trip in Uzbekistan',
         info: '',
-        text : `Uzbekistan is very safe and beautiful country. People are very welcoming .Our guide is been great, speaks good english and knows the culture history very well.Hotels that we stayed been beautiful. Uzbek traditional food is very good we tried rice,potatoes,Lamb,Beef and lots of seasonal vegetables and salads. It has been a really unique and wonderful trip and we recommend  everyone to travel to Uzbekistan it is very special country. `,
+        text : `Uzbekistan is very safe and beautiful country. People are very welcoming .Our guide is been great, speaks good english and knows the culture history very well.Hotels that we stayed been beautiful. Uzbek traditional food is very good we tried rice,potatoes,Lamb,Beef and lots of seasonal vegetables and salads. It has been a really unique and wonderful trip and we recommend  everyone to travel ... `,
         src: 'https://youtu.be/mdjsuhSMhIY&t=5s',
         link : '#',
       },
       {
         name : 'Feedbacks  from Stephan, Jill, Carol and Diane',
         info: '',
-        text : `For Carol’s birthday we have decided to go to Uzbekistan among other countries. We have got a very good tour company. We took a lot of care from Tour Company’s team during the trip. They explained us what we would do, what we should take with us and how it would the tour itself would be look like before the trip. It is very safe and we haven’t concerned about our safety. We enjoyed the culture, ancient history, delicious food and always friendly people.`,
+        text : `For Carol’s birthday we have decided to go to Uzbekistan among other countries. We have got a very good tour company. We took a lot of care from Tour Company’s team during the trip. They explained us what we would do, what we should take with us and how it would the tour itself would be look like before the trip. It is very safe and we haven’t concerned about our safety. We enjoyed the culture ...`,
         src: 'https://youtu.be/0UHhAHk8JAo&t=2s',
         link : '#',
       },

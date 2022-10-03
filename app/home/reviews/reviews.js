@@ -89,7 +89,7 @@ const Reviews = ({data}) => {
 
   return (
     <Section>
-      <div className="container-home">
+      <div className="container-home" id='#reviews'>
           <div className="reviews block">
             <div className="title-box">
               <div className="page-title">

@@ -3,19 +3,23 @@ export const home = {
     arr : [
       {
         title: 'Tour',
-        link : '#'
+        link : '/tours',
+        goto : '#tours'
       },
       {
         title: 'Recensioni',
-        link : '#'
+        link : '/reviews',
+        goto : '#reviews'
       },
       {
         title: 'Blog',
-        link : '#'
+        link : '/blog',
+        goto : '#blog'
       },
       {
         title: 'Contatti',
-        link : '#'
+        link : '/contacts',
+        goto : '#contacts'
       },
     ]
   },
@@ -164,6 +168,33 @@ export const home = {
         whatsapp : '#'
       },
       {
+        name : 'HUSNORIK',
+        info: `“Nella botte piccola c'è il vino buono”, Husnora diventa il bodhisattva dei tour d'autore personalizzati sul leggendario Volga Gaz-21. " Selfie ogni giorno", "Nostalgia, maledetta" e "LoveStory in Uzbekistan" sono tutti tour retrò Made By Husnora.`,
+        src: './images/home/authors/husnora.jpg',
+        alt : 'HUSNORIK',
+        telegram : '#',
+        facebook : '#',
+        whatsapp : '#'
+      },
+      {
+        name : 'OREFICE SAIDHON',
+        info: `Un'impressionante rappresentante della "dipendenza da viaggio", una delle preferite del team di handmade.travel, poliglotta e guru dei tour per hobby e dei viaggi artigianali in Uzbekistan. A 25 anni, Saidkhon ha già brevettato un tour di artigianato, "Mani abili in uzbeko". `,
+        src: './images/home/authors/said.jpg',
+        alt : 'OREFICE SAIDHON',
+        telegram : '#',
+        facebook : '#',
+        whatsapp : '#'
+      },
+      {
+        name : 'ZOKIR POPOVICH',
+        info: `Dwayne "The Rock" Johnson del team handmade.travel è un fotografo di spedizione e organizzatore di viaggi di caccia e pesca in Uzbekistan. Chef laureato in cucina da Dio, Zokir è altrettanto professionale e competente nella sua seconda professione.`,
+        src: './images/home/authors/zokir.jpg',
+        alt : 'ZOKIR POPOVICH',
+        telegram : '#',
+        facebook : '#',
+        whatsapp : '#'
+      },
+      {
         name : 'Narina Hanum',
         info: `Tour d'arte Mata hari, addii al nubilato e viaggi di danza in Uzbekistan. Dà serotonina, dopamina ed endorfina. In handmade.travel, Narina crea esperienze di viaggio che fanno venire voglia di tornare in Uzbekistan.`,
         src: './images/home/authors/narina.jpg',
@@ -184,40 +215,12 @@ export const home = {
       {
         name : 'UMIDA, ALIAS UMI',
         info: 'Un esperto locale di tour di festival in Uzbekistan. Sempre in sintonia con il viaggiatore, Umida ritiene che sia meglio vedere una volta con i propri occhi che sentire cento volte, e ancor meno cliccare, scorrere ed esitare.',
-        src: './images/home/authors/no-photo.jpg',
+        src: './images/home/authors/umi.jpg',
         alt : 'UMIDA, ALIAS UMI',
         telegram : '#',
         facebook : '#',
         whatsapp : '#'
       },
-      {
-        name : 'HUSNORIK',
-        info: `“Nella botte piccola c'è il vino buono”, Husnora diventa il bodhisattva dei tour d'autore personalizzati sul leggendario Volga Gaz-21. " Selfie ogni giorno", "Nostalgia, maledetta" e "LoveStory in Uzbekistan" sono tutti tour retrò Made By Husnora.`,
-        src: './images/home/authors/husnora.jpg',
-        alt : 'HUSNORIK',
-        telegram : '#',
-        facebook : '#',
-        whatsapp : '#'
-      },
-      {
-        name : 'OREFICE SAIDHON',
-        info: `Un'impressionante rappresentante della "dipendenza da viaggio", una delle preferite del team di handmade.travel, poliglotta e guru dei tour per hobby e dei viaggi artigianali in Uzbekistan. A 25 anni, Saidkhon ha già brevettato un tour di artigianato, "Mani abili in uzbeko". `,
-        src: './images/home/authors/no-photo.jpg',
-        alt : 'OREFICE SAIDHON',
-        telegram : '#',
-        facebook : '#',
-        whatsapp : '#'
-      },
-      {
-        name : 'ZOKIR POPOVICH',
-        info: `Dwayne "The Rock" Johnson del team handmade.travel è un fotografo di spedizione e organizzatore di viaggi di caccia e pesca in Uzbekistan. Chef laureato in cucina da Dio, Zokir è altrettanto professionale e competente nella sua seconda professione.`,
-        src: './images/home/authors/no-photo.jpg',
-        alt : 'ZOKIR POPOVICH',
-        telegram : '#',
-        facebook : '#',
-        whatsapp : '#'
-      },
-      
     ]
   },
   reviews_list : {
@@ -225,28 +228,28 @@ export const home = {
       {
         name :'Recensione di Filadelfo e Marilena dal 21 al 27 aprile del 2022',
         info: '',
-        text : "Привет из солнечного Узбекистана! Я автор туров на handmade.travel, где собираю небольшие группы единомышленников для небанальных путешествий по кулинарным святыням Узбекистана. Я люблю путешествовать и знакомиться с близкими по духу людьми. Вторая моя страсть – я обожаю вкусно поесть, а гастрономических радостей в Узбекистане, уж поверьте мне, не меньше, чем звёзд на небе!",
+        text : "Uzbekistan è un paese bello, un paese pulito, un paese organizzato. Dobbiamo dire che veramente siamo contentissimi, e felicissimi di aver scelto l’Uzbekistan e il giro che abbiamo fatto per questo viaggio, le città che abbiamo visitato erano una più bella dell’altra. Siamo stati bene, perché è un viaggio ben organizzato dall’agenzia, e peccato che è finito velocemente!",
         src: 'https://youtu.be/NsZNyWhnP7s&t=4s',
         link : '#',
       },
       {
         name : 'Recensione di Enrica e Stanislao dal 12 al 21 settembre del 2021',
         info: '',
-        text : "Привет из солнечного Узбекистана! Я автор туров на handmade.travel, где собираю небольшие группы единомышленников для небанальных путешествий по кулинарным святыням Узбекистана. Я люблю путешествовать и знакомиться с близкими по духу людьми. Вторая моя страсть – я обожаю вкусно поесть, а гастрономических радостей в Узбекистане, уж поверьте мне, не меньше, чем звёзд на небе!",
+        text : "Questo è il viaggio che volevamo fare da tanto tempo. Abbiamo visitato cinque città una più bella dell’altra, e siamo molto contenti! Abbiamo trovato un’accoglienza eccezionale, abbiamo mangiato benissimo, ci è piaciuto tutto quello che abbiamo visto, e penso che avremo voglia di ritornare per vedere tutta la parte alta dell’Uzbekistan! Auguro proprio a tutti di avere una ...",
         src: 'https://youtu.be/0pkbIQdxXY0&t=4s',
         link : '#',
       },
       {
         name : 'Viaggio di Deborah e Andrea dal 1° all’8 agosto',
         info: '',
-        text : "Привет из солнечного Узбекистана! Я автор туров на handmade.travel, где собираю небольшие группы единомышленников для небанальных путешествий по кулинарным святыням Узбекистана. Я люблю путешествовать и знакомиться с близкими по духу людьми. Вторая моя страсть – я обожаю вкусно поесть, а гастрономических радостей в Узбекистане, уж поверьте мне, не меньше, чем звёзд на небе!",
+        text : "Abbiamo scelto l’Uzbekistan perché siamo gli amanti della storia. Lo abbiamo deciso di visitare nonostante la pandemia. Abbiamo trovato questa destinazione sull’internet sui social che visitiamo. Siamo riusciti a viaggiarci nonostante i controlli molto stretti durante la pandemia. Però non abbiamo avuto nessun problema dall’inizio alla fine del tour, ci hanno accolto ...",
         src: 'https://youtu.be/FNw7uWLu94I&t=4s',
         link : '#',
       },
       {
         name : 'Recensione di Ginella e Vasco',
         info: '',
-        text : "Привет из солнечного Узбекистана! Я автор туров на handmade.travel, где собираю небольшие группы единомышленников для небанальных путешествий по кулинарным святыням Узбекистана. Я люблю путешествовать и знакомиться с близкими по духу людьми. Вторая моя страсть – я обожаю вкусно поесть, а гастрономических радостей в Узбекистане, уж поверьте мне, не меньше, чем звёзд на небе!",
+        text : "Il viaggio è risultato più semplice per noi, siccome il problema principale di viaggiare per gli italiani è la lingua, e tanto che non tutti parlano l’inglese. Durante il viaggio non abbiamo pensato a niente, tutto era organizzato bene. Abbiamo fatto anche un piacevole viaggio in treno ad alta velocità da Tashkent a Samarcanda. Abbiamo avuto anche la sorpresa della neve ...",
         src: 'https://youtu.be/oowOg6TbSmA&t=4s',
         link : '#',
       },

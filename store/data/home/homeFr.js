@@ -3,19 +3,23 @@ export const home = {
     arr : [
       {
         title: 'Voyages',
-        link : '#'
+        link : '/tours',
+        goto : '#tours'
       },
       {
         title: 'Avis',
-        link : '#'
+        link : '/reviews',
+        goto : '#reviews'
       },
       {
         title: 'Blog',
-        link : '#'
+        link : '/blog',
+        goto : '#blog'
       },
       {
         title: 'Contacts',
-        link : '#'
+        link : '/contacts',
+        goto : '#contacts'
       },
       
     ]
@@ -164,6 +168,33 @@ export const home = {
         whatsapp : '#'
       },
       {
+        name : 'Khousnora, la douce',
+        info: `Petit à petit, Khousnora devient le bodhisattva des circuits personnalisés dans la légendaire Volga Gaz-21. "Selfies Every Day", "Nostalgie, quelle folie" et "LoveStory en Ouzbékistan" sont autant de voyages rétro Made By Khousnora.`,
+        src: './images/home/authors/husnora.jpg',
+        alt : 'Khousnora, la douce',
+        telegram : '#',
+        facebook : '#',
+        whatsapp : '#'
+      },
+      {
+        name : 'Saïdkhon, des mains en or',
+        info: `Un brillant représentant de l’addiction au voyage, un chouchou de l'équipe de handmade.travel, un polyglotte et un expert des voyages de loisirs et d'artisanat en Ouzbékistan. À 25 ans, Saïdkhon a déjà réussi à breveter le voyage artisanal " Les mains habiles de l'Ouzbékistan". `,
+        src: './images/home/authors/said.jpg',
+        alt : 'Saïdkhon, des mains en or',
+        telegram : '#',
+        facebook : '#',
+        whatsapp : '#'
+      },
+      {
+        name : 'Zokir le Grand',
+        info: `Dwayne "The Rock" Johnson de l'équipe handmade.travel, auteur de photos expéditions et organisateur de voyages de chasse et de pêche en Ouzbékistan. Chef cuisinier de qualité, Zokir est tout aussi compétent et professionnel dans sa seconde profession. `,
+        src: './images/home/authors/zokir.jpg',
+        alt : 'Zokir le Grand',
+        telegram : '#',
+        facebook : '#',
+        whatsapp : '#'
+      },
+      {
         name : 'Narina-Khanum',
         info: `Spécialiste des voyages artistiques, ceux d'enterrements de vie de jeune fille et des voyages de danse en Ouzbékistan. Elle transmet de la sérotonine, de la dopamine et de l'endorphine. 
         Sur l'étendue de handmade.travel, Narina crée des expériences de voyage qui vous donnent envie de retourner en Ouzbékistan.`,
@@ -185,39 +216,13 @@ export const home = {
       {
         name : 'Umida, ou Umi',
         info: `Un expert local des voyages de festival en Ouzbékistan. Toujours sur la même longueur d'onde que le voyageur, Oumida estime qu'il vaut mieux voir une fois de ses propres yeux qu'entendre cent fois, et encore moins cliquer, faire scroller et hésiter. `,
-        src: './images/home/authors/no-photo.jpg',
+        src: './images/home/authors/umi.jpg',
         alt : 'Umida, ou Umi',
         telegram : '#',
         facebook : '#',
         whatsapp : '#'
       },
-      {
-        name : 'Khousnora, la douce',
-        info: `Petit à petit, Khousnora devient le bodhisattva des circuits personnalisés dans la légendaire Volga Gaz-21. "Selfies Every Day", "Nostalgie, quelle folie" et "LoveStory en Ouzbékistan" sont autant de voyages rétro Made By Khousnora.`,
-        src: './images/home/authors/husnora.jpg',
-        alt : 'Khousnora, la douce',
-        telegram : '#',
-        facebook : '#',
-        whatsapp : '#'
-      },
-      {
-        name : 'Saïdkhon, des mains en or',
-        info: `Un brillant représentant de l’addiction au voyage, un chouchou de l'équipe de handmade.travel, un polyglotte et un expert des voyages de loisirs et d'artisanat en Ouzbékistan. À 25 ans, Saïdkhon a déjà réussi à breveter le voyage artisanal " Les mains habiles de l'Ouzbékistan". `,
-        src: './images/home/authors/no-photo.jpg',
-        alt : 'Saïdkhon, des mains en or',
-        telegram : '#',
-        facebook : '#',
-        whatsapp : '#'
-      },
-      {
-        name : 'Zokir le Grand',
-        info: `Dwayne "The Rock" Johnson de l'équipe handmade.travel, auteur de photos expéditions et organisateur de voyages de chasse et de pêche en Ouzbékistan. Chef cuisinier de qualité, Zokir est tout aussi compétent et professionnel dans sa seconde profession. `,
-        src: './images/home/authors/no-photo.jpg',
-        alt : 'Zokir le Grand',
-        telegram : '#',
-        facebook : '#',
-        whatsapp : '#'
-      },
+      
       
     ]
   },

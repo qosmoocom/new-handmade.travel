@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { AppContext } from ".";
 import Text from "../components/Text";
+import Image from "../components/Image";
 const Wrapper = styled.div`
   padding: 20px;
   padding-bottom: 10rem;
@@ -122,13 +123,37 @@ export default function Keyword() {
                 Текст о соглашение: <Text name="modal_5_description_1">{getItem("modal_5_description_1")}</Text>
               </li>
               <li>
-                -----------------------
+                Информация для главной страницы - "для каталога"
+              </li>
+              <li>
+                Заголовок тура: <Text name="tour_start_price">{getItem("tour_start_price")}</Text>
+              </li>
+              <li>
+                Описание тура: <Text name="tour_start_price">{getItem("tour_start_price")}</Text>
               </li>
               <li>
                 Цена тура - от: <Text name="tour_start_price">{getItem("tour_start_price")}</Text>
               </li>
               <li>
                 Количество дней в туре : <Text name="tour_days_col">{getItem("tour_days_col")}</Text>
+              </li>
+              <li>
+                <div>Изображение тура для главной страницы</div>
+                <div className="constructor_img_box">
+                  <Image
+                      layout="fill"
+                      objectFit="cover"
+                      src={getItem("index_page_img_url")}
+                      alt={getItem("index_page_img_alt")}
+                      title={getItem("index_page_img_title")}
+                      srcDataName={"index_page_img_url"}
+                      altDataName={"index_page_img_alt"}
+                      titleDataName={"index_page_img_title"}
+                      // itIsClassName="image-blog"
+                      // sectionName={val.name}
+                    />
+                </div>
+                  
               </li>
           </ul>
         </div>

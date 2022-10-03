@@ -3,19 +3,23 @@ export const home = {
     arr : [
       {
         title: 'Touren',
-        link : '#'
+        link : '/tours',
+        goto : '#tours'
       },
       {
         title: 'Bewertungen',
-        link : '#'
+        link : '/reviews',
+        goto : '#reviews'
       },
       {
         title: 'Blog',
-        link : '#'
+        link : '/blog',
+        goto : '#blog'
       },
       {
         title: 'Kontakte',
-        link : '#'
+        link : '/contacts',
+        goto : '#contacts'
       },
     ]
   },
@@ -164,6 +168,33 @@ export const home = {
         whatsapp : '#'
       },
       {
+        name : 'HUSNORA',
+        info: 'Klein aber fein. Nach und nach wird Husnora zum Bodhisattva der Sonderfahrten im legendären Wolga-Gaz-21. "Selfies jeden Tag", "Nostalgia" und "Liebegeschichte in Usbekistan" sind alles Retro-Touren Made By Husnora.',
+        src: './images/home/authors/husnora.jpg',
+        alt : 'HUSNORA',
+        telegram : '#',
+        facebook : '#',
+        whatsapp : '#'
+      },
+      {
+        name : 'SAIDXON',
+        info: `Ein markanter Vertreter der "Reisesucht", ein Liebling des handmade.travel-Teams, ein Polyglott und Guru von Hobby- und Bastelreisen nach Usbekistan. Im Alter von 25 Jahren hat Saidhon bereits eine Kunsthandwerkstour mit dem Titel "Uzbekistan's Kinky Hands" patentiert.`,
+        src: './images/home/authors/said.jpg',
+        alt : 'SAIDXON',
+        telegram : '#',
+        facebook : '#',
+        whatsapp : '#'
+      },
+      {
+        name : 'ZAKIR KHAN',
+        info: 'Dwayne "The Rock" Johnson vom handmade.travel-Team, Leiter von Fotoexpeditionen und Organisator von Jagd- und Angelreisen in Usbekistan. Als Koch ist Zokir in seinem zweiten Beruf ebenso professionell und kompetent. ',
+        src: './images/home/authors/zokir.jpg',
+        alt : 'ZAKIR KHAN',
+        telegram : '#',
+        facebook : '#',
+        whatsapp : '#'
+      },
+      {
         name : 'MADAM NARINA ',
         info: 'Die echte Mata-Hari der Kunstreisen, Junggesellenabschieden und Tanzreisen in Usbekistan. Sie gibt Serotonin, Dopamin und Endorphin. Bei handmade.travel schafft Narina Reiseerlebnisse, die Lust machen, nach Usbekistan zurückzukehren.',
         src: './images/home/authors/narina.jpg',
@@ -184,40 +215,12 @@ export const home = {
       {
         name : 'UMIDA, SIE IST UMI',
         info: 'Lokale Expertin für Festivalreisen nach Usbekistan. Immer auf einer Wellenlänge mit dem Reisenden, ist sich Umida sicher, dass es besser ist, einmal mit eigenen Augen zu sehen, als hundertmal zu hören, und noch mehr, zu klicken, zu scrollen und zu zweifeln.',
-        src: './images/home/authors/no-photo.jpg',
+        src: './images/home/authors/umi.jpg',
         alt : 'UMIDA, SIE IST UMI',
         telegram : '#',
         facebook : '#',
         whatsapp : '#'
       },
-      {
-        name : 'HUSNORA',
-        info: 'Klein aber fein. Nach und nach wird Husnora zum Bodhisattva der Sonderfahrten im legendären Wolga-Gaz-21. "Selfies jeden Tag", "Nostalgia" und "Liebegeschichte in Usbekistan" sind alles Retro-Touren Made By Husnora.',
-        src: './images/home/authors/husnora.jpg',
-        alt : 'HUSNORA',
-        telegram : '#',
-        facebook : '#',
-        whatsapp : '#'
-      },
-      {
-        name : 'SAIDXON',
-        info: `Ein markanter Vertreter der "Reisesucht", ein Liebling des handmade.travel-Teams, ein Polyglott und Guru von Hobby- und Bastelreisen nach Usbekistan. Im Alter von 25 Jahren hat Saidhon bereits eine Kunsthandwerkstour mit dem Titel "Uzbekistan's Kinky Hands" patentiert.`,
-        src: './images/home/authors/no-photo.jpg',
-        alt : 'SAIDXON',
-        telegram : '#',
-        facebook : '#',
-        whatsapp : '#'
-      },
-      {
-        name : 'ZAKIR KHAN',
-        info: 'Dwayne "The Rock" Johnson vom handmade.travel-Team, Leiter von Fotoexpeditionen und Organisator von Jagd- und Angelreisen in Usbekistan. Als Koch ist Zokir in seinem zweiten Beruf ebenso professionell und kompetent. ',
-        src: './images/home/authors/no-photo.jpg',
-        alt : 'ZAKIR KHAN',
-        telegram : '#',
-        facebook : '#',
-        whatsapp : '#'
-      },
-      
     ]
   },
   reviews_list : {
