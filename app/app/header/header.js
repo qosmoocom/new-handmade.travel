@@ -146,7 +146,7 @@ export default function Header() {
               {/* ------ */}
 
               {/* logo */}
-              <div className="logo-section">
+              <Link className="logo-section" href='/'>
                 <div className="logo-img">
                   <Image
                     priority
@@ -168,7 +168,7 @@ export default function Header() {
                     {getItem("logofixed_text")}
                   </Text>
                 </div>
-              </div>
+              </Link>
               {/* ---------- */}
               {/* menu */}
               <div className="menu-section">
@@ -351,7 +351,7 @@ export default function Header() {
         <div className="container">
           <div className="header_navbar">
             {/* navbar logo */}
-            <div className="header_navbar_logo">
+            <Link className="header_navbar_logo" href='/'>
               <div className="header_navbar_logo_box">
                 <Image
                   priority
@@ -377,7 +377,7 @@ export default function Header() {
                   {getItem("my_logo_text")}
                 </Text>
               </div>
-            </div>
+            </Link>
             {/* /navbar logo */}
 
             <div className="header_nav">
@@ -491,7 +491,7 @@ export default function Header() {
                     </Text>
                   </button>
                 </div>
-                <div className="header_navbar_logo_mobile">
+                <Link className="header_navbar_logo_mobile" href='/'>
                   <div className="header_navbar_logo_box">
                     <Image
                       priority
@@ -519,7 +519,7 @@ export default function Header() {
                       {getItem("my_logo_text")}
                     </Text>
                   </div>
-                </div>
+                </Link>
               </div>
             </div>
           </div>

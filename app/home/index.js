@@ -67,6 +67,7 @@ const HomePage = () => {
         items.push(tours[i]);
       }
     }
+    // console.log(items)
     setCurrentTours(items)
   }, [tours]);
 
