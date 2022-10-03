@@ -501,7 +501,7 @@ export default function Header({data, showBanner=true}) {
       </div>
     )
 
-  const menuLang = router.asPath != '/home' ? ''
+  const menuLang = router.asPath != '/' ? ''
     :
     <select className="menu-item lang-select" onChange={onChangeLang}>
       {data.menu_lang.arr.map((item, index) => {
@@ -521,7 +521,7 @@ export default function Header({data, showBanner=true}) {
       <div className={`header-home ${scroll ? " active" : ""}`}>
         <div className="container-home">
           <div className="navbar">
-            <Link className="logo" href={'/home'}>
+            <Link className="logo" href={'/'}>
               <img src='./images/home/header/logo.png' alt='Logo'/>
               <div className="logo-text">Handmade travel</div>
             </Link>
