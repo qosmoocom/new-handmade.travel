@@ -74,7 +74,7 @@ const HomePage = () => {
     <>
       <Header data={home} />
       <Mission data={home} />
-      <Tours data={home} currentTours={currentTours} />
+      {/* <Tours data={home} currentTours={currentTours} /> */}
       <Utp data={home} />
       <Authors data={home} />
       <Reviews data={home} />
