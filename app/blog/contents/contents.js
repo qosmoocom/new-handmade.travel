@@ -67,8 +67,6 @@ const Wrapper = styled.div`
 
 function Contents() {
   const state = useSelector((state) => state.bloger);
-
-  
   let content = [];
   let index;
   for (index in state.data) {

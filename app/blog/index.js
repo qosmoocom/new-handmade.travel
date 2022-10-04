@@ -1,24 +1,22 @@
-
-
-
 import React from 'react'
 import { ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css";
 import styled from 'styled-components'
-import ImageEditorBlogModal from '../components/modals/ImageEditorBlogModal'
-import TextEditorBlogModal from '../components/modals/TextEditorBlogModal'
-import Adder from './adder'
-import Contents from './contents'
+import { useDispatch, useSelector } from "react-redux";
 import Header from './header'
+import dynamic from 'next/dynamic';
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+import 'react-quill/dist/quill.snow.css';
 
 function Index() {
+  const state = useSelector((state) => state.bloger);
+  const content = state.content
+  
+  
   return (
     <Section>
       <Header />
-      <Contents />
-      <Adder />
-      <TextEditorBlogModal />
-      <ImageEditorBlogModal />
+      <ReactQuill theme="snow" value={content} onChange={saveContent}/>
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -30,6 +28,7 @@ function Index() {
         draggable
         // pauseOnHover
       />
+
     </Section>
   );
 }

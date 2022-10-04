@@ -12,7 +12,7 @@ import { types } from '../../../store/types';
 import { useDispatch, useSelector } from 'react-redux';
 
 function Adder() {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const [open, setOpen] = useState(false)
   const {isEdit:isAdmin}= useSelector(st=>st.bloger)
     const openModalText = () => {

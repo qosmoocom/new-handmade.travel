@@ -75,17 +75,8 @@ export default function Index() {
           <Link href={"/admin"}>
             <button className="back_admin"> back</button>
           </Link>
-          {/* <Link href={`/update/style/${_id}`}>
-            <button className="edit_css">edit css</button>
-          </Link>
-          <Link href={"/update/style"}>
-            <button className="global_css">global css</button>
-          </Link> */}
         </div>
-
         <App />
-        {/* <div>ishladi</div> */}
-        {/* loader */}
         <Loader />
       </Wrapper>
     );
