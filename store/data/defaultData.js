@@ -1879,7 +1879,10 @@ export const defaultState = {
     value:
       "Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий.  ",
   },
-  index_page_img_url: { value: "/images/landing/gastro/header/backmobl.webp" },
-  index_page_img_alt: { value: "" },
-  index_page_img_title: { value: "" },
+  index_page_img_url: { value: "/images/landing/gastro/header/backmobl.webp" }, // for tour
+  index_page_img_alt: { value: "" }, // for tour
+  index_page_img_title: { value: "" }, // for tour
+  index_page_tour_title : { value: "Вкусный Узбекистан" },
+  index_page_tour_text : { value: "Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий." }
+
 };

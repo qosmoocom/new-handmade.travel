@@ -126,10 +126,10 @@ export default function Keyword() {
                 Информация для главной страницы - "для каталога"
               </li>
               <li>
-                Заголовок тура: <Text name="tour_start_price">{getItem("tour_start_price")}</Text>
+                Заголовок тура: <Text name="index_page_tour_title">{getItem("index_page_tour_title")}</Text>
               </li>
               <li>
-                Описание тура: <Text name="tour_start_price">{getItem("tour_start_price")}</Text>
+                Описание тура: <Text name="index_page_tour_text">{getItem("index_page_tour_text")}</Text>
               </li>
               <li>
                 Цена тура - от: <Text name="tour_start_price">{getItem("tour_start_price")}</Text>
