@@ -4925,7 +4925,7 @@ body {
   }
 
   @media (min-width: 1200px) {
-    font-size: 20px;
+    font-size: 16px;
   }
   
 }
@@ -4957,4 +4957,21 @@ body {
   height: 300px;
   width : 300px;
 
+}
+
+.container .ql-container {
+  font-family: "Roboto";
+  font-weight: 300 !important;
+  font-size: 13px;
+  height: 100%;
+  margin: 0px;
+  position: relative;
+}
+
+.container .ql-container p{
+  font-weight: 300 !important;
+}
+
+strong {
+  font-weight: 500;
 }
