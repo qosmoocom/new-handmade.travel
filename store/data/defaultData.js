@@ -1883,6 +1883,6 @@ export const defaultState = {
   index_page_img_alt: { value: "" }, // for tour
   index_page_img_title: { value: "" }, // for tour
   index_page_tour_title : { value: "Вкусный Узбекистан" },
-  index_page_tour_text : { value: "Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий." }
-
+  index_page_tour_text : { value: "Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий." },
+  index_page_tour_content : { value: "Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий." }, // test
 };

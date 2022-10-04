@@ -60,7 +60,13 @@ const HomePage = () => {
   },);
 
  useEffect(() => {
+    
     let currentLang = localStorage.getItem('lang')
+    if (currentLang == undefined) {
+      localStorage.setItem('lang', 'ru')
+      currentLang = localStorage.getItem('lang')
+    }
+
     let items = []
     for (let i = 0; i < tours.length; i++) {
       if (tours[i].language == currentLang && tours[i].isItActive == "published") {
