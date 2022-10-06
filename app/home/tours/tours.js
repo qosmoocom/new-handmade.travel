@@ -90,11 +90,15 @@ const Tours = ({data, currentTours}) => {
         tourImgAlt : tourObject.index_page_img_alt.value,
         tourImgTitle : tourObject.index_page_img_title.value, 
         tourPrice: tourObject.tour_start_price.value,
-        tourDays: tourObject.tour_days_col.value
+        tourDays: tourObject.tour_days_col.value,
+        tourOrder : +tourObject.index_page_tour_order.value,
       }
       items.push(element)
     });
-    setTours(items)
+    let newSortedItems = items.sort((a, b) => a.tourOrder > b.tourOrder ? 1 : -1);
+    // console.log(newSortedItems)
+
+    setTours(newSortedItems)
   },[currentTours]);
 
   const tourShowMore = (e) => {

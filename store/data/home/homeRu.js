@@ -4,22 +4,22 @@ export const home = {
       {
         title: 'Туры',
         link : '/tours',
-        goto : '#tours'
+        goto : 'tours'
       },
       {
         title: 'Отзывы',
         link : '/reviews',
-        goto : '#reviews'
+        goto : 'reviews'
       },
       {
         title: 'Блог',
         link : '/blog',
-        goto : '#blog'
+        goto : 'blog'
       },
       {
         title: 'Контакты',
         link : '/contacts',
-        goto : '#contacts'
+        goto : 'contacts'
       },
     ]
   },
@@ -163,27 +163,27 @@ export const home = {
         info: 'Автор гастрономических туров. С продуманной спонтанностью Катя собирает небольшие группы единомышленников для небанальных путешествий по кулинарным святыням и достопримечательностям Узбекистана. ',
         src: './images/home/authors/kate.jpg',
         alt : 'ГУЛЬЧАТАЙ КАТЯ',
-        telegram : '#',
-        facebook : '#',
-        whatsapp : '#'
+        telegram : 'https://t.me/handmadetravel_ru',
+        facebook : 'https://www.facebook.com/messages/t/581402519012804/',
+        whatsapp : 'https://wa.me/998937201028'
       },
       {
         name : 'ХУСНОРИК',
         info: 'Маленькая, да удаленькая, Хуснора - бодхисатва индивидуальных авторских туров на легендарной Волга Газ-21. "Селфи каждый день", "Ностальжи, черт побери" и "LoveStory в Узбекистане" - все это ретро-туры Made By Husnora.',
         src: './images/home/authors/husnora.jpg',
         alt : 'ХУСНОРИК',
-        telegram : '#',
-        facebook : '#',
-        whatsapp : '#'
+        telegram : 'https://t.me/handmadetravel_en',
+        facebook : 'https://www.facebook.com/messages/t/100077795766837',
+        whatsapp : 'https://wa.me/message/E3FN5F3WIHY6N1'
       },
       {
         name : 'САИДХОН',
         info: 'Яркий представитель "тревел аддикции", любимчик команды handmade.travel, полиглот и гуру хобби-туров и крафтовых путешествий в Узбекистан. В свои 25 Саидхон уже успел запатентовать ремесленный тур "Очумелые ручки по-узбекски".',
         src: './images/home/authors/said.jpg',
         alt : 'ЗОЛОТЫХ ДЕЛ МАСТЕР САИДХОН',
-        telegram : '#',
-        facebook : '#',
-        whatsapp : '#'
+        telegram : 'https://t.me/handmade_travel',
+        facebook : 'https://www.facebook.com/profile.php?id=100077955722581',
+        whatsapp : 'https://wa.me/qr/2ZMJNAQZJPHMN1'
       },
       {
         name : 'ЗОКИР ПОПОВИЧ',
@@ -199,18 +199,18 @@ export const home = {
         info: 'Сочинитель авторских путешествий в Узбекистан: от коучинг тураов до мистических сабантуев и суфийских практик. Фузулий уже успел накреативить 5656 уникальных туров, организовал 107 путешествий и сделал счастливыми 1005 людей!',
         src: './images/home/authors/fuzuliy.jpg',
         alt : 'ФИЛОСОФ ФУЗУЛИЙ',
-        telegram : '#',
-        facebook : '#',
-        whatsapp : '#'
+        telegram : 'https://t.me/handmadetravelde',
+        facebook : 'https://www.facebook.com/messages/t/100076785810304',
+        whatsapp : 'https://wa.me/998937201032'
       },
       {
         name : 'НАРИНА-ХАНУМ',
         info: 'Мата-хари арт-туров, девичников и dance вояжей в Узбекистан. Дарит серотонин, дофамин и эндорфин. На просторах handmade.travel Нарина чудит и творит путешествия-впечатления, после которых хочется вернуться в Узбекистан.',
         src: './images/home/authors/narina.jpg',
         alt : 'НАРИНА-ХАНУМ',
-        telegram : '#',
-        facebook : '#',
-        whatsapp : '#'
+        telegram : 'https://t.me/handmadetravel_fr',
+        facebook : 'https://www.facebook.com/handmadetravelfr-371849660089376',
+        whatsapp : 'https://wa.me/message/OZVYJHI5QOLFJ1'
       },
       {
         name : 'УМИДА, ОНА ЖЕ УМИ',
