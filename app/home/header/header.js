@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Link from "../../components/Link";
+import {Link as linkScrol, animateScroll as scroll } from "react-scroll";
 
 const Section = styled.div`
 
@@ -457,7 +458,6 @@ export default function Header({data, showBanner=true}) {
   const onChangeLang = (e) => {
     const lang = e.target.value.toLowerCase()
     localStorage.setItem('lang', lang)
-    console.log('dddd')
     router.reload()
   }
 
@@ -515,6 +515,11 @@ export default function Header({data, showBanner=true}) {
           })
       }
     </select>
+  
+  const scrollTo = (goto) => {
+    // const tesNode = ReactDOM.findDOMNode(this.refs.reviews)
+    // tesNode.scrollIntoView();
+  }
 
   return (
     <Section>
@@ -529,11 +534,21 @@ export default function Header({data, showBanner=true}) {
               <ul className="menu">
                 {
                   data.menu.arr.map((item, index) => {
+                      if (router.asPath !='/') {
                         return (
                           <li className="menu-item" key={index}>
-                            <Link href={router.asPath != '/home' ? item.link : item.goto}>{item.title}</Link>
+                            <Link href={item.link}>{item.title}</Link>
                           </li>      
                         )
+                      } else 
+                      return (
+                        <li className="menu-item" key={index}>
+                          <div onClick={() => scrollTo(item.goto)}>{item.title}</div>
+                          {/* document.getElementById('myElementSomewhere').scrollIntoView()  */}
+                          {/* <linkScrol  to={item.goto} spy={true} smooth={true} offset={-70} duration= {500}>{item.title}</linkScrol> */}
+                        </li>      
+                      )
+                      
                     })
                 }
                   {menuLang}

@@ -138,6 +138,9 @@ export default function Keyword() {
                 Количество дней в туре : <Text name="tour_days_col">{getItem("tour_days_col")}</Text>
               </li>
               <li>
+                Порядок тура в общем списке на гл. стр. : <Text name="index_page_tour_order">{getItem("index_page_tour_order")}</Text>
+              </li>
+              <li>
                 <div>Изображение тура для главной страницы</div>
                 <div className="constructor_img_box">
                   <Image
