@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Link from "../../components/Link";
-import {Link as linkScrol, animateScroll as scroll } from "react-scroll";
+// import {Link as linkScrol, animateScroll as scroll } from "react-scroll";
 
 const Section = styled.div`
 
