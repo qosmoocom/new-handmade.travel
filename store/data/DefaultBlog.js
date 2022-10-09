@@ -24,5 +24,5 @@ export const defaultState = {
     imgAlt: "nature",
   },
   data: [],
-  content : ``
+  content : `Текст блога`
 };

@@ -28,6 +28,11 @@ exports.getItems = async (req, res, next) => {
   res.status(200).json(result);
 };
 
+exports.getItemsHome = async (req, res, next) => {
+  const result = await Blog.find();
+  res.status(200).json(result);
+};
+
 exports.deleteOne = async (req, res, next) => {
   await Blog.findByIdAndDelete({ _id: req.params.id });
   res.status(200).json([]);

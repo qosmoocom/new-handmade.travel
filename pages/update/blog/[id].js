@@ -5,16 +5,11 @@ import Head from "next/head";
 
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getMyOneTour,
-  updateMyTours,
-} from "../../../store/reducer/toursReducer";
-
 import Loader from "./../../../app/components/Loader/index";
 import styled from "styled-components";
 import Link from "next/link";
-import { toast } from "react-toastify";
 import { getMyOneBlog, updateMyBlogs } from "../../../store/reducer/blogReducer";
+
 export default function Index() {
   const router = useRouter();
   const dispatch = useDispatch();
@@ -38,6 +33,7 @@ export default function Index() {
       keywords,
     });
 
+
     const blog = globalState.blogs.blog;
     const {
       isItActive,
@@ -50,6 +46,13 @@ export default function Index() {
     } = blog;
 
     const saveHandler = () => {
+      
+      const updateTexts = JSON.stringify({
+        ...globalState.bloger,
+        isEdit: false,
+        keywords,
+      });
+
       const updateBlog = {
         blogName,
         blogAuthor,
@@ -60,7 +63,9 @@ export default function Index() {
         isItActive,
         blogTexts: updateTexts,
       };
+      console.log(updateTexts)
       dispatch(updateMyBlogs(_id, updateBlog));
+
     };
 
     return (
@@ -76,11 +81,12 @@ export default function Index() {
             <button className="back_admin"> back</button>
           </Link>
         </div>
-        <App />
+        <App editBlog={true}/>
         <Loader />
       </Wrapper>
     );
   }
+  
   return (
     <div>
       <Head>

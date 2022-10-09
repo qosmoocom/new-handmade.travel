@@ -28,7 +28,7 @@ const HomePage = () => {
     
     axios.get("/api/tour/home").then((res) => {
       setTours(res.data);
-      // console.log(res.data)
+      console.log('blog-*-',res.data)
     });
     
   }, []);

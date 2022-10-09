@@ -1,7 +1,9 @@
 import { defaultState } from "../data/DefaultBlog";
 import { types } from "../types";
+
 export const Bloger = (state = defaultState, action) => {
   switch (action.type) {
+
     case types.editTextBlog: {
       const {
         isSave,
@@ -16,6 +18,8 @@ export const Bloger = (state = defaultState, action) => {
         open,
         header,
         val,
+        saveContent,
+        content
       } = action.payload;
       if (header == "saved") {
         return {
@@ -85,6 +89,12 @@ export const Bloger = (state = defaultState, action) => {
           },
         };
       }
+      if (saveContent) {
+        return {
+          ...state,
+          content
+        };
+      }
       return {
         ...state,
         editText: {
@@ -93,8 +103,9 @@ export const Bloger = (state = defaultState, action) => {
         },
       };
     }
+
     case types.editImageBlog: {
-      
+
       const {
         alt1,
         alt2,
@@ -229,31 +240,38 @@ export const Bloger = (state = defaultState, action) => {
         },
       };
     }
+
     case types.editBlog: {
+      // console.log('Edir blog', JSON.parse(action.data.blogTexts).content)
       return {
         ...state,
+        content : JSON.parse(action.data.blogTexts).content,
         ...JSON.parse(action.data.blogTexts),
         isEdit: true,
       };
     }
+
     case types.deleteBlog: {
       const { name } = action.payload;
       return {
         ...state,
       };
     }
+
     case types.editorOff: {
       return {
         ...state,
         isEdit: false,
       };
     }
+
     case types.editorOn: {
       return {
         ...state,
         isEdit: true,
       };
     }
+
     default:
       return { ...state };
   }

@@ -38,6 +38,7 @@ exports.updateOne = async (req, res, next) => {
         res.status(400).json({ message: "Badly", data: error });
       });
 };
+
 exports.deleteOne = async (req, res, next) => {
   await Tour.findByIdAndDelete({ _id: req.params.id });
   res.status(200).json([]);
@@ -47,14 +48,17 @@ exports.getItem = async (req, res, next) => {
   const result = await Tour.findById(req.params.id);
   res.status(200).json(result);
 };
+
 exports.getItemByUser = async (req, res, next) => {
   const result = await Tour.find({ tourAuthor: req.params.id });
   res.status(200).json(result);
 };
+
 exports.getItems = async (req, res, next) => {
   const result = await Tour.find();
   res.status(200).json(result);
 };
+
 exports.getItemHome =async(req, res)=>{
   const result = await Tour.find();
   res.status(200).json(result);

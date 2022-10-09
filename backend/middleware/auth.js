@@ -2,6 +2,7 @@ const JWT = require("jsonwebtoken");
 const User = require("../models/User");
 const ErrorResponse = require("../utils/errorResponse");
 const config = require("../config/config");
+
 exports.protect = async (req, res, next) => {
   let token;
   if (req.headers.authorization) {
@@ -42,7 +43,6 @@ exports.bloger = function (req, res, next) {
   }
   next();
 };
-
 
 exports.admin = function (req, res, next) {
   if (req.user.role !== "admin") {

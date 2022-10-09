@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { render } from 'react-dom'
 import styled from 'styled-components'
 import BlogItem from './blog-item'
+import axios from "axios";
 
 const Section = styled.div`
   .blogs-box{
@@ -50,12 +51,43 @@ const Section = styled.div`
 `
 
 const Blog = ({data, full=true}) => {
-  const blogs = [
-    {blogId: 'ssss', blogTitle: 'Dance adventures in uzbekistan', blogSrc: './images/home/blogs/blog-1.jpg', blogInfo: 'Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', blogDate: '01.12.22'},
-    {blogId: 'ssss', blogTitle: 'Dance adventures in uzbekistan', blogSrc: './images/home/blogs/blog-1.jpg', blogInfo: 'Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', blogDate: '01.12.22'},
-    {blogId: 'ssss', blogTitle: 'Dance adventures in uzbekistan', blogSrc: './images/home/blogs/blog-1.jpg', blogInfo: 'Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', blogDate: '01.12.22'},
-    {blogId: 'ssss', blogTitle: 'Dance adventures in uzbekistan', blogSrc: './images/home/blogs/blog-1.jpg', blogInfo: 'Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', blogDate: '01.12.22'},
-  ]
+
+  // const [blogs, setBlogs] = useState([]);
+  // // const [loading, setLoading] = useState(false);
+
+  // //   get All tour
+  // const getAllBlogs = async () => {
+  //   // setLoading(true);
+  //   try {
+  //     console.log('Boshlandi')
+  //     const res = await axios.get("/api/blog/home");
+  //     const data = await res.data;
+  //     if (data) setBlogs(data);
+  //     console.log('blogs--',blogs)
+  //     // setTimeout(() => {
+  //     //   setLoading(false);
+  //     // }, 200);
+  //   } catch (error) {}
+  // };
+
+  // //   componentDidMount
+  // useEffect(() => {
+  //   getAllBlogs();
+  // }, []);
+
+  // useEffect(() => {
+  //   axios.get("/api/blog/home").then((res) => {
+  //     setBlogs(res.data);
+  //     console.log(res.data)
+  //   });
+  // }, []);
+
+  // const blogs = [
+  //   {blogId: 'ssss', blogTitle: 'Dance adventures in uzbekistan', blogSrc: './images/home/blogs/blog-1.jpg', blogInfo: 'Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', blogDate: '01.12.22'},
+  //   {blogId: 'ssss', blogTitle: 'Dance adventures in uzbekistan', blogSrc: './images/home/blogs/blog-1.jpg', blogInfo: 'Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', blogDate: '01.12.22'},
+  //   {blogId: 'ssss', blogTitle: 'Dance adventures in uzbekistan', blogSrc: './images/home/blogs/blog-1.jpg', blogInfo: 'Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', blogDate: '01.12.22'},
+  //   {blogId: 'ssss', blogTitle: 'Dance adventures in uzbekistan', blogSrc: './images/home/blogs/blog-1.jpg', blogInfo: 'Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', blogDate: '01.12.22'},
+  // ]
 
   const [colViewblogs, setcolViewblogs] = useState(3);
   const [windowWidth, setWithWindow] = useState()
@@ -91,7 +123,7 @@ const Blog = ({data, full=true}) => {
             </div>
           </div>
           <div className="blogs-box">
-            {blogs.map((item,index) => {
+            {/* {blogs.map((item,index) => {
               if (index < colViewblogs) {
                 return (
                   <div className="blog-item" key={index}>
@@ -99,7 +131,7 @@ const Blog = ({data, full=true}) => {
                   </div>
                 )
               }               
-            })}
+            })} */}
           </div>
           <div className="view-more">{data.blogs_view_more_text.value}</div>
         </div>

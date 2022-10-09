@@ -1,23 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const {
-  createOne,
-  getItem,
-  getItems,
-  updateOne,
-  deleteOne,
-  getItemByUser,
-  getItemsUser,
-  getItemHome,
-} = require('../controllers/tourController');
-const {
-  protect,
-  admin,
-  moderator,
-  bloger,
-  moderatorAll,
-  adminModerator,
-} = require('../middleware/auth');
+const {createOne, getItem, getItems, updateOne, deleteOne, getItemByUser, getItemsUser, getItemHome } = require('../controllers/tourController');
+const { protect, admin, moderator, moderatorAll} = require('../middleware/auth');
 
 router.post('/add', protect, moderator, createOne);
 router.get('/all', protect, admin, getItems);

@@ -15,6 +15,7 @@ export default function Index() {
   const dispatch = useDispatch();
   const [isItPath, setIsItPath] = useState(false);
   const [blogName, setBlogName] = useState('')
+  const [contentBlog, setContentBlog] = useState('')
   
   const fetchData = async (id) => {
     const api = `/api/blog/${id}`;
@@ -42,6 +43,7 @@ export default function Index() {
   };
 
   if (path?.all?.join("/")) {
+    console.log(path?.all?.join("/"))
     fetchData(path.all.join("/"));
     if (isItPath == "published") {
       return (
@@ -49,7 +51,7 @@ export default function Index() {
           <Head>
             <title>{blogName}</title>
           </Head>
-          <App />
+          <App editBlog={false}/>
           <Loader />
         </div>
       );

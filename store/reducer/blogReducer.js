@@ -5,10 +5,6 @@ import { loaderOff, loaderOn } from "./loaderReducer";
 import { closeCreatTourModal, getAllMyTours } from "./toursReducer";
 import { getConfig } from "./usersReducer";
 
-
-
-
-
 const initialState = {
     blogs: [],
     isItCreate: false,
