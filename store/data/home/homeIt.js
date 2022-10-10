@@ -187,7 +187,7 @@ export const home = {
       },
       {
         name : 'ZOKIR POPOVICH',
-        info: `Dwayne "The Rock" Johnson del team handmade.travel è un fotografo di spedizione e organizzatore di viaggi di caccia e pesca in Uzbekistan. Chef laureato in cucina da Dio, Zokir è altrettanto professionale e competente nella sua seconda professione.`,
+        info: `Dwayne "The Rock" Johnson del team handmade.travel è un fotografo di spedizione e organizzatore di viaggi di caccia e pesca in Uzbekistan. Chef laureato in cucina, Zokir è altrettanto professionale e competente nella sua seconda professione.`,
         src: '/images/home/authors/zokir.jpg',
         alt : 'ZOKIR POPOVICH',
         telegram : '#',

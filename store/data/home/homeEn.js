@@ -188,7 +188,7 @@ export const home = {
       },
       {
         name : 'Zokir',
-        info: 'Dwayne Johnson of the handmade.travel team, author of photo-expeditions, organizer of hunting and fishing trips in Uzbekistan. A chef with a degree from God, Zokir is no less professional and competent in his second profession.',
+        info: 'Dwayne Johnson of the handmade.travel team, author of photo-expeditions, organizer of hunting and fishing trips in Uzbekistan. A chef with a degree, Zokir is no less professional and competent in his second profession.',
         src: '/images/home/authors/zokir.jpg',
         alt : 'Zokir',
         telegram : '#',
