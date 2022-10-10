@@ -180,7 +180,7 @@ const BlogItem = ({blog, read}) => {
   
   let blogInfo = blog.blogInfo
   // let blogInfo = ''
-  if (blogInfo.length > 150) blogInfo = blog.blogInfo.substr(0,100)+' ...'
+  if (blogInfo.length > 150) blogInfo = blog.blogInfo.substr(0,150)+' ...'
   
   return (
     <Section>
