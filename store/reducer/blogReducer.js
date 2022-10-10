@@ -92,6 +92,7 @@ export const getMyOneBlog = (id) => async (dispatch) => {
     dispatch(setOneBlog(data));
     setTimeout(() => {
       dispatch(loaderOff());
+      console.log('kelgan data -',data)
       dispatch({ type: types.editBlog, data });
       // dispatch({ type: types.editorOn });
     }, 500);

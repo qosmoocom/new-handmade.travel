@@ -1,7 +1,20 @@
 import React, {useEffect, useState} from "react";
 import styled from 'styled-components'
+import Image from 'next/image'
+import Link from "../../components/Link";
 
 const Section = styled.div`
+  a{
+    text-decoration : none;
+    font-weigth : 300;
+  }
+  .ql-container.ql-snow{
+    border : none;
+  }
+
+  
+  
+
   .blog-box{
     background: rgba(217, 217, 217, 0.1);
     border: 0.01px solid rgba(0, 0, 0, 0.25);
@@ -27,8 +40,9 @@ const Section = styled.div`
 
   .img-box{
     border-radius: 5px 5px 0px 0px;
+    position: relative;
     @media (min-width:320px) {
-      height: auto;
+      height: 240px;
       width: 100%;
     }
     @media (min-width:480px) {
@@ -50,38 +64,17 @@ const Section = styled.div`
     padding: 10px;
   }
 
-  .img-box img{
-    @media (min-width:320px) {
-      height: auto;
-      width: 100%;
-    }
-    
-    @media (min-width:480px) {
-    }
-    @media (min-width:576px) {
-      
-    }
-    @media (min-width:768px) {
-    }
-    @media (min-width:992px) {
-    }
-    @media (min-width:1200px) {
-    }
-    @media (min-width:1400px) {
-    }
-  }
-
   .blog-title{
     line-height: 1.1;
-    font-weight: 600;
+    font-weight: 400;
     @media (min-width:320px) {
-      font-size: 20px;
-      min-height: 44px;
+      font-size: 16px;
+      min-height: 54px;
       margin: 0px 0px 10px;
     }
     
     @media (min-width:480px) {
-      font-size: 18px;
+      font-size: 16px;
     }
     @media (min-width:576px) {
       
@@ -137,6 +130,7 @@ const Section = styled.div`
   .blog-read{
     cursor: pointer;
     font-weight: 500;
+    color: #333;
     @media (min-width:320px) {
       font-size: 14px;
       line-height: 16px;
@@ -185,20 +179,21 @@ const Section = styled.div`
 const BlogItem = ({blog, read}) => {
   
   let blogInfo = blog.blogInfo
-  if (blogInfo.length > 100) blogInfo = blog.blogInfo.substr(0,100)+' ...'
+  // let blogInfo = ''
+  if (blogInfo.length > 150) blogInfo = blog.blogInfo.substr(0,100)+' ...'
   
   return (
     <Section>
       <div className="blog-box">
         <div className="img-box">
-          <img src={blog.blogSrc} alt="" />  
+          <Image src={blog.blogImgUrl} alt="" layout="fill" objectFit="cover"/>  
         </div>
         <div className="blog-info-box">
           <div className="blog-title">{blog.blogTitle}</div>
           <div className="blog-info">{blogInfo}</div>
           <div className="blog-date-box">
             <div className="blog-date">{blog.blogDate}</div>
-            <div className="blog-read">{read}</div>
+            <Link href={blog.blogUrl} className="blog-read">{read}</Link>
           </div>
           {/* <div className="blog-button">{buttonTitle}</div> */}
         </div>

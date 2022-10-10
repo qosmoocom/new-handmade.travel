@@ -106,9 +106,9 @@ const Authors = ({data}) => {
                         <div className="action_box">
                           <div className="home-list-item-button" onClick={showAuthorLinkBox}>{data.authors_button_link.value}</div>
                           <div className="home-link-box">
-                            <a href={item.facebook} className='link not-visible'><img src="./images/home/header/ico/facebook.svg" alt="facebook"/></a>
-                            <a href={item.telegram} className='link not-visible'><img src="./images/home/header/ico/telegram.svg" alt="telegram"/></a>
-                            <a href={item.whatsapp} className='link not-visible'><img src="./images/home/header/ico/whatsapp.svg" alt="whatsapp"/></a>
+                            <a href={item.facebook} className='link not-visible'><img src="/images/home/header/ico/facebook.svg" alt="facebook"/></a>
+                            <a href={item.telegram} className='link not-visible'><img src="/images/home/header/ico/telegram.svg" alt="telegram"/></a>
+                            <a href={item.whatsapp} className='link not-visible'><img src="/images/home/header/ico/whatsapp.svg" alt="whatsapp"/></a>
                           </div>
                         </div>
                         

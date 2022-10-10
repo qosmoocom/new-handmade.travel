@@ -171,6 +171,10 @@ const Mission = ({data}) => {
           <div className="video-box">
             <ReactPlayer url='https://www.youtube.com/watch?v=hzpo4QrmBL8' playing={play} controls={false} width={videoBoxWidth} height={videoBoxWidth/16*9} />
           </div>
+          {/* <div className='img-box'>
+            <img src='/images/home/mission/screen.jpg'/>
+          </div> */}
+
           <div className="ceo-box-bottom">
             <div className="ceo">
               {data.mission_ceo.value}

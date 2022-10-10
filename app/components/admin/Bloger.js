@@ -56,7 +56,7 @@ function Bloger() {
   const onChangeHandler = (event) => {
     if (event.target.name == 'blogName') {
       const { name, value } = event.target;
-      const address = cyrillicToTranslit.transform(value, "_");
+      const address = cyrillicToTranslit.transform(value.replace('?',''), "_");
       setBlog((oldBlog) => ({ ...oldBlog, [name]: value, address })); 
     } else {
       const { name, value } = event.target;

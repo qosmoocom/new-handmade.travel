@@ -11,6 +11,7 @@ import {home as homeIt} from '../store/data/home/homeIt'
 import {home as homeFr} from '../store/data/home/homeFr'
 
 import styled from 'styled-components'
+import axios from "axios";
 
 
 const Section = styled.div`
@@ -28,7 +29,31 @@ const Section = styled.div`
   }
 `
 const DataPage = () => {
-    const [home, setHome] = useState(homeRu)
+  const [home, setHome] = useState(homeRu)
+  const [blogs, setBlogs] = useState([]);
+  const [currentBlogs, setCurrentBlogs] = useState([]);
+
+  useEffect(() => {
+    axios.get("/api/blog/home").then((res) => {
+      setBlogs(res.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    let currentLang = localStorage.getItem('lang')
+    if (currentLang == undefined) {
+      localStorage.setItem('lang', 'ru')
+      currentLang = localStorage.getItem('lang')
+    }
+  
+    let items = []
+    for (let i = 0; i < blogs.length; i++) {
+      if (blogs[i].language == currentLang && blogs[i].isItActive == "published") {
+        items.push(blogs[i]);
+      }
+    }
+    setCurrentBlogs(items)
+  }, [blogs]);
 
   useEffect(() => {
     let currentLang = localStorage.getItem('lang')
@@ -60,7 +85,7 @@ const DataPage = () => {
   return (
     <>
       <Header data={home} showBanner={false}/>
-      <Blog data={home}/>
+      <Blog data={home} currentBlogs={currentBlogs} full={true}/>
       <Footer data={home}/> 
     </>
   )

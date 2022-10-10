@@ -57,19 +57,19 @@ export const home = {
     arr: [
       {
         name : 'facebook',
-        src: './images/home/header/ico/facebook.svg',
+        src: '/images/home/header/ico/facebook.svg',
         link: '#',
         alt : 'facebook'
       },
       {
         name : 'telegram',
-        src: './images/home/header/ico/telegram.svg',
+        src: '/images/home/header/ico/telegram.svg',
         link: '#',
         alt : 'telegram'
       },
       {
         name : 'whatsapp',
-        src: './images/home/header/ico/whatsapp.svg',
+        src: '/images/home/header/ico/whatsapp.svg',
         link: '#',
         alt : 'whatsapp'
       },
@@ -128,19 +128,19 @@ export const home = {
       {
         title : 'Constructor VS Tour Library',
         comment: 'Making travel accessible to everyone! Choose the trip of your dreams from our library of original tours or create your own individual tour and relax according to your own script.',
-        src: './images/home/utp/ico1.jpg',
+        src: '/images/home/utp/ico1.jpg',
         alt : 'Constructor VS Tour Library ',
       },
       {
         title : 'Userfrendly is about us!',
         comment: 'We have no tourists, only travelers with whom we are on the same track! We guarantee financial security, save your time and money, and give you complete freedom of action and choice.',
-        src: './images/home/utp/ico1.jpg',
+        src: '/images/home/utp/ico1.jpg',
         alt : 'Userfrendly is about us!',
       },
       {
         title : 'Save money and travel on your own',
         comment: 'A personal travel expert will save you up to 80% of your time, help you plan and organize the perfect trip, and if necessary, calculate the cost of your self-trip for free.',
-        src: './images/home/utp/ico1.jpg',
+        src: '/images/home/utp/ico1.jpg',
         alt : 'Save money and travel on your own',
       },
     ]
@@ -162,7 +162,7 @@ export const home = {
       {
         name : 'Kate',
         info: 'She is the creator of gastronomic and wine tours. With thoughtfulness and spontaneity Kate gathers small groups of like-minded people for non-trivial trips to the culinary shrines and wine sights of Uzbekistan.',
-        src: './images/home/authors/kate.jpg',
+        src: '/images/home/authors/kate.jpg',
         alt : 'Kate',
         telegram : '#',
         facebook : '#',
@@ -171,7 +171,7 @@ export const home = {
       {
         name : 'Husnora',
         info: 'Husnora is expert of immersive tours on the legendary Volga Gaz-21. "Selfies Every Day," "Nostalgia, Damn It," and "LoveStory in Uzbekistan" are all Made By Husnora retro tours.',
-        src: './images/home/authors/husnora.jpg',
+        src: '/images/home/authors/husnora.jpg',
         alt : 'Husnora',
         telegram : '#',
         facebook : '#',
@@ -180,7 +180,7 @@ export const home = {
       {
         name : 'Said',
         info: 'A great representative of "travel addiction," a favorite of the handmade.travel team, a bilingual and expert of hobby tours and craft trips to Uzbekistan. At the age of 25, Said has already managed to patent the handicraft tour "Uzbek Kinky Hands".',
-        src: './images/home/authors/said.jpg',
+        src: '/images/home/authors/said.jpg',
         alt : 'Said',
         telegram : '#',
         facebook : '#',
@@ -189,7 +189,7 @@ export const home = {
       {
         name : 'Zokir',
         info: 'Dwayne Johnson of the handmade.travel team, author of photo-expeditions, organizer of hunting and fishing trips in Uzbekistan. A chef with a degree from God, Zokir is no less professional and competent in his second profession.',
-        src: './images/home/authors/zokir.jpg',
+        src: '/images/home/authors/zokir.jpg',
         alt : 'Zokir',
         telegram : '#',
         facebook : '#',
@@ -198,7 +198,7 @@ export const home = {
       {
         name : 'Narina',
         info: 'Customizer of art tours, bachelorette parties and dance trips to Uzbekistan. She gives serotonin, dopamine and endorphin. At handmade.travel, Narina makes wonders and creates travel experiences that make you want to return to Uzbekistan.',
-        src: './images/home/authors/narina.jpg',
+        src: '/images/home/authors/narina.jpg',
         alt : 'Narina',
         telegram : '#',
         facebook : '#',
@@ -207,7 +207,7 @@ export const home = {
       {
         name : 'Fuzuliy',
         info: 'The composer of original journeys to Uzbekistan: from coaching tours to mystical tips and Sufi practices. Fuzuliy has already managed to create 5656 unique tours, organized 107 trips and made 1005 people happy!',
-        src: './images/home/authors/fuzuliy.jpg',
+        src: '/images/home/authors/fuzuliy.jpg',
         alt : 'Fuzuliy',
         telegram : '#',
         facebook : '#',
@@ -216,7 +216,7 @@ export const home = {
       {
         name : 'Umida',
         info: 'A local expert on festival tours in Uzbekistan. Always on the same page as the traveler, Umida believes it is better to see once with your own eyes than to hear a hundred times, much less click, scroll and hesitate.',
-        src: './images/home/authors/umi.jpg',
+        src: '/images/home/authors/umi.jpg',
         alt : 'Umida',
         telegram : '#',
         facebook : '#',
@@ -294,15 +294,15 @@ export const home = {
   footer_payment : {
     arr : [
       { 
-        src : './images/home/footer/master.png',
+        src : '/images/home/footer/master.png',
         alt : 'master card'
       },
       { 
-        src : './images/home/footer/union.png',
+        src : '/images/home/footer/union.png',
         alt : 'union pay'
       },
       { 
-        src : './images/home/footer/visa.png',
+        src : '/images/home/footer/visa.png',
         alt : 'visa'
       },
     ]
@@ -409,27 +409,27 @@ export const home = {
   footer_links : {
     arr : [
       {
-        src : './images/home/footer/face.png',
+        src : '/images/home/footer/face.png',
         alt : 'facebook',
         link: "#",
       },
       {
-        src : './images/home/footer/insta.png',
+        src : '/images/home/footer/insta.png',
         alt : 'instagram',
         link: "#",
       },
       {
-        src : './images/home/footer/teleg.png',
+        src : '/images/home/footer/teleg.png',
         alt : 'telegram',
         link: "#",
       },
       {
-        src : './images/home/footer/vk.png',
+        src : '/images/home/footer/vk.png',
         alt : 'vkontakte',
         link: "#",
       },
       {
-        src : './images/home/footer/youtube.png',
+        src : '/images/home/footer/youtube.png',
         alt : 'youtube',
         link: "#",
       }

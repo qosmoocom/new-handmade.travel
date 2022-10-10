@@ -4,9 +4,10 @@ import Link from "../../components/Link";
 
 const Section = styled.div`
   .footer{
-    margin-top: 20px;
+    // margin-top: 20px;
     border-top: 1px solid #1698A0;
     padding: 30px 0px 20px;
+    background-color : #fff;
     li {
       list-style: none;
     }

@@ -189,16 +189,16 @@ const Section = styled.div`
 
   .tour-button{
     text-align:  center;
-    
     background-color: #1698A0;
+    color: #fff;
     border-radius: 5px;
     cursor: pointer;
     line-height: 1.2;
     font-weight: 400;
-    color: #fff;
+    
     
     @media (min-width:320px) {
-      height: 40px;
+      height: 38px;
       font-size: 16px;
       margin-top: 27px;
       padding: 10px 0px 8px;
@@ -241,7 +241,7 @@ const TourItem = ({tour, buttonTitle}) => {
             <div className="tour-days">{tour.tourDays}</div>
           </div>
 
-          <Link href={`/tours/${tour.tourId}/${tour.tourLang}`}>
+          <Link href={`/tours/${tour.tourId}/${tour.tourLang}`} >
             <div className="tour-button">
               {buttonTitle}
             </div>

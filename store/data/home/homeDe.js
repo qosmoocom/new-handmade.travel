@@ -56,19 +56,19 @@ export const home = {
     arr: [
       {
         name : 'facebook',
-        src: './images/home/header/ico/facebook.svg',
+        src: '/images/home/header/ico/facebook.svg',
         link: '#',
         alt : 'facebook'
       },
       {
         name : 'telegram',
-        src: './images/home/header/ico/telegram.svg',
+        src: '/images/home/header/ico/telegram.svg',
         link: '#',
         alt : 'telegram'
       },
       {
         name : 'whatsapp',
-        src: './images/home/header/ico/whatsapp.svg',
+        src: '/images/home/header/ico/whatsapp.svg',
         link: '#',
         alt : 'whatsapp'
       },
@@ -127,19 +127,19 @@ export const home = {
       {
         title : 'Designer VS Tour-Bibliothek',
         comment: 'Reisen für alle zugänglich machen! Wählen Sie Ihre Traumreise aus der Tour-Bibliothek von unserem Organisator oder erstellen Sie Ihre eigene maßgeschneiderte Tour und entspannen Sie sich nach Ihrem eigenen Drehbuch.',
-        src: './images/home/utp/ico1.jpg',
+        src: '/images/home/utp/ico1.jpg',
         alt : 'Designer VS Tour-Bibliothek',
       },
       {
         title : 'Freundlichkeit ist unser Thema!',
         comment: 'Wir haben keine Touristen, sondern nur Reisende, mit denen wir auf einer Wellenlänge sind! Wir garantieren Ihnen finanzielle Sicherheit, sparen Ihnen Zeit und Geld und geben Ihnen volle Handlungs- und Entscheidungsfreiheit.',
-        src: './images/home/utp/ico1.jpg',
+        src: '/images/home/utp/ico1.jpg',
         alt : 'Freundlichkeit ist unser Thema!',
       },
       {
         title : 'Sparen und selbstständig reisen',
         comment: 'Ein persönlicher Reiseexperte spart Ihnen bis zu 80 % Ihrer Zeit, hilft Ihnen bei der Planung und Organisation der perfekten Reise und kalkuliert bei Bedarf kostenlos die Kosten für Ihre Individualreise. ',
-        src: './images/home/utp/ico1.jpg',
+        src: '/images/home/utp/ico1.jpg',
         alt : 'Sparen und selbstständig reisen',
       },
     ]
@@ -161,7 +161,7 @@ export const home = {
       {
         name : 'KATJUSCHA',
         info: 'Sie ist die Organisatorin von gastronomischen und Weinreisen. Mit wohlüberlegter Spontaneität versammelt Katya kleine Gruppen von Gleichgesinnten zu außergewöhnlichen Reisen zu den kulinarischen Heiligtümern und Weinattraktionen Usbekistans. ',
-        src: './images/home/authors/kate.jpg',
+        src: '/images/home/authors/kate.jpg',
         alt : 'KATJUSCHA',
         telegram : '#',
         facebook : '#',
@@ -170,7 +170,7 @@ export const home = {
       {
         name : 'HUSNORA',
         info: 'Klein aber fein. Nach und nach wird Husnora zum Bodhisattva der Sonderfahrten im legendären Wolga-Gaz-21. "Selfies jeden Tag", "Nostalgia" und "Liebegeschichte in Usbekistan" sind alles Retro-Touren Made By Husnora.',
-        src: './images/home/authors/husnora.jpg',
+        src: '/images/home/authors/husnora.jpg',
         alt : 'HUSNORA',
         telegram : '#',
         facebook : '#',
@@ -179,7 +179,7 @@ export const home = {
       {
         name : 'SAIDXON',
         info: `Ein markanter Vertreter der "Reisesucht", ein Liebling des handmade.travel-Teams, ein Polyglott und Guru von Hobby- und Bastelreisen nach Usbekistan. Im Alter von 25 Jahren hat Saidhon bereits eine Kunsthandwerkstour mit dem Titel "Uzbekistan's Kinky Hands" patentiert.`,
-        src: './images/home/authors/said.jpg',
+        src: '/images/home/authors/said.jpg',
         alt : 'SAIDXON',
         telegram : '#',
         facebook : '#',
@@ -188,7 +188,7 @@ export const home = {
       {
         name : 'ZAKIR KHAN',
         info: 'Dwayne "The Rock" Johnson vom handmade.travel-Team, Leiter von Fotoexpeditionen und Organisator von Jagd- und Angelreisen in Usbekistan. Als Koch ist Zokir in seinem zweiten Beruf ebenso professionell und kompetent. ',
-        src: './images/home/authors/zokir.jpg',
+        src: '/images/home/authors/zokir.jpg',
         alt : 'ZAKIR KHAN',
         telegram : '#',
         facebook : '#',
@@ -197,7 +197,7 @@ export const home = {
       {
         name : 'MADAM NARINA ',
         info: 'Die echte Mata-Hari der Kunstreisen, Junggesellenabschieden und Tanzreisen in Usbekistan. Sie gibt Serotonin, Dopamin und Endorphin. Bei handmade.travel schafft Narina Reiseerlebnisse, die Lust machen, nach Usbekistan zurückzukehren.',
-        src: './images/home/authors/narina.jpg',
+        src: '/images/home/authors/narina.jpg',
         alt : 'MADAM NARINA ',
         telegram : '#',
         facebook : '#',
@@ -206,7 +206,7 @@ export const home = {
       {
         name : 'FUZULIY-PHILOSOPH',
         info: 'Der Schöpfer von besonderen Reisen nach Usbekistan: von Coaching-Touren bis zu mystischen Sabantuys und Sufi-Praktiken. Fuzuliy hat bereits 5656 einzigartige Touren erstellt, 107 Reisen organisiert und 1005 Menschen glücklich gemacht!',
-        src: './images/home/authors/fuzuliy.jpg',
+        src: '/images/home/authors/fuzuliy.jpg',
         alt : 'FUZULIY-PHILOSOPH',
         telegram : '#',
         facebook : '#',
@@ -215,7 +215,7 @@ export const home = {
       {
         name : 'UMIDA, SIE IST UMI',
         info: 'Lokale Expertin für Festivalreisen nach Usbekistan. Immer auf einer Wellenlänge mit dem Reisenden, ist sich Umida sicher, dass es besser ist, einmal mit eigenen Augen zu sehen, als hundertmal zu hören, und noch mehr, zu klicken, zu scrollen und zu zweifeln.',
-        src: './images/home/authors/umi.jpg',
+        src: '/images/home/authors/umi.jpg',
         alt : 'UMIDA, SIE IST UMI',
         telegram : '#',
         facebook : '#',
@@ -292,15 +292,15 @@ export const home = {
   footer_payment : {
     arr : [
       { 
-        src : './images/home/footer/master.png',
+        src : '/images/home/footer/master.png',
         alt : 'master card'
       },
       { 
-        src : './images/home/footer/union.png',
+        src : '/images/home/footer/union.png',
         alt : 'union pay'
       },
       { 
-        src : './images/home/footer/visa.png',
+        src : '/images/home/footer/visa.png',
         alt : 'visa'
       },
     ]
@@ -407,27 +407,27 @@ export const home = {
   footer_links : {
     arr : [
       {
-        src : './images/home/footer/face.png',
+        src : '/images/home/footer/face.png',
         alt : 'facebook',
         link: "#",
       },
       {
-        src : './images/home/footer/insta.png',
+        src : '/images/home/footer/insta.png',
         alt : 'instagram',
         link: "#",
       },
       {
-        src : './images/home/footer/teleg.png',
+        src : '/images/home/footer/teleg.png',
         alt : 'telegram',
         link: "#",
       },
       {
-        src : './images/home/footer/vk.png',
+        src : '/images/home/footer/vk.png',
         alt : 'vkontakte',
         link: "#",
       },
       {
-        src : './images/home/footer/youtube.png',
+        src : '/images/home/footer/youtube.png',
         alt : 'youtube',
         link: "#",
       }

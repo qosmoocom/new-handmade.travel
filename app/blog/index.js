@@ -27,8 +27,6 @@ function Index({editBlog=false}) {
         const res = await axios.get(api);
         const data = await res.data;
         setContentBlog(JSON.parse(data[0].blogTexts).content)
-        console.log('contentBlog ',contentBlog)
-        console.log('апрос ишлаяпти')
       } catch (error) {
         setTimeout(() => {
           router.push("/404");
@@ -115,6 +113,20 @@ const Section = styled.div`
   user-select: none;
   .ql-toolbar {
     display: ${props => props.toolbarVisible ? "block" : "none"}
+  }
+  
+  .block-content{
+    background-color: #fafafa;
+    padding: 15px 0px;
+  }  
+
+  .ql-container.ql-snow{
+    border : none;
+  }
+
+  .container{
+    max-width: 1200px;
+    margin: 0px auto;
   }
     
 `

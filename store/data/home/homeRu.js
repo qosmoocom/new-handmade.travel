@@ -56,19 +56,19 @@ export const home = {
     arr: [
       {
         name : 'facebook',
-        src: './images/home/header/ico/facebook.svg',
+        src: '/images/home/header/ico/facebook.svg',
         link: 'https://www.facebook.com/messages/t/581402519012804/',
         alt : 'facebook'
       },
       {
         name : 'telegram',
-        src: './images/home/header/ico/telegram.svg',
+        src: '/images/home/header/ico/telegram.svg',
         link: 'https://t.me/handmadetravel_ru',
         alt : 'telegram'
       },
       {
         name : 'whatsapp',
-        src: './images/home/header/ico/whatsapp.svg',
+        src: '/images/home/header/ico/whatsapp.svg',
         link: 'https://api.whatsapp.com/send/?phone=998937201028&text&type=phone_number&app_absent=0',
         alt : 'whatsapp'
       },
@@ -127,19 +127,19 @@ export const home = {
       {
         title : 'Конструктор VS Библиотеки туров',
         comment: 'Делаем путешествия доступным для каждого! Выбери поездку своей мечты из нашей библиотеки авторских туров или создай свой индивидуальный тур и отдохни по собственному сценарию.',
-        src: './images/home/utp/ico1.jpg',
+        src: '/images/home/utp/ico1.jpg',
         alt : 'Конструктор',
       },
       {
         title : '"Юзерфрендли”  - это про нас!',
         comment: 'У нас нет туристов, лишь путешественники, с которыми мы на одной волне! Гарантируем сервис и финансовую безопасность, бережем ваше время и деньги, предоставляем полную свободу действий и выбора.',
-        src: './images/home/utp/ico1.jpg',
+        src: '/images/home/utp/ico1.jpg',
         alt : 'Конструктор',
       },
       {
         title : 'Экономь и путешествуй самостоятельно',
         comment: 'Личный тревел-эксперт сэкономит до 80% вашего времени, поможет спланировать и организовать идеальное путешествие, а если нужно бесплатно рассчитает стоимость вашей самостоятельной поездки. ',
-        src: './images/home/utp/ico1.jpg',
+        src: '/images/home/utp/ico1.jpg',
         alt : 'Конструктор',
       },
     ]
@@ -161,7 +161,7 @@ export const home = {
       {
         name : 'ГУЛЬЧАТАЙ КАТЯ',
         info: 'Автор гастрономических туров. С продуманной спонтанностью Катя собирает небольшие группы единомышленников для небанальных путешествий по кулинарным святыням и достопримечательностям Узбекистана. ',
-        src: './images/home/authors/kate.jpg',
+        src: '/images/home/authors/kate.jpg',
         alt : 'ГУЛЬЧАТАЙ КАТЯ',
         telegram : 'https://t.me/handmadetravel_ru',
         facebook : 'https://www.facebook.com/messages/t/581402519012804/',
@@ -170,7 +170,7 @@ export const home = {
       {
         name : 'ХУСНОРИК',
         info: 'Маленькая, да удаленькая, Хуснора - бодхисатва индивидуальных авторских туров на легендарной Волга Газ-21. "Селфи каждый день", "Ностальжи, черт побери" и "LoveStory в Узбекистане" - все это ретро-туры Made By Husnora.',
-        src: './images/home/authors/husnora.jpg',
+        src: '/images/home/authors/husnora.jpg',
         alt : 'ХУСНОРИК',
         telegram : 'https://t.me/handmadetravel_en',
         facebook : 'https://www.facebook.com/messages/t/100077795766837',
@@ -179,7 +179,7 @@ export const home = {
       {
         name : 'САИДХОН',
         info: 'Яркий представитель "тревел аддикции", любимчик команды handmade.travel, полиглот и гуру хобби-туров и крафтовых путешествий в Узбекистан. В свои 25 Саидхон уже успел запатентовать ремесленный тур "Очумелые ручки по-узбекски".',
-        src: './images/home/authors/said.jpg',
+        src: '/images/home/authors/said.jpg',
         alt : 'ЗОЛОТЫХ ДЕЛ МАСТЕР САИДХОН',
         telegram : 'https://t.me/handmade_travel',
         facebook : 'https://www.facebook.com/profile.php?id=100077955722581',
@@ -188,7 +188,7 @@ export const home = {
       {
         name : 'ЗОКИР ПОПОВИЧ',
         info: 'Дуэйн "Скала" Джонсон команды handmade.travel, автор фото-экспедиций, организатор охот и рыбалок в Узбекистане. Зокир не менее профессионален и компетентен в своей второй профессии.',
-        src: './images/home/authors/zokir.jpg',
+        src: '/images/home/authors/zokir.jpg',
         alt : 'ЗОКИР ПОПОВИЧ',
         telegram : '#',
         facebook : '#',
@@ -197,7 +197,7 @@ export const home = {
       {
         name : 'ФИЛОСОФ ФУЗУЛИЙ',
         info: 'Сочинитель авторских путешествий в Узбекистан: от коучинг тураов до мистических сабантуев и суфийских практик. Фузулий уже успел накреативить 5656 уникальных туров, организовал 107 путешествий и сделал счастливыми 1005 людей!',
-        src: './images/home/authors/fuzuliy.jpg',
+        src: '/images/home/authors/fuzuliy.jpg',
         alt : 'ФИЛОСОФ ФУЗУЛИЙ',
         telegram : 'https://t.me/handmadetravelde',
         facebook : 'https://www.facebook.com/messages/t/100076785810304',
@@ -206,7 +206,7 @@ export const home = {
       {
         name : 'НАРИНА-ХАНУМ',
         info: 'Мата-хари арт-туров, девичников и dance вояжей в Узбекистан. Дарит серотонин, дофамин и эндорфин. На просторах handmade.travel Нарина чудит и творит путешествия-впечатления, после которых хочется вернуться в Узбекистан.',
-        src: './images/home/authors/narina.jpg',
+        src: '/images/home/authors/narina.jpg',
         alt : 'НАРИНА-ХАНУМ',
         telegram : 'https://t.me/handmadetravel_fr',
         facebook : 'https://www.facebook.com/handmadetravelfr-371849660089376',
@@ -215,7 +215,7 @@ export const home = {
       {
         name : 'УМИДА, ОНА ЖЕ УМИ',
         info: 'Локальный эксперт по фестивальным турам в Узбекистан. Всегда на одной волне с путешественником, Умида уверена, что лучше один раз увидеть собственными глазами, чем сто раз услышать и уж тем более кликать, скролить и сомневаться.',
-        src: './images/home/authors/umi.jpg',
+        src: '/images/home/authors/umi.jpg',
         alt : 'УМИДА, ОНА ЖЕ УМИ',
         telegram : '#',
         facebook : '#',
@@ -294,15 +294,15 @@ export const home = {
   footer_payment : {
     arr : [
       { 
-        src : './images/home/footer/master.png',
+        src : '/images/home/footer/master.png',
         alt : 'master card'
       },
       { 
-        src : './images/home/footer/union.png',
+        src : '/images/home/footer/union.png',
         alt : 'union pay'
       },
       { 
-        src : './images/home/footer/visa.png',
+        src : '/images/home/footer/visa.png',
         alt : 'visa'
       },
     ]
@@ -409,27 +409,27 @@ export const home = {
   footer_links : {
     arr : [
       {
-        src : './images/home/footer/face.png',
+        src : '/images/home/footer/face.png',
         alt : 'facebook',
         link: "https://www.facebook.com/handmadetravelru-581402519012804",
       },
       {
-        src : './images/home/footer/insta.png',
+        src : '/images/home/footer/insta.png',
         alt : 'instagram',
         link: "https://www.instagram.com/handmade.travel_ru/",
       },
       {
-        src : './images/home/footer/teleg.png',
+        src : '/images/home/footer/teleg.png',
         alt : 'telegram',
         link: "https://t.me/handmade_travel_ru",
       },
       {
-        src : './images/home/footer/vk.png',
+        src : '/images/home/footer/vk.png',
         alt : 'vkontakte',
         link: "https://vk.com/id687844599",
       },
       {
-        src : './images/home/footer/youtube.png',
+        src : '/images/home/footer/youtube.png',
         alt : 'youtube',
         link: "https://www.youtube.com/channel/UCsi-g38QfxcXb4_N-vJghhg",
       }

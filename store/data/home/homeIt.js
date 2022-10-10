@@ -56,19 +56,19 @@ export const home = {
     arr: [
       {
         name : 'facebook',
-        src: './images/home/header/ico/facebook.svg',
+        src: '/images/home/header/ico/facebook.svg',
         link: '#',
         alt : 'facebook'
       },
       {
         name : 'telegram',
-        src: './images/home/header/ico/telegram.svg',
+        src: '/images/home/header/ico/telegram.svg',
         link: '#',
         alt : 'telegram'
       },
       {
         name : 'whatsapp',
-        src: './images/home/header/ico/whatsapp.svg',
+        src: '/images/home/header/ico/whatsapp.svg',
         link: '#',
         alt : 'whatsapp'
       },
@@ -127,19 +127,19 @@ export const home = {
       {
         title : 'Costruttore VS Libreria dei tour',
         comment: `Rendere i viaggi accessibili a tutti! Scegliete il vostro viaggio da sogno dalla nostra libreria di tour d'autore o create il vostro tour su misura e rilassatevi secondo il vostro copione.`,
-        src: './images/home/utp/ico1.jpg',
+        src: '/images/home/utp/ico1.jpg',
         alt : 'Costruttore VS Libreria dei tour',
       },
       {
         title : '"Userfriendly è su di noi!"',
         comment: 'Non abbiamo turisti, ma solo viaggiatori con cui siamo in sintonia! Vi garantiamo la sicurezza finanziaria, vi facciamo risparmiare tempo e denaro e vi diamo piena libertà di azione e di scelta.',
-        src: './images/home/utp/ico1.jpg',
+        src: '/images/home/utp/ico1.jpg',
         alt : 'Userfriendly è su di noi!',
       },
       {
         title : 'Risparmia e viaggia in modo indipendente',
         comment: `Un esperto di viaggio personale vi farà risparmiare fino all'80% del tempo, vi aiuterà a pianificare e organizzare il viaggio perfetto e, se necessario, calcolerà gratuitamente il costo del vostro viaggio indipendente.`,
-        src: './images/home/utp/ico1.jpg',
+        src: '/images/home/utp/ico1.jpg',
         alt : 'Risparmia e viaggia in modo indipendente',
       },
     ]
@@ -161,7 +161,7 @@ export const home = {
       {
         name : 'Gulciatay Katia',
         info: `È autrice di itinerari gastronomici e vinicoli. Con premurosa spontaneità, Katia riunisce piccoli gruppi di persone che la pensano come lei per viaggi non convenzionali nei santuari culinari e nelle attrazioni enologiche dell'Uzbekistan.`,
-        src: './images/home/authors/kate.jpg',
+        src: '/images/home/authors/kate.jpg',
         alt : 'Gulciatay Katia',
         telegram : '#',
         facebook : '#',
@@ -170,7 +170,7 @@ export const home = {
       {
         name : 'HUSNORIK',
         info: `“Nella botte piccola c'è il vino buono”, Husnora diventa il bodhisattva dei tour d'autore personalizzati sul leggendario Volga Gaz-21. " Selfie ogni giorno", "Nostalgia, maledetta" e "LoveStory in Uzbekistan" sono tutti tour retrò Made By Husnora.`,
-        src: './images/home/authors/husnora.jpg',
+        src: '/images/home/authors/husnora.jpg',
         alt : 'HUSNORIK',
         telegram : '#',
         facebook : '#',
@@ -179,7 +179,7 @@ export const home = {
       {
         name : 'OREFICE SAIDHON',
         info: `Un'impressionante rappresentante della "dipendenza da viaggio", una delle preferite del team di handmade.travel, poliglotta e guru dei tour per hobby e dei viaggi artigianali in Uzbekistan. A 25 anni, Saidkhon ha già brevettato un tour di artigianato, "Mani abili in uzbeko". `,
-        src: './images/home/authors/said.jpg',
+        src: '/images/home/authors/said.jpg',
         alt : 'OREFICE SAIDHON',
         telegram : '#',
         facebook : '#',
@@ -188,7 +188,7 @@ export const home = {
       {
         name : 'ZOKIR POPOVICH',
         info: `Dwayne "The Rock" Johnson del team handmade.travel è un fotografo di spedizione e organizzatore di viaggi di caccia e pesca in Uzbekistan. Chef laureato in cucina da Dio, Zokir è altrettanto professionale e competente nella sua seconda professione.`,
-        src: './images/home/authors/zokir.jpg',
+        src: '/images/home/authors/zokir.jpg',
         alt : 'ZOKIR POPOVICH',
         telegram : '#',
         facebook : '#',
@@ -197,7 +197,7 @@ export const home = {
       {
         name : 'Narina Hanum',
         info: `Tour d'arte Mata hari, addii al nubilato e viaggi di danza in Uzbekistan. Dà serotonina, dopamina ed endorfina. In handmade.travel, Narina crea esperienze di viaggio che fanno venire voglia di tornare in Uzbekistan.`,
-        src: './images/home/authors/narina.jpg',
+        src: '/images/home/authors/narina.jpg',
         alt : 'Narina Hanum',
         telegram : '#',
         facebook : '#',
@@ -206,7 +206,7 @@ export const home = {
       {
         name : 'Filosofo Fusuliy',
         info: `L'autore di viaggi d'autore in Uzbekistan: dai tour di coaching ai sabantuosismi mistici e alle pratiche sufi. Fuzuliy ha già creato 5656 tour unici, organizzato 107 viaggi e reso felici 1005 persone!`,
-        src: './images/home/authors/fuzuliy.jpg',
+        src: '/images/home/authors/fuzuliy.jpg',
         alt : 'Filosofo Fusuliy',
         telegram : '#',
         facebook : '#',
@@ -215,7 +215,7 @@ export const home = {
       {
         name : 'UMIDA, ALIAS UMI',
         info: 'Un esperto locale di tour di festival in Uzbekistan. Sempre in sintonia con il viaggiatore, Umida ritiene che sia meglio vedere una volta con i propri occhi che sentire cento volte, e ancor meno cliccare, scorrere ed esitare.',
-        src: './images/home/authors/umi.jpg',
+        src: '/images/home/authors/umi.jpg',
         alt : 'UMIDA, ALIAS UMI',
         telegram : '#',
         facebook : '#',
@@ -291,15 +291,15 @@ export const home = {
   footer_payment : {
     arr : [
       { 
-        src : './images/home/footer/master.png',
+        src : '/images/home/footer/master.png',
         alt : 'master card'
       },
       { 
-        src : './images/home/footer/union.png',
+        src : '/images/home/footer/union.png',
         alt : 'union pay'
       },
       { 
-        src : './images/home/footer/visa.png',
+        src : '/images/home/footer/visa.png',
         alt : 'visa'
       },
     ]
@@ -406,27 +406,27 @@ export const home = {
   footer_links : {
     arr : [
       {
-        src : './images/home/footer/face.png',
+        src : '/images/home/footer/face.png',
         alt : 'facebook',
         link: "#",
       },
       {
-        src : './images/home/footer/insta.png',
+        src : '/images/home/footer/insta.png',
         alt : 'instagram',
         link: "#",
       },
       {
-        src : './images/home/footer/teleg.png',
+        src : '/images/home/footer/teleg.png',
         alt : 'telegram',
         link: "#",
       },
       {
-        src : './images/home/footer/vk.png',
+        src : '/images/home/footer/vk.png',
         alt : 'vkontakte',
         link: "#",
       },
       {
-        src : './images/home/footer/youtube.png',
+        src : '/images/home/footer/youtube.png',
         alt : 'youtube',
         link: "#",
       }

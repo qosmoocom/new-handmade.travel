@@ -4780,9 +4780,11 @@ body {
 }
 
 .home-list-item-button {
-  background: #1698A0;
+  // background: #F27648;
+  border : 1px solid #333;
   border-radius: 5px;
-  color: #fff;
+  // color: #fff;
+  color: #333;
   text-align: center;
   margin-top: 20px;
   cursor: pointer;

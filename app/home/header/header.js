@@ -352,6 +352,7 @@ const Section = styled.div`
 
   .header-button{
     background: #F37732;
+    // background: #1698A0;
     display: block;
     border-radius: 10px;
     border: none ;
@@ -527,14 +528,14 @@ export default function Header({data, showBanner=true}) {
         <div className="container-home">
           <div className="navbar">
             <Link className="logo" href={'/'}>
-              <img src='./images/home/header/logo.png' alt='Logo'/>
+              <img src='/images/home/header/logo.png' alt='Logo'/>
               <div className="logo-text">Handmade travel</div>
             </Link>
             <div className="menu-box">
               <ul className="menu">
                 {
                   data.menu.arr.map((item, index) => {
-                      if (router.asPath !='/') {
+                      if (router.asPath !='/default') {
                         return (
                           <li className="menu-item" key={index}>
                             <Link href={item.link}>{item.title}</Link>
@@ -563,7 +564,7 @@ export default function Header({data, showBanner=true}) {
         </div>
         <div className="left-panel" onClick ={leftPanelOnClick}>
           <a className="logo">
-            <img src='./images/home/header/logo.png' alt='Logo'/>
+            <img src='/images/home/header/logo.png' alt='Logo'/>
             <div className="logo-text">Handmade travel</div>
           </a>
           <ul className="left-menu">

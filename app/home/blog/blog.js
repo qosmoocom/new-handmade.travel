@@ -50,47 +50,19 @@ const Section = styled.div`
   
 `
 
-const Blog = ({data, full=true}) => {
+const Blog = ({data, currentBlogs, full=true}) => {
 
-  // const [blogs, setBlogs] = useState([]);
-  // // const [loading, setLoading] = useState(false);
-
-  // //   get All tour
-  // const getAllBlogs = async () => {
-  //   // setLoading(true);
-  //   try {
-  //     console.log('Boshlandi')
-  //     const res = await axios.get("/api/blog/home");
-  //     const data = await res.data;
-  //     if (data) setBlogs(data);
-  //     console.log('blogs--',blogs)
-  //     // setTimeout(() => {
-  //     //   setLoading(false);
-  //     // }, 200);
-  //   } catch (error) {}
-  // };
-
-  // //   componentDidMount
-  // useEffect(() => {
-  //   getAllBlogs();
-  // }, []);
-
-  // useEffect(() => {
-  //   axios.get("/api/blog/home").then((res) => {
-  //     setBlogs(res.data);
-  //     console.log(res.data)
-  //   });
-  // }, []);
-
+  
   // const blogs = [
-  //   {blogId: 'ssss', blogTitle: 'Dance adventures in uzbekistan', blogSrc: './images/home/blogs/blog-1.jpg', blogInfo: 'Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', blogDate: '01.12.22'},
-  //   {blogId: 'ssss', blogTitle: 'Dance adventures in uzbekistan', blogSrc: './images/home/blogs/blog-1.jpg', blogInfo: 'Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', blogDate: '01.12.22'},
-  //   {blogId: 'ssss', blogTitle: 'Dance adventures in uzbekistan', blogSrc: './images/home/blogs/blog-1.jpg', blogInfo: 'Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', blogDate: '01.12.22'},
-  //   {blogId: 'ssss', blogTitle: 'Dance adventures in uzbekistan', blogSrc: './images/home/blogs/blog-1.jpg', blogInfo: 'Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', blogDate: '01.12.22'},
+  //   {blogId: 'ssss', blogTitle: 'Dance adventures in uzbekistan', blogSrc: '/images/home/blogs/blog-1.jpg', blogInfo: 'Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', blogDate: '01.12.22'},
+  //   {blogId: 'ssss', blogTitle: 'Dance adventures in uzbekistan', blogSrc: '/images/home/blogs/blog-1.jpg', blogInfo: 'Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', blogDate: '01.12.22'},
+  //   {blogId: 'ssss', blogTitle: 'Dance adventures in uzbekistan', blogSrc: '/images/home/blogs/blog-1.jpg', blogInfo: 'Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', blogDate: '01.12.22'},
+  //   {blogId: 'ssss', blogTitle: 'Dance adventures in uzbekistan', blogSrc: '/images/home/blogs/blog-1.jpg', blogInfo: 'Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', blogDate: '01.12.22'},
   // ]
 
-  const [colViewblogs, setcolViewblogs] = useState(3);
+  const [colViewblogs, setcolViewblogs] = useState(3)
   const [windowWidth, setWithWindow] = useState()
+  const [blogs, setBlogs] = useState([])
 
   useEffect(() => {
     setWithWindow(window.innerWidth)
@@ -107,9 +79,30 @@ const Blog = ({data, full=true}) => {
     if (1400 <= window.innerWidth) {
       setcolViewblogs(4)
     }
+    if (full) setcolViewblogs(100)
 
   },[]);
   
+  useEffect(() => {
+    let items = []
+    currentBlogs.forEach(item => {
+      console.log(item)
+      let blogObject = JSON.parse(item.blogTexts)
+      let element = {
+        id : item._id,
+        blogId: item.tour_id, 
+        blogTitle:item.blogName,
+        blogImgUrl:blogObject.header.imgUrl,  
+        blogInfo: blogObject.header.smallText,
+        blogDate : item.date,
+        blogUrl : `/blogs/${item.language}/${item.address}`
+      }
+      items.push(element)
+    });
+
+    setBlogs(items)
+  },[currentBlogs]);
+
   return(
     <Section>
       <div className="container-home">
@@ -123,7 +116,7 @@ const Blog = ({data, full=true}) => {
             </div>
           </div>
           <div className="blogs-box">
-            {/* {blogs.map((item,index) => {
+            {blogs.map((item,index) => {
               if (index < colViewblogs) {
                 return (
                   <div className="blog-item" key={index}>
@@ -131,9 +124,9 @@ const Blog = ({data, full=true}) => {
                   </div>
                 )
               }               
-            })} */}
+            })}
           </div>
-          <div className="view-more">{data.blogs_view_more_text.value}</div>
+          {/* <div className="view-more">{data.blogs_view_more_text.value}</div> */}
         </div>
       </div>
     </Section>

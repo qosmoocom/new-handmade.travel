@@ -242,13 +242,22 @@ export const Bloger = (state = defaultState, action) => {
     }
 
     case types.editBlog: {
-      // console.log('Edir blog', JSON.parse(action.data.blogTexts).content)
-      return {
-        ...state,
-        content : JSON.parse(action.data.blogTexts).content,
-        ...JSON.parse(action.data.blogTexts),
-        isEdit: true,
-      };
+      let data
+      try {
+          data = {
+            ...state,
+            content : JSON.parse(action.data.blogTexts).content,
+            ...JSON.parse(action.data.blogTexts),
+            isEdit: true,
+          }
+      } catch {
+        data = {
+          ...state,
+          isEdit: true,
+        }
+      }
+      console.log('data - ', data)
+      return data
     }
 
     case types.deleteBlog: {

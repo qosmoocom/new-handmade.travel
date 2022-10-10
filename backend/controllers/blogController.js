@@ -18,7 +18,6 @@ exports.createOne = async (req, res) => {
     })
 }
 exports.getItemByUser = async (res, req) => {
-    console.log(req.req.params);
     const result = await Blog.find({ blogAuthor: req.req.params.id });
     res.res.status(200).json(result);
 }

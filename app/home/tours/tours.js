@@ -50,7 +50,7 @@ const Section = styled.div`
   
 `
 
-const Tours = ({data, currentTours}) => {
+const Tours = ({data, currentTours, full=true}) => {
 
   const [colViewTours, setcolViewTours] = useState(3);
   const [windowWidth, setWithWindow] = useState()
@@ -71,6 +71,8 @@ const Tours = ({data, currentTours}) => {
     if (992 <= window.innerWidth) {
       setcolViewTours(8)
     }
+
+    if (full) setcolViewTours(100)
 
   },[]);
   
@@ -96,7 +98,6 @@ const Tours = ({data, currentTours}) => {
       items.push(element)
     });
     let newSortedItems = items.sort((a, b) => a.tourOrder > b.tourOrder ? 1 : -1);
-    // console.log(newSortedItems)
 
     setTours(newSortedItems)
   },[currentTours]);
@@ -111,6 +112,12 @@ const Tours = ({data, currentTours}) => {
     }
 
   }
+  let tour_show_more_button
+  
+  !full ? 
+    tour_show_more_button = (<div className="view-more" onClick={tourShowMore}>{data.tours_view_more_text.value}</div>) 
+    : 
+    ''
 
   return(
     <Section>
@@ -141,7 +148,7 @@ const Tours = ({data, currentTours}) => {
               }              
             })}
           </div>
-          <div className="view-more" onClick={tourShowMore}>{data.tours_view_more_text.value}</div>
+          {tour_show_more_button}
         </div>
       </div>
     </Section>

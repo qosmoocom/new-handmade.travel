@@ -21,14 +21,19 @@ import { useRouter } from 'next/router'
 const HomePage = () => {
   
   const [tours, setTours] = useState([]);
+  const [blogs, setBlogs] = useState([]);
   const [currentTours, setCurrentTours] = useState([]);
+  const [currentBlogs, setCurrentBlogs] = useState([]);
   const [home, setHome] = useState(homeEn)
 
   useEffect(() => {
     
     axios.get("/api/tour/home").then((res) => {
       setTours(res.data);
-      console.log('blog-*-',res.data)
+    });
+
+    axios.get("/api/blog/home").then((res) => {
+      setBlogs(res.data);
     });
     
   }, []);
@@ -73,19 +78,35 @@ const HomePage = () => {
         items.push(tours[i]);
       }
     }
-    // console.log(items)
     setCurrentTours(items)
   }, [tours]);
+
+
+ useEffect(() => {
+  let currentLang = localStorage.getItem('lang')
+  if (currentLang == undefined) {
+    localStorage.setItem('lang', 'ru')
+    currentLang = localStorage.getItem('lang')
+  }
+
+  let items = []
+  for (let i = 0; i < blogs.length; i++) {
+    if (blogs[i].language == currentLang && blogs[i].isItActive == "published") {
+      items.push(blogs[i]);
+    }
+  }
+  setCurrentBlogs(items)
+}, [blogs]);
 
   return (
     <>
       <Header data={home} />
       <Mission data={home} />
-      <Tours data={home} currentTours={currentTours} />
+      <Tours data={home} currentTours={currentTours} full={false} />
       <Utp data={home} />
       <Authors data={home} />
       <Reviews data={home} />
-      <Blog data={home} full={false}/>
+      <Blog data={home} currentBlogs={currentBlogs} full={false}/>
       <Footer data={home}/>
     </>
   )

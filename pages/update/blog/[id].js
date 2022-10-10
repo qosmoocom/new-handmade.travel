@@ -63,7 +63,6 @@ export default function Index() {
         isItActive,
         blogTexts: updateTexts,
       };
-      console.log(updateTexts)
       dispatch(updateMyBlogs(_id, updateBlog));
 
     };
