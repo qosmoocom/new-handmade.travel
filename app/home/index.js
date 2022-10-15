@@ -15,6 +15,7 @@ import Authors from './authors'
 import Reviews from './reviews'
 import Blog from './blog'
 import Footer from './footer'
+import Constructor from './constructor'
 import axios from "axios";
 import { useRouter } from 'next/router'
 
@@ -108,6 +109,7 @@ const HomePage = () => {
       <Reviews data={home} />
       <Blog data={home} currentBlogs={currentBlogs} full={false}/>
       <Footer data={home}/>
+      <Constructor/>
     </>
   )
 }

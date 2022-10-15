@@ -43,7 +43,8 @@ const Section = styled.div`
     position: relative;
     @media (min-width:320px) {
       height: 240px;
-      width: 100%;
+      min-width: 290px;
+      width : 100%
     }
     @media (min-width:480px) {
     }
@@ -185,8 +186,8 @@ const BlogItem = ({blog, read}) => {
   return (
     <Section>
       <div className="blog-box">
-        <div className="img-box">
-          <Image src={blog.blogImgUrl} alt="" layout="fill" objectFit="cover"/>  
+        <div className="img-box" style={{background: `url(${blog.blogImgUrl}) no-repeat`, backgroundSize: 'cover'}}>
+          {/* <Image src={blog.blogImgUrl} alt="" layout="fill" objectFit="cover"/>   */}
         </div>
         <div className="blog-info-box">
           <div className="blog-title">{blog.blogTitle}</div>

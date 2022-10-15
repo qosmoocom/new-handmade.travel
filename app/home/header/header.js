@@ -484,6 +484,12 @@ export default function Header({data, showBanner=true}) {
     }
   },[]);
 
+  const showConstructor = ()=> {
+    // let constructor = document.getElementById('full-panel')
+    // constructor.classList.add('show-panel')
+    // console.log(constructor)
+  }
+
   const banner = !showBanner ? '' 
     :
     (
@@ -494,7 +500,7 @@ export default function Header({data, showBanner=true}) {
             <div className="header-general-title">
               {data.header_general_title.value}
             </div>
-            <button className="header-button">
+            <button className="header-button" onClick={showConstructor}>
               {data.header_button_title.value}
             </button>
           </div>
