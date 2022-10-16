@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import styled from 'styled-components'
 import Cities from './cities'
+import Activitys from './activitys'
 
 const Section = styled.div`
   
@@ -17,7 +18,8 @@ const Content = ({cities, activitys}) => {
   return (
     <Section>
         <div className="panel">
-            <Cities cities={cities} activitys = {activitys}/>
+            <Cities cities={cities}/>
+            <Activitys activitys = {activitys}/>
         </div>
     </Section>
   )

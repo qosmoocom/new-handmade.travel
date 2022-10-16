@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from "react";
 import styled from 'styled-components'
-import ActivityItem from './activity-item'
+import ActivityOneCity from './activity-one-city'
 
 const Section = styled.div`
   .panel {
     padding : 20px 50px;
+    margin-bottom : 20px;
   }
-  .cities {
+  .activitys {
     display : flex;
     flex-wrap : wrap;
     justify-content : space-between; 
@@ -18,7 +19,7 @@ const Section = styled.div`
     fonr-weight : 600;
   }
 `
-const Activity = ({activitys}) => {
+const Activitys = ({activitys}) => {
     
     //   const [home, setHome] = useState(homeRu)
   
@@ -31,11 +32,11 @@ const Activity = ({activitys}) => {
   return (
     <Section>
         <div className="panel">
-            <div className="panel-title">Города</div>
-            <div className="cities">
+            <div className="panel-title">Активности</div>
+            <div className="activitys">
                 {activitys.map((item,index) => {
                     return (
-                        <ActivityItem item={item} key={index}/>
+                        <ActivityOneCity item={item} key={index}/>
                     )
                 })}
             </div>
@@ -45,4 +46,4 @@ const Activity = ({activitys}) => {
   )
 }
 
-export default Activity;
+export default Activitys;

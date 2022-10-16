@@ -7,12 +7,12 @@ const Section = styled.div`
     margin-bottom: 30px;
     position : relative; 
     cursor : pointer;
-    width : 300px;
-    height : 200px;
-    @media (min-width:1400px) {
-      width : 26vw;
-      height : 300px;
-    }
+    width : 400px;
+    height : 300px;
+    // @media (min-width:1400px) {
+    //   width : 26vw;
+    //   height : 300px;
+    // }
     margin-right : 10px;
   }
 

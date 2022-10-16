@@ -9,6 +9,8 @@ const Section = styled.div`
     background-color : #f1f1f1;
     box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
     padding: 10px 20px;
+    position : fixed;
+    z-index : 100;
   }
 
   .logo{

@@ -19,12 +19,16 @@ const Section = styled.div`
     // background-color : #f8f8f8;
     // background-color : #F27648;
     border-right: 1px solid #fff;
+    position : fixed;
+    margin-top : 100px;
   }
 
   .right {
-    width : 100%;
+    width : 80%;
     height : 100%;
     background-color : #f8f8f8;
+    padding-left: 130px;
+    margin-top : 100px;
   }
 `
 const Constructor = () => {
@@ -59,77 +63,90 @@ const Constructor = () => {
       src : '/images/constructor/city/city1.jpg',
       data : [
         {title: 'Хазрати Хизр', id : 'tashkent', src : '/images/constructor/activity/act1.jpg'},
-        {title: 'Хазрати Хизр', id : 'tashkent', src : '/images/constructor/activity/act1.jpg'},
-        {title: 'Хазрати Хизр', id : 'tashkent', src : '/images/constructor/activity/act1.jpg'},
-        {title: 'Хазрати Хизр', id : 'tashkent', src : '/images/constructor/activity/act1.jpg'},
-        {title: 'Хазрати Хизр', id : 'tashkent', src : '/images/constructor/activity/act1.jpg'},
-        {title: 'Хазрати Хизр', id : 'tashkent', src : '/images/constructor/activity/act1.jpg'},
-        {title: 'Хазрати Хизр', id : 'tashkent', src : '/images/constructor/activity/act1.jpg'},
-        {title: 'Хазрати Хизр', id : 'tashkent', src : '/images/constructor/activity/act1.jpg'},
+        {title: 'Хазрати Хизр', id : 'tashkent', src : '/images/constructor/activity/act2.jpg'},
+        {title: 'Хазрати Хизр', id : 'tashkent', src : '/images/constructor/activity/act3.jpg'},
+        {title: 'Хазрати Хизр', id : 'tashkent', src : '/images/constructor/activity/act4.jpg'},
+        {title: 'Хазрати Хизр', id : 'tashkent', src : '/images/constructor/activity/act5.jpg'},
+        {title: 'Хазрати Хизр', id : 'tashkent', src : '/images/constructor/activity/act6.jpg'},
+        {title: 'Хазрати Хизр', id : 'tashkent', src : '/images/constructor/activity/act7.jpg'},
+        {title: 'Хазрати Хизр', id : 'tashkent', src : '/images/constructor/activity/act8.jpg'},
+        {title: 'Хазрати Хизр', id : 'tashkent', src : '/images/constructor/activity/act6.jpg'},
+        {title: 'Хазрати Хизр', id : 'tashkent', src : '/images/constructor/activity/act7.jpg'},
       ]
     },
-    { city : 'samarkandt',
+    { city : 'samarkand',
       src : '/images/constructor/city/city2.jpg',
       data : [
+        {title: 'Регистан', id : 'samarkand', src : '/images/constructor/activity/act6.jpg'},
+        {title: 'Регистан', id : 'samarkand', src : '/images/constructor/activity/act7.jpg'},
+        {title: 'Регистан', id : 'samarkand', src : '/images/constructor/activity/act8.jpg'},
+        {title: 'Регистан', id : 'samarkand', src : '/images/constructor/activity/act1.jpg'},
         {title: 'Регистан', id : 'samarkand', src : '/images/constructor/activity/act2.jpg'},
+        {title: 'Регистан', id : 'samarkand', src : '/images/constructor/activity/act3.jpg'},
+        {title: 'Регистан', id : 'samarkand', src : '/images/constructor/activity/act4.jpg'},
+        {title: 'Регистан', id : 'samarkand', src : '/images/constructor/activity/act5.jpg'},
         {title: 'Регистан', id : 'samarkand', src : '/images/constructor/activity/act2.jpg'},
-        {title: 'Регистан', id : 'samarkand', src : '/images/constructor/activity/act2.jpg'},
-        {title: 'Регистан', id : 'samarkand', src : '/images/constructor/activity/act2.jpg'},
-        {title: 'Регистан', id : 'samarkand', src : '/images/constructor/activity/act2.jpg'},
-        {title: 'Регистан', id : 'samarkand', src : '/images/constructor/activity/act2.jpg'},
-        {title: 'Регистан', id : 'samarkand', src : '/images/constructor/activity/act2.jpg'},
-        {title: 'Регистан', id : 'samarkand', src : '/images/constructor/activity/act2.jpg'},
+        {title: 'Регистан', id : 'samarkand', src : '/images/constructor/activity/act3.jpg'},
       ]
     },
     { city : 'bukhara',
       src : '/images/constructor/city/city3.jpg',
       data : [
         {title: 'Ляби Хауз', id : 'bukhara', src : '/images/constructor/activity/act3.jpg'},
-        {title: 'Ляби Хауз', id : 'bukhara', src : '/images/constructor/activity/act3.jpg'},
-        {title: 'Ляби Хауз', id : 'bukhara', src : '/images/constructor/activity/act3.jpg'},
-        {title: 'Ляби Хауз', id : 'bukhara', src : '/images/constructor/activity/act3.jpg'},
-        {title: 'Ляби Хауз', id : 'bukhara', src : '/images/constructor/activity/act3.jpg'},
-        {title: 'Ляби Хауз', id : 'bukhara', src : '/images/constructor/activity/act3.jpg'},
-        {title: 'Ляби Хауз', id : 'bukhara', src : '/images/constructor/activity/act3.jpg'},
-        {title: 'Ляби Хауз', id : 'bukhara', src : '/images/constructor/activity/act3.jpg'},
+        {title: 'Ляби Хауз', id : 'bukhara', src : '/images/constructor/activity/act4.jpg'},
+        {title: 'Ляби Хауз', id : 'bukhara', src : '/images/constructor/activity/act5.jpg'},
+        {title: 'Ляби Хауз', id : 'bukhara', src : '/images/constructor/activity/act1.jpg'},
+        {title: 'Ляби Хауз', id : 'bukhara', src : '/images/constructor/activity/act2.jpg'},
+        {title: 'Ляби Хауз', id : 'bukhara', src : '/images/constructor/activity/act6.jpg'},
+        {title: 'Ляби Хауз', id : 'bukhara', src : '/images/constructor/activity/act7.jpg'},
+        {title: 'Ляби Хауз', id : 'bukhara', src : '/images/constructor/activity/act8.jpg'},
+        {title: 'Ляби Хауз', id : 'bukhara', src : '/images/constructor/activity/act2.jpg'},
+        {title: 'Ляби Хауз', id : 'bukhara', src : '/images/constructor/activity/act6.jpg'},
       ]
     },
     { city : 'khiva',
       src : '/images/constructor/city/city4.jpg',
       data : [
         {title: 'Ичан кала', id : 'khiva', src : '/images/constructor/activity/act4.jpg'},
-        {title: 'Ичан кала', id : 'khiva', src : '/images/constructor/activity/act4.jpg'},
-        {title: 'Ичан кала', id : 'khiva', src : '/images/constructor/activity/act4.jpg'},
-        {title: 'Ичан кала', id : 'khiva', src : '/images/constructor/activity/act4.jpg'},
-        {title: 'Ичан кала', id : 'khiva', src : '/images/constructor/activity/act4.jpg'},
-        {title: 'Ичан кала', id : 'khiva', src : '/images/constructor/activity/act4.jpg'},
-        {title: 'Ичан кала', id : 'khiva', src : '/images/constructor/activity/act4.jpg'},
-        {title: 'Ичан кала', id : 'khiva', src : '/images/constructor/activity/act4.jpg'},
+        {title: 'Ичан кала', id : 'khiva', src : '/images/constructor/activity/act5.jpg'},
+        {title: 'Ичан кала', id : 'khiva', src : '/images/constructor/activity/act6.jpg'},
+        {title: 'Ичан кала', id : 'khiva', src : '/images/constructor/activity/act1.jpg'},
+        {title: 'Ичан кала', id : 'khiva', src : '/images/constructor/activity/act2.jpg'},
+        {title: 'Ичан кала', id : 'khiva', src : '/images/constructor/activity/act3.jpg'},
+        {title: 'Ичан кала', id : 'khiva', src : '/images/constructor/activity/act7.jpg'},
+        {title: 'Ичан кала', id : 'khiva', src : '/images/constructor/activity/act8.jpg'},
+        {title: 'Ичан кала', id : 'khiva', src : '/images/constructor/activity/act2.jpg'},
+        {title: 'Ичан кала', id : 'khiva', src : '/images/constructor/activity/act3.jpg'},
       ]
     },
     { city : 'navai',
       src : '/images/constructor/city/city5.jpg',
       data : [
-        {title: 'Алишер Наваи бог', id : 'navai', src : '/images/constructor/activity/act5.jpg'},
-        {title: 'Алишер Наваи бог', id : 'navai', src : '/images/constructor/activity/act5.jpg'},
-        {title: 'Алишер Наваи бог', id : 'navai', src : '/images/constructor/activity/act5.jpg'},
-        {title: 'Алишер Наваи бог', id : 'navai', src : '/images/constructor/activity/act5.jpg'},
-        {title: 'Алишер Наваи бог', id : 'navai', src : '/images/constructor/activity/act5.jpg'},
-        {title: 'Алишер Наваи бог', id : 'navai', src : '/images/constructor/activity/act5.jpg'},
-        {title: 'Алишер Наваи бог', id : 'navai', src : '/images/constructor/activity/act5.jpg'},
-        {title: 'Алишер Наваи бог', id : 'navai', src : '/images/constructor/activity/act5.jpg'},
+        {title: 'Алишер Наваи боги', id : 'navai', src : '/images/constructor/activity/act3.jpg'},
+        {title: 'Алишер Наваи боги', id : 'navai', src : '/images/constructor/activity/act4.jpg'},
+        {title: 'Алишер Наваи боги', id : 'navai', src : '/images/constructor/activity/act5.jpg'},
+        {title: 'Алишер Наваи боги', id : 'navai', src : '/images/constructor/activity/act1.jpg'},
+        {title: 'Алишер Наваи боги', id : 'navai', src : '/images/constructor/activity/act2.jpg'},
+        {title: 'Алишер Наваи боги', id : 'navai', src : '/images/constructor/activity/act6.jpg'},
+        {title: 'Алишер Наваи боги', id : 'navai', src : '/images/constructor/activity/act7.jpg'},
+        {title: 'Алишер Наваи боги', id : 'navai', src : '/images/constructor/activity/act8.jpg'},
+        {title: 'Алишер Наваи боги', id : 'navai', src : '/images/constructor/activity/act5.jpg'},
+        {title: 'Алишер Наваи боги', id : 'navai', src : '/images/constructor/activity/act1.jpg'},
       ]
     },
     { city : 'nurata',
       src : '/images/constructor/city/city6.jpg',
       data : [
+        {title: 'Нурата масжид', id : 'nurata', src : '/images/constructor/activity/act3.jpg'},
+        {title: 'Нурата масжид', id : 'nurata', src : '/images/constructor/activity/act4.jpg'},
+        {title: 'Нурата масжид', id : 'nurata', src : '/images/constructor/activity/act1.jpg'},
         {title: 'Нурата масжид', id : 'nurata', src : '/images/constructor/activity/act2.jpg'},
-        {title: 'Нурата масжид', id : 'nurata', src : '/images/constructor/activity/act2.jpg'},
-        {title: 'Нурата масжид', id : 'nurata', src : '/images/constructor/activity/act2.jpg'},
-        {title: 'Нурата масжид', id : 'nurata', src : '/images/constructor/activity/act2.jpg'},
-        {title: 'Нурата масжид', id : 'nurata', src : '/images/constructor/activity/act2.jpg'},
-        {title: 'Нурата масжид', id : 'nurata', src : '/images/constructor/activity/act2.jpg'},
-        {title: 'Нурата масжид', id : 'nurata', src : '/images/constructor/activity/act2.jpg'},
+        {title: 'Нурата масжид', id : 'nurata', src : '/images/constructor/activity/act5.jpg'},
+        {title: 'Нурата масжид', id : 'nurata', src : '/images/constructor/activity/act6.jpg'},
+        {title: 'Нурата масжид', id : 'nurata', src : '/images/constructor/activity/act7.jpg'},
+        {title: 'Нурата масжид', id : 'nurata', src : '/images/constructor/activity/act4.jpg'},
+        {title: 'Нурата масжид', id : 'nurata', src : '/images/constructor/activity/act1.jpg'},
+        {title: 'Нурата масжид', id : 'nurata', src : '/images/constructor/activity/act6.jpg'},
       ]
     }
   ]
