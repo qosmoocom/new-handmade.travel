@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Link from "../../components/Link";
+import ReviewItem from './review-item'
 
 const Section = styled.div`
 
@@ -13,27 +15,6 @@ const Section = styled.div`
 
   .slick-dots {
   bottom: -40px;
- }
-
- .video-box{
-  height : 250px;
- }
-
- .content-box{
-  margin-top: 20px;
- }
-
- .reviews-item-title{
-    text-align:center;
-    @media (min-width:480px) {
-      min-height: 40px;
-    }
-
-    @media (min-width:1200px) {
-      font-size: 18px;
-      line-height: 20px;
-      min-height: 40px;
-    }
  }
 
 `
@@ -80,12 +61,6 @@ const Reviews = ({data}) => {
     };
   },[]);
 
-  const showAuthorLinkBox = (e) => {
-    let button = e.target
-    button.classList.add('not-visible')
-    // let links = button.parentNode.getElementsByClassName('link')
-    for (let e of button.parentNode.getElementsByClassName('link')) { e.classList.remove('not-visible') }
-  }
 
   return (
     <Section>
@@ -103,34 +78,13 @@ const Reviews = ({data}) => {
               <Slider {...settings}>
                 {data.reviews_list.arr.map((item,index) => {
                   return (
-                    <div className="home-list-item-item" key={index}>
-                      <div className="home-list-item" key={index}>
-                        {/* <div className="home-img-box">
-                          <img src={item.src} alt={item.name} />
-                        </div> */}
-                        <div className="video-box">
-                          <ReactPlayer url={item.src} playing={false} controls={false} width={'100%'} height={'100%'} />
-                        </div>
-                        
-                        <div className="content-box">
-                          <div className="home-list-item-title reviews-item-title">{item.name}</div>
-                          {/* <div className="home-list-item-text reviews-item-text reviews-item-info">{item.info}</div> */}
-                          <div className="home-list-item-text">{item.text}</div>
-                        </div>
-                        
-                      </div>
-                    </div>
-                    
+                    <ReviewItem item={item} index={index}/>                    
                   )
                 })}
               </Slider> 
-              
             </div>
           </div>
         </div>
-
-
-      
     </Section>
   )
 }

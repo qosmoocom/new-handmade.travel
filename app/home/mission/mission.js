@@ -124,6 +124,23 @@ const Section = styled.div`
       margin: 0px 0px 0px 35px;
     }
   }
+
+  .box{
+    height : 250px;
+    width : 280px;
+    position : relative;
+    .img-box{
+        width : 280px;
+        height : 250px;
+        object-fit: cover;
+    }
+    .youtube-ico{
+      position : absolute;
+      left : 40%;
+      top: 40%;
+      width : 70px;
+    }
+ }
 `
 
 const Mission = ({data}) => {
@@ -141,6 +158,18 @@ const Mission = ({data}) => {
     if (width >=768 & width <1400) setVideoBoxWidth(width/2.4)
     if (width >= 1400) setVideoBoxWidth(1400/2.3)
   },[]);
+
+  const [playing, setPlaying] = useState(false)
+
+  const visibleVideoBox = (e) => {
+    let parentDiv
+    parentDiv = e.target.parentNode.parentNode
+    let videoBoxs = parentDiv.getElementsByClassName('video-box')
+    let imgBoxs = parentDiv.getElementsByClassName('box')
+    videoBoxs[0].classList.remove('not-visible')
+    imgBoxs[0].classList.add('not-visible')
+    setPlaying(true)
+  }
   
   return (
     <Section>
@@ -168,12 +197,16 @@ const Mission = ({data}) => {
             </div>
           </div>
 
-          <div className="video-box">
-            <ReactPlayer url='https://www.youtube.com/watch?v=hzpo4QrmBL8' playing={play} controls={false} width={videoBoxWidth} height={videoBoxWidth/16*9} />
+          <div>
+            <div className="video-box not-visible">
+              <ReactPlayer url='https://www.youtube.com/watch?v=hzpo4QrmBL8' playing={playing} controls={false} width={videoBoxWidth} height={videoBoxWidth/16*9} />
+            </div>
+            <div className='box video-box' onClick={visibleVideoBox} style={{width:`${videoBoxWidth}px`, height:'auto'}}>
+              <img src='/images/home/mission/shef.jpg' style={{width:`${videoBoxWidth}px`, height:'auto'}} className='img-box' />
+              <img src='/images/home/reviews/youtube.png' className='youtube-ico'/>
+            </div>
           </div>
-          {/* <div className='img-box'>
-            <img src='/images/home/mission/screen.jpg'/>
-          </div> */}
+          
 
           <div className="ceo-box-bottom">
             <div className="ceo">

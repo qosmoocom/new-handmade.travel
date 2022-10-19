@@ -230,28 +230,28 @@ export const home = {
     arr: [
       {
         name :'Feedbacks of experienced traveler Charles Alexander ',
-        info: '',
+        img: '/images/home/reviews/en-1.jpg',
         text : `Hi my name is Chuck and it's 03.06.2021 . I'm here in Uzbekistan . I always wanted a Silk Road trip and I decided to travel to Uzbekistan. I'm very happy with my decision . Everybody needs to make their own decision. My advice would be see as much counties as you can . I visited some beautiful places, very friendly people good food and stayed in good hotels. I saw very awsome historical sites ...`,
         src: 'https://youtu.be/h2ZwTrqVxIk&t=4s',
         link : '#',
       },
       {
         name : 'Opinions of Mathy and Andrew Peter of the trip in Uzbekistan',
-        info: '',
+        img: '/images/home/reviews/en-2.jpg',
         text : `Uzbekistan is very safe and beautiful country. People are very welcoming .Our guide is been great, speaks good english and knows the culture history very well.Hotels that we stayed been beautiful. Uzbek traditional food is very good we tried rice,potatoes,Lamb,Beef and lots of seasonal vegetables and salads. It has been a really unique and wonderful trip and we recommend  everyone to travel ... `,
         src: 'https://youtu.be/mdjsuhSMhIY&t=5s',
         link : '#',
       },
       {
         name : 'Feedbacks  from Stephan, Jill, Carol and Diane',
-        info: '',
+        img: '/images/home/reviews/en-3.jpg',
         text : `For Carol’s birthday we have decided to go to Uzbekistan among other countries. We have got a very good tour company. We took a lot of care from Tour Company’s team during the trip. They explained us what we would do, what we should take with us and how it would the tour itself would be look like before the trip. It is very safe and we haven’t concerned about our safety. We enjoyed the culture ...`,
         src: 'https://youtu.be/0UHhAHk8JAo&t=2s',
         link : '#',
       },
       {
         name : 'About Dorian’s trip to Uzbekistan',
-        info: '',
+        img: '/images/home/reviews/en-4.jpg',
         text : `Uzbekistan is one of the best destinations that I have been visited. I have been even better that I have been expected. And we feel very welcome everywhere in Uzbekistan. People are really talkative and cheerful. It is better to contact with travel agencies like Silk Road destinations if you don’t know where to go, what to see and what to do. Travel agents are ready to organize it very professionally.`,
         src: 'https://youtu.be/TgPxX92D8Zc&t=2s',
         link : '#',
