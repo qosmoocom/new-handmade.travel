@@ -227,21 +227,21 @@ export const home = {
     arr: [
       {
         name :'Familie Götz über ihre schöne Usbekistanreise',
-        info: '',
+        img: '/images/home/reviews/de-1.jpg',
         text : "Die Organisation von Silk Road Destinations hat wunderbar geklappt. Wir konnten das Land ganz ganz entspannt genießen.Sehr sehr freundliche und angenehme Kontakte konnten wir knüpfen.",
         src: 'https://youtu.be/TmoWKBvksJE&t=4s',
         link : '#',
       },
       {
         name : 'Familie Sieberg über ihre schöne Usbekistanreise',
-        info: '',
+        img: '/images/home/reviews/de-2.jpg',
         text : "Insofern haben wir die Zeit wunderbar verbracht. Die Menschen hier sind sehr offen, barmherzig. Sie fragen,ob sie helfen können.Die usbekische Küche ist sehr lecker.",
         src: 'https://youtu.be/0z_ivnT95m4&t=69s',
         link : '#',
       },
       {
         name : 'Ingrid Cip und Kravanja Barbara über Ihre Usbekistanreise',
-        info: '',
+        img: '/images/home/reviews/de-3.jpg',
         text : `Der Empfang der Menschen hier war für uns extrem freundlich. Das Land ist absolut wert, zu bereisen. Sauber und sehr gastfreundlich.So eine Möglichkeit sollte man unbedingt  nicht versäumen.
         `,
         src: 'https://youtu.be/RYTnxQfmmPk&t=4s',
@@ -249,7 +249,7 @@ export const home = {
       },
       {
         name : 'Robert und Martina aus Wien über ihre Kombireise',
-        info: '',
+        img: '/images/home/reviews/de-4.jpg',
         text : `Ich habe noch nicht so was schönes gesehen, wie Samarkand. Unbedingt herkommen! Wenn Sie wirklich die Seidenstraße und den richtigen Orient erleben möchten, das ist hier, in Usbekistan.`,
         src: 'https://youtu.be/TGezrhJm64k&t=29s',
         link : '#',

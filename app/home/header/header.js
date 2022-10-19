@@ -490,8 +490,23 @@ export default function Header({data, showBanner=true}) {
     // console.log(constructor)
   }
 
-  const banner = !showBanner ? '' 
-    :
+  const banner = !showBanner ? 
+    (
+      <div className="header-box">
+        <img src={`/images/home/header/img${imgsrc}.jpg`} alt="" />
+        <div className="container-home">
+          <div className="header-content">
+            {/* <div className="header-general-title">
+              {data.header_general_title.value}
+            </div>
+            <button className="header-button" onClick={showConstructor}>
+              {data.header_button_title.value}
+            </button> */}
+          </div>
+        </div>
+      </div>
+    )
+  :
     (
       <div className="header-box">
         <img src={`/images/home/header/img${imgsrc}.jpg`} alt="" />
@@ -508,7 +523,7 @@ export default function Header({data, showBanner=true}) {
       </div>
     )
 
-  const menuLang = router.asPath != '/' ? ''
+  const menuLang = router.asPath != '/test' ? ''
     :
     <select className="menu-item lang-select" onChange={onChangeLang}>
       {data.menu_lang.arr.map((item, index) => {

@@ -227,28 +227,28 @@ export const home = {
     arr: [
       {
         name :'Recensione di Filadelfo e Marilena dal 21 al 27 aprile del 2022',
-        info: '',
+        img: '/images/home/reviews/it-1.jpg',
         text : "Uzbekistan è un paese bello, un paese pulito, un paese organizzato. Dobbiamo dire che veramente siamo contentissimi, e felicissimi di aver scelto l’Uzbekistan e il giro che abbiamo fatto per questo viaggio, le città che abbiamo visitato erano una più bella dell’altra. Siamo stati bene, perché è un viaggio ben organizzato dall’agenzia, e peccato che è finito velocemente!",
         src: 'https://youtu.be/NsZNyWhnP7s&t=4s',
         link : '#',
       },
       {
         name : 'Recensione di Enrica e Stanislao dal 12 al 21 settembre del 2021',
-        info: '',
+        img: '/images/home/reviews/it-2.jpg',
         text : "Questo è il viaggio che volevamo fare da tanto tempo. Abbiamo visitato cinque città una più bella dell’altra, e siamo molto contenti! Abbiamo trovato un’accoglienza eccezionale, abbiamo mangiato benissimo, ci è piaciuto tutto quello che abbiamo visto, e penso che avremo voglia di ritornare per vedere tutta la parte alta dell’Uzbekistan! Auguro proprio a tutti di avere una ...",
         src: 'https://youtu.be/0pkbIQdxXY0&t=4s',
         link : '#',
       },
       {
         name : 'Viaggio di Deborah e Andrea dal 1° all’8 agosto',
-        info: '',
+        img: '/images/home/reviews/it-3.jpg',
         text : "Abbiamo scelto l’Uzbekistan perché siamo gli amanti della storia. Lo abbiamo deciso di visitare nonostante la pandemia. Abbiamo trovato questa destinazione sull’internet sui social che visitiamo. Siamo riusciti a viaggiarci nonostante i controlli molto stretti durante la pandemia. Però non abbiamo avuto nessun problema dall’inizio alla fine del tour, ci hanno accolto ...",
         src: 'https://youtu.be/FNw7uWLu94I&t=4s',
         link : '#',
       },
       {
         name : 'Recensione di Ginella e Vasco',
-        info: '',
+        img: '/images/home/reviews/it-4.jpg',
         text : "Il viaggio è risultato più semplice per noi, siccome il problema principale di viaggiare per gli italiani è la lingua, e tanto che non tutti parlano l’inglese. Durante il viaggio non abbiamo pensato a niente, tutto era organizzato bene. Abbiamo fatto anche un piacevole viaggio in treno ad alta velocità da Tashkent a Samarcanda. Abbiamo avuto anche la sorpresa della neve ...",
         src: 'https://youtu.be/oowOg6TbSmA&t=4s',
         link : '#',

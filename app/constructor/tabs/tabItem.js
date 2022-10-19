@@ -43,10 +43,15 @@ const TabItem = ({item, key}) => {
     // });
   }, []);
 
-  console.log(item)
+  const scrolToId= (id) => {
+    // window.scrollTo(0, ref.current.scrollHeight)
+    const block = document.getElementById(id)
+    console.log(block)
+    window.scrollTo(0, block.scrollTop)
+  }
   return (
     <Section>
-        <div className="tab-item" key={key}>
+        <div className="tab-item" key={key} onClick={()=>scrolToId(item.id)}>
             <div className="img-box">
                 <img src={item.src}/>
             </div>

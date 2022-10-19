@@ -1,25 +1,26 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useRef} from "react";
 import styled from 'styled-components'
-import CityItem from './city-item'
+import BlocksOneCity from './blocks-one-city'
 
 const Section = styled.div`
   .panel {
     padding : 20px 50px;
+    margin-bottom : 20px;
   }
-  .cities {
+  .blocks {
     display : flex;
     flex-wrap : wrap;
     justify-content : space-between; 
     margin-top : 20px;
   }
 
-  .panel-title{
+  .blocks-title{
     font-size : 30px;
     fonr-weight : 600;
   }
 `
-const Cities = ({cities}) => {
-    
+const Blocks = ({data, id, title}) => {
+  
     //   const [home, setHome] = useState(homeRu)
   
   useEffect(() => {
@@ -28,15 +29,14 @@ const Cities = ({cities}) => {
     // });
   }, []);
 
-  
   return (
     <Section>
-        <div className="panel">
-            <div className="panel-title">Города</div>
-            <div className="cities">
-                {cities.map((item,index) => {
+        <div className="panel" id={id}>
+            <div className="blocks-title">{title}</div>
+            <div className="blocks">
+                {data.map((item,index) => {
                     return (
-                        <CityItem item={item} key={index}/>
+                        <BlocksOneCity item={item} key={index}/>
                     )
                 })}
             </div>
@@ -46,4 +46,4 @@ const Cities = ({cities}) => {
   )
 }
 
-export default Cities;
+export default Blocks;

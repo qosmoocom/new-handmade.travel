@@ -7,6 +7,7 @@ import {home as homeEs} from '../../store/data/home/homeEs'
 import {home as homeFr} from '../../store/data/home/homeFr'
 import {home as homeIt} from '../../store/data/home/homeIt'
 import {home as homeRu} from '../../store/data/home/homeRu'
+import Head from "next/head";
 
 import Mission from "./mission"
 import Tours from './tours'
