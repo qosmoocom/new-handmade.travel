@@ -38,15 +38,35 @@ function Index({editBlog=false}) {
   
   }, [router.asPath]);
   
+  // const modules = {
+  //   toolbar: [
+  //     [{ header: [1, 2, false] }],
+  //     ["bold", "italic", "underline", "strike", "blockquote"],
+  //     [{ list: "ordered" }, { list: "bullet" }],
+  //     ["link"],
+  //     ["link", "image"]
+  //   ]
+  // }
+
   const modules = {
-    toolbar: [
-      [{ header: [1, 2, false] }],
-      ["bold", "italic", "underline", "strike", "blockquote"],
-      [{ list: "ordered" }, { list: "bullet" }],
-      ["link"]
-      // ["link", "image"]
-    ]
-  }
+    toolbar: {
+      container: [
+        ["bold", "italic", "underline", "strike", "blockquote"],
+        [{ size: ["small", false, "large", "huge"] }, { color: [] }],
+        [
+          { list: "ordered" },
+          { list: "bullet" },
+          { indent: "-1" },
+          { indent: "+1" },
+          { align: [] }
+        ],
+        ["link", "image"],
+        ["clean"]
+      ]
+      // handlers: { image: this.imageHandler }
+    },
+    clipboard: { matchVisual: false }
+  };
 
   const formats = [
     "header",
@@ -55,11 +75,14 @@ function Index({editBlog=false}) {
     "underline",
     "strike",
     "blockquote",
+    "size",
+    "color",
     "list",
     "bullet",
     "indent",
     "link",
-    "image"
+    "image",
+    "align"
   ]
 
   const handleProcedureContentChange = (content, delta, source, editor) => {
@@ -106,13 +129,18 @@ function Index({editBlog=false}) {
         // pauseOnHover
       />
     </Section>
+    
   );
 }
 
 const Section = styled.div`
   user-select: none;
   .ql-toolbar {
-    display: ${props => props.toolbarVisible ? "block" : "none"}
+    display: ${props => props.toolbarVisible ? "block" : "none"};
+    position : fixed;
+    top : 20px;
+    z-index : 100;
+    background-color : #fff;
   }
   
   .block-content{
@@ -122,6 +150,8 @@ const Section = styled.div`
 
   .ql-container.ql-snow{
     border : none;
+    // position : fixed;
+    // top : 20px;
   }
 
   .container{
