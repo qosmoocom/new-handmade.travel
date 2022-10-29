@@ -320,7 +320,7 @@ export default function Rate() {
                                       id={index}
                                       itIsClassName="rate-list-item-descript_two"
                                     >
-                                      {item.rate_title_two.split(' ').join('') == '' ? 'Пустой текст': item.rate_title_two }
+                                      {String(item.rate_title_two).split(' ').join('') == '' ? 'Пустой текст': item.rate_title_two }
                                     </Text>
                                   </p>
                                 </div>}</>
