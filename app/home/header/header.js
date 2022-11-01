@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
+import Image from 'next/image'
 import Link from "../../components/Link";
 // import {Link as linkScrol, animateScroll as scroll } from "react-scroll";
 
@@ -412,10 +413,41 @@ const Section = styled.div`
     }
   }
 
+  .mini-block{
+    width : 100%;
+    position : relative;
+    @media (min-width:320px) {
+      height : 200px;
+    }
+    @media (min-width:480px) {
+      
+    }
+    @media (min-width:576px) {
+      
+    }
+    @media (min-width:768px) {
+      height : 300px;
+    }
+    @media (min-width:992px) {
+      height : 350px;
+    }
+    @media (min-width:1200px) {
+      height : 400px;
+    }
+    @media (min-width:1400px) {
+      
+    }
+  }
+
+  .header-box-2{
+    background-color : #fafafa;
+  }
+
 `
 export default function Header({data, showBanner=true}) {
   const router = useRouter();
   const [scroll, setScroll] = useState(false);
+  const [numberImg, setNumberImg] = useState(1);
   
   // componentDidMount
   useEffect(() => {
@@ -424,6 +456,10 @@ export default function Header({data, showBanner=true}) {
     } else {
       setScroll(false);
     }
+  }, []);
+
+  useEffect(() => {
+    setNumberImg(Math.floor(Math.random() * 39) + 1)
   }, []);
 
   // in scrolling
@@ -492,18 +528,22 @@ export default function Header({data, showBanner=true}) {
 
   const banner = !showBanner ? 
     (
-      <div className="header-box">
-        <img src={`/images/home/header/img${imgsrc}.jpg`} alt="" />
-        <div className="container-home">
-          <div className="header-content">
-            {/* <div className="header-general-title">
-              {data.header_general_title.value}
-            </div>
-            <button className="header-button" onClick={showConstructor}>
-              {data.header_button_title.value}
-            </button> */}
+      <div className="header-box-2">
+        {/* <img src={`/images/home/header/img${imgsrc}.jpg`} alt="" /> */}
+        <div className="container-home-2">
+          <div className="mini-block">
+            <Image
+              alt='___'
+              // src={`/images/home/header/mini-block/${Math.floor(Math.random() * 39) + 1}.jpg`}
+              src={`/images/home/header/mini-block/${numberImg}.jpg`}
+              layout='fill'
+              objectFit='cover'
+              width="100%" 
+              height="100%" 
+            />
           </div>
         </div>
+        
       </div>
     )
   :
