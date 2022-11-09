@@ -26,12 +26,12 @@ export default function Keyword() {
           <li>
             keywords: <Text name="app_keywords">{getItem("app_keywords")}</Text>
           </li>
-          <li>
+          {/* <li>
             yandex metirka ID:{" "}
             <Text name="app_yandex_metirka_id">
               {getItem("app_yandex_metirka_id")}
             </Text>
-          </li>
+          </li> */}
           <li>
             link for Privacy Policy:{" "}
             <Text name="footer_col_srteficat_href">

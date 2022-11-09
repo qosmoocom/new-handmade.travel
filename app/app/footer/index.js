@@ -1503,7 +1503,7 @@ export default function index({ footer }) {
                   })
                     (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-                  ym(${getItem("app_yandex_metirka_id")}, "init", {
+                  ym(91108865, "init", {
                     clickmap: true,
                     trackLinks: true,
                     accurateTrackBounce: true,

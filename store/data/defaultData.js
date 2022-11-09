@@ -1551,7 +1551,7 @@ export const defaultState = {
     value: "uzbekiston sayohat, samarqand sayohat.",
   },
   app_yandex_metirka_id: {
-    value: "124920342",
+    value: "91108865",
   },
   app_extra_money: {
     value: "69",

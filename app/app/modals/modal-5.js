@@ -168,7 +168,8 @@ export const Modal5 = () => {
     return "";
   };
 
-  const itIsActive = Object.values(form).filter((i,index)=>index !=1).every((value) => value);
+  const itIsActive = Object.values(form).every((value) => value);
+
   return (
     <>
       <Wrapper className={isOpen ? "active" : ""}>

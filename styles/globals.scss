@@ -1538,7 +1538,7 @@ body {
     }
 
     @media (min-width: 1200px) {
-      font-size: 30px;
+      font-size: 25px;
       // padding: 35px 20px;
       padding: 35px 20px;
       // min-width: 100%;
@@ -4759,8 +4759,7 @@ body {
   @media (min-width:992px) {
     font-size: 16px;
     line-height: 20px;
-    min-height: 180px;
-
+    min-height: 225px;
   }
 
   @media (min-width:1200px) {
@@ -4796,7 +4795,10 @@ body {
 }
 
 .home-list-item-item {
-  @media (min-width:320px) {}
+  width : 100%;
+  @media (min-width:320px) {
+
+  }
 
   @media (min-width:480px) {
     padding: 0px 5px;
@@ -4978,4 +4980,3 @@ body {
 strong {
   font-weight: 500;
 }
-

@@ -256,7 +256,7 @@ export const Bloger = (state = defaultState, action) => {
           isEdit: true,
         }
       }
-      console.log('data - ', data)
+      // console.log('data - ', data)
       return data
     }
 

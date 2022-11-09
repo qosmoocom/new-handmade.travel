@@ -108,9 +108,7 @@ export default function Index() {
           {/* yandex */}
           <div>
             <img
-              src={`https://mc.yandex.ru/watch/${getItem(
-                "app_yandex_metirka_id"
-              )}`}
+              src={`https://mc.yandex.ru/watch/91108865`}
               style={{ position: "absolute", left: "-9999px" }}
               alt=""
             />

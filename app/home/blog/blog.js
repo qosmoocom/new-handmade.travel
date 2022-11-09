@@ -10,38 +10,7 @@ const Section = styled.div`
     flex-wrap: wrap;
     justify-content: space-between ;
   }
-
-  .blog-item{
-    @media (min-width:320px) {
-      margin-bottom: 30px;
-      width: 100%;
-    }
-    
-    @media (min-width:480px) {
-      width: 48%;
-    }
-    @media (min-width:576px) {
-      
-    }
-    @media (min-width:768px) {
-      width: 31%;
-    }
-    @media (min-width:992px) {
-      width: 22%;
-      
-    }
-    @media (min-width:1200px) {
-      
-    }
-    @media (min-width:1400px) {
-      
-    }
-  }
-
-  .blogs-box {
-    /* margin-bottom: 30px; */
-  }
-
+  
   .view-more{
     font-weight: 700;
     text-align: center;
@@ -51,14 +20,6 @@ const Section = styled.div`
 `
 
 const Blog = ({data, currentBlogs, full=true}) => {
-
-  
-  // const blogs = [
-  //   {blogId: 'ssss', blogTitle: 'Dance adventures in uzbekistan', blogSrc: '/images/home/blogs/blog-1.jpg', blogInfo: 'Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', blogDate: '01.12.22'},
-  //   {blogId: 'ssss', blogTitle: 'Dance adventures in uzbekistan', blogSrc: '/images/home/blogs/blog-1.jpg', blogInfo: 'Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', blogDate: '01.12.22'},
-  //   {blogId: 'ssss', blogTitle: 'Dance adventures in uzbekistan', blogSrc: '/images/home/blogs/blog-1.jpg', blogInfo: 'Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', blogDate: '01.12.22'},
-  //   {blogId: 'ssss', blogTitle: 'Dance adventures in uzbekistan', blogSrc: '/images/home/blogs/blog-1.jpg', blogInfo: 'Авторская программа вкусных развлечений, аппетитных экскурсий и уникальных гастрономических открытий', blogDate: '01.12.22'},
-  // ]
 
   const [colViewblogs, setcolViewblogs] = useState(3)
   const [windowWidth, setWithWindow] = useState()
@@ -86,7 +47,6 @@ const Blog = ({data, currentBlogs, full=true}) => {
   useEffect(() => {
     let items = []
     currentBlogs.forEach(item => {
-      console.log(item)
       let blogObject = JSON.parse(item.blogTexts)
       let element = {
         id : item._id,
@@ -119,9 +79,7 @@ const Blog = ({data, currentBlogs, full=true}) => {
             {blogs.map((item,index) => {
               if (index < colViewblogs) {
                 return (
-                  <div className="blog-item" key={index}>
-                    <BlogItem blog={item} read = {data.blogs_item_read_text.value}/>
-                  </div>
+                  <BlogItem blog={item} read = {data.blogs_item_read_text.value} key={index}/>
                 )
               }               
             })}

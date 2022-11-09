@@ -11,43 +11,29 @@ const Section = styled.div`
     justify-content: space-between ;
   }
 
-  .tour-item{
-    @media (min-width:320px) {
-      margin-bottom: 30px;
-      width: 100%;
-    }
-    
-    @media (min-width:480px) {
-      width: 48%;
-    }
-    @media (min-width:576px) {
-      
-    }
-    @media (min-width:768px) {
-      width: 31%;
-    }
-    @media (min-width:992px) {
-      width: 22%;
-      
-    }
-    @media (min-width:1200px) {
-      
-    }
-    @media (min-width:1400px) {
-      
-    }
-  }
-
-  .tours-box {
-    /* margin-bottom: 30px; */
-  }
-
   .view-more{
     font-weight: 700;
     text-align: center;
     cursor: pointer;
   }
+
+  .element{
+    @media (min-width:320px) {
+      margin-bottom: 30px;
+      width: 100%;
+    }
   
+    @media (min-width:480px) {
+      width : 48%;
+    }
+    @media (min-width:768px) {
+      width : 31%;
+    }
+  
+    @media (min-width:992px) {
+      width : 23%;
+    }
+  }
 `
 
 const Tours = ({data, currentTours, full=true}) => {
@@ -105,7 +91,7 @@ const Tours = ({data, currentTours, full=true}) => {
   const tourShowMore = (e) => {
     let element = e.target
     element.classList.add('not-visible')
-    let tourItems = document.getElementsByClassName('tour-item')
+    let tourItems = document.getElementsByClassName('element')
 
     for (let i=0; i< tourItems.length; i++) {
       tourItems[i].classList.remove('not-visible')
@@ -135,13 +121,13 @@ const Tours = ({data, currentTours, full=true}) => {
             {tours.map((item,index) => {
               if (index < colViewTours) {
                 return (
-                  <div className="tour-item" key={index}>
+                  <div className="element" key={index}>
                     <TourItem tour={item} buttonTitle = {data.tours_button_title.value}/>
                   </div>
                 )
               } else {
                 return (
-                  <div className="tour-item not-visible" key={index}>
+                  <div className="element not-visible" key={index}>
                     <TourItem tour={item} buttonTitle = {data.tours_button_title.value}/>
                   </div>
                 )

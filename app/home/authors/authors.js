@@ -52,9 +52,10 @@ const Authors = ({data}) => {
     if (480 <= width && width < 992) {
       setColslidesToShow(2)
     }
+
     
     if (992 <= width && width < 1400) {
-      setColslidesToShow(3)
+      setColslidesToShow(4)
     }
    
     if (1400 <= width ) {

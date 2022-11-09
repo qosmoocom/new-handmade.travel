@@ -60,7 +60,7 @@ const CityItem = ({item, key}) => {
 
   const cityChecked = (e) => {
     setCheck(e.target.checked)
-    console.log(check)
+    // console.log(check)
   }
 
   const cityItemOnClick= (e) => {

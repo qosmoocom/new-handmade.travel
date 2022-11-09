@@ -7,17 +7,25 @@ import "slick-carousel/slick/slick-theme.css";
 import Link from "../../components/Link";
 
 const Section = styled.div`
+  
+  @media (min-width:320px) {
+    padding : 5px;
+  }
 
+  @media (min-width:768px) {
+    padding : 15px;
+  }
+    
  .video-box{
     height : 250px;
  }
 
  .box{
     height : 250px;
-    width : 280px;
+    width : 100%;
     position : relative;
     .img-box{
-        width : 280px;
+        width : 100%;
         height : 250px;
         object-fit: cover;
     }
@@ -68,26 +76,22 @@ const ReviewItem = ({item, index}) => {
 
 
   return (
-    <Section>
-        <div className="home-list-item-item" key={index}>
-            <div className="home-list-item" key={index}>
-                <div className="video-box not-visible">
-                    <ReactPlayer url={item.src} playing={playing} controls={false} width={'100%'} height={'100%'} />
-                </div>
+    <Section key={index}>
+      <div className="video-box not-visible">
+          <ReactPlayer url={item.src} playing={playing} controls={false} width={'100%'} height={'100%'} />
+      </div>
 
-                {/* <div onClick={visibleVideoBox} className='img-box' style={{background: `url(${item.img}) no-repeat`, backgroundSize: 'cover'}}> */}
-                <div onClick={visibleVideoBox} className='box'>
-                    <img src={item.img} className='img-box'/>
-                    <img src='/images/home/reviews/youtube.png' className='youtube-ico'/>
+      {/* <div onClick={visibleVideoBox} className='img-box' style={{background: `url(${item.img}) no-repeat`, backgroundSize: 'cover'}}> */}
+      <div onClick={visibleVideoBox} className='box'>
+          <img src={item.img} className='img-box'/>
+          <img src='/images/home/reviews/youtube.png' className='youtube-ico'/>
 
-                </div>
-                
-                <div className="content-box">
-                    <div className="home-list-item-title reviews-item-title">{item.name}</div>
-                    <div className="home-list-item-text">{item.text}</div>
-                </div>
-            </div>
-        </div>
+      </div>
+      
+      <div className="content-box">
+          <div className="home-list-item-title reviews-item-title">{item.name}</div>
+          <div className="home-list-item-text">{item.text}</div>
+      </div>
     </Section>
   )
 }

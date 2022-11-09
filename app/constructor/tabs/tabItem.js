@@ -46,7 +46,7 @@ const TabItem = ({item, key}) => {
   const scrolToId= (id) => {
     // window.scrollTo(0, ref.current.scrollHeight)
     const block = document.getElementById(id)
-    console.log(block)
+    // console.log(block)
     window.scrollTo(0, block.scrollTop)
   }
   return (

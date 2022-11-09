@@ -4,6 +4,22 @@ import Image from 'next/image'
 import Link from "../../components/Link";
 
 const Section = styled.div`
+  @media (min-width:320px) {
+    margin-bottom: 30px;
+    width: 100%;
+  }
+
+  @media (min-width:480px) {
+    width: 48%;
+  }
+  
+  @media (min-width:768px) {
+    width: 31%;
+  }
+  @media (min-width:992px) {
+    width: 23%;
+  }
+
   a{
     text-decoration : none;
     font-weigth : 300;
@@ -12,39 +28,12 @@ const Section = styled.div`
     border : none;
   }
 
-  
-  
-
-  .blog-box{
-    background: rgba(217, 217, 217, 0.1);
-    border: 0.01px solid rgba(0, 0, 0, 0.25);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-    @media (min-width:320px) {
-      width: 100%;
-      padding: 2px;
-    }
-    @media (min-width:480px) {
-    }
-    @media (min-width:576px) {
-    }
-    @media (min-width:768px) {
-    }
-    @media (min-width:992px) {
-    }
-    @media (min-width:1200px) {
-    }
-    @media (min-width:1400px) {
-    }
-  }
-
   .img-box{
-    border-radius: 5px 5px 0px 0px;
-    position: relative;
     @media (min-width:320px) {
-      height: 240px;
-      min-width: 290px;
-      width : 100%
+      height: 280px;
+      // width: 290px;
+      width : 100%;
+      
     }
     @media (min-width:480px) {
     }
@@ -58,6 +47,11 @@ const Section = styled.div`
     @media (min-width:1200px) {
     }
     @media (min-width:1400px) {
+    }
+    img{
+      width : 100%;
+      height : 100%;
+      object-fit : cover;
     }
   }
 
@@ -185,20 +179,17 @@ const BlogItem = ({blog, read}) => {
   
   return (
     <Section>
-      <div className="blog-box">
-        <div className="img-box" style={{background: `url(${blog.blogImgUrl}) no-repeat`, backgroundSize: 'cover'}}>
-          {/* <Image src={blog.blogImgUrl} alt="" layout="fill" objectFit="cover"/>   */}
+      <div className="img-box">
+        <img src={blog.blogImgUrl}/>
+      </div>
+      <div className="blog-info-box">
+        <div className="blog-title">{blog.blogTitle}</div>
+        <div className="blog-info">{blogInfo}</div>
+        <div className="blog-date-box">
+          <div className="blog-date">{blog.blogDate}</div>
+          <Link href={blog.blogUrl} className="blog-read">{read}</Link>
         </div>
-        <div className="blog-info-box">
-          <div className="blog-title">{blog.blogTitle}</div>
-          <div className="blog-info">{blogInfo}</div>
-          <div className="blog-date-box">
-            <div className="blog-date">{blog.blogDate}</div>
-            <Link href={blog.blogUrl} className="blog-read">{read}</Link>
-          </div>
-          {/* <div className="blog-button">{buttonTitle}</div> */}
-        </div>
-        
+        {/* <div className="blog-button">{buttonTitle}</div> */}
       </div>
     </Section>
   )

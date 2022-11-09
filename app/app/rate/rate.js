@@ -321,6 +321,7 @@ export default function Rate() {
                                       itIsClassName="rate-list-item-descript_two"
                                     >
                                       {/* {(item.rate_title_two == undefined || item.rate_title_two == ' ' || item.rate_title_two == null) ? 'Пустой текст': item.rate_title_two } */}
+                                      {1 ? console.log(`rate - ${item.rate_title_two}`):null}
                                       {item.rate_title_two}
                                     </Text>
                                   </p>

@@ -4,6 +4,7 @@ import Link from "next/link";
 
 
 const Section = styled.div`
+  
   .tour-box{
     background: rgba(217, 217, 217, 0.1);
     border: 0.01px solid rgba(0, 0, 0, 0.25);
@@ -13,18 +14,7 @@ const Section = styled.div`
       width: 100%;
       padding: 2px;
     }
-    @media (min-width:480px) {
-    }
-    @media (min-width:576px) {
-    }
-    @media (min-width:768px) {
-    }
-    @media (min-width:992px) {
-    }
-    @media (min-width:1200px) {
-    }
-    @media (min-width:1400px) {
-    }
+    
   }
 
   .img-box{
@@ -32,19 +22,6 @@ const Section = styled.div`
     @media (min-width:320px) {
       height: 240px;
       width: 100%;
-    }
-    @media (min-width:480px) {
-    }
-    @media (min-width:576px) {
-      
-    }
-    @media (min-width:768px) {
-    }
-    @media (min-width:992px) {
-    }
-    @media (min-width:1200px) {
-    }
-    @media (min-width:1400px) {
     }
   }
 
@@ -56,20 +33,6 @@ const Section = styled.div`
     @media (min-width:320px) {
       height: auto;
       width: 100%;
-    }
-    
-    @media (min-width:480px) {
-    }
-    @media (min-width:576px) {
-      
-    }
-    @media (min-width:768px) {
-    }
-    @media (min-width:992px) {
-    }
-    @media (min-width:1200px) {
-    }
-    @media (min-width:1400px) {
     }
   }
 
@@ -86,17 +49,6 @@ const Section = styled.div`
       font-size: 18px;
       line-height : 1.1;
     }
-    @media (min-width:576px) {
-      
-    }
-    @media (min-width:768px) {
-    }
-    @media (min-width:992px) {
-    }
-    @media (min-width:1200px) {
-    }
-    @media (min-width:1400px) {
-    }
   }
 
   .tour-info{
@@ -109,13 +61,6 @@ const Section = styled.div`
       margin-bottom: 12px;
     }
     
-    @media (min-width:480px) {
-    }
-    @media (min-width:576px) {
-      
-    }
-    @media (min-width:768px) {
-    }
     @media (min-width:992px) {
       min-height: 100px;
     }
@@ -123,8 +68,6 @@ const Section = styled.div`
       font-size: 16px;
       line-height: 19px;
       margin-bottom: 10px;
-    }
-    @media (min-width:1400px) {
     }
   }
 
@@ -135,22 +78,13 @@ const Section = styled.div`
       line-height: 18px;
     }
     
-    @media (min-width:480px) {
-    }
-    @media (min-width:576px) {
-      
-    }
     @media (min-width:768px) {
       font-size: 20px;
       line-height: 20px;
     }
-    @media (min-width:992px) {
-    }
     @media (min-width:1200px) {
       font-size: 22px;
       line-height: 22px;
-    }
-    @media (min-width:1400px) {
     }
   }
 
@@ -163,9 +97,6 @@ const Section = styled.div`
     
     @media (min-width:480px) {
       font-size: 10px;
-    }
-    @media (min-width:576px) {
-      
     }
     @media (min-width:768px) {
       font-size: 12px;
@@ -196,7 +127,6 @@ const Section = styled.div`
     line-height: 1.2;
     font-weight: 400;
     
-    
     @media (min-width:320px) {
       height: 38px;
       font-size: 16px;
@@ -207,17 +137,6 @@ const Section = styled.div`
     @media (min-width:480px) {
       font-size: 14px;
       padding: 10px 0px 8px;
-    }
-    @media (min-width:576px) {
-      
-    }
-    @media (min-width:768px) {
-    }
-    @media (min-width:992px) {
-    }
-    @media (min-width:1200px) {
-    }
-    @media (min-width:1400px) {
     }
   }
 `
