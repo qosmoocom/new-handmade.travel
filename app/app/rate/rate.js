@@ -320,7 +320,7 @@ export default function Rate() {
                                       id={index}
                                       itIsClassName="rate-list-item-descript_two"
                                     >
-                                      {item.rate_title_two == undefined ? 'Пустой текст': item.rate_title_two }
+                                      {item.rate_title_two == undefined ? `Alloggeremo in hotel di fiducia e in accoglienti boutique hotel a 4* e trascorreremo una notte in un'autentica yurta nomade. Gli hotel sono situati nei centri storici. Supplemento per sistemazione singola supplementare $ 594.`: item.rate_title_two }
                                       {/* {item.rate_title_two} */}
                                     </Text>
                                   </p>
