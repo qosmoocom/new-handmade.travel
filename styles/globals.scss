@@ -1727,7 +1727,7 @@ body {
             max-width: 220px;
             box-shadow: 1px 1px 10px 2px rgba(204, 204, 204, 1);
             background-color: #fff;
-
+            font-size: 22px;
             &.active {
               display: none;
             }
@@ -2090,9 +2090,9 @@ body {
         line-height: 117.6%;
         letter-spacing: 0.005em;
         color: rgb(255, 255, 255);
-        // max-width: 650px;
         font-weight: 600;
         font-size: 20px;
+        // max-width: 650px;
         padding-bottom: 20px;
 
         @media (min-width: 576px) {
