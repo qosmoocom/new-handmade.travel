@@ -352,8 +352,9 @@ const Section = styled.div`
   }
 
   .header-button{
-    background: #F37732;
+    // background: #F37732;
     // background: #1698A0;
+    background : #e65c0f;
     display: block;
     border-radius: 10px;
     border: none ;
