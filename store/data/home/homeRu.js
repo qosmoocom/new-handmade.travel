@@ -343,7 +343,6 @@ export const home = {
   footer_contacts_mail : {
     value : 'russian@handmade.travel'
   },
-  },
   footer_contacts_adress : {
     value : 'Площадь Кук Сарай 1'
   },
