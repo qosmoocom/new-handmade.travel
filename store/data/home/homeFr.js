@@ -288,8 +288,17 @@ export const home = {
   footer_info_title : {
     value : 'handmade.travel'
   },
+  // footer_info_text : {
+  //   value : `Marque de commerce de Silk Road Destinations. 20 ans de succès sur le marché du voyage. Plus de 35 000 voyageurs heureux. Plus de 100 témoignages vidéo. Lauréat du concours To Do 2014.`
+  // },
   footer_info_text : {
-    value : `Marque de commerce de Silk Road Destinations. 20 ans de succès sur le marché du voyage. Plus de 35 000 voyageurs heureux. Plus de 100 témoignages vidéo. Lauréat du concours To Do 2014.`
+    arr : [
+      {value : 'Silk Road Destinations TM'},
+      {value : 'Работаем с 2004 года'},
+      {value : 'Организовали более 20 000 туров'},
+      {value : 'Осчастливили 34 850 туристов'},
+      {value : '100+ видео-отзывов'},
+    ]
   },
   footer_payment : {
     arr : [

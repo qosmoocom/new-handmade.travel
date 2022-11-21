@@ -286,8 +286,17 @@ export const home = {
   footer_info_title : {
     value : 'handmade.travel'
   },
+  // footer_info_text : {
+  //   value : 'торговый знак Silk Road Destinations. 20 лет успеха на туристическом рынке более 35 тысяч счастливых туристов свыше 200 видео-отзывов победитель конкурса To Do 2014'
+  // },
   footer_info_text : {
-    value : 'торговый знак Silk Road Destinations. 20 лет успеха на туристическом рынке более 35 тысяч счастливых туристов свыше 200 видео-отзывов победитель конкурса To Do 2014'
+    arr : [
+      {value : 'Silk Road Destinations TM'},
+      {value : 'Работаем с 2004 года'},
+      {value : 'Организовали более 20 000 туров'},
+      {value : 'Осчастливили 34 850 туристов'},
+      {value : '100+ видео-отзывов'},
+    ]
   },
   footer_payment : {
     arr : [

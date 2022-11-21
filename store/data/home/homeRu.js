@@ -295,19 +295,13 @@ export const home = {
     value : 'handmade.travel'
   },
   footer_info_text : {
-    value : 'Silk Road Destinations TM'
-  },
-  footer_info_text : {
-    value : 'Работаем с 2004 года'
-  },
-  footer_info_text : {
-    value : 'Организовали более 20 000 туров'
-  },
-  footer_info_text : {
-    value : 'Осчастливили 34 850 туристов'
-  },
-  footer_info_text : {
-    value : '100+ видео-отзывов'
+    arr : [
+      {value : 'Silk Road Destinations TM'},
+      {value : 'Работаем с 2004 года'},
+      {value : 'Организовали более 20 000 туров'},
+      {value : 'Осчастливили 34 850 туристов'},
+      {value : '100+ видео-отзывов'},
+    ]
   },
   footer_payment : {
     arr : [

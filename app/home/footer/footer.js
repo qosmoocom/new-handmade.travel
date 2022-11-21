@@ -29,7 +29,7 @@ const Section = styled.div`
     @media (min-width:320px) {
       font-size: 16px;
       line-height: 22px;
-      text-align: justify;
+      // text-align: justify;
     }
     
   }
@@ -160,8 +160,11 @@ const Footer = ({data }) => {
           <div className="footer-blocks-box">
             <div className="info info-block">
               <div className="info-title title">{data.footer_info_title.value}</div>
-              <div className="info-text">{data.footer_info_text.value}</div>
-              
+              {data.footer_info_text.arr.map(item => {
+                return (
+                  <div className="info-text">{item.value}</div>
+                )
+              })}
             </div>
 
             <div className="contacts info-block">
