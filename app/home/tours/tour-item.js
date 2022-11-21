@@ -121,7 +121,7 @@ const Section = styled.div`
   .tour-button{
     text-align:  center;
     // background-color: #1698A0;
-    background-color : #F37732;
+    background-color : #e65c0f;
     
     color: #fff;
     border-radius: 5px;
