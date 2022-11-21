@@ -73,7 +73,7 @@ const ReviewItem = ({item, index}) => {
     imgBoxs[0].classList.add('not-visible')
     setPlaying(true)
   }
-
+  console.log(item.src)
 
   return (
     <Section key={index}>
