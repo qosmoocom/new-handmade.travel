@@ -125,7 +125,7 @@ const Section = styled.div`
   .blog-read{
     cursor: pointer;
     font-weight: 500;
-    color: #333;
+    color: #000;
     @media (min-width:320px) {
       font-size: 14px;
       line-height: 16px;

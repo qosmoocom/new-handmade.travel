@@ -199,10 +199,10 @@ const Utp = ({data}) => {
             {data.utp_list.arr.map((item,index) => {
               return (
                 <div className="utp-item" key={index}>
-                  <div className="img-box">
+                  {/* <div className="img-box">
                     <img src={item.src} alt={item.alt} />
                     <div className="utp-item-title">{item.title}</div>
-                  </div>
+                  </div> */}
                   <div className="content-box">
                     <div className="utp-item-title">{item.title}</div>
                     <div className="utp-item-text">{item.comment}</div>

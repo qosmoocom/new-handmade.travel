@@ -112,7 +112,7 @@ const Section = styled.div`
     
     a{
       text-decoration: none;
-      color: #333;
+      color: #000;
     }
   }
 

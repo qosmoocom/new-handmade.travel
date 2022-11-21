@@ -4516,7 +4516,7 @@ body {
   margin: 0 auto;
   width: 100%;
   position: relative;
-  color: #333;
+  color: #000;
 
   @media (min-width: 320px) {
     padding: 0 15px;
@@ -4780,10 +4780,10 @@ body {
 
 .home-list-item-button {
   // background: #F27648;
-  border : 1px solid #333;
+  border : 1px solid #000;
   border-radius: 5px;
   // color: #fff;
-  color: #333;
+  color: #000;
   text-align: center;
   margin-top: 20px;
   cursor: pointer;
@@ -4911,7 +4911,7 @@ body {
   // padding: 10px;
   font-weight: 500;
   line-height: 1.5;
-  color: #333;
+  color: #000;
   text-align: justify;
 
   @media (min-width: 320px) {
