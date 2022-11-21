@@ -161,7 +161,7 @@ export const home = {
       {
         name : 'KATJUSCHA',
         info: 'Sie ist die Organisatorin von gastronomischen und Weinreisen. Mit wohlüberlegter Spontaneität versammelt Katya kleine Gruppen von Gleichgesinnten zu außergewöhnlichen Reisen zu den kulinarischen Heiligtümern und Weinattraktionen Usbekistans. ',
-        src: '/images/home/authors/kate.jpg',
+        src: '/images/home/authors/new/kate.webp',
         alt : 'KATJUSCHA',
         telegram : '#',
         facebook : '#',
@@ -170,7 +170,7 @@ export const home = {
       {
         name : 'HUSNORA',
         info: 'Klein aber fein. Nach und nach wird Husnora zum Bodhisattva der Sonderfahrten im legendären Wolga-Gaz-21. "Selfies jeden Tag", "Nostalgia" und "Liebegeschichte in Usbekistan" sind alles Retro-Touren Made By Husnora.',
-        src: '/images/home/authors/husnora.jpg',
+        src: '/images/home/authors/new/husnora.webp',
         alt : 'HUSNORA',
         telegram : '#',
         facebook : '#',
@@ -179,7 +179,7 @@ export const home = {
       {
         name : 'SAIDXON',
         info: `Ein markanter Vertreter der "Reisesucht", ein Liebling des handmade.travel-Teams, ein Polyglott und Guru von Hobby- und Bastelreisen nach Usbekistan. Im Alter von 25 Jahren hat Saidhon bereits eine Kunsthandwerkstour mit dem Titel "Uzbekistan's Kinky Hands" patentiert.`,
-        src: '/images/home/authors/said.jpg',
+        src: '/images/home/authors/new/saidhon.webp',
         alt : 'SAIDXON',
         telegram : '#',
         facebook : '#',
@@ -188,7 +188,7 @@ export const home = {
       {
         name : 'ZAKIR KHAN',
         info: 'Dwayne "The Rock" Johnson vom handmade.travel-Team, Leiter von Fotoexpeditionen und Organisator von Jagd- und Angelreisen in Usbekistan. Als Koch ist Zokir in seinem zweiten Beruf ebenso professionell und kompetent. ',
-        src: '/images/home/authors/zokir.jpg',
+        src: '/images/home/authors/new/zokir.webp',
         alt : 'ZAKIR KHAN',
         telegram : '#',
         facebook : '#',
@@ -197,7 +197,7 @@ export const home = {
       {
         name : 'MADAM NARINA ',
         info: 'Die echte Mata-Hari der Kunstreisen, Junggesellenabschieden und Tanzreisen in Usbekistan. Sie gibt Serotonin, Dopamin und Endorphin. Bei handmade.travel schafft Narina Reiseerlebnisse, die Lust machen, nach Usbekistan zurückzukehren.',
-        src: '/images/home/authors/narina.jpg',
+        src: '/images/home/authors/new/narina.webp',
         alt : 'MADAM NARINA ',
         telegram : '#',
         facebook : '#',
@@ -206,7 +206,7 @@ export const home = {
       {
         name : 'FUZULIY-PHILOSOPH',
         info: 'Der Schöpfer von besonderen Reisen nach Usbekistan: von Coaching-Touren bis zu mystischen Sabantuys und Sufi-Praktiken. Fuzuliy hat bereits 5656 einzigartige Touren erstellt, 107 Reisen organisiert und 1005 Menschen glücklich gemacht!',
-        src: '/images/home/authors/fuzuliy.jpg',
+        src: '/images/home/authors/new/fuzuliy.webp',
         alt : 'FUZULIY-PHILOSOPH',
         telegram : '#',
         facebook : '#',
@@ -215,7 +215,7 @@ export const home = {
       {
         name : 'UMIDA, SIE IST UMI',
         info: 'Lokale Expertin für Festivalreisen nach Usbekistan. Immer auf einer Wellenlänge mit dem Reisenden, ist sich Umida sicher, dass es besser ist, einmal mit eigenen Augen zu sehen, als hundertmal zu hören, und noch mehr, zu klicken, zu scrollen und zu zweifeln.',
-        src: '/images/home/authors/umi.jpg',
+        src: '/images/home/authors/new/umida.webp',
         alt : 'UMIDA, SIE IST UMI',
         telegram : '#',
         facebook : '#',

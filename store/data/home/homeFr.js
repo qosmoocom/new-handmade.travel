@@ -161,7 +161,7 @@ export const home = {
       {
         name : 'La Belle Catherine',
         info: `Elle est l'auteur de circuits gastronomiques et œnologiques. Avec une spontanéité réfléchie, Catherine rassemble de petits groupes de personnes partageant les mêmes idées pour des voyages non conventionnels dans les paradis culinaires et les vignobles d'Ouzbékistan. `,
-        src: '/images/home/authors/kate.jpg',
+        src: '/images/home/authors/new/kate.webp',
         alt : 'La Belle Catherine',
         telegram : '#',
         facebook : '#',
@@ -170,7 +170,7 @@ export const home = {
       {
         name : 'Khousnora, la douce',
         info: `Petit à petit, Khousnora devient le bodhisattva des circuits personnalisés dans la légendaire Volga Gaz-21. "Selfies Every Day", "Nostalgie, quelle folie" et "LoveStory en Ouzbékistan" sont autant de voyages rétro Made By Khousnora.`,
-        src: '/images/home/authors/husnora.jpg',
+        src: '/images/home/authors/new/husnora.webp',
         alt : 'Khousnora, la douce',
         telegram : '#',
         facebook : '#',
@@ -179,7 +179,7 @@ export const home = {
       {
         name : 'Saïdkhon, des mains en or',
         info: `Un brillant représentant de l’addiction au voyage, un chouchou de l'équipe de handmade.travel, un polyglotte et un expert des voyages de loisirs et d'artisanat en Ouzbékistan. À 25 ans, Saïdkhon a déjà réussi à breveter le voyage artisanal " Les mains habiles de l'Ouzbékistan". `,
-        src: '/images/home/authors/said.jpg',
+        src: '/images/home/authors/new/saidhon.webp',
         alt : 'Saïdkhon, des mains en or',
         telegram : '#',
         facebook : '#',
@@ -188,7 +188,7 @@ export const home = {
       {
         name : 'Zokir le Grand',
         info: `Dwayne "The Rock" Johnson de l'équipe handmade.travel, auteur de photos expéditions et organisateur de voyages de chasse et de pêche en Ouzbékistan. Chef cuisinier de qualité, Zokir est tout aussi compétent et professionnel dans sa seconde profession. `,
-        src: '/images/home/authors/zokir.jpg',
+        src: '/images/home/authors/new/zokir.webp',
         alt : 'Zokir le Grand',
         telegram : '#',
         facebook : '#',
@@ -198,7 +198,7 @@ export const home = {
         name : 'Narina-Khanum',
         info: `Spécialiste des voyages artistiques, ceux d'enterrements de vie de jeune fille et des voyages de danse en Ouzbékistan. Elle transmet de la sérotonine, de la dopamine et de l'endorphine. 
         Sur l'étendue de handmade.travel, Narina crée des expériences de voyage qui vous donnent envie de retourner en Ouzbékistan.`,
-        src: '/images/home/authors/narina.jpg',
+        src: '/images/home/authors/new/narina.webp',
         alt : 'Narina-Khanum',
         telegram : '#',
         facebook : '#',
@@ -207,7 +207,7 @@ export const home = {
       {
         name : 'Fuzuliy, le philosophe',
         info: `Le concepteur de voyages exclusifs en Ouzbékistan : des circuits de coaching et voyages mystiques aux pratiques soufies. Fuzuliy a déjà créé 5656 circuits uniques, organisé 107 voyages et rendu 1005 personnes heureuses !`,
-        src: '/images/home/authors/fuzuliy.jpg',
+        src: '/images/home/authors/new/fuzuliy.webp',
         alt : 'Fuzuliy, le philosophe',
         telegram : '#',
         facebook : '#',
@@ -216,7 +216,7 @@ export const home = {
       {
         name : 'Umida, ou Umi',
         info: `Un expert local des voyages de festival en Ouzbékistan. Toujours sur la même longueur d'onde que le voyageur, Oumida estime qu'il vaut mieux voir une fois de ses propres yeux qu'entendre cent fois, et encore moins cliquer, faire scroller et hésiter. `,
-        src: '/images/home/authors/umi.jpg',
+        src: '/images/home/authors/new/umida.webp',
         alt : 'Umida, ou Umi',
         telegram : '#',
         facebook : '#',

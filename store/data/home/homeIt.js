@@ -161,7 +161,7 @@ export const home = {
       {
         name : 'Gulciatay Katia',
         info: `È autrice di itinerari gastronomici e vinicoli. Con premurosa spontaneità, Katia riunisce piccoli gruppi di persone che la pensano come lei per viaggi non convenzionali nei santuari culinari e nelle attrazioni enologiche dell'Uzbekistan.`,
-        src: '/images/home/authors/kate.jpg',
+        src: '/images/home/authors/new/kate.webp',
         alt : 'Gulciatay Katia',
         telegram : '#',
         facebook : '#',
@@ -170,7 +170,7 @@ export const home = {
       {
         name : 'HUSNORIK',
         info: `“Nella botte piccola c'è il vino buono”, Husnora diventa il bodhisattva dei tour d'autore personalizzati sul leggendario Volga Gaz-21. " Selfie ogni giorno", "Nostalgia, maledetta" e "LoveStory in Uzbekistan" sono tutti tour retrò Made By Husnora.`,
-        src: '/images/home/authors/husnora.jpg',
+        src: '/images/home/authors/new/husnora.webp',
         alt : 'HUSNORIK',
         telegram : '#',
         facebook : '#',
@@ -179,7 +179,7 @@ export const home = {
       {
         name : 'OREFICE SAIDHON',
         info: `Un'impressionante rappresentante della "dipendenza da viaggio", una delle preferite del team di handmade.travel, poliglotta e guru dei tour per hobby e dei viaggi artigianali in Uzbekistan. A 25 anni, Saidkhon ha già brevettato un tour di artigianato, "Mani abili in uzbeko". `,
-        src: '/images/home/authors/said.jpg',
+        src: '/images/home/authors/new/saidhon.webp',
         alt : 'OREFICE SAIDHON',
         telegram : '#',
         facebook : '#',
@@ -188,7 +188,7 @@ export const home = {
       {
         name : 'ZOKIR POPOVICH',
         info: `Dwayne "The Rock" Johnson del team handmade.travel è un fotografo di spedizione e organizzatore di viaggi di caccia e pesca in Uzbekistan. Chef laureato in cucina, Zokir è altrettanto professionale e competente nella sua seconda professione.`,
-        src: '/images/home/authors/zokir.jpg',
+        src: '/images/home/authors/new/zokir.webp',
         alt : 'ZOKIR POPOVICH',
         telegram : '#',
         facebook : '#',
@@ -197,7 +197,7 @@ export const home = {
       {
         name : 'Narina Hanum',
         info: `Tour d'arte Mata hari, addii al nubilato e viaggi di danza in Uzbekistan. Dà serotonina, dopamina ed endorfina. In handmade.travel, Narina crea esperienze di viaggio che fanno venire voglia di tornare in Uzbekistan.`,
-        src: '/images/home/authors/narina.jpg',
+        src: '/images/home/authors/new/narina.webp',
         alt : 'Narina Hanum',
         telegram : '#',
         facebook : '#',
@@ -206,7 +206,7 @@ export const home = {
       {
         name : 'Filosofo Fusuliy',
         info: `L'autore di viaggi d'autore in Uzbekistan: dai tour di coaching ai sabantuosismi mistici e alle pratiche sufi. Fuzuliy ha già creato 5656 tour unici, organizzato 107 viaggi e reso felici 1005 persone!`,
-        src: '/images/home/authors/fuzuliy.jpg',
+        src: '/images/home/authors/new/fuzuliy.webp',
         alt : 'Filosofo Fusuliy',
         telegram : '#',
         facebook : '#',
@@ -215,7 +215,7 @@ export const home = {
       {
         name : 'UMIDA, ALIAS UMI',
         info: 'Un esperto locale di tour di festival in Uzbekistan. Sempre in sintonia con il viaggiatore, Umida ritiene che sia meglio vedere una volta con i propri occhi che sentire cento volte, e ancor meno cliccare, scorrere ed esitare.',
-        src: '/images/home/authors/umi.jpg',
+        src: '/images/home/authors/new/umida.webp',
         alt : 'UMIDA, ALIAS UMI',
         telegram : '#',
         facebook : '#',
