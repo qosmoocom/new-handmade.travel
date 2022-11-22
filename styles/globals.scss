@@ -4949,23 +4949,34 @@ body {
 
 }
 
+// .container .ql-container {
+//   font-family: "Roboto";
+//   font-weight: 300 !important;
+//   font-size: 13px;
+//   height: 100%;
+//   margin: 0px;
+//   position: relative;
+// }
+
+// .container .ql-container p{
+//   font-weight: 300 !important;
+// }
+
 .container .ql-container {
   font-family: "Roboto";
-  font-weight: 300 !important;
-  font-size: 13px;
   height: 100%;
-  margin: 0px;
-  position: relative;
-}
-
-.container .ql-container p{
-  font-weight: 300 !important;
-    
+  text-align: justify;
+  // font-weight: 300 !important;
+  // font-size: 13px;
+  
+  // margin: 0px;
+  // position: relative;
 }
 
 strong {
   font-weight: 500;
 }
+
 .container-home{
   .slick-prev:before, .slick-next:before {
     color : #e65c0f;
