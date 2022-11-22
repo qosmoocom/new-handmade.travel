@@ -25,13 +25,15 @@ function Header() {
         <div className="image">
           <div className="elem">Image:</div>
           <div className="value">
-            <Image
+            <img
               src={header.imgUrl}
-              title={header.imgTitle}
-              width={50}
-              height={40}
-              layout="responsive"
-              objectFit="cover"
+              className='blog-edit-img'
+              // title={header.imgTitle}
+              // width={50}
+              // height={40}
+              // layout="responsive"
+              // objectFit="cover"
+
               onDoubleClick={onDoubleClickHandler}
             />
           </div>
@@ -105,6 +107,10 @@ const Section = styled.div`
         }
       }
     }
+  }
+  .blog-edit-img{
+    width : 310px;
+    height : 280px;
   }
 `;
 
