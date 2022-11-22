@@ -42,6 +42,12 @@ export const blogsReducer = (state = initialState, action) => {
         ...state,
         blogStyle: action.style,
       };
+    case blogsTypes.logOutBlogPage:
+      return {
+        ...initialState,
+        isItCreate: false,
+        isItUpdate: false,
+      };
     default:
       return state;
   }
@@ -55,6 +61,7 @@ export const blogsTypes = {
   getMeBlogs: "ADMIN/MY_TOURS/GET_ME_BLOGS",
   getMeOneBlog: "ADMIN/GET_ME_ONE_BLOG",
   setBlogStyle: "ADMIN/SET_BLOG_STYLE",
+  logOutBlogPage: "ADMIN/CLOSE_BLOG_PAGE_WITH_CLEAR_REDUX",
 };
 
 // reducer
@@ -123,3 +130,5 @@ export const updateMyBlogs = (userId, newBlog) => async (dispatch) => {
 export const newBlogrCreatModal = () => ({ type: blogsTypes.createBlog });
 export const setOneBlog = (data) => ({ type: blogsTypes.getMeOneBlog, data });
 export const updateBlogModal = () => ({ type: blogsTypes.updateBlog });
+
+export const logOutBlogPage = () => ({type : blogsTypes.logOutBlogPage})

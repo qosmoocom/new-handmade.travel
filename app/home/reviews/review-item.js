@@ -39,6 +39,7 @@ const Section = styled.div`
 
  .content-box{
   margin-top: 20px;
+  
  }
 
  .reviews-item-title{

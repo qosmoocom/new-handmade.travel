@@ -332,8 +332,11 @@ export const home = {
   footer_contacts_mail : {
     value : 'info@handmade.travel'
   },
-  footer_contacts_adress : {
-    value : 'Plaza Kuk Saroy 1, Samarkand 140157'
+  footer_contacts_adress_1 : {
+    value : 'Plaza Kuk Saroy 1,'
+  },
+  footer_contacts_adress_2: {
+    value : 'Samarkand 140157'
   },
   footer_contats_links : {
     arr : [
@@ -356,10 +359,7 @@ export const home = {
   },
   footer_service_list : {
     arr : [
-      {
-        name : 'Immersive tours',
-        link : '#'
-      },
+      
       {
         name : 'Private tours',
         link : '#'

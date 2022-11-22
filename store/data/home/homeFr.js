@@ -334,8 +334,11 @@ export const home = {
   footer_contacts_mail : {
     value : 'info@handmade.travel'
   },
-  footer_contacts_adress : {
-    value : 'Place Kuk Saray 1, Samarkand, 140157'
+  footer_contacts_adress_1 : {
+    value : 'Place Kuk Saray 1,'
+  },
+  footer_contacts_adress_2 : {
+    value : 'Samarkand, 140157'
   },
   footer_contats_links : {
     arr : [
@@ -358,10 +361,7 @@ export const home = {
   },
   footer_service_list : {
     arr : [
-      {
-        name : `Voyages d'auteur`,
-        link : '#'
-      },
+      
       {
         name : 'Circuits personnalisés',
         link : '#'

@@ -331,8 +331,11 @@ export const home = {
   footer_contacts_mail : {
     value : 'italy@handmade.travel'
   },
-  footer_contacts_adress : {
-    value : 'Piazza Kuk Saray 1, Samarcanda, 140157'
+  footer_contacts_adress_1 : {
+    value : 'Piazza Kuk Saray 1,'
+  },
+  footer_contacts_adress_2 : {
+    value : 'Samarcanda, 140157'
   },
   footer_contats_links : {
     arr : [
@@ -355,10 +358,7 @@ export const home = {
   },
   footer_service_list : {
     arr : [
-      {
-        name : 'Viaggi d’autore',
-        link : '#'
-      },
+      
       {
         name : 'Viaggi individuali',
         link : '#'

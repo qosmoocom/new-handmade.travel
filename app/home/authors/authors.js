@@ -5,70 +5,72 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const Section = styled.div`
-
   .authors{
     margin-bottom: 20px ;
   }
 
   .slick-dots {
-  bottom: -40px;
- }
+    bottom: -40px;
+  }
 
  .authors-title {
-  @media (min-width:320px) {
-    min-height : 40px;
-  }
+    @media (min-width:320px) {
+      min-height : 40px;
+    }
 
-  @media (min-width:1200px) {
-   
-    min-height : 44px;
-  }
-
+    @media (min-width:1200px) {
+      min-height : 44px;
+    }
 }
+  .authors-text{
+    min-height : 180px;
+  }
 
 `
 
 const Authors = ({data}) => {
  
   const [windowWidth, setWithWindow] = useState()
-  const [colslidesToShow, setColslidesToShow] = useState(1)
-
+  
   let settings = {
       dots: true,
-      infinite: false,
-      speed: 500,
-      slidesToShow: colslidesToShow,
+      infinite: true,
+      speed: 700,
+      slidesToShow: 4,
       slidesToScroll: 1,
       // fade: true,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      responsive: [
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 4,
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            dots : false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            fade: true
+          }
+        }
+      ]
     };
 
   useEffect(() => {
     let width = window.innerWidth
     setWithWindow(width)
     
-    if (319 < width && width < 480) {
-      setColslidesToShow(1)
-    }
-    if (480 <= width && width < 992) {
-      setColslidesToShow(2)
-    }
-
     
-    if (992 <= width && width < 1400) {
-      setColslidesToShow(4)
-    }
-   
-    if (1400 <= width ) {
-      setColslidesToShow(4)
-    }
-    
-    settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: colslidesToShow,
-      slidesToScroll: 1
-    };
   },[]);
 
   const showAuthorLinkBox = (e) => {
@@ -102,7 +104,7 @@ const Authors = ({data}) => {
                         
                         <div className="content-box">
                           <div className="home-list-item-title authors-title">{item.name}</div>
-                          <div className="home-list-item-text">{item.info}</div>
+                          <div className="home-list-item-text authors-text">{item.info}</div>
                         </div>
                         <div className="action_box">
                           <div className="home-list-item-button" onClick={showAuthorLinkBox}>{data.authors_button_link.value}</div>

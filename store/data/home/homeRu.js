@@ -173,7 +173,7 @@ export const home = {
         src: '/images/home/authors/new/saidhon.webp',
         alt : 'Золотых дел мастер" Саидхон',
         telegram : 'https://t.me/handmade_travel',
-        facebook : 'https://www.facebook.com/profile.php?id=100077955722581',
+        facebook : 'https://www.facebook.com/messages/t/100077955722581',
         whatsapp : 'https://wa.me/998933314573'
       },
       {
@@ -337,10 +337,10 @@ export const home = {
   footer_contacts_mail : {
     value : 'russian@handmade.travel'
   },
-  footer_contacts_adress : {
+  footer_contacts_adress_1 : {
     value : 'Площадь Кук Сарай 1'
   },
-  footer_contacts_adress : {
+  footer_contacts_adress_2 : {
     value : 'Самарканд, 140157'
   },
   footer_contats_links : {
@@ -364,10 +364,6 @@ export const home = {
   },
   footer_service_list : {
     arr : [
-      {
-        name : 'Авторские туры',
-        link : '#'
-      },
       {
         name : 'Индивидуальные туры',
         link : '#'

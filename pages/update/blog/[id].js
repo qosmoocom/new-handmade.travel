@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Loader from "./../../../app/components/Loader/index";
 import styled from "styled-components";
 import Link from "next/link";
-import { getMyOneBlog, updateMyBlogs } from "../../../store/reducer/blogReducer";
+import { getMyOneBlog, updateMyBlogs, logOutBlogPage } from "../../../store/reducer/blogReducer";
 
 export default function Index() {
   const router = useRouter();
@@ -67,18 +67,37 @@ export default function Index() {
 
     };
 
+    const logOut = () => {
+      dispatch(logOutBlogPage())
+      router.push("/admin");
+      // const updateTexts = JSON.stringify({
+      //   ...globalState.bloger,
+      //   isEdit: false,
+      //   keywords,
+      // });
+
+      // const updateBlog = {
+      //   blogName,
+      //   blogAuthor,
+      //   address,
+      //   date,
+      //   _id,
+      //   language,
+      //   isItActive,
+      //   blogTexts: updateTexts,
+      // };
+      // dispatch(updateMyBlogs(_id, updateBlog));
+
+    };
+
     return (
       <Wrapper>
         <Head>
           <title>Edit My Tour</title>
         </Head>
         <div className="right-btns">
-          <button className="save" onClick={saveHandler}>
-            save
-          </button>
-          <Link href={"/admin"}>
-            <button className="back_admin"> back</button>
-          </Link>
+          <button className="save" onClick={saveHandler}>Save</button>
+          <button className="back_admin" onClick={logOut}>Back</button>
         </div>
         <App editBlog={true}/>
         <Loader />

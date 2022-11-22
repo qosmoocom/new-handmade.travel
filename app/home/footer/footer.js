@@ -4,7 +4,6 @@ import Link from "../../components/Link";
 
 const Section = styled.div`
   .footer{
-    // margin-top: 20px;
     border-top: 1px solid #1698A0;
     padding: 30px 0px 20px;
     background-color : #fff;
@@ -21,17 +20,10 @@ const Section = styled.div`
     margin-bottom: 20px;
   }
 
-  
-
   .info-text{
-    font-weight: 300;
-    
     @media (min-width:320px) {
       font-size: 16px;
-      line-height: 22px;
-      // text-align: justify;
     }
-    
   }
 
   .payment{
@@ -39,62 +31,51 @@ const Section = styled.div`
       display: flex;
       align-items: center ;
     }
-
     width: 250px;
-
     img{
       margin-right: 10px;
     }
-    
   }
 
   .title {
     @media (min-width:320px) {
       font-weight: 500;
       font-size: 16px;
-      line-height: 18px;
       margin-bottom: 10px;
     }
-    
   }
 
   .footer-list-item {
+    z{
+      color: #0645AD;
+    }
     @media (min-width:320px) {
-      font-weight: 300;
       font-size: 16px;
-      line-height: 22px;
     }
   }
 
   .contacts-link-item{
     @media (min-width:320px) {
-      font-weight: 300;
       font-size: 16px;
-      line-height: 20px;
       margin-right: 5px;
       text-decoration: underline !important;
     }
   }
 
   .info-block{
+    line-height : 1.5;
     @media (min-width:320px) {
       margin-bottom: 20px;
-    }
-
-    @media (min-width:480px) {
-      
     }
     @media (min-width:576px) {
       max-width: 250px;
     }
+    @media (min-width:992px) {
+      max-width: 260px;
+    }
   }
 
-  
-
   .footer-blocks-box{
-    @media (min-width:320px) {
-    }
-
     @media (min-width:480px) {
       display: flex;
       flex-wrap: wrap ;
@@ -113,14 +94,10 @@ const Section = styled.div`
     @media (min-width:320px) {
       margin: 10px 0px;
     }
-
-    @media (min-width:576px) {
-    }
   }
 
   .copyrigth{
     font-size: 14px;
-    font-weight: 300;
   }
 
   .links-item{
@@ -148,7 +125,7 @@ const Footer = ({data }) => {
   if (data.footer_contacts_second_phone_number.value != '') {
     secondNumber = (
       <>
-        <li className="footer-list-item"><a href={`telto:${data.footer_contacts_second_phone_number.value}`}>{`${data.footer_contacts_second_phone_number.value} - ${data.footer_contacts_second_phone_region.value}`}</a></li>
+        <li className="footer-list-item"><a href={`telto:${data.footer_contacts_second_phone_number.value}`}><z>{data.footer_contacts_second_phone_number.value}</z> {`- ${data.footer_contacts_second_phone_region.value}`}</a></li>
       </>
     )
   } else secondNumber = null
@@ -171,13 +148,14 @@ const Footer = ({data }) => {
               <div className="title">{data.footer_contacts_title.value}</div>
               <ul className="contacts-list footer-list">
                 <li className="footer-list-item">
-                  <a href={`telto:${data.footer_contacts_first_phone_number.value}`}>{`${data.footer_contacts_first_phone_number.value} - ${data.footer_contacts_first_phone_region.value}`}</a>
+                  <a href={`telto:${data.footer_contacts_first_phone_number.value}`}><z>{data.footer_contacts_first_phone_number.value}</z> {`- ${data.footer_contacts_first_phone_region.value}`}</a>
                 </li>
                 {secondNumber}
                 <li className="footer-list-item">
-                  <a href={`telto:${data.footer_contacts_mail.value}`}>{data.footer_contacts_mail.value}</a>
+                  <a href={`telto:${data.footer_contacts_mail.value}`}><z>{data.footer_contacts_mail.value}</z></a>
                 </li>
-                <li className="footer-list-item">{data.footer_contacts_adress.value}</li>
+                <li className="footer-list-item">{data.footer_contacts_adress_1.value}</li>
+                <li className="footer-list-item">{data.footer_contacts_adress_2.value}</li>
                 <li className="contacts_links-box">
                   {data.footer_contats_links.arr.map((item, index) => {
                     return(

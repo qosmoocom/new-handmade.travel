@@ -332,8 +332,11 @@ export const home = {
   footer_contacts_mail : {
     value : 'russian@handmade.travel'
   },
-  footer_contacts_adress : {
-    value : 'Площадь Кук Сарай 1, Самарканд, 140157'
+  footer_contacts_adress_1 : {
+    value : 'Площадь Кук Сарай 1'
+  },
+  footer_contacts_adress_2 : {
+    value : 'Самарканд, 140157'
   },
   footer_contats_links : {
     arr : [
@@ -356,10 +359,7 @@ export const home = {
   },
   footer_service_list : {
     arr : [
-      {
-        name : 'Авторские туры',
-        link : '#'
-      },
+      
       {
         name : 'Индивидуальные туры',
         link : '#'
