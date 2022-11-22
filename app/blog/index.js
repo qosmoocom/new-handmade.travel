@@ -106,14 +106,14 @@ function Index({editBlog=false}) {
   return (
     <Section toolbarVisible={editBlog}>
       <Header />
-      <div className="block-content">
+      {/* <div className="block-content"> */}
         <div className="container">
           <ReactQuill theme="snow" value={contentBlog} modules={modules} formats={formats} onChange={handleProcedureContentChange}> 
           {/*  */}
             <div className="my-editing-area" />
           </ReactQuill>
         </div>
-      </div>
+      {/* </div>   */}
       <TextEditorBlogModal />
       <div>{''}</div>
       <ImageEditorBlogModal />

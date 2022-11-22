@@ -4973,3 +4973,7 @@ strong {
     opacity: .75;
   }
 }
+
+.ql-editor li:not(.ql-direction-rtl):before {
+    font-size: normal;
+}
