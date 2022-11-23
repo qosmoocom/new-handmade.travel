@@ -137,10 +137,17 @@ const Footer = ({data }) => {
           <div className="footer-blocks-box">
             <div className="info info-block">
               <div className="info-title title">{data.footer_info_title.value}</div>
-              {data.footer_info_text.arr.map(item => {
-                return (
-                  <div className="info-text">{item.value}</div>
-                )
+              {data.footer_info_text.arr.map((item,i) => {
+                if (i == 0) {
+                  return (
+                    <div className="info-text">{item.value} &trade;</div>
+                  )
+                } else {
+                  return (
+                    <div className="info-text">{item.value}</div>
+                  )
+                }
+                
               })}
             </div>
 
@@ -206,7 +213,7 @@ const Footer = ({data }) => {
                 })}
             </div>
 
-            <div className="copyrigth footer-bottom-item first-co">© 2022 handmade.travel by Silk Road Destinations</div>
+            <div className="copyrigth footer-bottom-item first-co">© 2022 handmade.travel by Silk Road Destinations &trade;</div>
 
             <div className="payment footer-bottom-item">
               {data.footer_payment.arr.map((item, index) => {

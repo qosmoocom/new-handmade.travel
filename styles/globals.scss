@@ -4931,29 +4931,35 @@ body {
 // .container .ql-container p{
 //   font-weight: 300 !important;
 // }
-
-.container .ql-container {
-  font-family: "Roboto";
-  height: 100%;
-  text-align: justify;
-  // font-weight: 300 !important;
-  font-size: 16px;
-  // margin: 0px;
-  // position: relative;
-}
-
-strong {
-  font-weight: 500;
-}
-
-.container-home{
-  .slick-prev:before, .slick-next:before {
-    color : #e65c0f;
-    font-size : 25px;
-    opacity: .75;
+#blog-page{
+  .container {
+    .ql-container p, .ql-container {
+      font-family: "Roboto";
+      height: 100%;
+      // text-align: justify;
+      font-weight: 400;
+      line-height: 1.5;
+      // font-weight: 300 !important;
+      font-size: 16px;
+      // margin: 0px;
+      // position: relative;
+    }
   }
-}
-
-.ql-editor li:not(.ql-direction-rtl):before {
-    font-size: normal;
+  
+  
+  strong {
+    font-weight: 500;
+  }
+  
+  .container-home{
+    .slick-prev:before, .slick-next:before {
+      color : #e65c0f;
+      font-size : 25px;
+      opacity: .75;
+    }
+  }
+  
+  .ql-editor li:not(.ql-direction-rtl):before {
+      font-size: normal;
+  }
 }

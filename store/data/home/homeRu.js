@@ -296,7 +296,7 @@ export const home = {
   },
   footer_info_text : {
     arr : [
-      {value : 'Silk Road Destinations TM'},
+      {value : 'Silk Road Destinations'},
       {value : 'Работаем с 2004 года'},
       {value : 'Организовали более 20 000 туров'},
       {value : 'Осчастливили 34 850 туристов'},

@@ -104,7 +104,7 @@ function Index({editBlog=false}) {
   };
 
   return (
-    <Section toolbarVisible={editBlog}>
+    <Section toolbarVisible={editBlog} id='blog-page'>
       <Header />
       {/* <div className="block-content"> */}
         <div className="container">
