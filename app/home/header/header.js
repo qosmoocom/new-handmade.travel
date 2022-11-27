@@ -253,8 +253,6 @@ const Section = styled.div`
   }
 
   .header-box{
-    /* display: none ; */
-    // margin-top: 100px;
     @media (min-width:320px) {
       height: 200px;
     }
@@ -460,7 +458,7 @@ export default function Header({data, showBanner=true}) {
   }, []);
 
   useEffect(() => {
-    setNumberImg(Math.floor(Math.random() * 39) + 1)
+    setNumberImg(Math.floor(Math.random() * 9) + 1)
   }, []);
 
   // in scrolling
@@ -529,22 +527,8 @@ export default function Header({data, showBanner=true}) {
 
   const banner = !showBanner ? 
     (
-      <div className="header-box-2">
-        {/* <img src={`/images/home/header/img${imgsrc}.jpg`} alt="" /> */}
-        <div className="container-home-2">
-          <div className="mini-block">
-            <Image
-              alt='___'
-              // src={`/images/home/header/mini-block/${Math.floor(Math.random() * 39) + 1}.jpg`}
-              src={`/images/home/header/mini-block/${numberImg}.jpg`}
-              layout='fill'
-              objectFit='cover'
-              width="100%" 
-              height="100%" 
-            />
-          </div>
-        </div>
-        
+      <div className="header-box">
+        <img src={`/images/home/header/banner/${numberImg}_${imgsrc}.webp`} alt="" />
       </div>
     )
   :
