@@ -110,15 +110,15 @@ const Section = styled.div`
     @media (min-width:480px) {
       display: block ;
       width: 50px;
-      height: 40px;
+      height: 50px;
     }
     @media (min-width:576px) {
       width: 60px;
-      height: 48px;
+      height: 68px;
     }
     @media (min-width:768px) {
       width: 70px;
-      height: 56px;
+      height: 70px;
     }
     @media (min-width:992px) {
     }

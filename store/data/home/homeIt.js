@@ -127,19 +127,19 @@ export const home = {
       {
         title : 'Costruttore VS Libreria dei tour',
         comment: `Rendere i viaggi accessibili a tutti! Scegliete il vostro viaggio da sogno dalla nostra libreria di tour d'autore o create il vostro tour su misura e rilassatevi secondo il vostro copione.`,
-        src: '/images/home/utp/ico1.jpg',
+        src: '/images/home/utp/ico-hm-new.png',
         alt : 'Costruttore VS Libreria dei tour',
       },
       {
         title : '"Userfriendly è su di noi!"',
         comment: 'Non abbiamo turisti, ma solo viaggiatori con cui siamo in sintonia! Vi garantiamo la sicurezza finanziaria, vi facciamo risparmiare tempo e denaro e vi diamo piena libertà di azione e di scelta.',
-        src: '/images/home/utp/ico1.jpg',
+        src: '/images/home/utp/ico-hm-new.png',
         alt : 'Userfriendly è su di noi!',
       },
       {
         title : 'Risparmia e viaggia in modo indipendente',
         comment: `Un esperto di viaggio personale vi farà risparmiare fino all'80% del tempo, vi aiuterà a pianificare e organizzare il viaggio perfetto e, se necessario, calcolerà gratuitamente il costo del vostro viaggio indipendente.`,
-        src: '/images/home/utp/ico1.jpg',
+        src: '/images/home/utp/ico-hm-new.png',
         alt : 'Risparmia e viaggia in modo indipendente',
       },
     ]

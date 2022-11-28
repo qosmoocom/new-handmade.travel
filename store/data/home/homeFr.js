@@ -127,19 +127,19 @@ export const home = {
       {
         title : 'Constructeur VS Bibliothèque des circuits',
         comment: `Pour rendre le voyage accessible à tous ! Choisissez le voyage de vos rêves dans notre bibliothèque de circuits d'auteur ou créez votre propre circuit sur mesure et relaxez-vous selon votre propre scénario.`,
-        src: '/images/home/utp/ico1.jpg',
+        src: '/images/home/utp/ico-hm-new.png',
         alt : 'Constructeur VS Bibliothèque des circuits',
       },
       {
         title : '"La convivialité, ça nous concerne !"',
         comment: `Nous n'avons pas de touristes, seulement des voyageurs avec lesquels nous sommes sur la même longueur d'onde ! Nous vous garantissons la sécurité financière, nous vous faisons gagner du temps et de l'argent et nous vous donnons une totale liberté d'action et de choix.`,
-        src: '/images/home/utp/ico1.jpg',
+        src: '/images/home/utp/ico-hm-new.png',
         alt : '"La convivialité, ça nous concerne !"',
       },
       {
         title : `Faites des économies et voyagez en toute indépendance`,
         comment: `Un expert en voyages personnel vous fera gagner jusqu'à 80 % de votre temps, vous aidera à planifier et à organiser le voyage parfait et, si nécessaire, calculera gratuitement le coût de votre voyage en solo. `,
-        src: '/images/home/utp/ico1.jpg',
+        src: '/images/home/utp/ico-hm-new.png',
         alt : `Faites des économies et voyagez en toute indépendance`,
       },
     ]
