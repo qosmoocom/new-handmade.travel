@@ -162,7 +162,7 @@ export const home = {
       {
         name : 'Zokir',
         info: 'Dwayne Johnson of the handmade.travel team, author of photo-expeditions, organizer of hunting and fishing trips in Uzbekistan. A chef with a degree, Zokir is no less professional and competent in his second profession.',
-        src: '/images/home/authors/zokir.jpg',
+        src: '/images/home/authors/new/zokir.webp',
         alt : 'Zokir',
         telegram : 'https://t.me/handmadetravel_en',
         facebook : 'https://www.facebook.com/messages/t/144209696166151/',
@@ -170,8 +170,8 @@ export const home = {
       },
       {
         name : 'Sardor',
-        info: 'bbbbb',
-        src: '/images/home/authors/sardor.jpg',
+        info: 'The main active and little shy member of handmadetravel team. Sardor is the creator of such unusual tours as Astrotour, Rent Car Tour and a bunch more immersive tours in Uzbekistan. Such a big fan of Spanish Sardor has learned Spanish in 3 months and is confidently hammering away at the rhythm of flamengo.',
+        src: '/images/home/authors/new/sardor.webp',
         alt : 'Sardor',
         telegram : 'https://t.me/handmadetravel_en',
         facebook : 'https://www.facebook.com/messages/t/144209696166151/',  
@@ -180,7 +180,7 @@ export const home = {
       {
         name : 'Husnora',
         info: 'Husnora is expert of immersive tours on the legendary Volga Gaz-21. "Selfies Every Day," "Nostalgia, Damn It," and "LoveStory in Uzbekistan" are all Made By Husnora retro tours.',
-        src: '/images/home/authors/husnora.jpg',
+        src: '/images/home/authors/new/husnora.webp',
         alt : 'Husnora',
         telegram : 'https://t.me/handmadetravel_en',
         facebook : 'https://www.facebook.com/messages/t/100077795766837/',
@@ -189,7 +189,7 @@ export const home = {
       {
         name : 'Said',
         info: 'A great representative of "travel addiction," a favorite of the handmade.travel team, a bilingual and expert of hobby tours and craft trips to Uzbekistan. At the age of 25, Said has already managed to patent the handicraft tour "Uzbek Kinky Hands".',
-        src: '/images/home/authors/said.jpg',
+        src: '/images/home/authors/new/saidhon.webp',
         alt : 'Said',
         telegram : 'https://t.me/handmadetravel_en',
         facebook : 'https://www.facebook.com/messages/t/144209696166151/',
@@ -198,7 +198,7 @@ export const home = {
       {
         name : 'Umida',
         info: 'A local expert on festival tours in Uzbekistan. Always on the same page as the traveler, Umida believes it is better to see once with your own eyes than to hear a hundred times, much less click, scroll and hesitate.',
-        src: '/images/home/authors/umi.jpg',
+        src: '/images/home/authors/new/umida.webp',
         alt : 'Umida',
         telegram : 'https://t.me/handmadetravel_en',
         facebook : 'https://www.facebook.com/messages/t/100077795766837/',
@@ -207,7 +207,7 @@ export const home = {
       {
         name : 'Fuzuliy',
         info: 'The composer of original journeys to Uzbekistan: from coaching tours to mystical tips and Sufi practices. Fuzuliy has already managed to create 5656 unique tours, organized 107 trips and made 1005 people happy!',
-        src: '/images/home/authors/fuzuliy.jpg',
+        src: '/images/home/authors/new/fuzuliy.webp',
         alt : 'Fuzuliy',
         telegram : 'https://t.me/handmadetravel_en',
         facebook : 'https://www.facebook.com/messages/t/144209696166151/',
@@ -216,7 +216,7 @@ export const home = {
       {
         name : 'Narina',
         info: 'Customizer of art tours, bachelorette parties and dance trips to Uzbekistan. She gives serotonin, dopamine and endorphin. At handmade.travel, Narina makes wonders and creates travel experiences that make you want to return to Uzbekistan.',
-        src: '/images/home/authors/narina.jpg',
+        src: '/images/home/authors/new/narina.webp',
         alt : 'Narina',
         telegram : 'https://t.me/handmadetravel_en',
         facebook : 'https://www.facebook.com/messages/t/100077795766837/',
@@ -225,14 +225,12 @@ export const home = {
       {
         name : 'Kate',
         info: 'She is the creator of gastronomic and wine tours. With thoughtfulness and spontaneity Kate gathers small groups of like-minded people for non-trivial trips to the culinary shrines and wine sights of Uzbekistan.',
-        src: '/images/home/authors/kate.jpg',
+        src: '/images/home/authors/new/kate.webp',
         alt : 'Kate',
         telegram : 'https://t.me/handmadetravel_en',
         facebook : 'https://www.facebook.com/messages/t/100077795766837/',
         whatsapp : 'https://wa.me/message/E3FN5F3WIHY6N1'
       },
-      
-      
     ]
   },
   reviews_list : {
