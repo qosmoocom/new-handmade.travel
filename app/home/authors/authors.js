@@ -23,7 +23,7 @@ const Section = styled.div`
     }
 }
   .authors-text{
-    min-height : 200px;
+    min-height : 220px;
   }
 
 `
