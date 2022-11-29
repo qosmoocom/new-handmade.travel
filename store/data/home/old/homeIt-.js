@@ -127,19 +127,19 @@ export const home = {
       {
         title : 'Costruttore VS Libreria dei tour',
         comment: `Rendere i viaggi accessibili a tutti! Scegliete il vostro viaggio da sogno dalla nostra libreria di tour d'autore o create il vostro tour su misura e rilassatevi secondo il vostro copione.`,
-        src: '/images/home/utp/ico1.jpg',
+        src: '/images/home/utp/ico-hm-new.png',
         alt : 'Costruttore VS Libreria dei tour',
       },
       {
         title : '"Userfriendly è su di noi!"',
         comment: 'Non abbiamo turisti, ma solo viaggiatori con cui siamo in sintonia! Vi garantiamo la sicurezza finanziaria, vi facciamo risparmiare tempo e denaro e vi diamo piena libertà di azione e di scelta.',
-        src: '/images/home/utp/ico1.jpg',
+        src: '/images/home/utp/ico-hm-new.png',
         alt : 'Userfriendly è su di noi!',
       },
       {
         title : 'Risparmia e viaggia in modo indipendente',
         comment: `Un esperto di viaggio personale vi farà risparmiare fino all'80% del tempo, vi aiuterà a pianificare e organizzare il viaggio perfetto e, se necessario, calcolerà gratuitamente il costo del vostro viaggio indipendente.`,
-        src: '/images/home/utp/ico1.jpg',
+        src: '/images/home/utp/ico-hm-new.png',
         alt : 'Risparmia e viaggia in modo indipendente',
       },
     ]
@@ -154,111 +154,102 @@ export const home = {
     value : 'Il team di handmade.travel è composto da ragazzi giovani, energici e creativi con esperienza internazionale. I nostri autori di tour sanno tutto sul vostro viaggio in Uzbekistan e anche qualcosa di più.',
   },
   authors_button_link : {
-    value : 'Scrivere ad esperto di viaggi',
+    value : 'Написать автору',
   },
   authors_list : {
     arr: [
       {
-        name : 'Saidhon',
-        info: `Un'impressionante rappresentante della "dipendenza da viaggio", una delle preferite del team di handmade.travel, poliglotta e guru dei tour per hobby e dei viaggi artigianali in Uzbekistan. A 25 anni, Saidkhon ha già brevettato un tour di artigianato, "Mani abili in uzbeko". `,
-        src: '/images/home/authors/new/saidhon.webp',
-        alt : 'Saidhon',
-        telegram : 'https://t.me/handmade_travel',
-        facebook : 'https://www.facebook.com/messages/t/100077955722581/',
-        whatsapp : 'https://wa.me/998933314573'
-      },
-      {
-        name : 'Husnorik',
-        info: `“Nella botte piccola c'è il vino buono”, Husnora diventa il bodhisattva dei tour d'autore personalizzati sul leggendario Volga Gaz-21. " Selfie ogni giorno", "Nostalgia, maledetta" e "LoveStory in Uzbekistan" sono tutti tour retrò Made By Husnora.`,
-        src: '/images/home/authors/new/husnora.webp',
-        alt : 'Husnorik',
-        telegram : 'https://t.me/handmade_travel',
-        facebook : 'https://www.facebook.com/messages/t/100077955722581/',
-        whatsapp : 'https://wa.me/998933314573'
-      },
-      {
-        name : 'Narina',
-        info: `Tour d'arte Mata hari, addii al nubilato e viaggi di danza in Uzbekistan. Dà serotonina, dopamina ed endorfina. In handmade.travel, Narina crea esperienze di viaggio che fanno venire voglia di tornare in Uzbekistan.`,
-        src: '/images/home/authors/new/narina.webp',
-        alt : 'Narina',
-        telegram : 'https://t.me/handmade_travel',
-        facebook : 'https://www.facebook.com/messages/t/100077955722581/',
-        whatsapp : 'https://wa.me/998933314573'
-      },
-      {
-        name : 'Zokir',
-        info: `Dwayne "The Rock" Johnson del team handmade.travel è un fotografo di spedizione e organizzatore di viaggi di caccia e pesca in Uzbekistan. Chef laureato in cucina, Zokir è altrettanto professionale e competente nella sua seconda professione.`,
-        src: '/images/home/authors/new/zokir.webp',
-        alt : 'Zokir',
-        telegram : 'https://t.me/handmade_travel',
-        facebook : 'https://www.facebook.com/messages/t/100077955722581/',
-        whatsapp : 'https://wa.me/998933314573'
-      },
-      {
-        name : 'Umida',
-        info: 'Un esperto locale di tour di festival in Uzbekistan. Sempre in sintonia con il viaggiatore, Umida ritiene che sia meglio vedere una volta con i propri occhi che sentire cento volte, e ancor meno cliccare, scorrere ed esitare.',
-        src: '/images/home/authors/new/umida.webp',
-        alt : 'Umida',
-        telegram : 'https://t.me/handmade_travel',
-        facebook : 'https://www.facebook.com/messages/t/100077955722581/',
-        whatsapp : 'https://wa.me/998933314573'
-      },
-      {
-        name : 'Fusuliy',
-        info: `L'autore di viaggi d'autore in Uzbekistan: dai tour di coaching ai sabantuosismi mistici e alle pratiche sufi. Fuzuliy ha già creato 5656 tour unici, organizzato 107 viaggi e reso felici 1005 persone!`,
-        src: '/images/home/authors/new/fuzuliy.webp',
-        alt : 'Fusuliy',
-        telegram : 'https://t.me/handmade_travel',
-        facebook : 'https://www.facebook.com/messages/t/100077955722581/',
-        whatsapp : 'https://wa.me/998933314573'
-      },
-      {
-        name : 'Sardor',
-        info: `Sardor, il tesoro principale del team di handmade.travel, è l'autore di tour insoliti come Astrotour, Rent Car Tour e altri viaggi ricreativi in Uzbekistan. Appassionato di Spagna, Sardor ha imparato lo spagnolo in 3 mesi e si cimenta con sicurezza nel ritmo del flamenco.`,
-        src: '/images/home/authors/new/sardor.webp',
-        alt : 'Sardor',
-        telegram : 'https://t.me/handmade_travel',
-        facebook : 'https://www.facebook.com/messages/t/100077955722581/',
-        whatsapp : 'https://wa.me/998933314573'
-      },
-      {
-        name : 'Katia',
+        name : 'Gulciatay Katia',
         info: `È autrice di itinerari gastronomici e vinicoli. Con premurosa spontaneità, Katia riunisce piccoli gruppi di persone che la pensano come lei per viaggi non convenzionali nei santuari culinari e nelle attrazioni enologiche dell'Uzbekistan.`,
         src: '/images/home/authors/new/kate.webp',
-        alt : 'Katia',
-        telegram : 'https://t.me/handmade_travel',
-        facebook : 'https://www.facebook.com/messages/t/100077955722581/',
-        whatsapp : 'https://wa.me/998933314573'
+        alt : 'Gulciatay Katia',
+        telegram : '#',
+        facebook : '#',
+        whatsapp : '#'
+      },
+      {
+        name : 'HUSNORIK',
+        info: `“Nella botte piccola c'è il vino buono”, Husnora diventa il bodhisattva dei tour d'autore personalizzati sul leggendario Volga Gaz-21. " Selfie ogni giorno", "Nostalgia, maledetta" e "LoveStory in Uzbekistan" sono tutti tour retrò Made By Husnora.`,
+        src: '/images/home/authors/new/husnora.webp',
+        alt : 'HUSNORIK',
+        telegram : '#',
+        facebook : '#',
+        whatsapp : '#'
+      },
+      {
+        name : 'OREFICE SAIDHON',
+        info: `Un'impressionante rappresentante della "dipendenza da viaggio", una delle preferite del team di handmade.travel, poliglotta e guru dei tour per hobby e dei viaggi artigianali in Uzbekistan. A 25 anni, Saidkhon ha già brevettato un tour di artigianato, "Mani abili in uzbeko". `,
+        src: '/images/home/authors/new/saidhon.webp',
+        alt : 'OREFICE SAIDHON',
+        telegram : '#',
+        facebook : '#',
+        whatsapp : '#'
+      },
+      {
+        name : 'ZOKIR POPOVICH',
+        info: `Dwayne "The Rock" Johnson del team handmade.travel è un fotografo di spedizione e organizzatore di viaggi di caccia e pesca in Uzbekistan. Chef laureato in cucina, Zokir è altrettanto professionale e competente nella sua seconda professione.`,
+        src: '/images/home/authors/new/zokir.webp',
+        alt : 'ZOKIR POPOVICH',
+        telegram : '#',
+        facebook : '#',
+        whatsapp : '#'
+      },
+      {
+        name : 'Narina Hanum',
+        info: `Tour d'arte Mata hari, addii al nubilato e viaggi di danza in Uzbekistan. Dà serotonina, dopamina ed endorfina. In handmade.travel, Narina crea esperienze di viaggio che fanno venire voglia di tornare in Uzbekistan.`,
+        src: '/images/home/authors/new/narina.webp',
+        alt : 'Narina Hanum',
+        telegram : '#',
+        facebook : '#',
+        whatsapp : '#'
+      },
+      {
+        name : 'Filosofo Fusuliy',
+        info: `L'autore di viaggi d'autore in Uzbekistan: dai tour di coaching ai sabantuosismi mistici e alle pratiche sufi. Fuzuliy ha già creato 5656 tour unici, organizzato 107 viaggi e reso felici 1005 persone!`,
+        src: '/images/home/authors/new/fuzuliy.webp',
+        alt : 'Filosofo Fusuliy',
+        telegram : '#',
+        facebook : '#',
+        whatsapp : '#'
+      },
+      {
+        name : 'UMIDA, ALIAS UMI',
+        info: 'Un esperto locale di tour di festival in Uzbekistan. Sempre in sintonia con il viaggiatore, Umida ritiene che sia meglio vedere una volta con i propri occhi che sentire cento volte, e ancor meno cliccare, scorrere ed esitare.',
+        src: '/images/home/authors/new/umida.webp',
+        alt : 'UMIDA, ALIAS UMI',
+        telegram : '#',
+        facebook : '#',
+        whatsapp : '#'
       },
     ]
   },
   reviews_list : {
     arr: [
       {
-        name :'Recensione di Filadelfo e Marilena',
+        name :'Recensione di Filadelfo e Marilena dal 21 al 27 aprile del 2022',
         img: '/images/home/reviews/it-1.jpg',
         text : "Uzbekistan è un paese bello, un paese pulito, un paese organizzato. Dobbiamo dire che veramente siamo contentissimi, e felicissimi di aver scelto l’Uzbekistan e il giro che abbiamo fatto per questo viaggio, le città che abbiamo visitato erano una più bella dell’altra. Siamo stati bene, perché è un viaggio ben organizzato dall’agenzia, e peccato che è finito velocemente!",
         src: 'https://youtu.be/NsZNyWhnP7s&t=4s',
         link : '#',
       },
       {
-        name : 'Recensione di Enrica e Stanislao',
+        name : 'Recensione di Enrica e Stanislao dal 12 al 21 settembre del 2021',
         img: '/images/home/reviews/it-2.jpg',
-        text : "Questo è il viaggio che volevamo fare da tanto tempo. Abbiamo visitato cinque città una più bella dell’altra, e siamo molto contenti! Abbiamo trovato un’accoglienza eccezionale, abbiamo mangiato benissimo, ci è piaciuto tutto quello che abbiamo visto, e penso che avremo voglia di ritornare per vedere tutta la parte alta dell’Uzbekistan! Auguro proprio a tutti di avere una...",
+        text : "Questo è il viaggio che volevamo fare da tanto tempo. Abbiamo visitato cinque città una più bella dell’altra, e siamo molto contenti! Abbiamo trovato un’accoglienza eccezionale, abbiamo mangiato benissimo, ci è piaciuto tutto quello che abbiamo visto, e penso che avremo voglia di ritornare per vedere tutta la parte alta dell’Uzbekistan! Auguro proprio a tutti di avere una ...",
         src: 'https://youtu.be/0pkbIQdxXY0&t=4s',
         link : '#',
       },
       {
-        name : 'Viaggio di Deborah e Andrea',
+        name : 'Viaggio di Deborah e Andrea dal 1° all’8 agosto',
         img: '/images/home/reviews/it-3.jpg',
-        text : "Abbiamo scelto l’Uzbekistan perché siamo gli amanti della storia. Lo abbiamo deciso di visitare nonostante la pandemia. Abbiamo trovato questa destinazione sull’internet sui social che visitiamo. Siamo riusciti a viaggiarci nonostante i controlli molto stretti durante la pandemia. Però non abbiamo avuto nessun problema dall’inizio alla fine del tour, ci hanno accolto...",
+        text : "Abbiamo scelto l’Uzbekistan perché siamo gli amanti della storia. Lo abbiamo deciso di visitare nonostante la pandemia. Abbiamo trovato questa destinazione sull’internet sui social che visitiamo. Siamo riusciti a viaggiarci nonostante i controlli molto stretti durante la pandemia. Però non abbiamo avuto nessun problema dall’inizio alla fine del tour, ci hanno accolto ...",
         src: 'https://youtu.be/FNw7uWLu94I&t=4s',
         link : '#',
       },
       {
         name : 'Recensione di Ginella e Vasco',
         img: '/images/home/reviews/it-4.jpg',
-        text : "Il viaggio è risultato più semplice per noi, siccome il problema principale di viaggiare per gli italiani è la lingua, e tanto che non tutti parlano l’inglese. Durante il viaggio non abbiamo pensato a niente, tutto era organizzato bene. Abbiamo fatto anche un piacevole viaggio in treno ad alta velocità da Tashkent a Samarcanda. Abbiamo avuto anche la sorpresa della neve...",
+        text : "Il viaggio è risultato più semplice per noi, siccome il problema principale di viaggiare per gli italiani è la lingua, e tanto che non tutti parlano l’inglese. Durante il viaggio non abbiamo pensato a niente, tutto era organizzato bene. Abbiamo fatto anche un piacevole viaggio in treno ad alta velocità da Tashkent a Samarcanda. Abbiamo avuto anche la sorpresa della neve ...",
         src: 'https://youtu.be/oowOg6TbSmA&t=4s',
         link : '#',
       },
@@ -283,24 +274,27 @@ export const home = {
     value : 'Handmadeburg è un blog di viaggi per cacciatori di viaggi. Articoli utili, consigli e suggerimenti sui viaggi indipendenti da parte di blogger locali. Lasciatevi ispirare e iniziate a viaggiare con lo zaino in spalla!',
   },
   blogs_button_title : {
-    value: 'Mostrare il programma'
+    value: 'Показать программу'
   },
   blogs_view_more_text : {
-    value : 'Mostrare più'
+    value : 'Показать еще'
   },
   blogs_item_read_text : {
-    value : `Leggere l'articolo`
+    value : 'Читать статью'
   },
   footer_info_title : {
     value : 'handmade.travel'
   },
+  // footer_info_text : {
+  //   value : 'marchio di fabbrica Silk Road Destinations. 20 anni di successi nel mercato dei viaggi. Oltre 35.000 turisti soddisfatti. Oltre 100 recensioni video. Vincitore del concorso To Do 2014 '
+  // },
   footer_info_text : {
     arr : [
-      {value : 'Silk Road Destinations'},
-      {value : 'Lavoriamo dal 2004'},
-      {value : '20 000+ tour organizzato'},
-      {value : '34 850 clienti felici'},
-      {value : 'Più di 100 video recensioni'},
+      {value : 'Silk Road Destinations TM'},
+      {value : 'Работаем с 2004 года'},
+      {value : 'Организовали более 20 000 туров'},
+      {value : 'Осчастливили 34 850 туристов'},
+      {value : '100+ видео-отзывов'},
     ]
   },
   footer_payment : {
@@ -326,44 +320,45 @@ export const home = {
     value : '+998 66 231 05 48' 
   },
   footer_contacts_first_phone_region : {
-    value : '' 
+    value : 'Uzbekistan' 
   },
   footer_contacts_second_phone_number : {
-    value : '' 
+    value : '+33 422 840 285' 
   },
   footer_contacts_second_phone_region : {
-    value : '' 
+    value : 'Francia' 
   },
   footer_contacts_mail : {
     value : 'italy@handmade.travel'
   },
   footer_contacts_adress_1 : {
-    value : 'Piazza Kuk Saray 1, Samarcanda, 140157'
+    value : 'Piazza Kuk Saray 1,'
   },
   footer_contacts_adress_2 : {
-    value : 'Samarcanda, 140157, Uzbekistan'
+    value : 'Samarcanda, 140157'
   },
   footer_contats_links : {
     arr : [
       {
         title : 'Telegram',
-        link: 'https://t.me/handmade_travel',
+        link: '#',
       },
       {
         title : 'WhatsApp',
-        link: 'https://wa.me/998933314573',
+        link: '#',
       },
       {
         title : 'Facebook',
-        link: 'https://www.facebook.com/messages/t/100077955722581/',
+        link: '#',
       },
     ]
   },
   footer_service_title : {
-    value : 'I nostri servizi:'
+    value : 'Наши услуги:'
   },
   footer_service_list : {
     arr : [
+      
       {
         name : 'Viaggi individuali',
         link : '#'
@@ -387,12 +382,16 @@ export const home = {
     ]
   },
   footer_company_title : {
-    value : 'Informazione utile:'
+    value : 'Полезная информация:'
   },
   footer_company_list : {
     arr : [
       {
         name : 'Il nostro team',
+        link : '#'
+      },
+      {
+        name : 'Blog',
         link : '#'
       },
       {
@@ -418,17 +417,27 @@ export const home = {
       {
         src : '/images/home/footer/face.png',
         alt : 'facebook',
-        link: "https://www.facebook.com/Silk.Road.Destinations.SRD/",
+        link: "#",
       },
       {
         src : '/images/home/footer/insta.png',
         alt : 'instagram',
-        link: "https://www.instagram.com/viaggioinuzbekistan/",
+        link: "#",
+      },
+      {
+        src : '/images/home/footer/teleg.png',
+        alt : 'telegram',
+        link: "#",
+      },
+      {
+        src : '/images/home/footer/vk.png',
+        alt : 'vkontakte',
+        link: "#",
       },
       {
         src : '/images/home/footer/youtube.png',
         alt : 'youtube',
-        link: "https://www.youtube.com/playlist?list=PLnMxvgxCXwy_7zdVVpDesTWYGKdkY6IBQ",
+        link: "#",
       }
     ]
   },
